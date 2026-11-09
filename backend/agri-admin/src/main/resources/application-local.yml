@@ -1,0 +1,4 @@
+captcha:
+  enable: false
+yunji:
+  local-enabled: true

@@ -1,0 +1,6 @@
+export interface ApiResponse<T> { code: number; msg: string; data: T }
+export interface CatalogItem { id: string; parentId: string | null; name: string; type: string; sortOrder: number }
+export interface ArticleCard { id: string; title: string; summary: string | null; coverUrl: string | null; contentType: string; sourceName: string | null; publishedAt: string | null; effectiveTo: string | null; score: number; effectiveFrom: string|null; carrierType: 'TEXT_IMAGE'|'LONG_IMAGE'|'FILE'; abnormal:boolean; lifecycleState:'UPCOMING'|'ACTIVE'|'EXPIRED'; categoryName: string | null }
+export interface ArticlePage { items: ArticleCard[]; total: number; pageNum: number; pageSize: number; snapshotAt:string;nextCursor:string|null }
+export interface ArticlePresentation {fit?:string|null;duration?:string|null;level?:string|null;steps?:{title:string;description:string}[];tips?:string[];contacts?:{label:string;value:string}[];relatedArticleIds?:string[]}
+export interface ArticleDetail {presentation:ArticlePresentation;related:{id:string;name:string}[];article:ArticleCard;richText:string;sourceUrl:string|null;versionId:string;interpretation:string|null;originalText:string|null;categories:{id:string;name:string}[];labels:{id:string;name:string}[];keywords:{id:string;name:string}[]}

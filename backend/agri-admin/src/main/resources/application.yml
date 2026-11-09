@@ -1,0 +1,125 @@
+server:
+  address: ${YUNJI_BIND_ADDRESS:127.0.0.1}
+  port: ${YUNJI_API_PORT:18088}
+spring:
+  application:
+    name: yunji-platform
+  profiles:
+    active: ${YUNJI_PROFILE:prod}
+  messages:
+    basename: i18n/messages
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: ${YUNJI_DB_URL}
+    username: ${YUNJI_DB_USERNAME}
+    password: ${YUNJI_DB_PASSWORD}
+    hikari:
+      maximum-pool-size: ${YUNJI_DB_POOL_SIZE:20}
+      minimum-idle: 2
+      connection-timeout: 10000
+      validation-timeout: 3000
+  data:
+    redis:
+      host: ${YUNJI_REDIS_HOST:127.0.0.1}
+      port: ${YUNJI_REDIS_PORT:16379}
+      password: ${YUNJI_REDIS_PASSWORD}
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 12MB
+  boot:
+    admin:
+      client:
+        enabled: false
+        username: ${YUNJI_MONITOR_USERNAME:local-monitor}
+        password: ${YUNJI_MONITOR_PASSWORD}
+mybatis-plus:
+  mapperPackage: com.sunshine.**.mapper
+  mapper-locations: classpath*:mapper/**/*Mapper.xml
+  typeAliasesPackage: com.sunshine.**.domain
+sa-token:
+  token-name: Authorization
+  jwt-secret-key: ${YUNJI_TOKEN_SECRET}
+  timeout: 7200
+  active-timeout: 1800
+  is-concurrent: true
+  is-share: false
+security:
+  excludes:
+    - /auth/login
+    - /auth/tenant/list
+    - /auth/code
+    - /captchaImage
+    - /api/v1/**
+    - /api/local/**
+    - /v3/api-docs/**
+    - /error
+user:
+  password:
+    maxRetryCount: 5
+    lockTime: 10
+captcha:
+  enable: true
+  type: MATH
+  category: CIRCLE
+  numberLength: 1
+  charLength: 4
+tenant:
+  enable: true
+  excludes:
+    - sys_tenant
+    - sys_tenant_package
+    - sys_client
+    - sys_menu
+    - sys_role_menu
+    - sys_user_role
+    - sys_role_dept
+    - sys_user_post
+sse:
+  enabled: false
+  path: /resource/sse
+websocket:
+  enabled: false
+snail-job:
+  enabled: false
+warm-flow:
+  enabled: true
+api-decrypt:
+  enabled: false
+mybatis-encryptor:
+  enable: false
+redisson:
+  threads: 4
+  nettyThreads: 4
+  keyPrefix: yunji
+yunji:
+  hot-archive:
+    scheduler-enabled: ${YUNJI_HOT_ARCHIVE_SCHEDULER_ENABLED:false}
+    poll-ms: ${YUNJI_HOT_ARCHIVE_POLL_MS:60000}
+  public-tenant: '000000'
+  local-enabled: false
+  local-secret: ${YUNJI_LOCAL_SECRET:}
+  storage-root: ${YUNJI_STORAGE_ROOT}
+  identity:
+    hmac-key: ${YUNJI_IDENTITY_HMAC_KEY:}
+    encryption-key: ${YUNJI_IDENTITY_ENCRYPTION_KEY:}
+  wechat:
+    app-id: ${YUNJI_WECHAT_APP_ID:}
+    secret: ${YUNJI_WECHAT_SECRET:}
+  cloud:
+    environment: ${YUNJI_WECHAT_CLOUD_ENV:}
+  weighted-ranking: false
+  file-cleanup:
+    enabled: ${YUNJI_FILE_CLEANUP_ENABLED:false}
+logging:
+  level:
+    root: INFO
+springdoc:
+  info:
+    title: Yunji Platform API
+    version: 1.0.0
+  components:
+    securitySchemes:
+      BearerAuth:
+        type: HTTP
+        scheme: bearer

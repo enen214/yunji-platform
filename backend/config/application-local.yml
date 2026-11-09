@@ -1,0 +1,35 @@
+server:
+  address: 127.0.0.1
+  port: ${YUNJI_API_PORT:8088}
+spring:
+  datasource:
+    dynamic:
+      primary: master
+      strict: true
+      datasource:
+        master:
+          driver-class-name: com.mysql.cj.jdbc.Driver
+          url: ${YUNJI_DB_URL:jdbc:mysql://127.0.0.1:3306/yunji_dev?connectionTimeZone=UTC&forceConnectionTimeZoneToSession=true&characterEncoding=UTF-8}
+          username: ${YUNJI_DB_USERNAME}
+          password: ${YUNJI_DB_PASSWORD}
+  data:
+    redis:
+      host: ${YUNJI_REDIS_HOST:127.0.0.1}
+      port: ${YUNJI_REDIS_PORT:6379}
+      database: ${YUNJI_REDIS_DATABASE:12}
+      password: ${YUNJI_REDIS_PASSWORD:}
+  boot:
+    admin:
+      client:
+        enabled: false
+api-decrypt:
+  enabled: false
+tenant:
+  enable: false
+snail-job:
+  enabled: false
+warm-flow:
+  enabled: false
+yunji:
+  public-tenant-id: ${YUNJI_PUBLIC_TENANT:000000}
+# 该文件只覆盖环境连接与开关。框架 application.yml 的必需基础属性见配置集成说明。

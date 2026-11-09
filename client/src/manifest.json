@@ -1,0 +1,25 @@
+{
+    "name" : "云迹",
+    "appid" : "__UNI__B5D4211",
+    "versionName" : "0.1.0",
+    "versionCode" : "100",
+    "vueVersion" : "3",
+    "h5" : {
+        "router" : {
+            "mode" : "hash"
+        }
+    },
+    "mp-weixin" : {
+        "appid" : "wx85fc3efe91ab6790",
+        "setting" : {
+            "urlCheck" : true
+        },
+        "usingComponents" : true,
+        "plugins" : {
+            "contactPlugin" : {
+                "version" : "1.4.8",
+                "provider" : "wx104a1a20c3f81ec2"
+            }
+        }
+    }
+}

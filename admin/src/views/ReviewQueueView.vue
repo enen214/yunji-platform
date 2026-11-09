@@ -1,0 +1,2 @@
+<template><main class="page"><p class="eyebrow">CONTENT / REVIEW</p><h1>审核队列</h1><section class="empty">审核模块尚未接入</section></main></template>
+<style scoped>.page{max-width:1120px;margin:0 auto;padding:40px 24px}.eyebrow{color:var(--primary);font-size:12px;font-weight:700;letter-spacing:.12em}.muted{color:var(--muted)}.empty{margin-top:28px;padding:32px;border:1px dashed var(--line);background:var(--surface);border-radius:var(--radius);color:var(--muted)}</style>

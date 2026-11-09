@@ -1,0 +1,4 @@
+com.sunshine.common.web.config.CaptchaConfig
+com.sunshine.common.web.config.FilterConfig
+com.sunshine.common.web.config.I18nConfig
+com.sunshine.common.web.config.ResourcesConfig
