@@ -1,0 +1,2731 @@
+{
+  "scope": "FULL_FOUNDATION_INTEGRATION",
+  "releaseEligible": false,
+  "startedAt": "2026-10-22T14:09:32.147256+00:00",
+  "sourceFingerprints": {
+    "backend": "784c1b596f259c6cbe52670e0a92815d7749c65f1aa140bf0a15f8d6c57a5a48",
+    "admin": "9a8beb316a4e6016de701599285af19812f325af915c03370c68271248f0c4ed",
+    "client": "71cfb46669558e0c145a59121e7b88106f22959a749dbcb35cfabbad57476c97",
+    "tests": "f3af8f6b92a538227195bc69d6fedcddab2c2ebf3bdb6e7ac94d9ce3685af33c",
+    "deploy": "958a9a59ce0bf4df65ed9e74798789957d7a66b7ee0643b7a685630a6ff3e577"
+  },
+  "cases": [
+    {
+      "id": "framework-password-login",
+      "featureIds": [
+        "AUTH-01"
+      ],
+      "status": "PASS",
+      "durationMs": 1093
+    },
+    {
+      "id": "creator-password-login",
+      "featureIds": [
+        "AUTH-01",
+        "ADM-02"
+      ],
+      "status": "PASS",
+      "durationMs": 141
+    },
+    {
+      "id": "reviewer-password-login",
+      "featureIds": [
+        "AUTH-01",
+        "ADM-01"
+      ],
+      "status": "PASS",
+      "durationMs": 109
+    },
+    {
+      "id": "customer-single-use-code",
+      "featureIds": [
+        "AUTH-03"
+      ],
+      "status": "PASS",
+      "durationMs": 31
+    },
+    {
+      "id": "local-code-secret",
+      "featureIds": [
+        "AUTH-03"
+      ],
+      "status": "PASS",
+      "durationMs": 32
+    },
+    {
+      "id": "anonymous-protected",
+      "featureIds": [
+        "AUTH-04"
+      ],
+      "status": "PASS",
+      "durationMs": 31
+    },
+    {
+      "id": "staff-cannot-use-customer-token",
+      "featureIds": [
+        "ADM-01"
+      ],
+      "status": "PASS",
+      "durationMs": 15
+    },
+    {
+      "id": "customer-profile",
+      "featureIds": [
+        "AUTH-04"
+      ],
+      "status": "PASS",
+      "durationMs": 32
+    },
+    {
+      "id": "profile-invalid-org",
+      "featureIds": [
+        "AUTH-04"
+      ],
+      "status": "PASS",
+      "durationMs": 31
+    },
+    {
+      "id": "article-requires-one-category",
+      "featureIds": [
+        "CAT-01",
+        "ART-01"
+      ],
+      "status": "PASS",
+      "durationMs": 47
+    },
+    {
+      "id": "article-rejects-multiple-categories",
+      "featureIds": [
+        "CAT-01",
+        "ART-01"
+      ],
+      "status": "PASS",
+      "durationMs": 31
+    },
+    {
+      "id": "article-create-dedup",
+      "featureIds": [
+        "ART-01"
+      ],
+      "status": "PASS",
+      "durationMs": 31
+    },
+    {
+      "id": "idempotency-body-conflict",
+      "featureIds": [
+        "ART-01"
+      ],
+      "status": "PASS",
+      "durationMs": 31
+    },
+    {
+      "id": "draft-not-public",
+      "featureIds": [
+        "ART-06",
+        "ART-07"
+      ],
+      "status": "PASS",
+      "durationMs": 31
+    },
+    {
+      "id": "creator-cannot-publish",
+      "featureIds": [
+        "ADM-02",
+        "ART-05"
+      ],
+      "status": "PASS",
+      "durationMs": 16
+    },
+    {
+      "id": "optimistic-conflict",
+      "featureIds": [
+        "ART-02"
+      ],
+      "status": "PASS",
+      "durationMs": 15
+    },
+    {
+      "id": "submit-version",
+      "featureIds": [
+        "ART-03"
+      ],
+      "status": "PASS",
+      "durationMs": 31
+    },
+    {
+      "id": "approve-exact-version",
+      "featureIds": [
+        "ART-04"
+      ],
+      "status": "PASS",
+      "durationMs": 47
+    },
+    {
+      "id": "publish-approved",
+      "featureIds": [
+        "ART-05"
+      ],
+      "status": "PASS",
+      "durationMs": 47
+    },
+    {
+      "id": "public-source",
+      "featureIds": [
+        "ART-07"
+      ],
+      "status": "PASS",
+      "durationMs": 31
+    },
+    {
+      "id": "published-html-sanitized",
+      "featureIds": [
+        "ART-07"
+      ],
+      "status": "PASS",
+      "durationMs": 32
+    },
+    {
+      "id": "keyword-follow",
+      "featureIds": [
+        "SUB-01"
+      ],
+      "status": "PASS",
+      "durationMs": 15
+    },
+    {
+      "id": "article-follow",
+      "featureIds": [
+        "SUB-02"
+      ],
+      "status": "PASS",
+      "durationMs": 16
+    },
+    {
+      "id": "subscription-boxes",
+      "featureIds": [
+        "SUB-03",
+        "SUB-04",
+        "SUB-06"
+      ],
+      "status": "PASS",
+      "durationMs": 31
+    },
+    {
+      "id": "cross-user-box-denied",
+      "featureIds": [
+        "SUB-05"
+      ],
+      "status": "PASS",
+      "durationMs": 32
+    },
+    {
+      "id": "hide-keeps-follow",
+      "featureIds": [
+        "SUB-05"
+      ],
+      "status": "PASS",
+      "durationMs": 47
+    },
+    {
+      "id": "favorite",
+      "featureIds": [
+        "ENG-01",
+        "ENG-02"
+      ],
+      "status": "PASS",
+      "durationMs": 31
+    },
+    {
+      "id": "browse",
+      "featureIds": [
+        "ENG-03"
+      ],
+      "status": "PASS",
+      "durationMs": 31
+    },
+    {
+      "id": "read-exact-version",
+      "featureIds": [
+        "ENG-04"
+      ],
+      "status": "PASS",
+      "durationMs": 47
+    },
+    {
+      "id": "revision-keeps-public-v1",
+      "featureIds": [
+        "ART-02"
+      ],
+      "status": "PASS",
+      "durationMs": 15
+    },
+    {
+      "id": "revision-submit",
+      "featureIds": [
+        "ART-03"
+      ],
+      "status": "PASS",
+      "durationMs": 31
+    },
+    {
+      "id": "revision-keeps-public-during-review",
+      "featureIds": [
+        "ART-02"
+      ],
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "revision-approve",
+      "featureIds": [
+        "ART-04"
+      ],
+      "status": "PASS",
+      "durationMs": 47
+    },
+    {
+      "id": "revision-publish",
+      "featureIds": [
+        "ART-05"
+      ],
+      "status": "PASS",
+      "durationMs": 47
+    },
+    {
+      "id": "read-old-version-rejected",
+      "featureIds": [
+        "ENG-04"
+      ],
+      "status": "PASS",
+      "durationMs": 16
+    },
+    {
+      "id": "revision-returns-unread",
+      "featureIds": [
+        "SUB-06"
+      ],
+      "status": "PASS",
+      "durationMs": 15
+    },
+    {
+      "id": "article-publish-outbox",
+      "featureIds": [
+        "ART-05"
+      ],
+      "status": "PASS",
+      "durationMs": 79
+    },
+    {
+      "id": "article-immutable-revisions",
+      "featureIds": [
+        "ART-02"
+      ],
+      "status": "PASS",
+      "durationMs": 62
+    },
+    {
+      "id": "migrations-rerun",
+      "featureIds": [
+        "ADM-05"
+      ],
+      "status": "PASS",
+      "durationMs": 1594
+    },
+    {
+      "id": "activity-public",
+      "featureIds": [
+        "ACT-01"
+      ],
+      "status": "PASS",
+      "durationMs": 31
+    },
+    {
+      "id": "activity-required-answer",
+      "featureIds": [
+        "ACT-02"
+      ],
+      "status": "PASS",
+      "durationMs": 31
+    },
+    {
+      "id": "capacity-parallel-no-oversell",
+      "featureIds": [
+        "ACT-02",
+        "ACT-03"
+      ],
+      "status": "PASS",
+      "durationMs": 31
+    },
+    {
+      "id": "duplicate-registration-no-capacity-loss",
+      "featureIds": [
+        "ACT-03"
+      ],
+      "status": "PASS",
+      "durationMs": 31
+    },
+    {
+      "id": "cancel-promotes-oldest",
+      "featureIds": [
+        "ACT-04"
+      ],
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "promoted-state",
+      "featureIds": [
+        "ACT-03",
+        "ACT-04"
+      ],
+      "status": "PASS",
+      "durationMs": 16
+    },
+    {
+      "id": "capacity-ledger-consistent",
+      "featureIds": [
+        "ACT-03"
+      ],
+      "status": "PASS",
+      "durationMs": 62
+    },
+    {
+      "id": "activity-admin-read",
+      "featureIds": [
+        "ACT-05"
+      ],
+      "status": "PASS",
+      "durationMs": 16
+    },
+    {
+      "id": "file-magic-reject",
+      "featureIds": [
+        "OPS-05"
+      ],
+      "status": "PASS",
+      "durationMs": 15
+    },
+    {
+      "id": "private-file-cross-user",
+      "featureIds": [
+        "REV-04",
+        "RES-05"
+      ],
+      "status": "PASS",
+      "durationMs": 31
+    },
+    {
+      "id": "private-ticket-download",
+      "featureIds": [
+        "RES-05"
+      ],
+      "status": "PASS",
+      "durationMs": 16
+    },
+    {
+      "id": "download-is-not-client-proof",
+      "featureIds": [
+        "ANA-04"
+      ],
+      "status": "PASS",
+      "durationMs": 62
+    },
+    {
+      "id": "ticket-single-use",
+      "featureIds": [
+        "RES-05"
+      ],
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "review-campaign-admin-detail",
+      "featureIds": [
+        "REV-01"
+      ],
+      "status": "PASS",
+      "durationMs": 31
+    },
+    {
+      "id": "review-campaign-update-stale-denied",
+      "featureIds": [
+        "REV-01"
+      ],
+      "status": "PASS",
+      "durationMs": 16
+    },
+    {
+      "id": "review-eligibility",
+      "featureIds": [
+        "REV-02"
+      ],
+      "status": "PASS",
+      "durationMs": 47
+    },
+    {
+      "id": "review-eligibility-negative",
+      "featureIds": [
+        "REV-02"
+      ],
+      "status": "PASS",
+      "durationMs": 31
+    },
+    {
+      "id": "review-campaign-rules-frozen-after-application",
+      "featureIds": [
+        "REV-01",
+        "REV-04"
+      ],
+      "status": "PASS",
+      "durationMs": 47
+    },
+    {
+      "id": "review-campaign-rule-order-is-semantic-noop",
+      "featureIds": [
+        "REV-01",
+        "REV-04"
+      ],
+      "status": "PASS",
+      "durationMs": 47
+    },
+    {
+      "id": "review-required-material",
+      "featureIds": [
+        "REV-05"
+      ],
+      "status": "PASS",
+      "durationMs": 16
+    },
+    {
+      "id": "submitted-material-frozen",
+      "featureIds": [
+        "REV-04",
+        "REV-05"
+      ],
+      "status": "PASS",
+      "durationMs": 32
+    },
+    {
+      "id": "application-cross-user",
+      "featureIds": [
+        "REV-03"
+      ],
+      "status": "PASS",
+      "durationMs": 15
+    },
+    {
+      "id": "stale-review-version-denied",
+      "featureIds": [
+        "REV-06"
+      ],
+      "status": "PASS",
+      "durationMs": 47
+    },
+    {
+      "id": "review-current-decision",
+      "featureIds": [
+        "REV-06"
+      ],
+      "status": "PASS",
+      "durationMs": 31
+    },
+    {
+      "id": "resource-published-files",
+      "featureIds": [
+        "RES-01",
+        "RES-04"
+      ],
+      "status": "PASS",
+      "durationMs": 16
+    },
+    {
+      "id": "resource-policy-download",
+      "featureIds": [
+        "RES-05"
+      ],
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "referenced-file-delete-denied",
+      "featureIds": [
+        "OPS-05"
+      ],
+      "status": "PASS",
+      "durationMs": 47
+    },
+    {
+      "id": "file-cleanup-retention-window",
+      "featureIds": [
+        "OPS-05"
+      ],
+      "status": "PASS",
+      "durationMs": 32
+    },
+    {
+      "id": "file-cleanup-dry-run",
+      "featureIds": [
+        "OPS-05"
+      ],
+      "status": "PASS",
+      "durationMs": 15
+    },
+    {
+      "id": "file-cleanup-physical-delete",
+      "featureIds": [
+        "OPS-05"
+      ],
+      "status": "PASS",
+      "durationMs": 47
+    },
+    {
+      "id": "file-cleanup-staff-permission",
+      "featureIds": [
+        "OPS-05",
+        "ADM-02"
+      ],
+      "status": "PASS",
+      "durationMs": 16
+    },
+    {
+      "id": "file-cleanup-repeat-safe",
+      "featureIds": [
+        "OPS-05"
+      ],
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "study-dimension",
+      "featureIds": [
+        "RES-02"
+      ],
+      "status": "PASS",
+      "durationMs": 47
+    },
+    {
+      "id": "exam-timezone",
+      "featureIds": [
+        "RES-03"
+      ],
+      "status": "PASS",
+      "durationMs": 31
+    },
+    {
+      "id": "exam-invalid-timezone",
+      "featureIds": [
+        "RES-03"
+      ],
+      "status": "PASS",
+      "durationMs": 47
+    },
+    {
+      "id": "artifact-frozen-checksum",
+      "featureIds": [
+        "RES-06"
+      ],
+      "status": "PASS",
+      "durationMs": 32
+    },
+    {
+      "id": "artifact-duplicate-version",
+      "featureIds": [
+        "RES-06"
+      ],
+      "status": "PASS",
+      "durationMs": 343
+    },
+    {
+      "id": "file-cleanup-io-failure-retained",
+      "featureIds": [
+        "OPS-05"
+      ],
+      "status": "PASS",
+      "durationMs": 47
+    },
+    {
+      "id": "file-cleanup-io-failure-keeps-deleted",
+      "featureIds": [
+        "OPS-05"
+      ],
+      "status": "PASS",
+      "durationMs": 63
+    },
+    {
+      "id": "file-cleanup-retries-after-storage-repair",
+      "featureIds": [
+        "OPS-05"
+      ],
+      "status": "PASS",
+      "durationMs": 15
+    },
+    {
+      "id": "file-cleanup-already-missing-reconciles",
+      "featureIds": [
+        "OPS-05"
+      ],
+      "status": "PASS",
+      "durationMs": 47
+    },
+    {
+      "id": "file-cleanup-invalid-object-key-rejected",
+      "featureIds": [
+        "OPS-05"
+      ],
+      "status": "PASS",
+      "durationMs": 16
+    },
+    {
+      "id": "file-cleanup-outside-file-preserved",
+      "featureIds": [
+        "OPS-05"
+      ],
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "file-cleanup-parallel-no-double-delete",
+      "featureIds": [
+        "OPS-05"
+      ],
+      "status": "PASS",
+      "durationMs": 31
+    },
+    {
+      "id": "file-cleanup-audit-persists",
+      "featureIds": [
+        "ADM-04",
+        "OPS-05"
+      ],
+      "status": "PASS",
+      "durationMs": 63
+    },
+    {
+      "id": "quota-callback-dedup",
+      "featureIds": [
+        "NOT-06",
+        "NOT-09"
+      ],
+      "status": "PASS",
+      "durationMs": 16
+    },
+    {
+      "id": "quota-callback-conflict",
+      "featureIds": [
+        "NOT-06"
+      ],
+      "status": "PASS",
+      "durationMs": 16
+    },
+    {
+      "id": "quota-cannot-mint-without-secret",
+      "featureIds": [
+        "NOT-06"
+      ],
+      "status": "PASS",
+      "durationMs": 15
+    },
+    {
+      "id": "rule-cross-user-denied",
+      "featureIds": [
+        "NOT-01"
+      ],
+      "status": "PASS",
+      "durationMs": 31
+    },
+    {
+      "id": "instant-outbox-dispatch",
+      "featureIds": [
+        "NOT-04"
+      ],
+      "status": "PASS",
+      "durationMs": 62
+    },
+    {
+      "id": "notification-sent-local",
+      "featureIds": [
+        "NOT-04"
+      ],
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "notification-unknown-freeze",
+      "featureIds": [
+        "NOT-10"
+      ],
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "duplicate-worker-no-double-charge",
+      "featureIds": [
+        "NOT-09"
+      ],
+      "status": "PASS",
+      "durationMs": 62
+    },
+    {
+      "id": "unknown-no-automatic-retry",
+      "featureIds": [
+        "NOT-10"
+      ],
+      "status": "PASS",
+      "durationMs": 63
+    },
+    {
+      "id": "unknown-reconcile-needs-evidence",
+      "featureIds": [
+        "NOT-10"
+      ],
+      "status": "PASS",
+      "durationMs": 46
+    },
+    {
+      "id": "unknown-invalid-evidence-keeps-reservation",
+      "featureIds": [
+        "NOT-09",
+        "NOT-10"
+      ],
+      "status": "PASS",
+      "durationMs": 63
+    },
+    {
+      "id": "unknown-evidence-reconcile",
+      "featureIds": [
+        "NOT-10"
+      ],
+      "status": "PASS",
+      "durationMs": 47
+    },
+    {
+      "id": "unknown-evidence-audit-persisted",
+      "featureIds": [
+        "ADM-04",
+        "NOT-10"
+      ],
+      "status": "PASS",
+      "durationMs": 62
+    },
+    {
+      "id": "quota-release-consistent",
+      "featureIds": [
+        "NOT-09"
+      ],
+      "status": "PASS",
+      "durationMs": 63
+    },
+    {
+      "id": "time-reminder-dispatch",
+      "featureIds": [
+        "NOT-02"
+      ],
+      "status": "PASS",
+      "durationMs": 31
+    },
+    {
+      "id": "time-reminder-only-once",
+      "featureIds": [
+        "NOT-02"
+      ],
+      "status": "PASS",
+      "durationMs": 62
+    },
+    {
+      "id": "daily-summary-snapshot",
+      "featureIds": [
+        "NOT-03"
+      ],
+      "status": "PASS",
+      "durationMs": 31
+    },
+    {
+      "id": "daily-next-run-advanced",
+      "featureIds": [
+        "NOT-03"
+      ],
+      "status": "PASS",
+      "durationMs": 63
+    },
+    {
+      "id": "cancel-reminder",
+      "featureIds": [
+        "NOT-05"
+      ],
+      "status": "PASS",
+      "durationMs": 31
+    },
+    {
+      "id": "channel-bind-status",
+      "featureIds": [
+        "NOT-07",
+        "NOT-08"
+      ],
+      "status": "PASS",
+      "durationMs": 31
+    },
+    {
+      "id": "consent-version",
+      "featureIds": [
+        "AUTH-06",
+        "OPS-03"
+      ],
+      "status": "PASS",
+      "durationMs": 16
+    },
+    {
+      "id": "consented-body-immutable",
+      "featureIds": [
+        "OPS-03"
+      ],
+      "status": "PASS",
+      "durationMs": 63
+    },
+    {
+      "id": "home-banner",
+      "featureIds": [
+        "OPS-01"
+      ],
+      "status": "PASS",
+      "durationMs": 62
+    },
+    {
+      "id": "home-recommendation",
+      "featureIds": [
+        "OPS-02"
+      ],
+      "status": "PASS",
+      "durationMs": 47
+    },
+    {
+      "id": "activity-column",
+      "featureIds": [
+        "OPS-04"
+      ],
+      "status": "PASS",
+      "durationMs": 63
+    },
+    {
+      "id": "home-visible-projections",
+      "featureIds": [
+        "OPS-01",
+        "OPS-02"
+      ],
+      "status": "PASS",
+      "durationMs": 31
+    },
+    {
+      "id": "exposure-event",
+      "featureIds": [
+        "ANA-01"
+      ],
+      "status": "PASS",
+      "durationMs": 47
+    },
+    {
+      "id": "exposure-event-dedup",
+      "featureIds": [
+        "ANA-01"
+      ],
+      "status": "PASS",
+      "durationMs": 16
+    },
+    {
+      "id": "exposure-does-not-mark-read",
+      "featureIds": [
+        "ANA-01"
+      ],
+      "status": "PASS",
+      "durationMs": 62
+    },
+    {
+      "id": "behavior-PAGE_VIEW",
+      "featureIds": [
+        "ANA-02",
+        "ANA-03"
+      ],
+      "status": "PASS",
+      "durationMs": 31
+    },
+    {
+      "id": "behavior-PAGE_STAY",
+      "featureIds": [
+        "ANA-02",
+        "ANA-03"
+      ],
+      "status": "PASS",
+      "durationMs": 32
+    },
+    {
+      "id": "behavior-SEARCH_CLICK",
+      "featureIds": [
+        "ANA-02",
+        "ANA-03"
+      ],
+      "status": "PASS",
+      "durationMs": 31
+    },
+    {
+      "id": "behavior-FILTER",
+      "featureIds": [
+        "ANA-02",
+        "ANA-03"
+      ],
+      "status": "PASS",
+      "durationMs": 15
+    },
+    {
+      "id": "behavior-BANNER_CLICK",
+      "featureIds": [
+        "ANA-02",
+        "ANA-03"
+      ],
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "behavior-SHARE",
+      "featureIds": [
+        "ENG-05"
+      ],
+      "status": "PASS",
+      "durationMs": 32
+    },
+    {
+      "id": "behavior-DOWNLOAD_INTENT",
+      "featureIds": [
+        "ANA-02",
+        "ANA-03"
+      ],
+      "status": "PASS",
+      "durationMs": 31
+    },
+    {
+      "id": "analytics-rebuild-idempotent",
+      "featureIds": [
+        "ANA-05"
+      ],
+      "status": "PASS",
+      "durationMs": 47
+    },
+    {
+      "id": "analytics-no-double-count",
+      "featureIds": [
+        "ANA-05"
+      ],
+      "status": "PASS",
+      "durationMs": 63
+    },
+    {
+      "id": "analytics-no-identity-data",
+      "featureIds": [
+        "ANA-06"
+      ],
+      "status": "PASS",
+      "durationMs": 15
+    },
+    {
+      "id": "audit-readable",
+      "featureIds": [
+        "ADM-04"
+      ],
+      "status": "PASS",
+      "durationMs": 32
+    },
+    {
+      "id": "snapshot-query-change-rejected",
+      "featureIds": [
+        "DIS-01"
+      ],
+      "status": "PASS",
+      "durationMs": 31
+    },
+    {
+      "id": "snapshot-invalid-cursor-rejected",
+      "featureIds": [
+        "DIS-01"
+      ],
+      "status": "PASS",
+      "durationMs": 31
+    },
+    {
+      "id": "snapshot-1000-concurrent-publish-revise-offline",
+      "featureIds": [
+        "DIS-01",
+        "DIS-02",
+        "DIS-03"
+      ],
+      "status": "PASS",
+      "durationMs": 860
+    },
+    {
+      "id": "snapshot-expiration-refresh",
+      "featureIds": [
+        "DIS-01"
+      ],
+      "status": "PASS",
+      "durationMs": 16
+    },
+    {
+      "id": "subject-edit-and-stale-denial",
+      "featureIds": [
+        "RES-01",
+        "ADM-04"
+      ],
+      "status": "PASS",
+      "durationMs": 47
+    },
+    {
+      "id": "dimension-edit",
+      "featureIds": [
+        "RES-02"
+      ],
+      "status": "PASS",
+      "durationMs": 47
+    },
+    {
+      "id": "dimension-withdraw",
+      "featureIds": [
+        "RES-02"
+      ],
+      "status": "PASS",
+      "durationMs": 15
+    },
+    {
+      "id": "dimension-hidden-public",
+      "featureIds": [
+        "RES-02"
+      ],
+      "status": "PASS",
+      "durationMs": 16
+    },
+    {
+      "id": "exam-edit",
+      "featureIds": [
+        "RES-03"
+      ],
+      "status": "PASS",
+      "durationMs": 31
+    },
+    {
+      "id": "exam-withdraw",
+      "featureIds": [
+        "RES-03"
+      ],
+      "status": "PASS",
+      "durationMs": 16
+    },
+    {
+      "id": "exam-offline-hidden-public",
+      "featureIds": [
+        "RES-03"
+      ],
+      "status": "PASS",
+      "durationMs": 31
+    },
+    {
+      "id": "package-current-files-only",
+      "featureIds": [
+        "RES-04",
+        "RES-05"
+      ],
+      "status": "PASS",
+      "durationMs": 15
+    },
+    {
+      "id": "package-historical-metadata-retained",
+      "featureIds": [
+        "RES-04"
+      ],
+      "status": "PASS",
+      "durationMs": 63
+    },
+    {
+      "id": "package-removed-file-new-ticket-denied",
+      "featureIds": [
+        "RES-05"
+      ],
+      "status": "PASS",
+      "durationMs": 31
+    },
+    {
+      "id": "package-removed-file-issued-ticket-denied",
+      "featureIds": [
+        "RES-05"
+      ],
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "package-stale-edit-denied",
+      "featureIds": [
+        "RES-04"
+      ],
+      "status": "PASS",
+      "durationMs": 31
+    },
+    {
+      "id": "package-invalid-file-atomic-rollback",
+      "featureIds": [
+        "RES-04"
+      ],
+      "status": "PASS",
+      "durationMs": 32
+    },
+    {
+      "id": "package-failed-edit-preserves-current",
+      "featureIds": [
+        "RES-04"
+      ],
+      "status": "PASS",
+      "durationMs": 15
+    },
+    {
+      "id": "package-withdraw",
+      "featureIds": [
+        "RES-04"
+      ],
+      "status": "PASS",
+      "durationMs": 31
+    },
+    {
+      "id": "package-offline-detail-hidden",
+      "featureIds": [
+        "RES-04"
+      ],
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "package-offline-file-access-revoked",
+      "featureIds": [
+        "RES-05"
+      ],
+      "status": "PASS",
+      "durationMs": 16
+    },
+    {
+      "id": "artifact-meta-edit",
+      "featureIds": [
+        "RES-06"
+      ],
+      "status": "PASS",
+      "durationMs": 32
+    },
+    {
+      "id": "artifact-withdraw",
+      "featureIds": [
+        "RES-06"
+      ],
+      "status": "PASS",
+      "durationMs": 15
+    },
+    {
+      "id": "artifact-offline-hidden",
+      "featureIds": [
+        "RES-06"
+      ],
+      "status": "PASS",
+      "durationMs": 16
+    },
+    {
+      "id": "resource-management-requires-role",
+      "featureIds": [
+        "ADM-02"
+      ],
+      "status": "PASS",
+      "durationMs": 31
+    },
+    {
+      "id": "resource-audit-recorded",
+      "featureIds": [
+        "ADM-04"
+      ],
+      "status": "PASS",
+      "durationMs": 78
+    },
+    {
+      "id": "replacement-public-none",
+      "featureIds": [
+        "ART-09"
+      ],
+      "status": "PASS",
+      "durationMs": 31
+    },
+    {
+      "id": "replacement-chain-final-target",
+      "featureIds": [
+        "ART-09"
+      ],
+      "status": "PASS",
+      "durationMs": 15
+    },
+    {
+      "id": "replacement-withdrawn-body-denied",
+      "featureIds": [
+        "ART-09"
+      ],
+      "status": "PASS",
+      "durationMs": 16
+    },
+    {
+      "id": "replacement-follow-auto-migrated",
+      "featureIds": [
+        "ART-09",
+        "SUB-02"
+      ],
+      "status": "PASS",
+      "durationMs": 62
+    },
+    {
+      "id": "replacement-stale-confirmation",
+      "featureIds": [
+        "ART-09"
+      ],
+      "status": "PASS",
+      "durationMs": 32
+    },
+    {
+      "id": "replacement-other-customer-denied",
+      "featureIds": [
+        "ART-09",
+        "SUB-02"
+      ],
+      "status": "PASS",
+      "durationMs": 15
+    },
+    {
+      "id": "replacement-explicit-confirmation",
+      "featureIds": [
+        "ART-09",
+        "SUB-02"
+      ],
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "replacement-confirmation-replay",
+      "featureIds": [
+        "ART-09"
+      ],
+      "status": "PASS",
+      "durationMs": 31
+    },
+    {
+      "id": "replacement-history-preserved",
+      "featureIds": [
+        "ART-09",
+        "ENG-03"
+      ],
+      "status": "PASS",
+      "durationMs": 63
+    },
+    {
+      "id": "replacement-original-follow-ended",
+      "featureIds": [
+        "ART-09",
+        "SUB-02"
+      ],
+      "status": "PASS",
+      "durationMs": 62
+    },
+    {
+      "id": "replacement-hidden-original-target",
+      "featureIds": [
+        "ART-09"
+      ],
+      "status": "PASS",
+      "durationMs": 32
+    },
+    {
+      "id": "replacement-cycle-denied",
+      "featureIds": [
+        "ART-09"
+      ],
+      "status": "PASS",
+      "durationMs": 47
+    },
+    {
+      "id": "replacement-hidden-target-redacted",
+      "featureIds": [
+        "ART-09"
+      ],
+      "status": "PASS",
+      "durationMs": 31
+    },
+    {
+      "id": "replacement-unknown-source-denied",
+      "featureIds": [
+        "ART-09"
+      ],
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "existing-session-grant-revoked",
+      "featureIds": [
+        "ADM-01",
+        "ADM-02"
+      ],
+      "status": "PASS",
+      "durationMs": 63
+    },
+    {
+      "id": "rejected-write-durable-audit",
+      "featureIds": [
+        "ADM-04"
+      ],
+      "status": "PASS",
+      "durationMs": 63
+    },
+    {
+      "id": "success-write-durable-audit",
+      "featureIds": [
+        "ADM-04"
+      ],
+      "status": "PASS",
+      "durationMs": 62
+    },
+    {
+      "id": "stay-invalid-duration-denied",
+      "featureIds": [
+        "ANA-02"
+      ],
+      "status": "PASS",
+      "durationMs": 16
+    },
+    {
+      "id": "stay-unpublished-target-denied",
+      "featureIds": [
+        "ANA-02"
+      ],
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "export-anonymous-denied",
+      "featureIds": [
+        "ACT-05",
+        "ADM-04"
+      ],
+      "status": "PASS",
+      "durationMs": 15
+    },
+    {
+      "id": "export-customer-denied",
+      "featureIds": [
+        "ACT-05",
+        "ADM-04"
+      ],
+      "status": "PASS",
+      "durationMs": 16
+    },
+    {
+      "id": "export-creator-denied",
+      "featureIds": [
+        "ACT-05",
+        "ADM-04"
+      ],
+      "status": "PASS",
+      "durationMs": 31
+    },
+    {
+      "id": "activity-export-content-and-replay",
+      "featureIds": [
+        "ACT-05",
+        "ADM-04"
+      ],
+      "status": "PASS",
+      "durationMs": 125
+    },
+    {
+      "id": "export-dataset-allowlist",
+      "featureIds": [
+        "ADM-04"
+      ],
+      "status": "PASS",
+      "durationMs": 32
+    },
+    {
+      "id": "export-durable-audit",
+      "featureIds": [
+        "ADM-04"
+      ],
+      "status": "PASS",
+      "durationMs": 62
+    },
+    {
+      "id": "analytics-users-aggregate-only",
+      "featureIds": [
+        "ANA-06"
+      ],
+      "status": "PASS",
+      "durationMs": 31
+    },
+    {
+      "id": "analytics-users-grant-denied",
+      "featureIds": [
+        "ANA-06"
+      ],
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "public-domain-boundaries-redact-staff-fields",
+      "featureIds": [
+        "ACT-01",
+        "REV-01",
+        "RES-01"
+      ],
+      "status": "PASS",
+      "durationMs": 110
+    },
+    {
+      "id": "categories-edit-current-version",
+      "featureIds": [
+        "CAT-01"
+      ],
+      "status": "PASS",
+      "durationMs": 16
+    },
+    {
+      "id": "categories-stale-edit-denied",
+      "featureIds": [
+        "CAT-01"
+      ],
+      "status": "PASS",
+      "durationMs": 31
+    },
+    {
+      "id": "categories-soft-delete",
+      "featureIds": [
+        "CAT-01"
+      ],
+      "status": "PASS",
+      "durationMs": 31
+    },
+    {
+      "id": "categories-deleted-hidden-public",
+      "featureIds": [
+        "CAT-01"
+      ],
+      "status": "PASS",
+      "durationMs": 16
+    },
+    {
+      "id": "organizations-edit-current-version",
+      "featureIds": [
+        "CAT-02"
+      ],
+      "status": "PASS",
+      "durationMs": 47
+    },
+    {
+      "id": "organizations-stale-edit-denied",
+      "featureIds": [
+        "CAT-02"
+      ],
+      "status": "PASS",
+      "durationMs": 31
+    },
+    {
+      "id": "organizations-soft-delete",
+      "featureIds": [
+        "CAT-02"
+      ],
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "organizations-deleted-hidden-public",
+      "featureIds": [
+        "CAT-02"
+      ],
+      "status": "PASS",
+      "durationMs": 32
+    },
+    {
+      "id": "keywords-edit-current-version",
+      "featureIds": [
+        "CAT-03"
+      ],
+      "status": "PASS",
+      "durationMs": 47
+    },
+    {
+      "id": "keywords-stale-edit-denied",
+      "featureIds": [
+        "CAT-03"
+      ],
+      "status": "PASS",
+      "durationMs": 16
+    },
+    {
+      "id": "keywords-soft-delete",
+      "featureIds": [
+        "CAT-03"
+      ],
+      "status": "PASS",
+      "durationMs": 31
+    },
+    {
+      "id": "keywords-deleted-hidden-public",
+      "featureIds": [
+        "CAT-03"
+      ],
+      "status": "PASS",
+      "durationMs": 31
+    },
+    {
+      "id": "publish-unapproved-state-denied",
+      "featureIds": [
+        "ART-05"
+      ],
+      "status": "PASS",
+      "durationMs": 47
+    },
+    {
+      "id": "article-withdraw-submitted",
+      "featureIds": [
+        "ART-03"
+      ],
+      "status": "PASS",
+      "durationMs": 46
+    },
+    {
+      "id": "article-withdraw-clears-review-pointer",
+      "featureIds": [
+        "ART-03"
+      ],
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "article-reject-requires-reason",
+      "featureIds": [
+        "ART-04"
+      ],
+      "status": "PASS",
+      "durationMs": 32
+    },
+    {
+      "id": "article-reject-submitted",
+      "featureIds": [
+        "ART-04"
+      ],
+      "status": "PASS",
+      "durationMs": 47
+    },
+    {
+      "id": "article-rejected-version-cannot-resubmit",
+      "featureIds": [
+        "ART-03",
+        "ART-04"
+      ],
+      "status": "PASS",
+      "durationMs": 46
+    },
+    {
+      "id": "article-offline-published",
+      "featureIds": [
+        "ART-05"
+      ],
+      "status": "PASS",
+      "durationMs": 31
+    },
+    {
+      "id": "article-offline-body-inaccessible",
+      "featureIds": [
+        "ART-05",
+        "ART-07"
+      ],
+      "status": "PASS",
+      "durationMs": 16
+    },
+    {
+      "id": "article-stale-offline-conflict",
+      "featureIds": [
+        "ART-05"
+      ],
+      "status": "PASS",
+      "durationMs": 31
+    },
+    {
+      "id": "rule-pause-keeps-settings",
+      "featureIds": [
+        "NOT-01",
+        "NOT-05"
+      ],
+      "status": "PASS",
+      "durationMs": 47
+    },
+    {
+      "id": "rule-pause-persists-and-is-boolean",
+      "featureIds": [
+        "NOT-01",
+        "NOT-05"
+      ],
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "rule-stale-edit-denied",
+      "featureIds": [
+        "NOT-01"
+      ],
+      "status": "PASS",
+      "durationMs": 31
+    },
+    {
+      "id": "rule-resume-current-version",
+      "featureIds": [
+        "NOT-01",
+        "NOT-05"
+      ],
+      "status": "PASS",
+      "durationMs": 15
+    },
+    {
+      "id": "rule-edit-other-customer-denied",
+      "featureIds": [
+        "NOT-01"
+      ],
+      "status": "PASS",
+      "durationMs": 47
+    },
+    {
+      "id": "rule-invalid-quiet-window-denied",
+      "featureIds": [
+        "NOT-01"
+      ],
+      "status": "PASS",
+      "durationMs": 32
+    },
+    {
+      "id": "customer-logout",
+      "featureIds": [
+        "AUTH-02",
+        "AUTH-03"
+      ],
+      "status": "PASS",
+      "durationMs": 31
+    },
+    {
+      "id": "customer-auth-durable-audit",
+      "featureIds": [
+        "AUTH-02",
+        "AUTH-03",
+        "ADM-04"
+      ],
+      "status": "PASS",
+      "durationMs": 78
+    },
+    {
+      "id": "customer-logout-session-invalid",
+      "featureIds": [
+        "AUTH-02",
+        "AUTH-03"
+      ],
+      "status": "PASS",
+      "durationMs": 16
+    },
+    {
+      "id": "staff-logout",
+      "featureIds": [
+        "AUTH-01"
+      ],
+      "status": "PASS",
+      "durationMs": 46
+    },
+    {
+      "id": "staff-logout-session-invalid",
+      "featureIds": [
+        "AUTH-01"
+      ],
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "label-reject-cycle",
+      "featureIds": [],
+      "status": "PASS",
+      "durationMs": 16
+    },
+    {
+      "id": "label-reject-cross-board-parent",
+      "featureIds": [],
+      "status": "PASS",
+      "durationMs": 47
+    },
+    {
+      "id": "labels-staff-token-boundary",
+      "featureIds": [],
+      "status": "PASS",
+      "durationMs": 15
+    },
+    {
+      "id": "article-reject-cross-board-label",
+      "featureIds": [],
+      "status": "PASS",
+      "durationMs": 31
+    },
+    {
+      "id": "search-filter-and-paginate",
+      "featureIds": [],
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "search-pages-do-not-repeat",
+      "featureIds": [],
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "search-cursor-binds-filter",
+      "featureIds": [],
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "search-reject-unknown-type",
+      "featureIds": [],
+      "status": "PASS",
+      "durationMs": 16
+    },
+    {
+      "id": "label-keywords-from-published-articles",
+      "featureIds": [],
+      "status": "PASS",
+      "durationMs": 15
+    },
+    {
+      "id": "label-box-unread-exact-membership",
+      "featureIds": [],
+      "status": "PASS",
+      "durationMs": 16
+    },
+    {
+      "id": "label-read-decrements-box",
+      "featureIds": [],
+      "status": "PASS",
+      "durationMs": 16
+    },
+    {
+      "id": "summary-auth-required",
+      "featureIds": [],
+      "status": "PASS",
+      "durationMs": 16
+    },
+    {
+      "id": "summary-count-real",
+      "featureIds": [],
+      "status": "PASS",
+      "durationMs": 31
+    },
+    {
+      "id": "search-history-bounded",
+      "featureIds": [],
+      "status": "PASS",
+      "durationMs": 16
+    },
+    {
+      "id": "hot-never-publishes-private-query",
+      "featureIds": [],
+      "status": "PASS",
+      "durationMs": 15
+    },
+    {
+      "id": "search-history-clear",
+      "featureIds": [],
+      "status": "PASS",
+      "durationMs": 16
+    },
+    {
+      "id": "history-individual-delete",
+      "featureIds": [],
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "favorites-clear",
+      "featureIds": [],
+      "status": "PASS",
+      "durationMs": 31
+    },
+    {
+      "id": "retired-official-channel-rejected",
+      "featureIds": [],
+      "status": "PASS",
+      "durationMs": 16
+    },
+    {
+      "id": "customers-admin-paging",
+      "featureIds": [],
+      "status": "PASS",
+      "durationMs": 47
+    },
+    {
+      "id": "customers-reject-customer-token",
+      "featureIds": [],
+      "status": "PASS",
+      "durationMs": 15
+    },
+    {
+      "id": "notification-capabilities-honest",
+      "featureIds": [],
+      "status": "PASS",
+      "durationMs": 16
+    },
+    {
+      "id": "foundation-read--system-post-list",
+      "featureIds": [],
+      "status": "PASS",
+      "durationMs": 78
+    },
+    {
+      "id": "foundation-read--system-dict-type-list",
+      "featureIds": [],
+      "status": "PASS",
+      "durationMs": 31
+    },
+    {
+      "id": "foundation-read--system-dict-data-list",
+      "featureIds": [],
+      "status": "PASS",
+      "durationMs": 31
+    },
+    {
+      "id": "foundation-read--system-config-list",
+      "featureIds": [],
+      "status": "PASS",
+      "durationMs": 32
+    },
+    {
+      "id": "foundation-read--system-notice-list",
+      "featureIds": [],
+      "status": "PASS",
+      "durationMs": 15
+    },
+    {
+      "id": "foundation-read--system-client-list",
+      "featureIds": [],
+      "status": "PASS",
+      "durationMs": 32
+    },
+    {
+      "id": "foundation-read--monitor-cache",
+      "featureIds": [],
+      "status": "PASS",
+      "durationMs": 46
+    },
+    {
+      "id": "foundation-read--monitor-online-list",
+      "featureIds": [],
+      "status": "PASS",
+      "durationMs": 32
+    },
+    {
+      "id": "foundation-read--monitor-logininfor-list",
+      "featureIds": [],
+      "status": "PASS",
+      "durationMs": 15
+    },
+    {
+      "id": "prototype-content-types-or",
+      "featureIds": [],
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "prototype-content-types-single-compatible",
+      "featureIds": [],
+      "status": "PASS",
+      "durationMs": 31
+    },
+    {
+      "id": "prototype-content-types-dedupe",
+      "featureIds": [],
+      "status": "PASS",
+      "durationMs": 31
+    },
+    {
+      "id": "prototype-type-invalid-NOTICE,",
+      "featureIds": [],
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "prototype-type-invalid-,NOTICE",
+      "featureIds": [],
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "prototype-type-invalid-NOTICE,BOGUS",
+      "featureIds": [],
+      "status": "PASS",
+      "durationMs": 16
+    },
+    {
+      "id": "prototype-type-invalid-empty",
+      "featureIds": [],
+      "status": "PASS",
+      "durationMs": 15
+    },
+    {
+      "id": "prototype-keywords-or",
+      "featureIds": [],
+      "status": "PASS",
+      "durationMs": 32
+    },
+    {
+      "id": "prototype-keywords-intersect-label",
+      "featureIds": [],
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "prototype-keywords-reject-negative",
+      "featureIds": [],
+      "status": "PASS",
+      "durationMs": 47
+    },
+    {
+      "id": "prototype-keywords-bounded",
+      "featureIds": [],
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "prototype-multitype-snapshot-no-repeat",
+      "featureIds": [],
+      "status": "PASS",
+      "durationMs": 31
+    },
+    {
+      "id": "prototype-cursor-binds-keywords",
+      "featureIds": [],
+      "status": "PASS",
+      "durationMs": 16
+    },
+    {
+      "id": "prototype-original-separate-from-body",
+      "featureIds": [],
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "prototype-detail-real-labels",
+      "featureIds": [],
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "prototype-detail-real-keywords",
+      "featureIds": [],
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "prototype-follow-groups-real-membership",
+      "featureIds": [],
+      "status": "PASS",
+      "durationMs": 31
+    },
+    {
+      "id": "prototype-bulk-labels-anonymous-denied",
+      "featureIds": [],
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "prototype-bulk-labels-empty-rejected",
+      "featureIds": [],
+      "status": "PASS",
+      "durationMs": 16
+    },
+    {
+      "id": "prototype-bulk-labels-save",
+      "featureIds": [],
+      "status": "PASS",
+      "durationMs": 16
+    },
+    {
+      "id": "prototype-bulk-labels-atomic-rollback",
+      "featureIds": [],
+      "status": "PASS",
+      "durationMs": 31
+    },
+    {
+      "id": "prototype-bulk-labels-no-partial-save",
+      "featureIds": [],
+      "status": "PASS",
+      "durationMs": 16
+    },
+    {
+      "id": "prototype-reminder-object-filter-total",
+      "featureIds": [],
+      "status": "PASS",
+      "durationMs": 47
+    },
+    {
+      "id": "prototype-reminder-object-filter-exact",
+      "featureIds": [],
+      "status": "PASS",
+      "durationMs": 16
+    },
+    {
+      "id": "prototype-reminder-object-type-required",
+      "featureIds": [],
+      "status": "PASS",
+      "durationMs": 31
+    },
+    {
+      "id": "prototype-reminder-object-filter-anonymous",
+      "featureIds": [],
+      "status": "PASS",
+      "durationMs": 16
+    },
+    {
+      "id": "prototype-feedback-type-persisted",
+      "featureIds": [],
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "prototype-feedback-contact-explicit-unverified",
+      "featureIds": [],
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "prototype-feedback-invalid-type",
+      "featureIds": [],
+      "status": "PASS",
+      "durationMs": 16
+    },
+    {
+      "id": "feedback-three-type-guide-fields-versioned",
+      "featureIds": [],
+      "status": "PASS",
+      "durationMs": 31
+    },
+    {
+      "id": "feedback-basic-contact-and-related",
+      "featureIds": [],
+      "status": "PASS",
+      "durationMs": 32
+    },
+    {
+      "id": "feedback-presentation-invalid-step-rejected",
+      "featureIds": [],
+      "status": "PASS",
+      "durationMs": 31
+    },
+    {
+      "id": "feedback-presentation-related-bounded",
+      "featureIds": [],
+      "status": "PASS",
+      "durationMs": 31
+    },
+    {
+      "id": "feedback-presentation-null-step-rejected",
+      "featureIds": [],
+      "status": "PASS",
+      "durationMs": 31
+    },
+    {
+      "id": "feedback-board-multiselect-or",
+      "featureIds": [],
+      "status": "PASS",
+      "durationMs": 47
+    },
+    {
+      "id": "feedback-board-multiselect-label-intersection",
+      "featureIds": [],
+      "status": "PASS",
+      "durationMs": 16
+    },
+    {
+      "id": "feedback-board-single-legacy-compatible",
+      "featureIds": [],
+      "status": "PASS",
+      "durationMs": 31
+    },
+    {
+      "id": "feedback-board-negative-denied",
+      "featureIds": [],
+      "status": "PASS",
+      "durationMs": 31
+    },
+    {
+      "id": "feedback-board-list-bounded",
+      "featureIds": [],
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "feedback-cursor-binds-board-selection",
+      "featureIds": [],
+      "status": "PASS",
+      "durationMs": 16
+    },
+    {
+      "id": "feedback-quick-reminder-anonymous-denied",
+      "featureIds": [],
+      "status": "PASS",
+      "durationMs": 31
+    },
+    {
+      "id": "feedback-quick-reminder-staff-denied",
+      "featureIds": [],
+      "status": "PASS",
+      "durationMs": 31
+    },
+    {
+      "id": "feedback-quick-reminder-concurrent-one-rule",
+      "featureIds": [],
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "feedback-quick-reminder-daily",
+      "featureIds": [],
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "feedback-quick-reminder-auto-follow",
+      "featureIds": [],
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "feedback-quick-reminder-does-not-fabricate-update",
+      "featureIds": [],
+      "status": "PASS",
+      "durationMs": 31
+    },
+    {
+      "id": "feedback-reminder-user-ownership",
+      "featureIds": [],
+      "status": "PASS",
+      "durationMs": 32
+    },
+    {
+      "id": "feedback-reminder-pause-retains-follow",
+      "featureIds": [],
+      "status": "PASS",
+      "durationMs": 15
+    },
+    {
+      "id": "feedback-reminder-restores-same-rule",
+      "featureIds": [],
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "feedback-unfollow-pauses-rule",
+      "featureIds": [],
+      "status": "PASS",
+      "durationMs": 31
+    },
+    {
+      "id": "feedback-invalid-target-atomic-no-follow",
+      "featureIds": [],
+      "status": "PASS",
+      "durationMs": 32
+    },
+    {
+      "id": "feedback-keyword-follow-creates-daily",
+      "featureIds": [],
+      "status": "PASS",
+      "durationMs": 31
+    },
+    {
+      "id": "feedback-keyword-three-level-membership",
+      "featureIds": [],
+      "status": "PASS",
+      "durationMs": 31
+    },
+    {
+      "id": "feedback-keyword-new-content-real-count",
+      "featureIds": [],
+      "status": "PASS",
+      "durationMs": 16
+    },
+    {
+      "id": "feedback-daily-real-update-visible",
+      "featureIds": [],
+      "status": "PASS",
+      "durationMs": 15
+    },
+    {
+      "id": "feedback-box-type-and-publication-time",
+      "featureIds": [],
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "feedback-keyword-unfollow-removes-summary",
+      "featureIds": [],
+      "status": "PASS",
+      "durationMs": 32
+    },
+    {
+      "id": "feedback-daily-no-disabled-rule-updates",
+      "featureIds": [],
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "feedback-quick-retains-instant-mode",
+      "featureIds": [],
+      "status": "PASS",
+      "durationMs": 32
+    },
+    {
+      "id": "feedback-quick-does-not-mint-consent",
+      "featureIds": [],
+      "status": "PASS",
+      "durationMs": 15
+    },
+    {
+      "id": "feedback-quick-existing-offline-target-denied",
+      "featureIds": [],
+      "status": "PASS",
+      "durationMs": 31
+    },
+    {
+      "id": "feedback-topic-admin-anonymous-denied",
+      "featureIds": [],
+      "status": "PASS",
+      "durationMs": 15
+    },
+    {
+      "id": "feedback-topic-admin-customer-denied",
+      "featureIds": [],
+      "status": "PASS",
+      "durationMs": 16
+    },
+    {
+      "id": "feedback-draft-topic-not-public",
+      "featureIds": [],
+      "status": "PASS",
+      "durationMs": 16
+    },
+    {
+      "id": "feedback-topic-independent-ordered-articles",
+      "featureIds": [],
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "feedback-topic-description-sanitized",
+      "featureIds": [],
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "feedback-topic-stale-edit-denied",
+      "featureIds": [],
+      "status": "PASS",
+      "durationMs": 32
+    },
+    {
+      "id": "feedback-topic-duplicate-articles-denied",
+      "featureIds": [],
+      "status": "PASS",
+      "durationMs": 31
+    },
+    {
+      "id": "feedback-topic-null-article-denied",
+      "featureIds": [],
+      "status": "PASS",
+      "durationMs": 16
+    },
+    {
+      "id": "feedback-topic-invalid-image-denied",
+      "featureIds": [],
+      "status": "PASS",
+      "durationMs": 15
+    },
+    {
+      "id": "feedback-banner-links-real-topic",
+      "featureIds": [],
+      "status": "PASS",
+      "durationMs": 16
+    },
+    {
+      "id": "feedback-topic-offline-hides-banner",
+      "featureIds": [],
+      "status": "PASS",
+      "durationMs": 16
+    },
+    {
+      "id": "feedback-topic-offline-deeplink-denied",
+      "featureIds": [],
+      "status": "PASS",
+      "durationMs": 16
+    },
+    {
+      "id": "wechat-business-local-exchange",
+      "featureIds": [
+        "AUTH-02"
+      ],
+      "status": "PASS",
+      "durationMs": 31
+    },
+    {
+      "id": "wechat-code-replay-denied",
+      "featureIds": [
+        "AUTH-02"
+      ],
+      "status": "PASS",
+      "durationMs": 32
+    },
+    {
+      "id": "wechat-native-never-uses-synthetic-code",
+      "featureIds": [
+        "AUTH-02"
+      ],
+      "status": "PASS",
+      "durationMs": 15
+    },
+    {
+      "id": "wechat-native-empty-phone-code-rejected",
+      "featureIds": [
+        "AUTH-02"
+      ],
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "wechat-native-oversized-code-rejected",
+      "featureIds": [
+        "AUTH-02"
+      ],
+      "status": "PASS",
+      "durationMs": 16
+    },
+    {
+      "id": "identity-subject-encrypted",
+      "featureIds": [
+        "AUTH-02"
+      ],
+      "status": "PASS",
+      "durationMs": 62
+    },
+    {
+      "id": "catalog-cycle-denied",
+      "featureIds": [
+        "CAT-01"
+      ],
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "category-unique-code",
+      "featureIds": [
+        "CAT-01"
+      ],
+      "status": "PASS",
+      "durationMs": 16
+    },
+    {
+      "id": "organization-created",
+      "featureIds": [
+        "CAT-02"
+      ],
+      "status": "PASS",
+      "durationMs": 31
+    },
+    {
+      "id": "keyword-search",
+      "featureIds": [
+        "CAT-03"
+      ],
+      "status": "PASS",
+      "durationMs": 31
+    },
+    {
+      "id": "keyword-alias-search",
+      "featureIds": [
+        "CAT-05"
+      ],
+      "status": "PASS",
+      "durationMs": 31
+    },
+    {
+      "id": "keyword-alias-unique",
+      "featureIds": [
+        "CAT-05"
+      ],
+      "status": "PASS",
+      "durationMs": 31
+    },
+    {
+      "id": "blacklist-hides-keyword",
+      "featureIds": [
+        "OPS-06"
+      ],
+      "status": "PASS",
+      "durationMs": 32
+    },
+    {
+      "id": "blacklist-rejects-recreate",
+      "featureIds": [
+        "OPS-06"
+      ],
+      "status": "PASS",
+      "durationMs": 15
+    },
+    {
+      "id": "combined-filter-no-cross-org",
+      "featureIds": [
+        "CAT-04",
+        "ART-08"
+      ],
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "content-search-match",
+      "featureIds": [
+        "ART-08"
+      ],
+      "status": "PASS",
+      "durationMs": 16
+    },
+    {
+      "id": "literal-like-escaping",
+      "featureIds": [
+        "ART-08"
+      ],
+      "status": "PASS",
+      "durationMs": 16
+    },
+    {
+      "id": "expired-not-current-feed",
+      "featureIds": [
+        "ART-10"
+      ],
+      "status": "PASS",
+      "durationMs": 31
+    },
+    {
+      "id": "expired-archive-view",
+      "featureIds": [
+        "ART-10"
+      ],
+      "status": "PASS",
+      "durationMs": 31
+    },
+    {
+      "id": "guide-uses-article-model",
+      "featureIds": [
+        "RES-07"
+      ],
+      "status": "PASS",
+      "durationMs": 31
+    },
+    {
+      "id": "content-replacement",
+      "featureIds": [
+        "ART-09"
+      ],
+      "status": "PASS",
+      "durationMs": 15
+    },
+    {
+      "id": "replacement-old-offline",
+      "featureIds": [
+        "ART-09"
+      ],
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "replacement-self-denied",
+      "featureIds": [
+        "ART-09"
+      ],
+      "status": "PASS",
+      "durationMs": 31
+    },
+    {
+      "id": "report-handler",
+      "featureIds": [
+        "ENG-06"
+      ],
+      "status": "PASS",
+      "durationMs": 31
+    },
+    {
+      "id": "report-customer-cannot-handle",
+      "featureIds": [
+        "ENG-06"
+      ],
+      "status": "PASS",
+      "durationMs": 16
+    },
+    {
+      "id": "feedback-handler",
+      "featureIds": [
+        "ENG-07"
+      ],
+      "status": "PASS",
+      "durationMs": 31
+    },
+    {
+      "id": "feedback-owned-list",
+      "featureIds": [
+        "ENG-07"
+      ],
+      "status": "PASS",
+      "durationMs": 16
+    },
+    {
+      "id": "review-project-list",
+      "featureIds": [
+        "REV-01"
+      ],
+      "status": "PASS",
+      "durationMs": 16
+    },
+    {
+      "id": "review-private-without-token",
+      "featureIds": [
+        "REV-01"
+      ],
+      "status": "PASS",
+      "durationMs": 15
+    },
+    {
+      "id": "creator-cannot-manage-catalog",
+      "featureIds": [
+        "ADM-02"
+      ],
+      "status": "PASS",
+      "durationMs": 63
+    },
+    {
+      "id": "creator-cannot-read-admin-article",
+      "featureIds": [
+        "ADM-02"
+      ],
+      "status": "PASS",
+      "durationMs": 15
+    },
+    {
+      "id": "scope-management-admin-only",
+      "featureIds": [
+        "ADM-01"
+      ],
+      "status": "PASS",
+      "durationMs": 16
+    },
+    {
+      "id": "framework-user-list",
+      "featureIds": [
+        "ADM-03"
+      ],
+      "status": "PASS",
+      "durationMs": 47
+    },
+    {
+      "id": "framework-menu-list",
+      "featureIds": [
+        "ADM-03"
+      ],
+      "status": "PASS",
+      "durationMs": 31
+    },
+    {
+      "id": "framework-dept-list",
+      "featureIds": [
+        "ADM-03"
+      ],
+      "status": "PASS",
+      "durationMs": 47
+    },
+    {
+      "id": "framework-clientid-mismatch",
+      "featureIds": [
+        "ADM-03"
+      ],
+      "status": "PASS",
+      "durationMs": 16
+    },
+    {
+      "id": "retryable-not-settled",
+      "featureIds": [
+        "NOT-10"
+      ],
+      "status": "PASS",
+      "durationMs": 63
+    },
+    {
+      "id": "retry-success",
+      "featureIds": [
+        "NOT-10"
+      ],
+      "status": "PASS",
+      "durationMs": 31
+    },
+    {
+      "id": "retry-reserves-only-once",
+      "featureIds": [
+        "NOT-09"
+      ],
+      "status": "PASS",
+      "durationMs": 94
+    },
+    {
+      "id": "close-explicit-confirmation",
+      "featureIds": [
+        "AUTH-06"
+      ],
+      "status": "PASS",
+      "durationMs": 47
+    },
+    {
+      "id": "close-account",
+      "featureIds": [
+        "AUTH-06"
+      ],
+      "status": "PASS",
+      "durationMs": 16
+    },
+    {
+      "id": "closed-session-invalid",
+      "featureIds": [
+        "AUTH-06"
+      ],
+      "status": "PASS",
+      "durationMs": 31
+    },
+    {
+      "id": "backup-restores-all-tables-and-files",
+      "featureIds": [
+        "ADM-05"
+      ],
+      "status": "PASS",
+      "durationMs": 13813
+    },
+    {
+      "id": "no-password-or-token-in-request-logs",
+      "featureIds": [
+        "ADM-04"
+      ],
+      "status": "PASS",
+      "durationMs": 15
+    }
+  ],
+  "logDirectory": "D:\\yunjiwxCongxie\\yunji-platform\\.runtime\\run-1234cbd103",
+  "passed": 358,
+  "failed": 0,
+  "sourceUnchanged": true,
+  "completedAt": "2026-10-22T14:11:01.958883+00:00"
+}

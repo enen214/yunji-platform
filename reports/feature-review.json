@@ -1,0 +1,2571 @@
+{
+  "generatedAt": "2026-10-22T14:15:50.716225+00:00",
+  "requirementsSha256": "9023cacc8752544046cc3c6e2927076b1a7504fe4ae6f7ca2b475be3d3df62de",
+  "sourceFingerprints": {
+    "backend": "784c1b596f259c6cbe52670e0a92815d7749c65f1aa140bf0a15f8d6c57a5a48",
+    "admin": "9a8beb316a4e6016de701599285af19812f325af915c03370c68271248f0c4ed",
+    "client": "71cfb46669558e0c145a59121e7b88106f22959a749dbcb35cfabbad57476c97"
+  },
+  "rows": [
+    {
+      "featureId": "AUTH-01",
+      "scope": "REWRITE",
+      "external": "NONE",
+      "decision": "STAFF 与 CUSTOMER 分离；本地单次码只用于回环。真实微信登录须独立 AppID；退出使该会话失效，登录/退出不记录凭据。",
+      "requiredApiCaseIds": [
+        "creator-password-login",
+        "framework-password-login",
+        "reviewer-password-login",
+        "staff-logout",
+        "staff-logout-session-invalid"
+      ],
+      "requiredBrowserCaseIds": [
+        "admin-login-extended-real-ui"
+      ],
+      "specialEvidence": null,
+      "acceptanceLimit": "固定的本地场景验收；不证明所有组合、真实平台、Linux、容量或业务签字。",
+      "status": "LOCAL_SCENARIOS_PASSED",
+      "missingEvidence": [],
+      "routes": [
+        {
+          "planned": "POST /auth/login",
+          "status": "PRESENT"
+        },
+        {
+          "planned": "POST /auth/logout",
+          "status": "PRESENT"
+        }
+      ]
+    },
+    {
+      "featureId": "AUTH-02",
+      "scope": "REWRITE",
+      "external": "PLATFORM_PENDING",
+      "decision": "STAFF 与 CUSTOMER 分离；本地单次码只用于回环。真实微信登录须独立 AppID；退出使该会话失效，登录/退出不记录凭据。",
+      "requiredApiCaseIds": [
+        "customer-auth-durable-audit",
+        "customer-logout",
+        "customer-logout-session-invalid",
+        "identity-subject-encrypted",
+        "wechat-business-local-exchange",
+        "wechat-code-replay-denied"
+      ],
+      "requiredBrowserCaseIds": [],
+      "specialEvidence": null,
+      "acceptanceLimit": "固定的本地场景验收；不证明所有组合、真实平台、Linux、容量或业务签字。",
+      "status": "LOCAL_SCENARIOS_PASSED_PLATFORM_PENDING",
+      "missingEvidence": [],
+      "routes": [
+        {
+          "planned": "POST /api/v1/auth/customer/wechat",
+          "status": "PRESENT"
+        },
+        {
+          "planned": "POST /api/v1/auth/customer/logout",
+          "status": "PRESENT"
+        }
+      ]
+    },
+    {
+      "featureId": "AUTH-03",
+      "scope": "REWRITE",
+      "external": "NONE",
+      "decision": "STAFF 与 CUSTOMER 分离；本地单次码只用于回环。真实微信登录须独立 AppID；退出使该会话失效，登录/退出不记录凭据。",
+      "requiredApiCaseIds": [
+        "customer-auth-durable-audit",
+        "customer-logout",
+        "customer-logout-session-invalid",
+        "customer-single-use-code",
+        "local-code-secret"
+      ],
+      "requiredBrowserCaseIds": [],
+      "specialEvidence": null,
+      "acceptanceLimit": "固定的本地场景验收；不证明所有组合、真实平台、Linux、容量或业务签字。",
+      "status": "LOCAL_SCENARIOS_PASSED",
+      "missingEvidence": [],
+      "routes": [
+        {
+          "planned": "POST /api/v1/auth/customer/local",
+          "status": "PRESENT"
+        }
+      ]
+    },
+    {
+      "featureId": "AUTH-04",
+      "scope": "REWRITE",
+      "external": "NONE",
+      "decision": "STAFF 与 CUSTOMER 分离；本地单次码只用于回环。真实微信登录须独立 AppID；退出使该会话失效，登录/退出不记录凭据。",
+      "requiredApiCaseIds": [
+        "anonymous-protected",
+        "customer-profile",
+        "profile-invalid-org"
+      ],
+      "requiredBrowserCaseIds": [
+        "customer-profile-edit-real-ui"
+      ],
+      "specialEvidence": null,
+      "acceptanceLimit": "固定的本地场景验收；不证明所有组合、真实平台、Linux、容量或业务签字。",
+      "status": "LOCAL_SCENARIOS_PASSED",
+      "missingEvidence": [],
+      "routes": [
+        {
+          "planned": "GET /api/v1/me/profile",
+          "status": "PRESENT"
+        },
+        {
+          "planned": "PATCH /api/v1/me/profile",
+          "status": "REPLACED",
+          "actualTargets": [
+            "PUT /api/v1/me/profile"
+          ],
+          "semantics": "完整更新昵称和组织，PUT 请求只接受 ProfileRequest 声明字段。"
+        }
+      ]
+    },
+    {
+      "featureId": "AUTH-05",
+      "scope": "CANDIDATE_CONFIRM",
+      "external": "NONE",
+      "decision": "STAFF 与 CUSTOMER 分离；本地单次码只用于回环。真实微信登录须独立 AppID；退出使该会话失效，登录/退出不记录凭据。",
+      "requiredApiCaseIds": [],
+      "requiredBrowserCaseIds": [],
+      "specialEvidence": null,
+      "acceptanceLimit": "固定的本地场景验收；不证明所有组合、真实平台、Linux、容量或业务签字。",
+      "status": "NOT_IN_BASELINE",
+      "missingEvidence": [],
+      "routes": [
+        {
+          "planned": "POST /api/v1/me/identity-bindings",
+          "status": "NOT_IN_BASELINE",
+          "actualTargets": [],
+          "semantics": "候选需求未纳入既定重制范围，保持单独确认。"
+        }
+      ]
+    },
+    {
+      "featureId": "AUTH-06",
+      "scope": "REWRITE",
+      "external": "NONE",
+      "decision": "STAFF 与 CUSTOMER 分离；本地单次码只用于回环。真实微信登录须独立 AppID；退出使该会话失效，登录/退出不记录凭据。",
+      "requiredApiCaseIds": [
+        "close-account",
+        "close-explicit-confirmation",
+        "closed-session-invalid",
+        "consent-version"
+      ],
+      "requiredBrowserCaseIds": [],
+      "specialEvidence": null,
+      "acceptanceLimit": "固定的本地场景验收；不证明所有组合、真实平台、Linux、容量或业务签字。",
+      "status": "LOCAL_SCENARIOS_PASSED",
+      "missingEvidence": [],
+      "routes": [
+        {
+          "planned": "POST /api/v1/me/consents",
+          "status": "PRESENT"
+        },
+        {
+          "planned": "POST /api/v1/me/closure",
+          "status": "COMPOSED",
+          "actualTargets": [
+            "DELETE /api/v1/me/account",
+            "POST /api/v1/me/consents"
+          ],
+          "semantics": "注销采用 DELETE 和明确 confirmation；同意记录绑定确切页面版本。"
+        }
+      ]
+    },
+    {
+      "featureId": "CAT-01",
+      "scope": "REWRITE",
+      "external": "NONE",
+      "decision": "分类/组织为树，关键词为独立字典；编辑使用当前版本，已发布引用/子节点约束阻止错误删除；后台保留组织治理与兼容查询；2026-10-22起C端搜索和资料不展示学校组织筛选，三类内容和多板块/联动标签使用真实查询。",
+      "requiredApiCaseIds": [
+        "catalog-cycle-denied",
+        "categories-deleted-hidden-public",
+        "categories-edit-current-version",
+        "categories-soft-delete",
+        "categories-stale-edit-denied",
+        "category-unique-code",
+        "label-reject-cycle",
+        "label-reject-cross-board-parent",
+        "article-reject-cross-board-label"
+      ],
+      "requiredBrowserCaseIds": [
+        "admin-label-create-independent-form",
+        "client-native-tabs-boards-label-tree"
+      ],
+      "specialEvidence": null,
+      "acceptanceLimit": "固定的本地场景验收；不证明所有组合、真实平台、Linux、容量或业务签字。",
+      "status": "LOCAL_SCENARIOS_PASSED",
+      "missingEvidence": [],
+      "routes": [
+        {
+          "planned": "GET /api/v1/catalog/categories",
+          "status": "PRESENT"
+        },
+        {
+          "planned": "POST /api/v1/staff/catalog/categories",
+          "status": "COMPOSED",
+          "actualTargets": [
+            "POST /api/v1/admin/catalog/{kind}",
+            "PUT /api/v1/admin/catalog/{kind}/{id}"
+          ],
+          "semantics": "kind=categories，维护分类树和锁版本。"
+        },
+        {
+          "planned": "PATCH /api/v1/staff/catalog/categories/{id}",
+          "status": "COMPOSED",
+          "actualTargets": [
+            "POST /api/v1/admin/catalog/{kind}",
+            "PUT /api/v1/admin/catalog/{kind}/{id}"
+          ],
+          "semantics": "kind=categories，维护分类树和锁版本。"
+        }
+      ]
+    },
+    {
+      "featureId": "CAT-02",
+      "scope": "REWRITE",
+      "external": "NONE",
+      "decision": "分类/组织为树，关键词为独立字典；编辑使用当前版本，已发布引用/子节点约束阻止错误删除；后台保留组织治理与兼容查询；2026-10-22起C端搜索和资料不展示学校组织筛选，三类内容和多板块/联动标签使用真实查询。",
+      "requiredApiCaseIds": [
+        "organization-created",
+        "organizations-deleted-hidden-public",
+        "organizations-edit-current-version",
+        "organizations-soft-delete",
+        "organizations-stale-edit-denied"
+      ],
+      "requiredBrowserCaseIds": [],
+      "specialEvidence": null,
+      "acceptanceLimit": "固定的本地场景验收；不证明所有组合、真实平台、Linux、容量或业务签字。",
+      "status": "LOCAL_SCENARIOS_PASSED",
+      "missingEvidence": [],
+      "routes": [
+        {
+          "planned": "GET /api/v1/catalog/organizations",
+          "status": "PRESENT"
+        },
+        {
+          "planned": "POST /api/v1/staff/catalog/organizations",
+          "status": "COMPOSED",
+          "actualTargets": [
+            "POST /api/v1/admin/catalog/{kind}",
+            "PUT /api/v1/admin/catalog/{kind}/{id}"
+          ],
+          "semantics": "kind=organizations，维护学校学院树。"
+        },
+        {
+          "planned": "PATCH /api/v1/staff/catalog/organizations/{id}",
+          "status": "COMPOSED",
+          "actualTargets": [
+            "POST /api/v1/admin/catalog/{kind}",
+            "PUT /api/v1/admin/catalog/{kind}/{id}"
+          ],
+          "semantics": "kind=organizations，维护学校学院树。"
+        }
+      ]
+    },
+    {
+      "featureId": "CAT-03",
+      "scope": "REWRITE",
+      "external": "NONE",
+      "decision": "分类/组织为树，关键词为独立字典；编辑使用当前版本，已发布引用/子节点约束阻止错误删除；后台保留组织治理与兼容查询；2026-10-22起C端搜索和资料不展示学校组织筛选，三类内容和多板块/联动标签使用真实查询。",
+      "requiredApiCaseIds": [
+        "keyword-search",
+        "keywords-deleted-hidden-public",
+        "keywords-edit-current-version",
+        "keywords-soft-delete",
+        "keywords-stale-edit-denied"
+      ],
+      "requiredBrowserCaseIds": [],
+      "specialEvidence": null,
+      "acceptanceLimit": "固定的本地场景验收；不证明所有组合、真实平台、Linux、容量或业务签字。",
+      "status": "LOCAL_SCENARIOS_PASSED",
+      "missingEvidence": [],
+      "routes": [
+        {
+          "planned": "GET /api/v1/catalog/keywords",
+          "status": "PRESENT"
+        },
+        {
+          "planned": "POST /api/v1/staff/catalog/keywords",
+          "status": "COMPOSED",
+          "actualTargets": [
+            "POST /api/v1/admin/catalog/{kind}",
+            "PUT /api/v1/admin/catalog/{kind}/{id}"
+          ],
+          "semantics": "kind=keywords，规范名和展示名由服务校验。"
+        },
+        {
+          "planned": "PATCH /api/v1/staff/catalog/keywords/{id}",
+          "status": "COMPOSED",
+          "actualTargets": [
+            "POST /api/v1/admin/catalog/{kind}",
+            "PUT /api/v1/admin/catalog/{kind}/{id}"
+          ],
+          "semantics": "kind=keywords，规范名和展示名由服务校验。"
+        }
+      ]
+    },
+    {
+      "featureId": "CAT-04",
+      "scope": "REWRITE",
+      "external": "NONE",
+      "decision": "分类/组织为树，关键词为独立字典；编辑使用当前版本，已发布引用/子节点约束阻止错误删除；后台保留组织治理与兼容查询；2026-10-22起C端搜索和资料不展示学校组织筛选，三类内容和多板块/联动标签使用真实查询。",
+      "requiredApiCaseIds": [
+        "combined-filter-no-cross-org"
+      ],
+      "requiredBrowserCaseIds": [],
+      "specialEvidence": null,
+      "acceptanceLimit": "固定的本地场景验收；不证明所有组合、真实平台、Linux、容量或业务签字。",
+      "status": "LOCAL_SCENARIOS_PASSED",
+      "missingEvidence": [],
+      "routes": [
+        {
+          "planned": "GET /api/v1/articles",
+          "status": "PRESENT"
+        }
+      ]
+    },
+    {
+      "featureId": "CAT-05",
+      "scope": "REWRITE",
+      "external": "NONE",
+      "decision": "分类/组织为树，关键词为独立字典；编辑使用当前版本，已发布引用/子节点约束阻止错误删除；后台保留组织治理与兼容查询；2026-10-22起C端搜索和资料不展示学校组织筛选，三类内容和多板块/联动标签使用真实查询。",
+      "requiredApiCaseIds": [
+        "keyword-alias-search",
+        "keyword-alias-unique"
+      ],
+      "requiredBrowserCaseIds": [],
+      "specialEvidence": null,
+      "acceptanceLimit": "固定的本地场景验收；不证明所有组合、真实平台、Linux、容量或业务签字。",
+      "status": "LOCAL_SCENARIOS_PASSED",
+      "missingEvidence": [],
+      "routes": [
+        {
+          "planned": "POST /api/v1/staff/catalog/keywords/{id}/aliases",
+          "status": "REPLACED",
+          "actualTargets": [
+            "POST /api/v1/admin/catalog/keywords/{id}/aliases"
+          ],
+          "semantics": "别名绑定规范关键词并检查唯一性。"
+        }
+      ]
+    },
+    {
+      "featureId": "CAT-06",
+      "scope": "CANDIDATE_CONFIRM",
+      "external": "NONE",
+      "decision": "分类/组织为树，关键词为独立字典；编辑使用当前版本，已发布引用/子节点约束阻止错误删除；后台保留组织治理与兼容查询；2026-10-22起C端搜索和资料不展示学校组织筛选，三类内容和多板块/联动标签使用真实查询。",
+      "requiredApiCaseIds": [],
+      "requiredBrowserCaseIds": [],
+      "specialEvidence": null,
+      "acceptanceLimit": "固定的本地场景验收；不证明所有组合、真实平台、Linux、容量或业务签字。",
+      "status": "NOT_IN_BASELINE",
+      "missingEvidence": [],
+      "routes": [
+        {
+          "planned": "PUT /api/v1/me/filter-subscriptions",
+          "status": "NOT_IN_BASELINE",
+          "actualTargets": [],
+          "semantics": "候选需求未纳入既定重制范围，保持单独确认。"
+        },
+        {
+          "planned": "DELETE /api/v1/me/filter-subscriptions/{id}",
+          "status": "NOT_IN_BASELINE",
+          "actualTargets": [],
+          "semantics": "候选需求未纳入既定重制范围，保持单独确认。"
+        }
+      ]
+    },
+    {
+      "featureId": "ART-01",
+      "scope": "REWRITE",
+      "external": "NONE",
+      "decision": "不可变版本和公开指针；提交、撤回、退回、通过、发布、下线显式转换。替换串行保护、防环；更替后自动迁移关注与强提醒，用户可在信息盒子管理；不保留撤下正文公开入口。",
+      "requiredApiCaseIds": [
+        "article-create-dedup",
+        "idempotency-body-conflict"
+      ],
+      "requiredBrowserCaseIds": [],
+      "specialEvidence": null,
+      "acceptanceLimit": "固定的本地场景验收；不证明所有组合、真实平台、Linux、容量或业务签字。",
+      "status": "LOCAL_SCENARIOS_PASSED",
+      "missingEvidence": [],
+      "routes": [
+        {
+          "planned": "POST /api/v1/staff/articles",
+          "status": "REPLACED",
+          "actualTargets": [
+            "POST /api/v1/admin/articles"
+          ],
+          "semantics": "工作人员域统一命名 admin，服务仍检查编辑权限和内容范围。"
+        }
+      ]
+    },
+    {
+      "featureId": "ART-02",
+      "scope": "REWRITE",
+      "external": "NONE",
+      "decision": "不可变版本和公开指针；提交、撤回、退回、通过、发布、下线显式转换。替换串行保护、防环、更替后自动迁移关注与强提醒，用户可在信息盒子管理；不保留撤下正文公开入口。",
+      "requiredApiCaseIds": [
+        "article-immutable-revisions",
+        "optimistic-conflict",
+        "revision-keeps-public-during-review",
+        "revision-keeps-public-v1"
+      ],
+      "requiredBrowserCaseIds": [],
+      "specialEvidence": null,
+      "acceptanceLimit": "固定的本地场景验收；不证明所有组合、真实平台、Linux、容量或业务签字。",
+      "status": "LOCAL_SCENARIOS_PASSED",
+      "missingEvidence": [],
+      "routes": [
+        {
+          "planned": "PUT /api/v1/staff/articles/{id}",
+          "status": "COMPOSED",
+          "actualTargets": [
+            "POST /api/v1/admin/articles/{id}/versions",
+            "GET /api/v1/admin/articles/{id}"
+          ],
+          "semantics": "编辑创建不可变版本；详情的 versions 返回全部保留版本，不另加同义路由。"
+        },
+        {
+          "planned": "GET /api/v1/staff/articles/{id}/versions",
+          "status": "COMPOSED",
+          "actualTargets": [
+            "POST /api/v1/admin/articles/{id}/versions",
+            "GET /api/v1/admin/articles/{id}"
+          ],
+          "semantics": "编辑创建不可变版本；详情的 versions 返回全部保留版本，不另加同义路由。"
+        }
+      ]
+    },
+    {
+      "featureId": "ART-03",
+      "scope": "REWRITE",
+      "external": "NONE",
+      "decision": "不可变版本和公开指针；提交、撤回、退回、通过、发布、下线显式转换。替换串行保护、防环、更替后自动迁移关注与强提醒，用户可在信息盒子管理；不保留撤下正文公开入口。",
+      "requiredApiCaseIds": [
+        "article-rejected-version-cannot-resubmit",
+        "article-withdraw-clears-review-pointer",
+        "article-withdraw-submitted",
+        "revision-submit",
+        "submit-version"
+      ],
+      "requiredBrowserCaseIds": [],
+      "specialEvidence": null,
+      "acceptanceLimit": "固定的本地场景验收；不证明所有组合、真实平台、Linux、容量或业务签字。",
+      "status": "LOCAL_SCENARIOS_PASSED",
+      "missingEvidence": [],
+      "routes": [
+        {
+          "planned": "POST /api/v1/staff/articles/{id}/submit",
+          "status": "REPLACED",
+          "actualTargets": [
+            "POST /api/v1/admin/articles/{id}/transitions"
+          ],
+          "semantics": "action=SUBMIT 或 WITHDRAW，绑定 versionId 和 expectedVersion。"
+        },
+        {
+          "planned": "POST /api/v1/staff/articles/{id}/withdraw",
+          "status": "REPLACED",
+          "actualTargets": [
+            "POST /api/v1/admin/articles/{id}/transitions"
+          ],
+          "semantics": "action=SUBMIT 或 WITHDRAW，绑定 versionId 和 expectedVersion。"
+        }
+      ]
+    },
+    {
+      "featureId": "ART-04",
+      "scope": "REWRITE",
+      "external": "NONE",
+      "decision": "不可变版本和公开指针；提交、撤回、退回、通过、发布、下线显式转换。替换串行保护、防环、更替后自动迁移关注与强提醒，用户可在信息盒子管理；不保留撤下正文公开入口。",
+      "requiredApiCaseIds": [
+        "approve-exact-version",
+        "article-reject-requires-reason",
+        "article-reject-submitted",
+        "article-rejected-version-cannot-resubmit",
+        "revision-approve"
+      ],
+      "requiredBrowserCaseIds": [],
+      "specialEvidence": null,
+      "acceptanceLimit": "固定的本地场景验收；不证明所有组合、真实平台、Linux、容量或业务签字。",
+      "status": "LOCAL_SCENARIOS_PASSED",
+      "missingEvidence": [],
+      "routes": [
+        {
+          "planned": "POST /api/v1/staff/articles/{id}/review",
+          "status": "REPLACED",
+          "actualTargets": [
+            "POST /api/v1/admin/articles/{id}/transitions"
+          ],
+          "semantics": "action=APPROVE 或 REJECT，审核员权限、范围、版本均校验。"
+        }
+      ]
+    },
+    {
+      "featureId": "ART-05",
+      "scope": "REWRITE",
+      "external": "NONE",
+      "decision": "不可变版本和公开指针；提交、撤回、退回、通过、发布、下线显式转换。替换串行保护、防环、更替后自动迁移关注与强提醒，用户可在信息盒子管理；不保留撤下正文公开入口。",
+      "requiredApiCaseIds": [
+        "article-offline-body-inaccessible",
+        "article-offline-published",
+        "article-publish-outbox",
+        "article-stale-offline-conflict",
+        "creator-cannot-publish",
+        "publish-approved",
+        "publish-unapproved-state-denied",
+        "revision-publish"
+      ],
+      "requiredBrowserCaseIds": [],
+      "specialEvidence": null,
+      "acceptanceLimit": "固定的本地场景验收；不证明所有组合、真实平台、Linux、容量或业务签字。",
+      "status": "LOCAL_SCENARIOS_PASSED",
+      "missingEvidence": [],
+      "routes": [
+        {
+          "planned": "POST /api/v1/staff/articles/{id}/publish",
+          "status": "REPLACED",
+          "actualTargets": [
+            "POST /api/v1/admin/articles/{id}/transitions"
+          ],
+          "semantics": "action=PUBLISH 或 OFFLINE；发布只允许已审核的确切版本。"
+        },
+        {
+          "planned": "POST /api/v1/staff/articles/{id}/offline",
+          "status": "REPLACED",
+          "actualTargets": [
+            "POST /api/v1/admin/articles/{id}/transitions"
+          ],
+          "semantics": "action=PUBLISH 或 OFFLINE；发布只允许已审核的确切版本。"
+        }
+      ]
+    },
+    {
+      "featureId": "ART-06",
+      "scope": "REWRITE",
+      "external": "NONE",
+      "decision": "不可变版本和公开指针；提交、撤回、退回、通过、发布、下线显式转换。替换串行保护、防环、更替后自动迁移关注与强提醒，用户可在信息盒子管理；不保留撤下正文公开入口。",
+      "requiredApiCaseIds": [
+        "draft-not-public"
+      ],
+      "requiredBrowserCaseIds": [],
+      "specialEvidence": null,
+      "acceptanceLimit": "固定的本地场景验收；不证明所有组合、真实平台、Linux、容量或业务签字。",
+      "status": "LOCAL_SCENARIOS_PASSED",
+      "missingEvidence": [],
+      "routes": [
+        {
+          "planned": "GET /api/v1/articles",
+          "status": "PRESENT"
+        }
+      ]
+    },
+    {
+      "featureId": "ART-07",
+      "scope": "REWRITE",
+      "external": "NONE",
+      "decision": "不可变版本和公开指针；提交、撤回、退回、通过、发布、下线显式转换。替换串行保护、防环、更替后自动迁移关注与强提醒，用户可在信息盒子管理；不保留撤下正文公开入口。",
+      "requiredApiCaseIds": [
+        "article-offline-body-inaccessible",
+        "draft-not-public",
+        "public-source",
+        "published-html-sanitized"
+      ],
+      "requiredBrowserCaseIds": [],
+      "specialEvidence": null,
+      "acceptanceLimit": "固定的本地场景验收；不证明所有组合、真实平台、Linux、容量或业务签字。",
+      "status": "LOCAL_SCENARIOS_PASSED",
+      "missingEvidence": [],
+      "routes": [
+        {
+          "planned": "GET /api/v1/articles/{id}",
+          "status": "PRESENT"
+        }
+      ]
+    },
+    {
+      "featureId": "ART-08",
+      "scope": "REWRITE",
+      "external": "NONE",
+      "decision": "不可变版本和公开指针；提交、撤回、退回、通过、发布、下线显式转换。替换串行保护、防环、更替后自动迁移关注与强提醒，用户可在信息盒子管理；不保留撤下正文公开入口。",
+      "requiredApiCaseIds": [
+        "combined-filter-no-cross-org",
+        "content-search-match",
+        "literal-like-escaping",
+        "search-filter-and-paginate",
+        "search-pages-do-not-repeat",
+        "search-cursor-binds-filter",
+        "search-reject-unknown-type"
+      ],
+      "requiredBrowserCaseIds": [
+        "client-independent-search-history-and-filter"
+      ],
+      "specialEvidence": null,
+      "acceptanceLimit": "固定的本地场景验收；不证明所有组合、真实平台、Linux、容量或业务签字。",
+      "status": "LOCAL_SCENARIOS_PASSED",
+      "missingEvidence": [],
+      "routes": [
+        {
+          "planned": "GET /api/v1/articles",
+          "status": "PRESENT"
+        }
+      ]
+    },
+    {
+      "featureId": "ART-09",
+      "scope": "REWRITE",
+      "external": "NONE",
+      "decision": "不可变版本和公开指针；提交、撤回、退回、通过、发布、下线显式转换。替换串行保护、防环、更替后自动迁移关注与强提醒，用户可在信息盒子管理；不保留撤下正文公开入口。",
+      "requiredApiCaseIds": [
+        "content-replacement",
+        "replacement-chain-final-target",
+        "replacement-confirmation-replay",
+        "replacement-cycle-denied",
+        "replacement-explicit-confirmation",
+        "replacement-hidden-original-target",
+        "replacement-hidden-target-redacted",
+        "replacement-history-preserved",
+        "replacement-follow-auto-migrated",
+        "replacement-old-offline",
+        "replacement-original-follow-ended",
+        "replacement-other-customer-denied",
+        "replacement-public-none",
+        "replacement-self-denied",
+        "replacement-stale-confirmation",
+        "replacement-unknown-source-denied",
+        "replacement-withdrawn-body-denied"
+      ],
+      "requiredBrowserCaseIds": [
+        "client-replacement-auto-follow-real-ui",
+        "admin-content-replacement-real-ui"
+      ],
+      "specialEvidence": null,
+      "acceptanceLimit": "固定的本地场景验收；不证明所有组合、真实平台、Linux、容量或业务签字。",
+      "status": "LOCAL_SCENARIOS_PASSED",
+      "missingEvidence": [],
+      "routes": [
+        {
+          "planned": "POST /api/v1/staff/articles/{id}/replacements",
+          "status": "COMPOSED",
+          "actualTargets": [
+            "POST /api/v1/admin/articles/{id}/replacement",
+            "GET /api/v1/articles/{id}/replacement",
+            "POST /api/v1/me/follows/articles/{id}/replacement"
+          ],
+          "semantics": "后台替换串行检查有向图；公开投影只返回可见最终目标；客户提交 targetId 明确确认转关注。"
+        },
+        {
+          "planned": "POST /api/v1/me/replacement-decisions",
+          "status": "COMPOSED",
+          "actualTargets": [
+            "POST /api/v1/admin/articles/{id}/replacement",
+            "GET /api/v1/articles/{id}/replacement",
+            "POST /api/v1/me/follows/articles/{id}/replacement"
+          ],
+          "semantics": "后台替换串行检查有向图；公开投影只返回可见最终目标；客户提交 targetId 明确确认转关注。"
+        }
+      ]
+    },
+    {
+      "featureId": "ART-10",
+      "scope": "REWRITE",
+      "external": "NONE",
+      "decision": "不可变版本和公开指针；提交、撤回、退回、通过、发布、下线显式转换。替换串行保护、防环、更替后自动迁移关注与强提醒，用户可在信息盒子管理；不保留撤下正文公开入口。",
+      "requiredApiCaseIds": [
+        "expired-archive-view",
+        "expired-not-current-feed"
+      ],
+      "requiredBrowserCaseIds": [],
+      "specialEvidence": null,
+      "acceptanceLimit": "固定的本地场景验收；不证明所有组合、真实平台、Linux、容量或业务签字。",
+      "status": "LOCAL_SCENARIOS_PASSED",
+      "missingEvidence": [],
+      "routes": [
+        {
+          "planned": "GET /api/v1/staff/articles",
+          "status": "COMPOSED",
+          "actualTargets": [
+            "GET /api/v1/admin/articles",
+            "GET /api/v1/articles/archive"
+          ],
+          "semantics": "后台看全部有权限内容；归档投影不泄露已撤下正文。"
+        },
+        {
+          "planned": "GET /api/v1/me/articles/archive",
+          "status": "COMPOSED",
+          "actualTargets": [
+            "GET /api/v1/admin/articles",
+            "GET /api/v1/articles/archive"
+          ],
+          "semantics": "后台看全部有权限内容；归档投影不泄露已撤下正文。"
+        }
+      ]
+    },
+    {
+      "featureId": "SUB-01",
+      "scope": "REWRITE",
+      "external": "NONE",
+      "decision": "关注、收藏、隐藏、确切版本已读相互独立；取消关注才停止订阅，隐藏不取消；新发布版本重新成为未读。",
+      "requiredApiCaseIds": [
+        "keyword-follow"
+      ],
+      "requiredBrowserCaseIds": [],
+      "specialEvidence": null,
+      "acceptanceLimit": "固定的本地场景验收；不证明所有组合、真实平台、Linux、容量或业务签字。",
+      "status": "LOCAL_SCENARIOS_PASSED",
+      "missingEvidence": [],
+      "routes": [
+        {
+          "planned": "PUT /api/v1/me/follows",
+          "status": "REPLACED",
+          "actualTargets": [
+            "PUT /api/v1/me/follows/{type}/{id}"
+          ],
+          "semantics": "type=KEYWORD，enabled=true/false 分别订阅/取消，保持幂等。"
+        },
+        {
+          "planned": "DELETE /api/v1/me/follows/{targetType}/{targetId}",
+          "status": "REPLACED",
+          "actualTargets": [
+            "PUT /api/v1/me/follows/{type}/{id}"
+          ],
+          "semantics": "type=KEYWORD，enabled=true/false 分别订阅/取消，保持幂等。"
+        }
+      ]
+    },
+    {
+      "featureId": "SUB-02",
+      "scope": "REWRITE",
+      "external": "NONE",
+      "decision": "关注、收藏、隐藏、确切版本已读相互独立；取消关注才停止订阅，隐藏不取消；新发布版本重新成为未读。",
+      "requiredApiCaseIds": [
+        "article-follow",
+        "replacement-explicit-confirmation",
+        "replacement-follow-auto-migrated",
+        "replacement-original-follow-ended",
+        "replacement-other-customer-denied"
+      ],
+      "requiredBrowserCaseIds": [],
+      "specialEvidence": null,
+      "acceptanceLimit": "固定的本地场景验收；不证明所有组合、真实平台、Linux、容量或业务签字。",
+      "status": "LOCAL_SCENARIOS_PASSED",
+      "missingEvidence": [],
+      "routes": [
+        {
+          "planned": "PUT /api/v1/me/follows",
+          "status": "REPLACED",
+          "actualTargets": [
+            "PUT /api/v1/me/follows/{type}/{id}"
+          ],
+          "semantics": "type=ARTICLE，enabled=true/false 分别关注/取消；替换不自动转移。"
+        },
+        {
+          "planned": "DELETE /api/v1/me/follows/{targetType}/{targetId}",
+          "status": "REPLACED",
+          "actualTargets": [
+            "PUT /api/v1/me/follows/{type}/{id}"
+          ],
+          "semantics": "type=ARTICLE，enabled=true/false 分别关注/取消；替换不自动转移。"
+        }
+      ]
+    },
+    {
+      "featureId": "SUB-03",
+      "scope": "REWRITE",
+      "external": "NONE",
+      "decision": "关注、收藏、隐藏、确切版本已读相互独立；取消关注才停止订阅，隐藏不取消；新发布版本重新成为未读。",
+      "requiredApiCaseIds": [
+        "subscription-boxes",
+        "label-box-unread-exact-membership",
+        "label-read-decrements-box"
+      ],
+      "requiredBrowserCaseIds": [],
+      "specialEvidence": null,
+      "acceptanceLimit": "固定的本地场景验收；不证明所有组合、真实平台、Linux、容量或业务签字。",
+      "status": "LOCAL_SCENARIOS_PASSED",
+      "missingEvidence": [],
+      "routes": [
+        {
+          "planned": "GET /api/v1/me/follows",
+          "status": "PRESENT"
+        }
+      ]
+    },
+    {
+      "featureId": "SUB-04",
+      "scope": "REWRITE",
+      "external": "NONE",
+      "decision": "关注、收藏、隐藏、确切版本已读相互独立；取消关注才停止订阅，隐藏不取消；新发布版本重新成为未读。",
+      "requiredApiCaseIds": [
+        "subscription-boxes"
+      ],
+      "requiredBrowserCaseIds": [],
+      "specialEvidence": null,
+      "acceptanceLimit": "固定的本地场景验收；不证明所有组合、真实平台、Linux、容量或业务签字。",
+      "status": "LOCAL_SCENARIOS_PASSED",
+      "missingEvidence": [],
+      "routes": [
+        {
+          "planned": "GET /api/v1/me/subscription-feed",
+          "status": "REPLACED",
+          "actualTargets": [
+            "GET /api/v1/me/subscription-boxes"
+          ],
+          "semantics": "盒子同时返回当前可见资讯 items，避免另外维护聚合流。"
+        }
+      ]
+    },
+    {
+      "featureId": "SUB-05",
+      "scope": "REWRITE",
+      "external": "NONE",
+      "decision": "关注、收藏、隐藏、确切版本已读相互独立；取消关注才停止订阅，隐藏不取消；新发布版本重新成为未读。",
+      "requiredApiCaseIds": [
+        "cross-user-box-denied",
+        "hide-keeps-follow"
+      ],
+      "requiredBrowserCaseIds": [],
+      "specialEvidence": null,
+      "acceptanceLimit": "固定的本地场景验收；不证明所有组合、真实平台、Linux、容量或业务签字。",
+      "status": "LOCAL_SCENARIOS_PASSED",
+      "missingEvidence": [],
+      "routes": [
+        {
+          "planned": "PUT /api/v1/me/boxes/{id}/visibility",
+          "status": "REPLACED",
+          "actualTargets": [
+            "PUT /api/v1/me/subscription-boxes/{id}/hidden"
+          ],
+          "semantics": "hidden 控制盒子偏好，不删除关注。"
+        }
+      ]
+    },
+    {
+      "featureId": "SUB-06",
+      "scope": "REWRITE",
+      "external": "NONE",
+      "decision": "关注、收藏、隐藏、确切版本已读相互独立；取消关注才停止订阅，隐藏不取消；新发布版本重新成为未读。",
+      "requiredApiCaseIds": [
+        "revision-returns-unread",
+        "subscription-boxes"
+      ],
+      "requiredBrowserCaseIds": [],
+      "specialEvidence": null,
+      "acceptanceLimit": "固定的本地场景验收；不证明所有组合、真实平台、Linux、容量或业务签字。",
+      "status": "LOCAL_SCENARIOS_PASSED",
+      "missingEvidence": [],
+      "routes": [
+        {
+          "planned": "GET /api/v1/me/subscription-summary",
+          "status": "REPLACED",
+          "actualTargets": [
+            "GET /api/v1/me/subscription-boxes"
+          ],
+          "semantics": "items.unread 比较用户已读版本与当前发布版本，unreadCount 返回盒子汇总。"
+        }
+      ]
+    },
+    {
+      "featureId": "ENG-01",
+      "scope": "REWRITE",
+      "external": "NONE",
+      "decision": "每位客户只操作自身记录。浏览/曝光不自动已读；分享是行为而非真实外部送达证明；举报和反馈处理需要工作人员权限。",
+      "requiredApiCaseIds": [
+        "favorite"
+      ],
+      "requiredBrowserCaseIds": [],
+      "specialEvidence": null,
+      "acceptanceLimit": "固定的本地场景验收；不证明所有组合、真实平台、Linux、容量或业务签字。",
+      "status": "LOCAL_SCENARIOS_PASSED",
+      "missingEvidence": [],
+      "routes": [
+        {
+          "planned": "PUT /api/v1/me/favorites/{id}",
+          "status": "PRESENT"
+        },
+        {
+          "planned": "DELETE /api/v1/me/favorites/{id}",
+          "status": "REPLACED",
+          "actualTargets": [
+            "PUT /api/v1/me/favorites/{id}"
+          ],
+          "semantics": "enabled=false 取消；已有收藏记录按当前可见内容投影。"
+        }
+      ]
+    },
+    {
+      "featureId": "ENG-02",
+      "scope": "REWRITE",
+      "external": "NONE",
+      "decision": "每位客户只操作自身记录。浏览/曝光不自动已读；分享是行为而非真实外部送达证明；举报和反馈处理需要工作人员权限。",
+      "requiredApiCaseIds": [
+        "favorite",
+        "favorites-clear"
+      ],
+      "requiredBrowserCaseIds": [],
+      "specialEvidence": null,
+      "acceptanceLimit": "固定的本地场景验收；不证明所有组合、真实平台、Linux、容量或业务签字。",
+      "status": "LOCAL_SCENARIOS_PASSED",
+      "missingEvidence": [],
+      "routes": [
+        {
+          "planned": "GET /api/v1/me/favorites",
+          "status": "PRESENT"
+        }
+      ]
+    },
+    {
+      "featureId": "ENG-03",
+      "scope": "REWRITE",
+      "external": "NONE",
+      "decision": "每位客户只操作自身记录。浏览/曝光不自动已读；分享是行为而非真实外部送达证明；举报和反馈处理需要工作人员权限。",
+      "requiredApiCaseIds": [
+        "browse",
+        "replacement-history-preserved",
+        "history-individual-delete"
+      ],
+      "requiredBrowserCaseIds": [],
+      "specialEvidence": null,
+      "acceptanceLimit": "固定的本地场景验收；不证明所有组合、真实平台、Linux、容量或业务签字。",
+      "status": "LOCAL_SCENARIOS_PASSED",
+      "missingEvidence": [],
+      "routes": [
+        {
+          "planned": "POST /api/v1/me/articles/{id}/browse",
+          "status": "REPLACED",
+          "actualTargets": [
+            "POST /api/v1/me/history/{id}"
+          ],
+          "semantics": "服务验证资讯当前公开后记浏览；清理采用 DELETE /api/v1/me/history。"
+        },
+        {
+          "planned": "GET /api/v1/me/history",
+          "status": "PRESENT"
+        },
+        {
+          "planned": "DELETE /api/v1/me/history",
+          "status": "PRESENT"
+        }
+      ]
+    },
+    {
+      "featureId": "ENG-04",
+      "scope": "REWRITE",
+      "external": "NONE",
+      "decision": "每位客户只操作自身记录。浏览/曝光不自动已读；分享是行为而非真实外部送达证明；举报和反馈处理需要工作人员权限。",
+      "requiredApiCaseIds": [
+        "read-exact-version",
+        "read-old-version-rejected"
+      ],
+      "requiredBrowserCaseIds": [
+        "client-exact-version-conflict-refresh-real-ui"
+      ],
+      "specialEvidence": null,
+      "acceptanceLimit": "固定的本地场景验收；不证明所有组合、真实平台、Linux、容量或业务签字。",
+      "status": "LOCAL_SCENARIOS_PASSED",
+      "missingEvidence": [],
+      "routes": [
+        {
+          "planned": "PUT /api/v1/me/articles/{id}/read",
+          "status": "REPLACED",
+          "actualTargets": [
+            "PUT /api/v1/me/read/{id}"
+          ],
+          "semantics": "请求版本必须与当前发布版本相同；409 由客户端重新加载且再次确认。"
+        }
+      ]
+    },
+    {
+      "featureId": "ENG-05",
+      "scope": "REWRITE",
+      "external": "NONE",
+      "decision": "每位客户只操作自身记录。浏览/曝光不自动已读；分享是行为而非真实外部送达证明；举报和反馈处理需要工作人员权限。",
+      "requiredApiCaseIds": [
+        "behavior-SHARE"
+      ],
+      "requiredBrowserCaseIds": [],
+      "specialEvidence": null,
+      "acceptanceLimit": "固定的本地场景验收；不证明所有组合、真实平台、Linux、容量或业务签字。",
+      "status": "LOCAL_SCENARIOS_PASSED",
+      "missingEvidence": [],
+      "routes": [
+        {
+          "planned": "POST /api/v1/events",
+          "status": "REPLACED",
+          "actualTargets": [
+            "POST /api/v1/me/events"
+          ],
+          "semantics": "分享等事件类型在 body.type，登录用户、事件ID去重与服务冷却共同校验。"
+        }
+      ]
+    },
+    {
+      "featureId": "ENG-06",
+      "scope": "REWRITE",
+      "external": "NONE",
+      "decision": "每位客户只操作自身记录。浏览/曝光不自动已读；分享是行为而非真实外部送达证明；举报和反馈处理需要工作人员权限。",
+      "requiredApiCaseIds": [
+        "report-customer-cannot-handle",
+        "report-handler"
+      ],
+      "requiredBrowserCaseIds": [],
+      "specialEvidence": null,
+      "acceptanceLimit": "固定的本地场景验收；不证明所有组合、真实平台、Linux、容量或业务签字。",
+      "status": "LOCAL_SCENARIOS_PASSED",
+      "missingEvidence": [],
+      "routes": [
+        {
+          "planned": "POST /api/v1/me/reports",
+          "status": "COMPOSED",
+          "actualTargets": [
+            "POST /api/v1/me/reports/{id}",
+            "POST /api/v1/admin/moderation/{kind}/{id}"
+          ],
+          "semantics": "客户路径 id 是 articleId；处理 kind=reports，决定为 RESOLVED/DISMISSED。"
+        },
+        {
+          "planned": "POST /api/v1/staff/reports/{id}/resolve",
+          "status": "COMPOSED",
+          "actualTargets": [
+            "POST /api/v1/me/reports/{id}",
+            "POST /api/v1/admin/moderation/{kind}/{id}"
+          ],
+          "semantics": "客户路径 id 是 articleId；处理 kind=reports，决定为 RESOLVED/DISMISSED。"
+        }
+      ]
+    },
+    {
+      "featureId": "ENG-07",
+      "scope": "REWRITE",
+      "external": "NONE",
+      "decision": "每位客户只操作自身记录。浏览/曝光不自动已读；分享是行为而非真实外部送达证明；举报和反馈处理需要工作人员权限。",
+      "requiredApiCaseIds": [
+        "feedback-handler",
+        "feedback-owned-list"
+      ],
+      "requiredBrowserCaseIds": [],
+      "specialEvidence": null,
+      "acceptanceLimit": "固定的本地场景验收；不证明所有组合、真实平台、Linux、容量或业务签字。",
+      "status": "LOCAL_SCENARIOS_PASSED",
+      "missingEvidence": [],
+      "routes": [
+        {
+          "planned": "POST /api/v1/me/feedback",
+          "status": "PRESENT"
+        },
+        {
+          "planned": "GET /api/v1/me/feedback",
+          "status": "PRESENT"
+        },
+        {
+          "planned": "POST /api/v1/staff/feedback/{id}/resolve",
+          "status": "REPLACED",
+          "actualTargets": [
+            "POST /api/v1/admin/moderation/{kind}/{id}"
+          ],
+          "semantics": "kind=feedback；客户反馈写入另有已存在的 /api/v1/me/feedback。"
+        }
+      ]
+    },
+    {
+      "featureId": "NOT-01",
+      "scope": "REWRITE",
+      "external": "PLATFORM_PENDING",
+      "decision": "本地授权、额度、发送是纯合成通道；修改/暂停提升规则版本，旧任务失效；UNKNOWN 保留预占且不盲重试；真实绑定/模板/传输接线需要确认的平台用途。",
+      "requiredApiCaseIds": [
+        "rule-cross-user-denied",
+        "rule-edit-other-customer-denied",
+        "rule-invalid-quiet-window-denied",
+        "rule-pause-keeps-settings",
+        "rule-pause-persists-and-is-boolean",
+        "rule-resume-current-version",
+        "rule-stale-edit-denied",
+        "retired-official-channel-rejected"
+      ],
+      "requiredBrowserCaseIds": [
+        "client-reminder-edit-pause-resume-real-ui",
+        "client-reminder-independent-subpages"
+      ],
+      "specialEvidence": null,
+      "acceptanceLimit": "固定的本地场景验收；不证明所有组合、真实平台、Linux、容量或业务签字。",
+      "status": "LOCAL_SCENARIOS_PASSED_PLATFORM_PENDING",
+      "missingEvidence": [],
+      "routes": [
+        {
+          "planned": "GET /api/v1/me/notifications/rules",
+          "status": "PRESENT"
+        },
+        {
+          "planned": "POST /api/v1/me/notifications/rules",
+          "status": "PRESENT"
+        },
+        {
+          "planned": "PATCH /api/v1/me/notifications/rules/{id}",
+          "status": "REPLACED",
+          "actualTargets": [
+            "PUT /api/v1/me/notifications/rules/{id}"
+          ],
+          "semantics": "更新整个规则并提交 expectedVersion；本地规则验收与真实平台送达分别判定。"
+        }
+      ]
+    },
+    {
+      "featureId": "NOT-02",
+      "scope": "REWRITE",
+      "external": "PLATFORM_PENDING",
+      "decision": "本地授权、额度、发送是纯合成通道；修改/暂停提升规则版本，旧任务失效；UNKNOWN 保留预占且不盲重试；真实绑定/模板/传输接线需要确认的平台用途。",
+      "requiredApiCaseIds": [
+        "time-reminder-dispatch",
+        "time-reminder-only-once"
+      ],
+      "requiredBrowserCaseIds": [],
+      "specialEvidence": null,
+      "acceptanceLimit": "固定的本地场景验收；不证明所有组合、真实平台、Linux、容量或业务签字。",
+      "status": "LOCAL_SCENARIOS_PASSED_PLATFORM_PENDING",
+      "missingEvidence": [],
+      "routes": [
+        {
+          "planned": "POST /api/v1/me/notifications/rules",
+          "status": "PRESENT"
+        },
+        {
+          "planned": "WORKER due-notifications",
+          "status": "NON_HTTP_DELIVERY"
+        }
+      ]
+    },
+    {
+      "featureId": "NOT-03",
+      "scope": "REWRITE",
+      "external": "PLATFORM_PENDING",
+      "decision": "本地授权、额度、发送是纯合成通道；修改/暂停提升规则版本，旧任务失效；UNKNOWN 保留预占且不盲重试；真实绑定/模板/传输接线需要确认的平台用途。",
+      "requiredApiCaseIds": [
+        "daily-next-run-advanced",
+        "daily-summary-snapshot"
+      ],
+      "requiredBrowserCaseIds": [],
+      "specialEvidence": null,
+      "acceptanceLimit": "固定的本地场景验收；不证明所有组合、真实平台、Linux、容量或业务签字。",
+      "status": "LOCAL_SCENARIOS_PASSED_PLATFORM_PENDING",
+      "missingEvidence": [],
+      "routes": [
+        {
+          "planned": "WORKER daily-digests",
+          "status": "NON_HTTP_DELIVERY"
+        }
+      ]
+    },
+    {
+      "featureId": "NOT-04",
+      "scope": "REWRITE",
+      "external": "PLATFORM_PENDING",
+      "decision": "本地授权、额度、发送是纯合成通道；修改/暂停提升规则版本，旧任务失效；UNKNOWN 保留预占且不盲重试；真实绑定/模板/传输接线需要确认的平台用途。",
+      "requiredApiCaseIds": [
+        "instant-outbox-dispatch",
+        "notification-sent-local"
+      ],
+      "requiredBrowserCaseIds": [],
+      "specialEvidence": null,
+      "acceptanceLimit": "固定的本地场景验收；不证明所有组合、真实平台、Linux、容量或业务签字。",
+      "status": "LOCAL_SCENARIOS_PASSED_PLATFORM_PENDING",
+      "missingEvidence": [],
+      "routes": [
+        {
+          "planned": "WORKER article-published-consumer",
+          "status": "NON_HTTP_DELIVERY"
+        }
+      ]
+    },
+    {
+      "featureId": "NOT-05",
+      "scope": "REWRITE",
+      "external": "PLATFORM_PENDING",
+      "decision": "本地授权、额度、发送是纯合成通道；修改/暂停提升规则版本，旧任务失效；UNKNOWN 保留预占且不盲重试；真实绑定/模板/传输接线需要确认的平台用途。",
+      "requiredApiCaseIds": [
+        "cancel-reminder",
+        "rule-pause-keeps-settings",
+        "rule-resume-current-version"
+      ],
+      "requiredBrowserCaseIds": [
+        "customer-reminder-create-pause-real-ui",
+        "client-reminder-edit-pause-resume-real-ui"
+      ],
+      "specialEvidence": null,
+      "acceptanceLimit": "固定的本地场景验收；不证明所有组合、真实平台、Linux、容量或业务签字。",
+      "status": "LOCAL_SCENARIOS_PASSED_PLATFORM_PENDING",
+      "missingEvidence": [],
+      "routes": [
+        {
+          "planned": "PATCH /api/v1/me/notifications/rules/{id}",
+          "status": "REPLACED",
+          "actualTargets": [
+            "PUT /api/v1/me/notifications/rules/{id}"
+          ],
+          "semantics": "enabled=false 暂停；DELETE 明确取消；规则版本变更使待发送任务取消。"
+        },
+        {
+          "planned": "DELETE /api/v1/me/notifications/rules/{id}",
+          "status": "PRESENT"
+        }
+      ]
+    },
+    {
+      "featureId": "NOT-06",
+      "scope": "REWRITE",
+      "external": "PLATFORM_PENDING",
+      "decision": "本地授权、额度、发送是纯合成通道；修改/暂停提升规则版本，旧任务失效；UNKNOWN 保留预占且不盲重试；真实绑定/模板/传输接线需要确认的平台用途。",
+      "requiredApiCaseIds": [
+        "quota-callback-conflict",
+        "quota-callback-dedup",
+        "quota-cannot-mint-without-secret"
+      ],
+      "requiredBrowserCaseIds": [],
+      "specialEvidence": null,
+      "acceptanceLimit": "固定的本地场景验收；不证明所有组合、真实平台、Linux、容量或业务签字。",
+      "status": "LOCAL_SCENARIOS_PASSED_PLATFORM_PENDING",
+      "missingEvidence": [],
+      "routes": [
+        {
+          "planned": "POST /api/v1/me/notifications/authorizations",
+          "status": "PLATFORM_PENDING",
+          "actualTargets": [],
+          "semantics": "真实平台授权/回调需要独立资源和供应商协议联调；本地合成入口不作为生产替代。"
+        }
+      ]
+    },
+    {
+      "featureId": "NOT-07",
+      "scope": "REWRITE",
+      "external": "PLATFORM_PENDING",
+      "decision": "本地授权、额度、发送是纯合成通道；修改/暂停提升规则版本，旧任务失效；UNKNOWN 保留预占且不盲重试；真实绑定/模板/传输接线需要确认的平台用途。",
+      "requiredApiCaseIds": [
+        "channel-bind-status"
+      ],
+      "requiredBrowserCaseIds": [],
+      "specialEvidence": null,
+      "acceptanceLimit": "固定的本地场景验收；不证明所有组合、真实平台、Linux、容量或业务签字。",
+      "status": "LOCAL_SCENARIOS_PASSED_PLATFORM_PENDING",
+      "missingEvidence": [],
+      "routes": [
+        {
+          "planned": "GET /api/v1/me/notifications/bindings",
+          "status": "COMPOSED",
+          "actualTargets": [
+            "GET /api/v1/me/notifications/status"
+          ],
+          "semantics": "绑定状态集中在 status.bindings；真正的绑定证明和回调仍待平台资源。"
+        },
+        {
+          "planned": "POST /api/v1/notifications/callbacks/official-account",
+          "status": "PLATFORM_PENDING",
+          "actualTargets": [],
+          "semantics": "真实平台授权/回调需要独立资源和供应商协议联调；本地合成入口不作为生产替代。"
+        }
+      ]
+    },
+    {
+      "featureId": "NOT-08",
+      "scope": "REWRITE",
+      "external": "PLATFORM_PENDING",
+      "decision": "本地授权、额度、发送是纯合成通道；修改/暂停提升规则版本，旧任务失效；UNKNOWN 保留预占且不盲重试；真实绑定/模板/传输接线需要确认的平台用途。",
+      "requiredApiCaseIds": [
+        "channel-bind-status"
+      ],
+      "requiredBrowserCaseIds": [],
+      "specialEvidence": null,
+      "acceptanceLimit": "固定的本地场景验收；不证明所有组合、真实平台、Linux、容量或业务签字。",
+      "status": "LOCAL_SCENARIOS_PASSED_PLATFORM_PENDING",
+      "missingEvidence": [],
+      "routes": [
+        {
+          "planned": "POST /api/v1/me/notifications/wecom-binding",
+          "status": "PLATFORM_PENDING",
+          "actualTargets": [],
+          "semantics": "真实平台授权/回调需要独立资源和供应商协议联调；本地合成入口不作为生产替代。"
+        },
+        {
+          "planned": "POST /api/v1/notifications/callbacks/wecom",
+          "status": "PLATFORM_PENDING",
+          "actualTargets": [],
+          "semantics": "真实平台授权/回调需要独立资源和供应商协议联调；本地合成入口不作为生产替代。"
+        }
+      ]
+    },
+    {
+      "featureId": "NOT-09",
+      "scope": "REWRITE",
+      "external": "PLATFORM_PENDING",
+      "decision": "本地授权、额度、发送是纯合成通道；修改/暂停提升规则版本，旧任务失效；UNKNOWN 保留预占且不盲重试；真实绑定/模板/传输接线需要确认的平台用途。",
+      "requiredApiCaseIds": [
+        "duplicate-worker-no-double-charge",
+        "quota-callback-dedup",
+        "quota-release-consistent",
+        "retry-reserves-only-once",
+        "unknown-invalid-evidence-keeps-reservation"
+      ],
+      "requiredBrowserCaseIds": [],
+      "specialEvidence": null,
+      "acceptanceLimit": "固定的本地场景验收；不证明所有组合、真实平台、Linux、容量或业务签字。",
+      "status": "LOCAL_SCENARIOS_PASSED_PLATFORM_PENDING",
+      "missingEvidence": [],
+      "routes": [
+        {
+          "planned": "WORKER reserve-quota",
+          "status": "NON_HTTP_DELIVERY"
+        },
+        {
+          "planned": "GET /api/v1/me/notifications/quota",
+          "status": "REPLACED",
+          "actualTargets": [
+            "GET /api/v1/me/notifications/status"
+          ],
+          "semantics": "quotas 与 bindings 合并在 status；本地合成账本已验收，真实配额凭据仍待平台。"
+        }
+      ]
+    },
+    {
+      "featureId": "NOT-10",
+      "scope": "REWRITE",
+      "external": "PLATFORM_PENDING",
+      "decision": "本地授权、额度、发送是纯合成通道；修改/暂停提升规则版本，旧任务失效；UNKNOWN 保留预占且不盲重试；真实绑定/模板/传输接线需要确认的平台用途。",
+      "requiredApiCaseIds": [
+        "notification-unknown-freeze",
+        "retry-success",
+        "retryable-not-settled",
+        "unknown-evidence-audit-persisted",
+        "unknown-evidence-reconcile",
+        "unknown-invalid-evidence-keeps-reservation",
+        "unknown-no-automatic-retry",
+        "unknown-reconcile-needs-evidence"
+      ],
+      "requiredBrowserCaseIds": [],
+      "specialEvidence": null,
+      "acceptanceLimit": "固定的本地场景验收；不证明所有组合、真实平台、Linux、容量或业务签字。",
+      "status": "LOCAL_SCENARIOS_PASSED_PLATFORM_PENDING",
+      "missingEvidence": [],
+      "routes": [
+        {
+          "planned": "GET /api/v1/me/notifications/deliveries",
+          "status": "PRESENT"
+        },
+        {
+          "planned": "WORKER delivery-retry",
+          "status": "NON_HTTP_DELIVERY"
+        }
+      ]
+    },
+    {
+      "featureId": "ACT-01",
+      "scope": "REWRITE",
+      "external": "NONE",
+      "decision": "表单绑定版本，提交需必填答案；容量事务防超卖，取消按候补顺序晋升；名单导出同时要求管理和独立导出权限。",
+      "requiredApiCaseIds": [
+        "activity-public",
+        "public-domain-boundaries-redact-staff-fields"
+      ],
+      "requiredBrowserCaseIds": [],
+      "specialEvidence": null,
+      "acceptanceLimit": "固定的本地场景验收；不证明所有组合、真实平台、Linux、容量或业务签字。",
+      "status": "LOCAL_SCENARIOS_PASSED",
+      "missingEvidence": [],
+      "routes": [
+        {
+          "planned": "GET /api/v1/activities",
+          "status": "PRESENT"
+        },
+        {
+          "planned": "GET /api/v1/activities/{id}",
+          "status": "PRESENT"
+        }
+      ]
+    },
+    {
+      "featureId": "ACT-02",
+      "scope": "REWRITE",
+      "external": "NONE",
+      "decision": "表单绑定版本，提交需必填答案；容量事务防超卖，取消按候补顺序晋升；名单导出同时要求管理和独立导出权限。",
+      "requiredApiCaseIds": [
+        "activity-required-answer",
+        "capacity-parallel-no-oversell"
+      ],
+      "requiredBrowserCaseIds": [],
+      "specialEvidence": null,
+      "acceptanceLimit": "固定的本地场景验收；不证明所有组合、真实平台、Linux、容量或业务签字。",
+      "status": "LOCAL_SCENARIOS_PASSED",
+      "missingEvidence": [],
+      "routes": [
+        {
+          "planned": "POST /api/v1/activities/{id}/registrations",
+          "status": "REPLACED",
+          "actualTargets": [
+            "POST /api/v1/me/activities/{id}/registration"
+          ],
+          "semantics": "登录用户提交最新 formVersionId 和答案；活动表单在公开详情 form。"
+        }
+      ]
+    },
+    {
+      "featureId": "ACT-03",
+      "scope": "REWRITE",
+      "external": "NONE",
+      "decision": "表单绑定版本，提交需必填答案；容量事务防超卖，取消按候补顺序晋升；名单导出同时要求管理和独立导出权限。",
+      "requiredApiCaseIds": [
+        "capacity-ledger-consistent",
+        "capacity-parallel-no-oversell",
+        "duplicate-registration-no-capacity-loss",
+        "promoted-state"
+      ],
+      "requiredBrowserCaseIds": [],
+      "specialEvidence": null,
+      "acceptanceLimit": "固定的本地场景验收；不证明所有组合、真实平台、Linux、容量或业务签字。",
+      "status": "LOCAL_SCENARIOS_PASSED",
+      "missingEvidence": [],
+      "routes": [
+        {
+          "planned": "WORKER promote-waitlist",
+          "status": "NON_HTTP_DELIVERY"
+        },
+        {
+          "planned": "POST /api/v1/activities/{id}/registrations",
+          "status": "REPLACED",
+          "actualTargets": [
+            "POST /api/v1/me/activities/{id}/registration"
+          ],
+          "semantics": "同一操作在行锁内确定确认/候补状态，无需客户选择候补接口。"
+        }
+      ]
+    },
+    {
+      "featureId": "ACT-04",
+      "scope": "REWRITE",
+      "external": "NONE",
+      "decision": "表单绑定版本，提交需必填答案；容量事务防超卖，取消按候补顺序晋升；名单导出同时要求管理和独立导出权限。",
+      "requiredApiCaseIds": [
+        "cancel-promotes-oldest",
+        "promoted-state"
+      ],
+      "requiredBrowserCaseIds": [],
+      "specialEvidence": null,
+      "acceptanceLimit": "固定的本地场景验收；不证明所有组合、真实平台、Linux、容量或业务签字。",
+      "status": "LOCAL_SCENARIOS_PASSED",
+      "missingEvidence": [],
+      "routes": [
+        {
+          "planned": "GET /api/v1/me/registrations",
+          "status": "PRESENT"
+        },
+        {
+          "planned": "DELETE /api/v1/me/registrations/{id}",
+          "status": "REPLACED",
+          "actualTargets": [
+            "DELETE /api/v1/me/activities/{id}/registration"
+          ],
+          "semantics": "路径 id 是活动ID，服务只取消当前用户报名；取消后递补最早候补。"
+        }
+      ]
+    },
+    {
+      "featureId": "ACT-05",
+      "scope": "REWRITE",
+      "external": "NONE",
+      "decision": "表单绑定版本，提交需必填答案；容量事务防超卖，取消按候补顺序晋升；名单导出同时要求管理和独立导出权限。",
+      "requiredApiCaseIds": [
+        "activity-admin-read",
+        "activity-export-content-and-replay",
+        "export-anonymous-denied",
+        "export-creator-denied",
+        "export-customer-denied"
+      ],
+      "requiredBrowserCaseIds": [
+        "admin-activity-participant-export-real-ui"
+      ],
+      "specialEvidence": null,
+      "acceptanceLimit": "固定的本地场景验收；不证明所有组合、真实平台、Linux、容量或业务签字。",
+      "status": "LOCAL_SCENARIOS_PASSED",
+      "missingEvidence": [],
+      "routes": [
+        {
+          "planned": "POST /api/v1/staff/activities",
+          "status": "COMPOSED",
+          "actualTargets": [
+            "POST /api/v1/admin/activities",
+            "GET /api/v1/admin/activities/{id}",
+            "POST /api/v1/admin/exports"
+          ],
+          "semantics": "详情包含 form 和 registrations；导出 dataset=activity-registrations/activityId 且同时检查管理与导出权限。"
+        },
+        {
+          "planned": "GET /api/v1/staff/activities/{id}/registrations",
+          "status": "COMPOSED",
+          "actualTargets": [
+            "POST /api/v1/admin/activities",
+            "GET /api/v1/admin/activities/{id}",
+            "POST /api/v1/admin/exports"
+          ],
+          "semantics": "详情包含 form 和 registrations；导出 dataset=activity-registrations/activityId 且同时检查管理与导出权限。"
+        },
+        {
+          "planned": "POST /api/v1/staff/activities/{id}/exports",
+          "status": "COMPOSED",
+          "actualTargets": [
+            "POST /api/v1/admin/activities",
+            "GET /api/v1/admin/activities/{id}",
+            "POST /api/v1/admin/exports"
+          ],
+          "semantics": "详情包含 form 和 registrations；导出 dataset=activity-registrations/activityId 且同时检查管理与导出权限。"
+        }
+      ]
+    },
+    {
+      "featureId": "REV-01",
+      "scope": "REWRITE",
+      "external": "NONE",
+      "decision": "项目要求发布后申报引用冻结；材料私有，申报版本不可覆盖；补正/撤回与确切提交、评审范围绑定。",
+      "requiredApiCaseIds": [
+        "public-domain-boundaries-redact-staff-fields",
+        "review-campaign-admin-detail",
+        "review-campaign-rule-order-is-semantic-noop",
+        "review-campaign-rules-frozen-after-application",
+        "review-campaign-update-stale-denied",
+        "review-private-without-token",
+        "review-project-list"
+      ],
+      "requiredBrowserCaseIds": [],
+      "specialEvidence": null,
+      "acceptanceLimit": "固定的本地场景验收；不证明所有组合、真实平台、Linux、容量或业务签字。",
+      "status": "LOCAL_SCENARIOS_PASSED",
+      "missingEvidence": [],
+      "routes": [
+        {
+          "planned": "POST /api/v1/staff/reviews/campaigns",
+          "status": "COMPOSED",
+          "actualTargets": [
+            "POST /api/v1/admin/review-campaigns",
+            "PUT /api/v1/admin/review-campaigns/{id}"
+          ],
+          "semantics": "requirements 与项目在一个事务保存；产生申报后资格要求冻结，不能更改既有标准。"
+        },
+        {
+          "planned": "PUT /api/v1/staff/reviews/campaigns/{id}/requirements",
+          "status": "COMPOSED",
+          "actualTargets": [
+            "POST /api/v1/admin/review-campaigns",
+            "PUT /api/v1/admin/review-campaigns/{id}"
+          ],
+          "semantics": "requirements 与项目在一个事务保存；产生申报后资格要求冻结，不能更改既有标准。"
+        }
+      ]
+    },
+    {
+      "featureId": "REV-02",
+      "scope": "REWRITE",
+      "external": "NONE",
+      "decision": "项目要求发布后申报引用冻结；材料私有，申报版本不可覆盖；补正/撤回与确切提交、评审范围绑定。",
+      "requiredApiCaseIds": [
+        "review-eligibility",
+        "review-eligibility-negative"
+      ],
+      "requiredBrowserCaseIds": [],
+      "specialEvidence": null,
+      "acceptanceLimit": "固定的本地场景验收；不证明所有组合、真实平台、Linux、容量或业务签字。",
+      "status": "LOCAL_SCENARIOS_PASSED",
+      "missingEvidence": [],
+      "routes": [
+        {
+          "planned": "GET /api/v1/reviews/campaigns/{id}/eligibility",
+          "status": "REPLACED",
+          "actualTargets": [
+            "GET /api/v1/me/review-campaigns/{id}/eligibility"
+          ],
+          "semantics": "资格基于当前登录用户，返回 eligible 与不满足的规则键。"
+        }
+      ]
+    },
+    {
+      "featureId": "REV-03",
+      "scope": "REWRITE",
+      "external": "NONE",
+      "decision": "项目要求发布后申报引用冻结；材料私有，申报版本不可覆盖；补正/撤回与确切提交、评审范围绑定。",
+      "requiredApiCaseIds": [
+        "application-cross-user"
+      ],
+      "requiredBrowserCaseIds": [],
+      "specialEvidence": null,
+      "acceptanceLimit": "固定的本地场景验收；不证明所有组合、真实平台、Linux、容量或业务签字。",
+      "status": "LOCAL_SCENARIOS_PASSED",
+      "missingEvidence": [],
+      "routes": [
+        {
+          "planned": "POST /api/v1/reviews/campaigns/{id}/applications",
+          "status": "REPLACED",
+          "actualTargets": [
+            "POST /api/v1/me/review-campaigns/{id}/draft"
+          ],
+          "semantics": "草稿保存生成新提交版本，材料包含在 Materials 请求；不用任意 PATCH 改冻结的历史。"
+        },
+        {
+          "planned": "PATCH /api/v1/me/review-applications/{id}",
+          "status": "REPLACED",
+          "actualTargets": [
+            "POST /api/v1/me/review-campaigns/{id}/draft"
+          ],
+          "semantics": "草稿保存生成新提交版本，材料包含在 Materials 请求；不用任意 PATCH 改冻结的历史。"
+        }
+      ]
+    },
+    {
+      "featureId": "REV-04",
+      "scope": "REWRITE",
+      "external": "NONE",
+      "decision": "项目要求发布后申报引用冻结；材料私有，申报版本不可覆盖；补正/撤回与确切提交、评审范围绑定。",
+      "requiredApiCaseIds": [
+        "private-file-cross-user",
+        "review-campaign-rule-order-is-semantic-noop",
+        "review-campaign-rules-frozen-after-application",
+        "submitted-material-frozen"
+      ],
+      "requiredBrowserCaseIds": [],
+      "specialEvidence": null,
+      "acceptanceLimit": "固定的本地场景验收；不证明所有组合、真实平台、Linux、容量或业务签字。",
+      "status": "LOCAL_SCENARIOS_PASSED",
+      "missingEvidence": [],
+      "routes": [
+        {
+          "planned": "POST /api/v1/me/review-applications/{id}/materials",
+          "status": "COMPOSED",
+          "actualTargets": [
+            "POST /api/v1/me/review-campaigns/{id}/draft",
+            "POST /api/v1/me/files"
+          ],
+          "semantics": "先上传私有文件，再按 requirementKey 保存材料清单；提交后的材料不可原地修改。"
+        }
+      ]
+    },
+    {
+      "featureId": "REV-05",
+      "scope": "REWRITE",
+      "external": "NONE",
+      "decision": "项目要求发布后申报引用冻结；材料私有，申报版本不可覆盖；补正/撤回与确切提交、评审范围绑定。",
+      "requiredApiCaseIds": [
+        "review-required-material",
+        "submitted-material-frozen"
+      ],
+      "requiredBrowserCaseIds": [],
+      "specialEvidence": null,
+      "acceptanceLimit": "固定的本地场景验收；不证明所有组合、真实平台、Linux、容量或业务签字。",
+      "status": "LOCAL_SCENARIOS_PASSED",
+      "missingEvidence": [],
+      "routes": [
+        {
+          "planned": "POST /api/v1/me/review-applications/{id}/submit",
+          "status": "REPLACED",
+          "actualTargets": [
+            "POST /api/v1/me/review-applications/{id}/actions"
+          ],
+          "semantics": "action=SUBMIT/WITHDRAW，submissionId 和 expectedVersion 确保操作确切提交。"
+        },
+        {
+          "planned": "POST /api/v1/me/review-applications/{id}/withdraw",
+          "status": "REPLACED",
+          "actualTargets": [
+            "POST /api/v1/me/review-applications/{id}/actions"
+          ],
+          "semantics": "action=SUBMIT/WITHDRAW，submissionId 和 expectedVersion 确保操作确切提交。"
+        }
+      ]
+    },
+    {
+      "featureId": "REV-06",
+      "scope": "REWRITE",
+      "external": "NONE",
+      "decision": "项目要求发布后申报引用冻结；材料私有，申报版本不可覆盖；补正/撤回与确切提交、评审范围绑定。",
+      "requiredApiCaseIds": [
+        "review-current-decision",
+        "stale-review-version-denied"
+      ],
+      "requiredBrowserCaseIds": [],
+      "specialEvidence": null,
+      "acceptanceLimit": "固定的本地场景验收；不证明所有组合、真实平台、Linux、容量或业务签字。",
+      "status": "LOCAL_SCENARIOS_PASSED",
+      "missingEvidence": [],
+      "routes": [
+        {
+          "planned": "POST /api/v1/staff/reviews/applications/{id}/decisions",
+          "status": "COMPOSED",
+          "actualTargets": [
+            "POST /api/v1/admin/review-applications/{id}/decisions",
+            "POST /api/v1/admin/files/{id}/tickets"
+          ],
+          "semantics": "审核决定绑定 submissionId；私有票据按评审组织范围校验且只能使用一次。"
+        },
+        {
+          "planned": "POST /api/v1/staff/reviews/materials/{id}/tickets",
+          "status": "COMPOSED",
+          "actualTargets": [
+            "POST /api/v1/admin/review-applications/{id}/decisions",
+            "POST /api/v1/admin/files/{id}/tickets"
+          ],
+          "semantics": "审核决定绑定 submissionId；私有票据按评审组织范围校验且只能使用一次。"
+        }
+      ]
+    },
+    {
+      "featureId": "RES-01",
+      "scope": "REWRITE",
+      "external": "NONE",
+      "decision": "公开目录只显示当前发布内容；历史文件元数据留存但下载授权随当前关系撤销；插件版本及校验和不可变。",
+      "requiredApiCaseIds": [
+        "public-domain-boundaries-redact-staff-fields",
+        "resource-published-files",
+        "subject-edit-and-stale-denial"
+      ],
+      "requiredBrowserCaseIds": [],
+      "specialEvidence": null,
+      "acceptanceLimit": "固定的本地场景验收；不证明所有组合、真实平台、Linux、容量或业务签字。",
+      "status": "LOCAL_SCENARIOS_PASSED",
+      "missingEvidence": [],
+      "routes": [
+        {
+          "planned": "GET /api/v1/resources/packages",
+          "status": "PRESENT"
+        },
+        {
+          "planned": "GET /api/v1/resources/subjects",
+          "status": "PRESENT"
+        }
+      ]
+    },
+    {
+      "featureId": "RES-02",
+      "scope": "REWRITE",
+      "external": "NONE",
+      "decision": "公开目录只显示当前发布内容；历史文件元数据留存但下载授权随当前关系撤销；插件版本及校验和不可变。",
+      "requiredApiCaseIds": [
+        "dimension-edit",
+        "dimension-hidden-public",
+        "dimension-withdraw",
+        "study-dimension"
+      ],
+      "requiredBrowserCaseIds": [],
+      "specialEvidence": null,
+      "acceptanceLimit": "固定的本地场景验收；不证明所有组合、真实平台、Linux、容量或业务签字。",
+      "status": "LOCAL_SCENARIOS_PASSED",
+      "missingEvidence": [],
+      "routes": [
+        {
+          "planned": "GET /api/v1/catalog/study-dimensions",
+          "status": "COMPOSED",
+          "actualTargets": [
+            "GET /api/v1/resources/dimensions",
+            "PUT /api/v1/admin/resources/dimensions/{id}"
+          ],
+          "semantics": "统一 GRADE/MAJOR 维度表，版本冲突返回409。"
+        },
+        {
+          "planned": "PUT /api/v1/staff/catalog/study-dimensions/{id}",
+          "status": "COMPOSED",
+          "actualTargets": [
+            "GET /api/v1/resources/dimensions",
+            "PUT /api/v1/admin/resources/dimensions/{id}"
+          ],
+          "semantics": "统一 GRADE/MAJOR 维度表，版本冲突返回409。"
+        }
+      ]
+    },
+    {
+      "featureId": "RES-03",
+      "scope": "REWRITE",
+      "external": "NONE",
+      "decision": "公开目录只显示当前发布内容；历史文件元数据留存但下载授权随当前关系撤销；插件版本及校验和不可变。",
+      "requiredApiCaseIds": [
+        "exam-edit",
+        "exam-invalid-timezone",
+        "exam-offline-hidden-public",
+        "exam-timezone",
+        "exam-withdraw"
+      ],
+      "requiredBrowserCaseIds": [],
+      "specialEvidence": null,
+      "acceptanceLimit": "固定的本地场景验收；不证明所有组合、真实平台、Linux、容量或业务签字。",
+      "status": "LOCAL_SCENARIOS_PASSED",
+      "missingEvidence": [],
+      "routes": [
+        {
+          "planned": "GET /api/v1/resources/exams",
+          "status": "PRESENT"
+        }
+      ]
+    },
+    {
+      "featureId": "RES-04",
+      "scope": "REWRITE",
+      "external": "NONE",
+      "decision": "公开目录只显示当前发布内容；历史文件元数据留存但下载授权随当前关系撤销；插件版本及校验和不可变。",
+      "requiredApiCaseIds": [
+        "package-current-files-only",
+        "package-failed-edit-preserves-current",
+        "package-historical-metadata-retained",
+        "package-invalid-file-atomic-rollback",
+        "package-offline-detail-hidden",
+        "package-stale-edit-denied",
+        "package-withdraw",
+        "resource-published-files"
+      ],
+      "requiredBrowserCaseIds": [],
+      "specialEvidence": null,
+      "acceptanceLimit": "固定的本地场景验收；不证明所有组合、真实平台、Linux、容量或业务签字。",
+      "status": "LOCAL_SCENARIOS_PASSED",
+      "missingEvidence": [],
+      "routes": [
+        {
+          "planned": "POST /api/v1/staff/resources/files",
+          "status": "COMPOSED",
+          "actualTargets": [
+            "POST /api/v1/admin/files",
+            "GET /api/v1/resources/packages/{id}"
+          ],
+          "semantics": "后台上传独立文件后由资料包 fileIds 建引用；公开详情只投影当前版本 files。"
+        },
+        {
+          "planned": "GET /api/v1/resources/packages/{id}/files",
+          "status": "COMPOSED",
+          "actualTargets": [
+            "POST /api/v1/admin/files",
+            "GET /api/v1/resources/packages/{id}"
+          ],
+          "semantics": "后台上传独立文件后由资料包 fileIds 建引用；公开详情只投影当前版本 files。"
+        }
+      ]
+    },
+    {
+      "featureId": "RES-05",
+      "scope": "REWRITE",
+      "external": "NONE",
+      "decision": "公开目录只显示当前发布内容；历史文件元数据留存但下载授权随当前关系撤销；插件版本及校验和不可变。",
+      "requiredApiCaseIds": [
+        "package-current-files-only",
+        "package-offline-file-access-revoked",
+        "package-removed-file-issued-ticket-denied",
+        "package-removed-file-new-ticket-denied",
+        "private-file-cross-user",
+        "private-ticket-download",
+        "resource-policy-download",
+        "ticket-single-use"
+      ],
+      "requiredBrowserCaseIds": [],
+      "specialEvidence": null,
+      "acceptanceLimit": "固定的本地场景验收；不证明所有组合、真实平台、Linux、容量或业务签字。",
+      "status": "LOCAL_SCENARIOS_PASSED",
+      "missingEvidence": [],
+      "routes": [
+        {
+          "planned": "POST /api/v1/downloads/tickets",
+          "status": "COMPOSED",
+          "actualTargets": [
+            "POST /api/v1/me/files/{id}/tickets",
+            "GET /api/v1/files/download/{token}"
+          ],
+          "semantics": "票据绑定身份、文件可见性和两分钟期限，成功服务读取记日志且票据只能使用一次。"
+        },
+        {
+          "planned": "GET /api/v1/downloads/{ticketId}",
+          "status": "COMPOSED",
+          "actualTargets": [
+            "POST /api/v1/me/files/{id}/tickets",
+            "GET /api/v1/files/download/{token}"
+          ],
+          "semantics": "票据绑定身份、文件可见性和两分钟期限，成功服务读取记日志且票据只能使用一次。"
+        }
+      ]
+    },
+    {
+      "featureId": "RES-06",
+      "scope": "REWRITE",
+      "external": "NONE",
+      "decision": "公开目录只显示当前发布内容；历史文件元数据留存但下载授权随当前关系撤销；插件版本及校验和不可变。",
+      "requiredApiCaseIds": [
+        "artifact-duplicate-version",
+        "artifact-frozen-checksum",
+        "artifact-meta-edit",
+        "artifact-offline-hidden",
+        "artifact-withdraw"
+      ],
+      "requiredBrowserCaseIds": [],
+      "specialEvidence": null,
+      "acceptanceLimit": "固定的本地场景验收；不证明所有组合、真实平台、Linux、容量或业务签字。",
+      "status": "LOCAL_SCENARIOS_PASSED",
+      "missingEvidence": [],
+      "routes": [
+        {
+          "planned": "GET /api/v1/plugins",
+          "status": "COMPOSED",
+          "actualTargets": [
+            "GET /api/v1/resources/artifacts",
+            "POST /api/v1/admin/resources/artifacts/{id}/versions"
+          ],
+          "semantics": "插件统一称 artifact，发布版本冻结附件SHA256和版本名。"
+        },
+        {
+          "planned": "POST /api/v1/staff/plugins/{id}/versions",
+          "status": "COMPOSED",
+          "actualTargets": [
+            "GET /api/v1/resources/artifacts",
+            "POST /api/v1/admin/resources/artifacts/{id}/versions"
+          ],
+          "semantics": "插件统一称 artifact，发布版本冻结附件SHA256和版本名。"
+        }
+      ]
+    },
+    {
+      "featureId": "RES-07",
+      "scope": "REWRITE",
+      "external": "NONE",
+      "decision": "公开目录只显示当前发布内容；历史文件元数据留存但下载授权随当前关系撤销；插件版本及校验和不可变。",
+      "requiredApiCaseIds": [
+        "guide-uses-article-model"
+      ],
+      "requiredBrowserCaseIds": [],
+      "specialEvidence": null,
+      "acceptanceLimit": "固定的本地场景验收；不证明所有组合、真实平台、Linux、容量或业务签字。",
+      "status": "LOCAL_SCENARIOS_PASSED",
+      "missingEvidence": [],
+      "routes": [
+        {
+          "planned": "GET /api/v1/plugins/{id}/guide",
+          "status": "COMPOSED",
+          "actualTargets": [
+            "GET /api/v1/resources/artifacts/{id}",
+            "GET /api/v1/articles/{id}"
+          ],
+          "semantics": "guideArticleId 指向 GUIDE 类型资讯；教程复用新资讯模型和公开权限，不复制正文。"
+        },
+        {
+          "planned": "GET /api/v1/resources/guides",
+          "status": "COMPOSED",
+          "actualTargets": [
+            "GET /api/v1/resources/artifacts/{id}",
+            "GET /api/v1/articles/{id}"
+          ],
+          "semantics": "guideArticleId 指向 GUIDE 类型资讯；教程复用新资讯模型和公开权限，不复制正文。"
+        }
+      ]
+    },
+    {
+      "featureId": "OPS-01",
+      "scope": "REWRITE",
+      "external": "NONE",
+      "decision": "运营内容使用新模型；协议同意绑定不可变版本；附件七天保留、无引用才清理，失败可恢复、并发互斥、路径越界拒绝。",
+      "requiredApiCaseIds": [
+        "home-banner",
+        "home-visible-projections"
+      ],
+      "requiredBrowserCaseIds": [],
+      "specialEvidence": null,
+      "acceptanceLimit": "固定的本地场景验收；不证明所有组合、真实平台、Linux、容量或业务签字。",
+      "status": "LOCAL_SCENARIOS_PASSED",
+      "missingEvidence": [],
+      "routes": [
+        {
+          "planned": "GET /api/v1/home/banners",
+          "status": "COMPOSED",
+          "actualTargets": [
+            "GET /api/v1/home",
+            "POST /api/v1/admin/operation/banners"
+          ],
+          "semantics": "首页一次返回 banners；管理接口只接受允许的链接类型和有效时段。"
+        },
+        {
+          "planned": "POST /api/v1/staff/operations/banners",
+          "status": "COMPOSED",
+          "actualTargets": [
+            "GET /api/v1/home",
+            "POST /api/v1/admin/operation/banners"
+          ],
+          "semantics": "首页一次返回 banners；管理接口只接受允许的链接类型和有效时段。"
+        }
+      ]
+    },
+    {
+      "featureId": "OPS-02",
+      "scope": "REWRITE",
+      "external": "NONE",
+      "decision": "运营内容使用新模型；协议同意绑定不可变版本；附件七天保留、无引用才清理，失败可恢复、并发互斥、路径越界拒绝。",
+      "requiredApiCaseIds": [
+        "home-recommendation",
+        "home-visible-projections"
+      ],
+      "requiredBrowserCaseIds": [],
+      "specialEvidence": null,
+      "acceptanceLimit": "固定的本地场景验收；不证明所有组合、真实平台、Linux、容量或业务签字。",
+      "status": "LOCAL_SCENARIOS_PASSED",
+      "missingEvidence": [],
+      "routes": [
+        {
+          "planned": "GET /api/v1/home/recommendations",
+          "status": "COMPOSED",
+          "actualTargets": [
+            "GET /api/v1/home",
+            "POST /api/v1/admin/operation/recommendations"
+          ],
+          "semantics": "首页 recommendations 只包含当前可见内容；独立显式字段投影。"
+        },
+        {
+          "planned": "POST /api/v1/staff/operations/recommendations",
+          "status": "COMPOSED",
+          "actualTargets": [
+            "GET /api/v1/home",
+            "POST /api/v1/admin/operation/recommendations"
+          ],
+          "semantics": "首页 recommendations 只包含当前可见内容；独立显式字段投影。"
+        }
+      ]
+    },
+    {
+      "featureId": "OPS-03",
+      "scope": "REWRITE",
+      "external": "NONE",
+      "decision": "运营内容使用新模型；协议同意绑定不可变版本；附件七天保留、无引用才清理，失败可恢复、并发互斥、路径越界拒绝。",
+      "requiredApiCaseIds": [
+        "consent-version",
+        "consented-body-immutable"
+      ],
+      "requiredBrowserCaseIds": [],
+      "specialEvidence": null,
+      "acceptanceLimit": "固定的本地场景验收；不证明所有组合、真实平台、Linux、容量或业务签字。",
+      "status": "LOCAL_SCENARIOS_PASSED",
+      "missingEvidence": [],
+      "routes": [
+        {
+          "planned": "GET /api/v1/pages/{key}",
+          "status": "PRESENT"
+        },
+        {
+          "planned": "POST /api/v1/staff/operations/pages/{key}/versions",
+          "status": "REPLACED",
+          "actualTargets": [
+            "POST /api/v1/admin/operation/pages"
+          ],
+          "semantics": "pageKey 位于请求体；同意使用的 pageVersion 不可变。"
+        }
+      ]
+    },
+    {
+      "featureId": "OPS-04",
+      "scope": "REWRITE",
+      "external": "NONE",
+      "decision": "运营内容使用新模型；协议同意绑定不可变版本；附件七天保留、无引用才清理，失败可恢复、并发互斥、路径越界拒绝。",
+      "requiredApiCaseIds": [
+        "activity-column"
+      ],
+      "requiredBrowserCaseIds": [],
+      "specialEvidence": null,
+      "acceptanceLimit": "固定的本地场景验收；不证明所有组合、真实平台、Linux、容量或业务签字。",
+      "status": "LOCAL_SCENARIOS_PASSED",
+      "missingEvidence": [],
+      "routes": [
+        {
+          "planned": "GET /api/v1/activities/columns",
+          "status": "COMPOSED",
+          "actualTargets": [
+            "GET /api/v1/home",
+            "POST /api/v1/admin/operation/activity-columns"
+          ],
+          "semantics": "首页 activityColumns 返回有效栏目；保存验证分类。"
+        },
+        {
+          "planned": "POST /api/v1/staff/operations/activity-columns",
+          "status": "COMPOSED",
+          "actualTargets": [
+            "GET /api/v1/home",
+            "POST /api/v1/admin/operation/activity-columns"
+          ],
+          "semantics": "首页 activityColumns 返回有效栏目；保存验证分类。"
+        }
+      ]
+    },
+    {
+      "featureId": "OPS-05",
+      "scope": "REWRITE",
+      "external": "NONE",
+      "decision": "运营内容使用新模型；协议同意绑定不可变版本；附件七天保留、无引用才清理，失败可恢复、并发互斥、路径越界拒绝。",
+      "requiredApiCaseIds": [
+        "file-cleanup-already-missing-reconciles",
+        "file-cleanup-audit-persists",
+        "file-cleanup-dry-run",
+        "file-cleanup-invalid-object-key-rejected",
+        "file-cleanup-io-failure-keeps-deleted",
+        "file-cleanup-io-failure-retained",
+        "file-cleanup-outside-file-preserved",
+        "file-cleanup-parallel-no-double-delete",
+        "file-cleanup-physical-delete",
+        "file-cleanup-repeat-safe",
+        "file-cleanup-retention-window",
+        "file-cleanup-retries-after-storage-repair",
+        "file-cleanup-staff-permission",
+        "file-magic-reject",
+        "referenced-file-delete-denied"
+      ],
+      "requiredBrowserCaseIds": [],
+      "specialEvidence": null,
+      "acceptanceLimit": "固定的本地场景验收；不证明所有组合、真实平台、Linux、容量或业务签字。",
+      "status": "LOCAL_SCENARIOS_PASSED",
+      "missingEvidence": [],
+      "routes": [
+        {
+          "planned": "POST /api/v1/files/uploads",
+          "status": "COMPOSED",
+          "actualTargets": [
+            "POST /api/v1/me/files",
+            "POST /api/v1/admin/files",
+            "POST /api/v1/me/files/{id}/tickets",
+            "POST /api/v1/admin/files/{id}/tickets"
+          ],
+          "semantics": "按 CUSTOMER/STAFF 分开上传与授权，后台上传另有业务权限，文件不直接暴露静态路径。"
+        },
+        {
+          "planned": "POST /api/v1/files/{id}/tickets",
+          "status": "COMPOSED",
+          "actualTargets": [
+            "POST /api/v1/me/files",
+            "POST /api/v1/admin/files",
+            "POST /api/v1/me/files/{id}/tickets",
+            "POST /api/v1/admin/files/{id}/tickets"
+          ],
+          "semantics": "按 CUSTOMER/STAFF 分开上传与授权，后台上传另有业务权限，文件不直接暴露静态路径。"
+        },
+        {
+          "planned": "WORKER cleanup-unreferenced-files",
+          "status": "NON_HTTP_DELIVERY"
+        }
+      ]
+    },
+    {
+      "featureId": "OPS-06",
+      "scope": "REWRITE",
+      "external": "NONE",
+      "decision": "运营内容使用新模型；协议同意绑定不可变版本；附件七天保留、无引用才清理，失败可恢复、并发互斥、路径越界拒绝。",
+      "requiredApiCaseIds": [
+        "blacklist-hides-keyword",
+        "blacklist-rejects-recreate"
+      ],
+      "requiredBrowserCaseIds": [],
+      "specialEvidence": null,
+      "acceptanceLimit": "固定的本地场景验收；不证明所有组合、真实平台、Linux、容量或业务签字。",
+      "status": "LOCAL_SCENARIOS_PASSED",
+      "missingEvidence": [],
+      "routes": [
+        {
+          "planned": "PUT /api/v1/staff/catalog/keyword-blocklist/{id}",
+          "status": "REPLACED",
+          "actualTargets": [
+            "POST /api/v1/admin/catalog/blacklist"
+          ],
+          "semantics": "按规范化关键词写黑名单；禁止搜索命中和重新创建。"
+        }
+      ]
+    },
+    {
+      "featureId": "ANA-01",
+      "scope": "REWRITE",
+      "external": "NONE",
+      "decision": "事件去重、可见曝光冷却、停留排除隐藏时间；下载由服务端读取结果计量；日报可重建，用户汇总只显示总量。",
+      "requiredApiCaseIds": [
+        "exposure-does-not-mark-read",
+        "exposure-event",
+        "exposure-event-dedup"
+      ],
+      "requiredBrowserCaseIds": [
+        "client-visible-exposure-offscreen-behavior"
+      ],
+      "specialEvidence": null,
+      "acceptanceLimit": "固定的本地场景验收；不证明所有组合、真实平台、Linux、容量或业务签字。",
+      "status": "LOCAL_SCENARIOS_PASSED",
+      "missingEvidence": [],
+      "routes": [
+        {
+          "planned": "POST /api/v1/events/exposures",
+          "status": "REPLACED",
+          "actualTargets": [
+            "POST /api/v1/me/events"
+          ],
+          "semantics": "type=VISIBLE_EXPOSURE；uni-app 可视比例>=50%持续1秒才提交；后台不把曝光等同已读。"
+        }
+      ]
+    },
+    {
+      "featureId": "ANA-02",
+      "scope": "REWRITE",
+      "external": "NONE",
+      "decision": "事件去重、可见曝光冷却、停留排除隐藏时间；下载由服务端读取结果计量；日报可重建，用户汇总只显示总量。",
+      "requiredApiCaseIds": [
+        "behavior-BANNER_CLICK",
+        "behavior-DOWNLOAD_INTENT",
+        "behavior-FILTER",
+        "behavior-PAGE_STAY",
+        "behavior-PAGE_VIEW",
+        "behavior-SEARCH_CLICK",
+        "stay-invalid-duration-denied",
+        "stay-unpublished-target-denied"
+      ],
+      "requiredBrowserCaseIds": [
+        "client-hidden-stay-time-excluded-h5-lifecycle"
+      ],
+      "specialEvidence": null,
+      "acceptanceLimit": "固定的本地场景验收；不证明所有组合、真实平台、Linux、容量或业务签字。",
+      "status": "LOCAL_SCENARIOS_PASSED",
+      "missingEvidence": [],
+      "routes": [
+        {
+          "planned": "POST /api/v1/events",
+          "status": "REPLACED",
+          "actualTargets": [
+            "POST /api/v1/me/events"
+          ],
+          "semantics": "type=PAGE_VIEW/PAGE_STAY；隐藏不累计停留，服务校验时长。"
+        }
+      ]
+    },
+    {
+      "featureId": "ANA-03",
+      "scope": "REWRITE",
+      "external": "NONE",
+      "decision": "事件去重、可见曝光冷却、停留排除隐藏时间；下载由服务端读取结果计量；日报可重建，用户汇总只显示总量。",
+      "requiredApiCaseIds": [
+        "behavior-BANNER_CLICK",
+        "behavior-DOWNLOAD_INTENT",
+        "behavior-FILTER",
+        "behavior-PAGE_STAY",
+        "behavior-PAGE_VIEW",
+        "behavior-SEARCH_CLICK"
+      ],
+      "requiredBrowserCaseIds": [],
+      "specialEvidence": null,
+      "acceptanceLimit": "固定的本地场景验收；不证明所有组合、真实平台、Linux、容量或业务签字。",
+      "status": "LOCAL_SCENARIOS_PASSED",
+      "missingEvidence": [],
+      "routes": [
+        {
+          "planned": "POST /api/v1/events",
+          "status": "REPLACED",
+          "actualTargets": [
+            "POST /api/v1/me/events"
+          ],
+          "semantics": "type=SEARCH_CLICK/FILTER/BANNER_CLICK，集中校验和幂等采集。"
+        }
+      ]
+    },
+    {
+      "featureId": "ANA-04",
+      "scope": "REWRITE",
+      "external": "NONE",
+      "decision": "事件去重、可见曝光冷却、停留排除隐藏时间；下载由服务端读取结果计量；日报可重建，用户汇总只显示总量。",
+      "requiredApiCaseIds": [
+        "download-is-not-client-proof"
+      ],
+      "requiredBrowserCaseIds": [],
+      "specialEvidence": null,
+      "acceptanceLimit": "固定的本地场景验收；不证明所有组合、真实平台、Linux、容量或业务签字。",
+      "status": "LOCAL_SCENARIOS_PASSED",
+      "missingEvidence": [],
+      "routes": [
+        {
+          "planned": "WORKER download-events",
+          "status": "NON_HTTP_DELIVERY"
+        }
+      ]
+    },
+    {
+      "featureId": "ANA-05",
+      "scope": "REWRITE",
+      "external": "NONE",
+      "decision": "事件去重、可见曝光冷却、停留排除隐藏时间；下载由服务端读取结果计量；日报可重建，用户汇总只显示总量。",
+      "requiredApiCaseIds": [
+        "analytics-no-double-count",
+        "analytics-rebuild-idempotent"
+      ],
+      "requiredBrowserCaseIds": [],
+      "specialEvidence": null,
+      "acceptanceLimit": "固定的本地场景验收；不证明所有组合、真实平台、Linux、容量或业务签字。",
+      "status": "LOCAL_SCENARIOS_PASSED",
+      "missingEvidence": [],
+      "routes": [
+        {
+          "planned": "GET /api/v1/staff/analytics/articles",
+          "status": "COMPOSED",
+          "actualTargets": [
+            "GET /api/v1/admin/analytics",
+            "POST /api/v1/admin/analytics/aggregate"
+          ],
+          "semantics": "概览 content/daily 与日报重建分离，重建整日替换不重复累计。"
+        },
+        {
+          "planned": "GET /api/v1/staff/analytics/daily",
+          "status": "COMPOSED",
+          "actualTargets": [
+            "GET /api/v1/admin/analytics",
+            "POST /api/v1/admin/analytics/aggregate"
+          ],
+          "semantics": "概览 content/daily 与日报重建分离，重建整日替换不重复累计。"
+        }
+      ]
+    },
+    {
+      "featureId": "ANA-06",
+      "scope": "REWRITE",
+      "external": "NONE",
+      "decision": "事件去重、可见曝光冷却、停留排除隐藏时间；下载由服务端读取结果计量；日报可重建，用户汇总只显示总量。",
+      "requiredApiCaseIds": [
+        "analytics-no-identity-data",
+        "analytics-users-aggregate-only",
+        "analytics-users-grant-denied"
+      ],
+      "requiredBrowserCaseIds": [],
+      "specialEvidence": null,
+      "acceptanceLimit": "固定的本地场景验收；不证明所有组合、真实平台、Linux、容量或业务签字。",
+      "status": "LOCAL_SCENARIOS_PASSED",
+      "missingEvidence": [],
+      "routes": [
+        {
+          "planned": "GET /api/v1/staff/analytics/users",
+          "status": "REPLACED",
+          "actualTargets": [
+            "GET /api/v1/admin/analytics/users"
+          ],
+          "semantics": "只返回全平台总量/UV，不提供任何用户标识或行明细。"
+        }
+      ]
+    },
+    {
+      "featureId": "ADM-01",
+      "scope": "REWRITE",
+      "external": "NONE",
+      "decision": "后台服务端按最新角色授权并再次检查数据范围；写成功与业务同事务审计，已认证失败独立事务留证；框架身份日志独立，迁移/备份按工具报告。",
+      "requiredApiCaseIds": [
+        "existing-session-grant-revoked",
+        "reviewer-password-login",
+        "scope-management-admin-only",
+        "staff-cannot-use-customer-token",
+        "customers-reject-customer-token"
+      ],
+      "requiredBrowserCaseIds": [
+        "creator-page-and-button-permissions-real-ui",
+        "reviewer-cannot-create-real-ui"
+      ],
+      "specialEvidence": null,
+      "acceptanceLimit": "固定的本地场景验收；不证明所有组合、真实平台、Linux、容量或业务签字。",
+      "status": "LOCAL_SCENARIOS_PASSED",
+      "missingEvidence": [],
+      "routes": [
+        {
+          "planned": "GET /system/role/list",
+          "status": "PRESENT"
+        },
+        {
+          "planned": "POST /system/role",
+          "status": "PRESENT"
+        },
+        {
+          "planned": "POST /system/role/authUser",
+          "status": "REPLACED",
+          "actualTargets": [
+            "PUT /system/role/authUser/selectAll"
+          ],
+          "semantics": "使用允许的公司框架授权用户操作；新业务每次请求读取当前角色菜单，已有会话即时撤权。"
+        }
+      ]
+    },
+    {
+      "featureId": "ADM-02",
+      "scope": "REWRITE",
+      "external": "NONE",
+      "decision": "后台服务端按最新角色授权并再次检查数据范围；写成功与业务同事务审计，已认证失败独立事务留证；框架身份日志独立，迁移/备份按工具报告。",
+      "requiredApiCaseIds": [
+        "creator-cannot-manage-catalog",
+        "creator-cannot-publish",
+        "creator-cannot-read-admin-article",
+        "creator-password-login",
+        "existing-session-grant-revoked",
+        "file-cleanup-staff-permission",
+        "resource-management-requires-role"
+      ],
+      "requiredBrowserCaseIds": [
+        "creator-page-and-button-permissions-real-ui"
+      ],
+      "specialEvidence": null,
+      "acceptanceLimit": "固定的本地场景验收；不证明所有组合、真实平台、Linux、容量或业务签字。",
+      "status": "LOCAL_SCENARIOS_PASSED",
+      "missingEvidence": [],
+      "routes": [
+        {
+          "planned": "GET /api/v1/staff/articles",
+          "status": "COMPOSED",
+          "actualTargets": [
+            "GET /api/v1/admin/articles",
+            "POST /api/v1/admin/articles"
+          ],
+          "semantics": "创作者的读写接口相同，服务通过自身/department scope 过滤；按钮按真实权限显示。"
+        },
+        {
+          "planned": "POST /api/v1/staff/articles",
+          "status": "COMPOSED",
+          "actualTargets": [
+            "GET /api/v1/admin/articles",
+            "POST /api/v1/admin/articles"
+          ],
+          "semantics": "创作者的读写接口相同，服务通过自身/department scope 过滤；按钮按真实权限显示。"
+        }
+      ]
+    },
+    {
+      "featureId": "ADM-03",
+      "scope": "REWRITE",
+      "external": "NONE",
+      "decision": "后台服务端按最新角色授权并再次检查数据范围；写成功与业务同事务审计，已认证失败独立事务留证；框架身份日志独立，迁移/备份按工具报告。",
+      "requiredApiCaseIds": [
+        "framework-clientid-mismatch",
+        "framework-dept-list",
+        "framework-menu-list",
+        "framework-user-list"
+      ],
+      "requiredBrowserCaseIds": [],
+      "specialEvidence": null,
+      "acceptanceLimit": "固定的本地场景验收；不证明所有组合、真实平台、Linux、容量或业务签字。",
+      "status": "LOCAL_SCENARIOS_PASSED",
+      "missingEvidence": [],
+      "routes": [
+        {
+          "planned": "GET /system/user/list",
+          "status": "PRESENT"
+        },
+        {
+          "planned": "GET /system/dept/list",
+          "status": "PRESENT"
+        },
+        {
+          "planned": "GET /system/menu/list",
+          "status": "PRESENT"
+        }
+      ]
+    },
+    {
+      "featureId": "ADM-04",
+      "scope": "REWRITE",
+      "external": "NONE",
+      "decision": "后台服务端按最新角色授权并再次检查数据范围；写成功与业务同事务审计，已认证失败独立事务留证；框架身份日志独立，迁移/备份按工具报告。",
+      "requiredApiCaseIds": [
+        "activity-export-content-and-replay",
+        "audit-readable",
+        "customer-auth-durable-audit",
+        "export-anonymous-denied",
+        "export-creator-denied",
+        "export-customer-denied",
+        "export-dataset-allowlist",
+        "export-durable-audit",
+        "file-cleanup-audit-persists",
+        "no-password-or-token-in-request-logs",
+        "rejected-write-durable-audit",
+        "resource-audit-recorded",
+        "subject-edit-and-stale-denial",
+        "success-write-durable-audit",
+        "unknown-evidence-audit-persisted"
+      ],
+      "requiredBrowserCaseIds": [
+        "admin-audit-export-download-real-ui"
+      ],
+      "specialEvidence": null,
+      "acceptanceLimit": "固定的本地场景验收；不证明所有组合、真实平台、Linux、容量或业务签字。",
+      "status": "LOCAL_SCENARIOS_PASSED",
+      "missingEvidence": [],
+      "routes": [
+        {
+          "planned": "GET /api/v1/staff/audit-events",
+          "status": "COMPOSED",
+          "actualTargets": [
+            "GET /api/v1/admin/audit",
+            "POST /api/v1/admin/exports"
+          ],
+          "semantics": "独立成功/拒绝写审计；服务端导出有数据集允许列表、领域权限、独立导出权限和内容总量限制。"
+        },
+        {
+          "planned": "POST /api/v1/staff/exports",
+          "status": "COMPOSED",
+          "actualTargets": [
+            "GET /api/v1/admin/audit",
+            "POST /api/v1/admin/exports"
+          ],
+          "semantics": "独立成功/拒绝写审计；服务端导出有数据集允许列表、领域权限、独立导出权限和内容总量限制。"
+        }
+      ]
+    },
+    {
+      "featureId": "ADM-05",
+      "scope": "REWRITE",
+      "external": "NONE",
+      "decision": "后台服务端按最新角色授权并再次检查数据范围；写成功与业务同事务审计，已认证失败独立事务留证；框架身份日志独立，迁移/备份按工具报告。",
+      "requiredApiCaseIds": [
+        "backup-restores-all-tables-and-files",
+        "migrations-rerun"
+      ],
+      "requiredBrowserCaseIds": [],
+      "specialEvidence": "operations",
+      "acceptanceLimit": "固定的本地场景验收；不证明所有组合、真实平台、Linux、容量或业务签字。",
+      "status": "LOCAL_SCENARIOS_PASSED",
+      "missingEvidence": [],
+      "routes": [
+        {
+          "planned": "SCRIPT backup-restore-drill",
+          "status": "NON_HTTP_DELIVERY"
+        },
+        {
+          "planned": "SCRIPT rollback-drill",
+          "status": "NON_HTTP_DELIVERY"
+        }
+      ]
+    },
+    {
+      "featureId": "ADM-06",
+      "scope": "REWRITE",
+      "external": "NONE",
+      "decision": "后台服务端按最新角色授权并再次检查数据范围；写成功与业务同事务审计，已认证失败独立事务留证；框架身份日志独立，迁移/备份按工具报告。",
+      "requiredApiCaseIds": [],
+      "requiredBrowserCaseIds": [],
+      "specialEvidence": "reports",
+      "acceptanceLimit": "固定的本地场景验收；不证明所有组合、真实平台、Linux、容量或业务签字。",
+      "status": "LOCAL_SCENARIOS_PASSED",
+      "missingEvidence": [],
+      "routes": [
+        {
+          "planned": "SCRIPT local_acceptance",
+          "status": "NON_HTTP_DELIVERY"
+        },
+        {
+          "planned": "SCRIPT gate_report",
+          "status": "NON_HTTP_DELIVERY"
+        }
+      ]
+    }
+  ],
+  "baselineFeatures": 79,
+  "localScenariosFailed": [],
+  "platformPending": [
+    "AUTH-02",
+    "NOT-01",
+    "NOT-02",
+    "NOT-03",
+    "NOT-04",
+    "NOT-05",
+    "NOT-06",
+    "NOT-07",
+    "NOT-08",
+    "NOT-09",
+    "NOT-10"
+  ],
+  "limitations": [
+    "This is a finite explicitly versioned local acceptance baseline, not exhaustive product or production certification.",
+    "H5 visibility transitions are simulated in the timing case; real mini-program lifecycle remains unverified.",
+    "Real notification bindings, quota evidence and production dispatcher wiring are not represented as completed."
+  ]
+}

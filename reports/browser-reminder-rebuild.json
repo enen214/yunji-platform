@@ -1,0 +1,91 @@
+{
+  "scope": "REMINDER_REBUILD_REAL_UI_LOCAL",
+  "startedAt": "2026-10-22T14:14:31.529Z",
+  "cases": [
+    {
+      "id": "rebuild-menu-active-group-and-breadcrumb",
+      "status": "PASS"
+    },
+    {
+      "id": "rebuild-transient-session-failure-keeps-login",
+      "status": "PASS"
+    },
+    {
+      "id": "rebuild-admin-real-schedule-save",
+      "status": "PASS"
+    },
+    {
+      "id": "rebuild-catalog-workspace",
+      "status": "PASS"
+    },
+    {
+      "id": "rebuild-customer-settings-persist",
+      "status": "PASS"
+    },
+    {
+      "id": "rebuild-catalog-save-association-real-ui",
+      "status": "PASS"
+    },
+    {
+      "id": "rebuild-customer-create-rule-real-ui",
+      "status": "PASS"
+    },
+    {
+      "id": "rebuild-customer-shows-pending-change-title",
+      "status": "PASS"
+    },
+    {
+      "id": "rebuild-daily-task-awaits-staff-ui",
+      "status": "PASS"
+    },
+    {
+      "id": "rebuild-operator-result-proof-ui",
+      "status": "PASS"
+    },
+    {
+      "id": "rebuild-legacy-rule-edit-pause-cancel-ui",
+      "status": "PASS"
+    },
+    {
+      "id": "closure-admin-distinct-user-statistics",
+      "status": "PASS"
+    },
+    {
+      "id": "closure-admin-pause-rule-real-ui",
+      "status": "PASS"
+    },
+    {
+      "id": "closure-wecom-five-views-real-navigation",
+      "status": "PASS"
+    },
+    {
+      "id": "closure-about-static-even-offline",
+      "status": "PASS"
+    },
+    {
+      "id": "closure-legal-page-still-versioned",
+      "status": "PASS"
+    },
+    {
+      "id": "closure-about-removed-from-admin-options",
+      "status": "PASS"
+    },
+    {
+      "id": "closure-activity-resource-entry-navigates",
+      "status": "PASS"
+    },
+    {
+      "id": "closure-reminder-tabs-visible-control-boundaries",
+      "status": "PASS"
+    },
+    {
+      "id": "rebuild-ui-no-overflow-or-runtime-error",
+      "status": "PASS"
+    }
+  ],
+  "errors": [],
+  "networkFailures": [],
+  "passed": 20,
+  "failed": 0,
+  "completedAt": "2026-10-22T14:14:36.992Z"
+}

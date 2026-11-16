@@ -1,0 +1,628 @@
+{
+  "auditReportVersion": 2,
+  "vulnerabilities": {
+    "@dcloudio/uni-app": {
+      "name": "@dcloudio/uni-app",
+      "severity": "high",
+      "isDirect": true,
+      "via": [
+        "@dcloudio/uni-cloud",
+        "@dcloudio/uni-components",
+        "@dcloudio/uni-console",
+        "@dcloudio/uni-push",
+        "@dcloudio/uni-stat"
+      ],
+      "effects": [],
+      "range": "*",
+      "nodes": [
+        "node_modules/@dcloudio/uni-app"
+      ],
+      "fixAvailable": {
+        "isSemVerMajor": true
+      }
+    },
+    "@dcloudio/uni-cli-shared": {
+      "name": "@dcloudio/uni-cli-shared",
+      "severity": "high",
+      "isDirect": false,
+      "via": [
+        "@vue/server-renderer",
+        "postcss-selector-parser",
+        "source-map-js"
+      ],
+      "effects": [
+        "@dcloudio/uni-cloud",
+        "@dcloudio/uni-console",
+        "@dcloudio/uni-mp-compiler",
+        "@dcloudio/uni-mp-vite",
+        "@dcloudio/uni-mp-weixin",
+        "@dcloudio/uni-push",
+        "@dcloudio/uni-stat"
+      ],
+      "range": "<=0.0.1-nvue3.3040020220301001 || >=2.0.1-32920211122002",
+      "nodes": [
+        "node_modules/@dcloudio/uni-cli-shared"
+      ],
+      "fixAvailable": {
+        "name": "@dcloudio/uni-mp-weixin",
+        "version": "0.0.973",
+        "isSemVerMajor": true
+      }
+    },
+    "@dcloudio/uni-cloud": {
+      "name": "@dcloudio/uni-cloud",
+      "severity": "high",
+      "isDirect": false,
+      "via": [
+        "@dcloudio/uni-cli-shared"
+      ],
+      "effects": [],
+      "range": "*",
+      "nodes": [
+        "node_modules/@dcloudio/uni-cloud"
+      ],
+      "fixAvailable": true
+    },
+    "@dcloudio/uni-components": {
+      "name": "@dcloudio/uni-components",
+      "severity": "high",
+      "isDirect": true,
+      "via": [
+        "@dcloudio/uni-cloud",
+        "@dcloudio/uni-h5"
+      ],
+      "effects": [
+        "@dcloudio/uni-app"
+      ],
+      "range": "*",
+      "nodes": [
+        "node_modules/@dcloudio/uni-components"
+      ],
+      "fixAvailable": {
+        "isSemVerMajor": true
+      }
+    },
+    "@dcloudio/uni-console": {
+      "name": "@dcloudio/uni-console",
+      "severity": "high",
+      "isDirect": false,
+      "via": [
+        "@dcloudio/uni-cli-shared"
+      ],
+      "effects": [],
+      "range": "*",
+      "nodes": [
+        "node_modules/@dcloudio/uni-console"
+      ],
+      "fixAvailable": true
+    },
+    "@dcloudio/uni-h5": {
+      "name": "@dcloudio/uni-h5",
+      "severity": "high",
+      "isDirect": true,
+      "via": [
+        "@dcloudio/uni-h5-vite",
+        "@dcloudio/uni-h5-vue",
+        "@vue/server-renderer",
+        "postcss-selector-parser"
+      ],
+      "effects": [
+        "@dcloudio/uni-components"
+      ],
+      "range": "<=0.0.1-nvue3.3040020220301001 || >=2.0.1-32920211122002",
+      "nodes": [
+        "node_modules/@dcloudio/uni-h5"
+      ],
+      "fixAvailable": {
+        "name": "@dcloudio/uni-h5",
+        "version": "0.9.0",
+        "isSemVerMajor": true
+      }
+    },
+    "@dcloudio/uni-h5-vite": {
+      "name": "@dcloudio/uni-h5-vite",
+      "severity": "high",
+      "isDirect": false,
+      "via": [
+        "@dcloudio/uni-cli-shared",
+        "@vue/server-renderer"
+      ],
+      "effects": [],
+      "range": "*",
+      "nodes": [
+        "node_modules/@dcloudio/uni-h5-vite"
+      ],
+      "fixAvailable": true
+    },
+    "@dcloudio/uni-h5-vue": {
+      "name": "@dcloudio/uni-h5-vue",
+      "severity": "high",
+      "isDirect": false,
+      "via": [
+        "@vue/server-renderer"
+      ],
+      "effects": [],
+      "range": "*",
+      "nodes": [
+        "node_modules/@dcloudio/uni-h5-vue"
+      ],
+      "fixAvailable": true
+    },
+    "@dcloudio/uni-mp-compiler": {
+      "name": "@dcloudio/uni-mp-compiler",
+      "severity": "high",
+      "isDirect": false,
+      "via": [
+        "@dcloudio/uni-cli-shared"
+      ],
+      "effects": [
+        "@dcloudio/uni-mp-weixin"
+      ],
+      "range": "*",
+      "nodes": [
+        "node_modules/@dcloudio/uni-mp-compiler"
+      ],
+      "fixAvailable": {
+        "name": "@dcloudio/uni-mp-weixin",
+        "version": "0.0.973",
+        "isSemVerMajor": true
+      }
+    },
+    "@dcloudio/uni-mp-vite": {
+      "name": "@dcloudio/uni-mp-vite",
+      "severity": "high",
+      "isDirect": false,
+      "via": [
+        "@dcloudio/uni-cli-shared",
+        "@dcloudio/uni-mp-compiler"
+      ],
+      "effects": [],
+      "range": "*",
+      "nodes": [
+        "node_modules/@dcloudio/uni-mp-vite"
+      ],
+      "fixAvailable": true
+    },
+    "@dcloudio/uni-mp-weixin": {
+      "name": "@dcloudio/uni-mp-weixin",
+      "severity": "high",
+      "isDirect": true,
+      "via": [
+        "@dcloudio/uni-cli-shared",
+        "@dcloudio/uni-mp-compiler",
+        "@dcloudio/uni-mp-vite"
+      ],
+      "effects": [],
+      "range": "<=0.0.1-nvue3.3040020220301001 || >=2.0.1-32920211122002",
+      "nodes": [
+        "node_modules/@dcloudio/uni-mp-weixin"
+      ],
+      "fixAvailable": {
+        "name": "@dcloudio/uni-mp-weixin",
+        "version": "0.0.973",
+        "isSemVerMajor": true
+      }
+    },
+    "@dcloudio/uni-push": {
+      "name": "@dcloudio/uni-push",
+      "severity": "high",
+      "isDirect": false,
+      "via": [
+        "@dcloudio/uni-cli-shared"
+      ],
+      "effects": [],
+      "range": "*",
+      "nodes": [
+        "node_modules/@dcloudio/uni-push"
+      ],
+      "fixAvailable": true
+    },
+    "@dcloudio/uni-stat": {
+      "name": "@dcloudio/uni-stat",
+      "severity": "high",
+      "isDirect": false,
+      "via": [
+        "@dcloudio/uni-cli-shared"
+      ],
+      "effects": [],
+      "range": "<=0.0.1-nvue3.3040020220301001 || >=2.0.1-32920211122002",
+      "nodes": [
+        "node_modules/@dcloudio/uni-stat"
+      ],
+      "fixAvailable": true
+    },
+    "@dcloudio/vite-plugin-uni": {
+      "name": "@dcloudio/vite-plugin-uni",
+      "severity": "high",
+      "isDirect": true,
+      "via": [
+        "@dcloudio/uni-cli-shared",
+        "@vitejs/plugin-legacy",
+        "@vitejs/plugin-vue",
+        "@vitejs/plugin-vue-jsx",
+        "express",
+        "source-map-js",
+        "vite"
+      ],
+      "effects": [],
+      "range": "*",
+      "nodes": [
+        "node_modules/@dcloudio/vite-plugin-uni"
+      ],
+      "fixAvailable": {
+        "isSemVerMajor": true
+      }
+    },
+    "@vitejs/plugin-legacy": {
+      "name": "@vitejs/plugin-legacy",
+      "severity": "low",
+      "isDirect": false,
+      "via": [
+        "vite"
+      ],
+      "effects": [],
+      "range": "1.0.1 - 5.4.3",
+      "nodes": [
+        "node_modules/@vitejs/plugin-legacy"
+      ],
+      "fixAvailable": true
+    },
+    "@vitejs/plugin-vue": {
+      "name": "@vitejs/plugin-vue",
+      "severity": "low",
+      "isDirect": false,
+      "via": [
+        "vite"
+      ],
+      "effects": [],
+      "range": "1.8.0 - 5.2.0",
+      "nodes": [
+        "node_modules/@vitejs/plugin-vue"
+      ],
+      "fixAvailable": true
+    },
+    "@vitejs/plugin-vue-jsx": {
+      "name": "@vitejs/plugin-vue-jsx",
+      "severity": "low",
+      "isDirect": false,
+      "via": [
+        "vite"
+      ],
+      "effects": [],
+      "range": "2.0.0-alpha.0 - 4.1.0",
+      "nodes": [
+        "node_modules/@vitejs/plugin-vue-jsx"
+      ],
+      "fixAvailable": true
+    },
+    "@vue/server-renderer": {
+      "name": "@vue/server-renderer",
+      "severity": "high",
+      "isDirect": false,
+      "via": [
+        {
+          "source": 1241259,
+          "name": "@vue/server-renderer",
+          "dependency": "@vue/server-renderer",
+          "title": "@vue/server-renderer: XSS via missing CR in attribute-name blacklist",
+          "url": "https://github.com/advisories/GHSA-g2v6-rqmx-r4w6",
+          "severity": "high",
+          "cwe": [
+            "CWE-79",
+            "CWE-116"
+          ],
+          "cvss": {
+            "score": 7.2,
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:L/I:L/A:N"
+          },
+          "range": "<3.5.42"
+        },
+        "vue"
+      ],
+      "effects": [
+        "@dcloudio/uni-cli-shared",
+        "@dcloudio/uni-h5",
+        "@dcloudio/uni-h5-vite",
+        "@dcloudio/uni-h5-vue",
+        "vue"
+      ],
+      "range": "<=3.5.41",
+      "nodes": [
+        "node_modules/@vue/server-renderer"
+      ],
+      "fixAvailable": {
+        "name": "@dcloudio/uni-h5",
+        "version": "0.9.0",
+        "isSemVerMajor": true
+      }
+    },
+    "body-parser": {
+      "name": "body-parser",
+      "severity": "high",
+      "isDirect": false,
+      "via": [
+        {
+          "source": 1243073,
+          "name": "body-parser",
+          "dependency": "body-parser",
+          "title": "body-parser vulnerable to Denial of Service via trailing bytes after a compressed request body",
+          "url": "https://github.com/advisories/GHSA-27r3-jxmh-p828",
+          "severity": "high",
+          "cwe": [
+            "CWE-248"
+          ],
+          "cvss": {
+            "score": 7.5,
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+          },
+          "range": "<1.20.9"
+        },
+        "qs"
+      ],
+      "effects": [
+        "express"
+      ],
+      "range": "<=1.20.8 || 2.0.0-beta.1 - 2.0.2",
+      "nodes": [
+        "node_modules/body-parser"
+      ],
+      "fixAvailable": true
+    },
+    "express": {
+      "name": "express",
+      "severity": "high",
+      "isDirect": false,
+      "via": [
+        "body-parser"
+      ],
+      "effects": [],
+      "range": "4.16.0 - 4.21.2",
+      "nodes": [
+        "node_modules/express"
+      ],
+      "fixAvailable": true
+    },
+    "postcss-selector-parser": {
+      "name": "postcss-selector-parser",
+      "severity": "moderate",
+      "isDirect": false,
+      "via": [
+        {
+          "source": 1243379,
+          "name": "postcss-selector-parser",
+          "dependency": "postcss-selector-parser",
+          "title": "PostCSS: Quadratic complexity in flat selector parsing allows CPU exhaustion",
+          "url": "https://github.com/advisories/GHSA-rj75-hqrm-r3gf",
+          "severity": "moderate",
+          "cwe": [
+            "CWE-400",
+            "CWE-407"
+          ],
+          "cvss": {
+            "score": 5.9,
+            "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:N/A:H"
+          },
+          "range": "<6.1.5"
+        }
+      ],
+      "effects": [
+        "@dcloudio/uni-cli-shared",
+        "@dcloudio/uni-h5"
+      ],
+      "range": "<6.1.5",
+      "nodes": [
+        "node_modules/postcss-selector-parser"
+      ],
+      "fixAvailable": {
+        "name": "@dcloudio/uni-h5",
+        "version": "0.9.0",
+        "isSemVerMajor": true
+      }
+    },
+    "qs": {
+      "name": "qs",
+      "severity": "moderate",
+      "isDirect": false,
+      "via": [
+        {
+          "source": 1243452,
+          "name": "qs",
+          "dependency": "qs",
+          "title": "qs : qs.stringify with arrayFormat 'comma' throws an uncaught TypeError on array elements carrying a non-callable own toString (DoS)",
+          "url": "https://github.com/advisories/GHSA-6pq8-jhm2-2vcw",
+          "severity": "moderate",
+          "cwe": [
+            "CWE-248",
+            "CWE-704"
+          ],
+          "cvss": {
+            "score": 5.3,
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L"
+          },
+          "range": ">=6.7.0 <=6.16.0"
+        }
+      ],
+      "effects": [
+        "body-parser"
+      ],
+      "range": "6.7.0 - 6.16.0",
+      "nodes": [
+        "node_modules/qs"
+      ],
+      "fixAvailable": true
+    },
+    "source-map-js": {
+      "name": "source-map-js",
+      "severity": "high",
+      "isDirect": false,
+      "via": [
+        {
+          "source": 1241209,
+          "name": "source-map-js",
+          "dependency": "source-map-js",
+          "title": "source-map-js allows event-loop denial of service through indexed source-map section offsets",
+          "url": "https://github.com/advisories/GHSA-68fv-2mgg-jv7q",
+          "severity": "high",
+          "cwe": [
+            "CWE-1284"
+          ],
+          "cvss": {
+            "score": 7.5,
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+          },
+          "range": ">=1.0.0 <1.2.2"
+        }
+      ],
+      "effects": [
+        "@dcloudio/vite-plugin-uni"
+      ],
+      "range": "1.0.0 - 1.2.1",
+      "nodes": [
+        "node_modules/source-map-js"
+      ],
+      "fixAvailable": {
+        "isSemVerMajor": true
+      }
+    },
+    "vite": {
+      "name": "vite",
+      "severity": "high",
+      "isDirect": true,
+      "via": [
+        {
+          "source": 1242622,
+          "name": "vite",
+          "dependency": "vite",
+          "title": "launch-editor: escapeCmdArgs() omits % escaping on Windows",
+          "url": "https://github.com/advisories/GHSA-698v-4r3x-3vcv",
+          "severity": "moderate",
+          "cwe": [
+            "CWE-78"
+          ],
+          "cvss": {
+            "score": 0,
+            "vectorString": null
+          },
+          "range": "<=6.4.3"
+        },
+        {
+          "source": 1242651,
+          "name": "vite",
+          "dependency": "vite",
+          "title": "launch-editor: Editor CLI flag misinterpretation causing arbitrary command execution for some editors",
+          "url": "https://github.com/advisories/GHSA-r825-w8mm-5pxw",
+          "severity": "moderate",
+          "cwe": [
+            "CWE-88"
+          ],
+          "cvss": {
+            "score": 0,
+            "vectorString": null
+          },
+          "range": "<=6.4.3"
+        },
+        {
+          "source": 1242658,
+          "name": "vite",
+          "dependency": "vite",
+          "title": "launch-editor: `fs.existsSync()` existence check can be bypassed on Windows",
+          "url": "https://github.com/advisories/GHSA-587h-7wmj-h5pm",
+          "severity": "high",
+          "cwe": [
+            "CWE-77"
+          ],
+          "cvss": {
+            "score": 0,
+            "vectorString": null
+          },
+          "range": "<=6.4.3"
+        },
+        {
+          "source": 1242724,
+          "name": "vite",
+          "dependency": "vite",
+          "title": "Vite: Cross origin script execution through Vite custom middleware",
+          "url": "https://github.com/advisories/GHSA-9jrq-w75r-8gcw",
+          "severity": "low",
+          "cwe": [
+            "CWE-80"
+          ],
+          "cvss": {
+            "score": 0,
+            "vectorString": null
+          },
+          "range": "<=6.4.3"
+        },
+        {
+          "source": 1242730,
+          "name": "vite",
+          "dependency": "vite",
+          "title": "Vite: Files outside `server.fs.allow` could be served when project paths match system paths on non-Windows machine",
+          "url": "https://github.com/advisories/GHSA-rq7h-c2jc-7f22",
+          "severity": "moderate",
+          "cwe": [
+            "CWE-22",
+            "CWE-284"
+          ],
+          "cvss": {
+            "score": 0,
+            "vectorString": null
+          },
+          "range": "<=6.4.3"
+        }
+      ],
+      "effects": [
+        "@vitejs/plugin-legacy",
+        "@vitejs/plugin-vue",
+        "@vitejs/plugin-vue-jsx"
+      ],
+      "range": "<=6.4.3",
+      "nodes": [
+        "node_modules/vite"
+      ],
+      "fixAvailable": {
+        "name": "vite",
+        "version": "6.4.5",
+        "isSemVerMajor": false
+      }
+    },
+    "vue": {
+      "name": "vue",
+      "severity": "high",
+      "isDirect": true,
+      "via": [
+        "@vue/server-renderer"
+      ],
+      "effects": [
+        "@vue/server-renderer"
+      ],
+      "range": "3.2.13 - 3.5.41",
+      "nodes": [
+        "node_modules/vue"
+      ],
+      "fixAvailable": {
+        "name": "@dcloudio/uni-h5",
+        "version": "0.9.0",
+        "isSemVerMajor": true
+      }
+    }
+  },
+  "metadata": {
+    "vulnerabilities": {
+      "info": 0,
+      "low": 3,
+      "moderate": 2,
+      "high": 20,
+      "critical": 0,
+      "total": 25
+    },
+    "dependencies": {
+      "prod": 329,
+      "dev": 221,
+      "optional": 69,
+      "peer": 0,
+      "peerOptional": 0,
+      "total": 618
+    }
+  }
+}

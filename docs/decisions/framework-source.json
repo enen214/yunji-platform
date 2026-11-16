@@ -1,0 +1,6 @@
+{
+  "companyCommit": "b4d44eebdefbd4cb7df37922c67657fa1614846b",
+  "schemaUrl": "https://raw.githubusercontent.com/dromara/RuoYi-Vue-Plus/v5.3.1/script/sql/ry_vue_5.X.sql",
+  "schemaSha256": "cb7cd3bae9757eaf85cb5139fb1cc76c2022623f53e670aa379cab2493032e36",
+  "policy": "Only company foundation Java and official framework SQL; no demo business copied."
+}

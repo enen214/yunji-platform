@@ -1,0 +1,1767 @@
+{
+  "generatedAt": "2026-10-23T11:41:04.695767+00:00",
+  "source": "docs/spec/work-items.json + contracts/openapi.json + contracts/route-decisions.json",
+  "actualPaths": 282,
+  "actualOperations": 335,
+  "rows": [
+    {
+      "featureId": "AUTH-01",
+      "feature": "STAFF密码登录与退出",
+      "scope": "REWRITE",
+      "external": "NONE",
+      "routes": [
+        {
+          "planned": "POST /auth/login",
+          "status": "PRESENT"
+        },
+        {
+          "planned": "POST /auth/logout",
+          "status": "PRESENT"
+        }
+      ],
+      "missingCount": 0
+    },
+    {
+      "featureId": "AUTH-02",
+      "feature": "CUSTOMER微信登录与退出",
+      "scope": "REWRITE",
+      "external": "PLATFORM_PENDING",
+      "routes": [
+        {
+          "planned": "POST /api/v1/auth/customer/wechat",
+          "status": "PRESENT"
+        },
+        {
+          "planned": "POST /api/v1/auth/customer/logout",
+          "status": "PRESENT"
+        }
+      ],
+      "missingCount": 0
+    },
+    {
+      "featureId": "AUTH-03",
+      "feature": "本地合成用户登录",
+      "scope": "REWRITE",
+      "external": "NONE",
+      "routes": [
+        {
+          "planned": "POST /api/v1/auth/customer/local",
+          "status": "PRESENT"
+        }
+      ],
+      "missingCount": 0
+    },
+    {
+      "featureId": "AUTH-04",
+      "feature": "用户资料编辑",
+      "scope": "REWRITE",
+      "external": "NONE",
+      "routes": [
+        {
+          "planned": "GET /api/v1/me/profile",
+          "status": "PRESENT"
+        },
+        {
+          "planned": "PATCH /api/v1/me/profile",
+          "status": "REPLACED",
+          "actualTargets": [
+            "PUT /api/v1/me/profile"
+          ],
+          "semantics": "完整更新昵称和组织，PUT 请求只接受 ProfileRequest 声明字段。"
+        }
+      ],
+      "missingCount": 0
+    },
+    {
+      "featureId": "AUTH-05",
+      "feature": "手机号/微信身份绑定",
+      "scope": "CANDIDATE_CONFIRM",
+      "external": "NONE",
+      "routes": [
+        {
+          "planned": "POST /api/v1/me/identity-bindings",
+          "status": "NOT_IN_BASELINE",
+          "actualTargets": [],
+          "semantics": "候选需求未纳入既定重制范围，保持单独确认。"
+        }
+      ],
+      "missingCount": 0
+    },
+    {
+      "featureId": "AUTH-06",
+      "feature": "协议同意与账号注销",
+      "scope": "REWRITE",
+      "external": "NONE",
+      "routes": [
+        {
+          "planned": "POST /api/v1/me/consents",
+          "status": "PRESENT"
+        },
+        {
+          "planned": "POST /api/v1/me/closure",
+          "status": "COMPOSED",
+          "actualTargets": [
+            "DELETE /api/v1/me/account",
+            "POST /api/v1/me/consents"
+          ],
+          "semantics": "注销采用 DELETE 和明确 confirmation；同意记录绑定确切页面版本。"
+        }
+      ],
+      "missingCount": 0
+    },
+    {
+      "featureId": "CAT-01",
+      "feature": "分类树与维护",
+      "scope": "REWRITE",
+      "external": "NONE",
+      "routes": [
+        {
+          "planned": "GET /api/v1/catalog/categories",
+          "status": "PRESENT"
+        },
+        {
+          "planned": "POST /api/v1/staff/catalog/categories",
+          "status": "COMPOSED",
+          "actualTargets": [
+            "POST /api/v1/admin/catalog/{kind}",
+            "PUT /api/v1/admin/catalog/{kind}/{id}"
+          ],
+          "semantics": "kind=categories，维护分类树和锁版本。"
+        },
+        {
+          "planned": "PATCH /api/v1/staff/catalog/categories/{id}",
+          "status": "COMPOSED",
+          "actualTargets": [
+            "POST /api/v1/admin/catalog/{kind}",
+            "PUT /api/v1/admin/catalog/{kind}/{id}"
+          ],
+          "semantics": "kind=categories，维护分类树和锁版本。"
+        }
+      ],
+      "missingCount": 0
+    },
+    {
+      "featureId": "CAT-02",
+      "feature": "学校学院部门维护",
+      "scope": "REWRITE",
+      "external": "NONE",
+      "routes": [
+        {
+          "planned": "GET /api/v1/catalog/organizations",
+          "status": "PRESENT"
+        },
+        {
+          "planned": "POST /api/v1/staff/catalog/organizations",
+          "status": "COMPOSED",
+          "actualTargets": [
+            "POST /api/v1/admin/catalog/{kind}",
+            "PUT /api/v1/admin/catalog/{kind}/{id}"
+          ],
+          "semantics": "kind=organizations，维护学校学院树。"
+        },
+        {
+          "planned": "PATCH /api/v1/staff/catalog/organizations/{id}",
+          "status": "COMPOSED",
+          "actualTargets": [
+            "POST /api/v1/admin/catalog/{kind}",
+            "PUT /api/v1/admin/catalog/{kind}/{id}"
+          ],
+          "semantics": "kind=organizations，维护学校学院树。"
+        }
+      ],
+      "missingCount": 0
+    },
+    {
+      "featureId": "CAT-03",
+      "feature": "关键词搜索与维护",
+      "scope": "REWRITE",
+      "external": "NONE",
+      "routes": [
+        {
+          "planned": "GET /api/v1/catalog/keywords",
+          "status": "PRESENT"
+        },
+        {
+          "planned": "POST /api/v1/staff/catalog/keywords",
+          "status": "COMPOSED",
+          "actualTargets": [
+            "POST /api/v1/admin/catalog/{kind}",
+            "PUT /api/v1/admin/catalog/{kind}/{id}"
+          ],
+          "semantics": "kind=keywords，规范名和展示名由服务校验。"
+        },
+        {
+          "planned": "PATCH /api/v1/staff/catalog/keywords/{id}",
+          "status": "COMPOSED",
+          "actualTargets": [
+            "POST /api/v1/admin/catalog/{kind}",
+            "PUT /api/v1/admin/catalog/{kind}/{id}"
+          ],
+          "semantics": "kind=keywords，规范名和展示名由服务校验。"
+        }
+      ],
+      "missingCount": 0
+    },
+    {
+      "featureId": "CAT-04",
+      "feature": "类型+组织筛选",
+      "scope": "REWRITE",
+      "external": "NONE",
+      "routes": [
+        {
+          "planned": "GET /api/v1/articles",
+          "status": "PRESENT"
+        }
+      ],
+      "missingCount": 0
+    },
+    {
+      "featureId": "CAT-05",
+      "feature": "关键词别名与治理",
+      "scope": "REWRITE",
+      "external": "NONE",
+      "routes": [
+        {
+          "planned": "POST /api/v1/staff/catalog/keywords/{id}/aliases",
+          "status": "REPLACED",
+          "actualTargets": [
+            "POST /api/v1/admin/catalog/keywords/{id}/aliases"
+          ],
+          "semantics": "别名绑定规范关键词并检查唯一性。"
+        }
+      ],
+      "missingCount": 0
+    },
+    {
+      "featureId": "CAT-06",
+      "feature": "可选组合订阅",
+      "scope": "CANDIDATE_CONFIRM",
+      "external": "NONE",
+      "routes": [
+        {
+          "planned": "PUT /api/v1/me/filter-subscriptions",
+          "status": "NOT_IN_BASELINE",
+          "actualTargets": [],
+          "semantics": "候选需求未纳入既定重制范围，保持单独确认。"
+        },
+        {
+          "planned": "DELETE /api/v1/me/filter-subscriptions/{id}",
+          "status": "NOT_IN_BASELINE",
+          "actualTargets": [],
+          "semantics": "候选需求未纳入既定重制范围，保持单独确认。"
+        }
+      ],
+      "missingCount": 0
+    },
+    {
+      "featureId": "ART-01",
+      "feature": "草稿创建",
+      "scope": "REWRITE",
+      "external": "NONE",
+      "routes": [
+        {
+          "planned": "POST /api/v1/staff/articles",
+          "status": "REPLACED",
+          "actualTargets": [
+            "POST /api/v1/admin/articles"
+          ],
+          "semantics": "工作人员域统一命名 admin，服务仍检查编辑权限和内容范围。"
+        }
+      ],
+      "missingCount": 0
+    },
+    {
+      "featureId": "ART-02",
+      "feature": "草稿编辑与版本",
+      "scope": "REWRITE",
+      "external": "NONE",
+      "routes": [
+        {
+          "planned": "PUT /api/v1/staff/articles/{id}",
+          "status": "COMPOSED",
+          "actualTargets": [
+            "POST /api/v1/admin/articles/{id}/versions",
+            "GET /api/v1/admin/articles/{id}"
+          ],
+          "semantics": "编辑创建不可变版本；详情的 versions 返回全部保留版本，不另加同义路由。"
+        },
+        {
+          "planned": "GET /api/v1/staff/articles/{id}/versions",
+          "status": "COMPOSED",
+          "actualTargets": [
+            "POST /api/v1/admin/articles/{id}/versions",
+            "GET /api/v1/admin/articles/{id}"
+          ],
+          "semantics": "编辑创建不可变版本；详情的 versions 返回全部保留版本，不另加同义路由。"
+        }
+      ],
+      "missingCount": 0
+    },
+    {
+      "featureId": "ART-03",
+      "feature": "提交审核/撤回",
+      "scope": "REWRITE",
+      "external": "NONE",
+      "routes": [
+        {
+          "planned": "POST /api/v1/staff/articles/{id}/submit",
+          "status": "REPLACED",
+          "actualTargets": [
+            "POST /api/v1/admin/articles/{id}/transitions"
+          ],
+          "semantics": "action=SUBMIT 或 WITHDRAW，绑定 versionId 和 expectedVersion。"
+        },
+        {
+          "planned": "POST /api/v1/staff/articles/{id}/withdraw",
+          "status": "REPLACED",
+          "actualTargets": [
+            "POST /api/v1/admin/articles/{id}/transitions"
+          ],
+          "semantics": "action=SUBMIT 或 WITHDRAW，绑定 versionId 和 expectedVersion。"
+        }
+      ],
+      "missingCount": 0
+    },
+    {
+      "featureId": "ART-04",
+      "feature": "审核退回/通过",
+      "scope": "REWRITE",
+      "external": "NONE",
+      "routes": [
+        {
+          "planned": "POST /api/v1/staff/articles/{id}/review",
+          "status": "REPLACED",
+          "actualTargets": [
+            "POST /api/v1/admin/articles/{id}/transitions"
+          ],
+          "semantics": "action=APPROVE 或 REJECT，审核员权限、范围、版本均校验。"
+        }
+      ],
+      "missingCount": 0
+    },
+    {
+      "featureId": "ART-05",
+      "feature": "发布/下线",
+      "scope": "REWRITE",
+      "external": "NONE",
+      "routes": [
+        {
+          "planned": "POST /api/v1/staff/articles/{id}/publish",
+          "status": "REPLACED",
+          "actualTargets": [
+            "POST /api/v1/admin/articles/{id}/transitions"
+          ],
+          "semantics": "action=PUBLISH 或 OFFLINE；发布只允许已审核的确切版本。"
+        },
+        {
+          "planned": "POST /api/v1/staff/articles/{id}/offline",
+          "status": "REPLACED",
+          "actualTargets": [
+            "POST /api/v1/admin/articles/{id}/transitions"
+          ],
+          "semantics": "action=PUBLISH 或 OFFLINE；发布只允许已审核的确切版本。"
+        }
+      ],
+      "missingCount": 0
+    },
+    {
+      "featureId": "ART-06",
+      "feature": "公开列表分页",
+      "scope": "REWRITE",
+      "external": "NONE",
+      "routes": [
+        {
+          "planned": "GET /api/v1/articles",
+          "status": "PRESENT"
+        }
+      ],
+      "missingCount": 0
+    },
+    {
+      "featureId": "ART-07",
+      "feature": "详情与来源",
+      "scope": "REWRITE",
+      "external": "NONE",
+      "routes": [
+        {
+          "planned": "GET /api/v1/articles/{id}",
+          "status": "PRESENT"
+        }
+      ],
+      "missingCount": 0
+    },
+    {
+      "featureId": "ART-08",
+      "feature": "搜索与筛选",
+      "scope": "REWRITE",
+      "external": "NONE",
+      "routes": [
+        {
+          "planned": "GET /api/v1/articles",
+          "status": "PRESENT"
+        }
+      ],
+      "missingCount": 0
+    },
+    {
+      "featureId": "ART-09",
+      "feature": "内容替换追踪",
+      "scope": "REWRITE",
+      "external": "NONE",
+      "routes": [
+        {
+          "planned": "POST /api/v1/staff/articles/{id}/replacements",
+          "status": "COMPOSED",
+          "actualTargets": [
+            "POST /api/v1/admin/articles/{id}/replacement",
+            "GET /api/v1/articles/{id}/replacement",
+            "POST /api/v1/me/follows/articles/{id}/replacement"
+          ],
+          "semantics": "后台替换串行检查有向图；公开投影只返回可见最终目标；客户提交 targetId 明确确认转关注。"
+        },
+        {
+          "planned": "POST /api/v1/me/replacement-decisions",
+          "status": "COMPOSED",
+          "actualTargets": [
+            "POST /api/v1/admin/articles/{id}/replacement",
+            "GET /api/v1/articles/{id}/replacement",
+            "POST /api/v1/me/follows/articles/{id}/replacement"
+          ],
+          "semantics": "后台替换串行检查有向图；公开投影只返回可见最终目标；客户提交 targetId 明确确认转关注。"
+        }
+      ],
+      "missingCount": 0
+    },
+    {
+      "featureId": "ART-10",
+      "feature": "有效期/过期视图",
+      "scope": "REWRITE",
+      "external": "NONE",
+      "routes": [
+        {
+          "planned": "GET /api/v1/staff/articles",
+          "status": "COMPOSED",
+          "actualTargets": [
+            "GET /api/v1/admin/articles",
+            "GET /api/v1/articles/archive"
+          ],
+          "semantics": "后台看全部有权限内容；归档投影不泄露已撤下正文。"
+        },
+        {
+          "planned": "GET /api/v1/me/articles/archive",
+          "status": "COMPOSED",
+          "actualTargets": [
+            "GET /api/v1/admin/articles",
+            "GET /api/v1/articles/archive"
+          ],
+          "semantics": "后台看全部有权限内容；归档投影不泄露已撤下正文。"
+        }
+      ],
+      "missingCount": 0
+    },
+    {
+      "featureId": "SUB-01",
+      "feature": "关键词订阅/取消",
+      "scope": "REWRITE",
+      "external": "NONE",
+      "routes": [
+        {
+          "planned": "PUT /api/v1/me/follows",
+          "status": "REPLACED",
+          "actualTargets": [
+            "PUT /api/v1/me/follows/{type}/{id}"
+          ],
+          "semantics": "type=KEYWORD，enabled=true/false 分别订阅/取消，保持幂等。"
+        },
+        {
+          "planned": "DELETE /api/v1/me/follows/{targetType}/{targetId}",
+          "status": "REPLACED",
+          "actualTargets": [
+            "PUT /api/v1/me/follows/{type}/{id}"
+          ],
+          "semantics": "type=KEYWORD，enabled=true/false 分别订阅/取消，保持幂等。"
+        }
+      ],
+      "missingCount": 0
+    },
+    {
+      "featureId": "SUB-02",
+      "feature": "内容关注/取消",
+      "scope": "REWRITE",
+      "external": "NONE",
+      "routes": [
+        {
+          "planned": "PUT /api/v1/me/follows",
+          "status": "REPLACED",
+          "actualTargets": [
+            "PUT /api/v1/me/follows/{type}/{id}"
+          ],
+          "semantics": "type=ARTICLE，enabled=true/false 分别关注/取消；替换不自动转移。"
+        },
+        {
+          "planned": "DELETE /api/v1/me/follows/{targetType}/{targetId}",
+          "status": "REPLACED",
+          "actualTargets": [
+            "PUT /api/v1/me/follows/{type}/{id}"
+          ],
+          "semantics": "type=ARTICLE，enabled=true/false 分别关注/取消；替换不自动转移。"
+        }
+      ],
+      "missingCount": 0
+    },
+    {
+      "featureId": "SUB-03",
+      "feature": "关注列表",
+      "scope": "REWRITE",
+      "external": "NONE",
+      "routes": [
+        {
+          "planned": "GET /api/v1/me/follows",
+          "status": "PRESENT"
+        }
+      ],
+      "missingCount": 0
+    },
+    {
+      "featureId": "SUB-04",
+      "feature": "订阅聚合盒子",
+      "scope": "REWRITE",
+      "external": "NONE",
+      "routes": [
+        {
+          "planned": "GET /api/v1/me/subscription-feed",
+          "status": "REPLACED",
+          "actualTargets": [
+            "GET /api/v1/me/subscription-boxes"
+          ],
+          "semantics": "盒子同时返回当前可见资讯 items，避免另外维护聚合流。"
+        }
+      ],
+      "missingCount": 0
+    },
+    {
+      "featureId": "SUB-05",
+      "feature": "盒子隐藏/取消隐藏",
+      "scope": "REWRITE",
+      "external": "NONE",
+      "routes": [
+        {
+          "planned": "PUT /api/v1/me/boxes/{id}/visibility",
+          "status": "REPLACED",
+          "actualTargets": [
+            "PUT /api/v1/me/subscription-boxes/{id}/hidden"
+          ],
+          "semantics": "hidden 控制盒子偏好，不删除关注。"
+        }
+      ],
+      "missingCount": 0
+    },
+    {
+      "featureId": "SUB-06",
+      "feature": "更新/未读摘要",
+      "scope": "REWRITE",
+      "external": "NONE",
+      "routes": [
+        {
+          "planned": "GET /api/v1/me/subscription-summary",
+          "status": "REPLACED",
+          "actualTargets": [
+            "GET /api/v1/me/subscription-boxes"
+          ],
+          "semantics": "items.unread 比较用户已读版本与当前发布版本，unreadCount 返回盒子汇总。"
+        }
+      ],
+      "missingCount": 0
+    },
+    {
+      "featureId": "ENG-01",
+      "feature": "收藏与取消",
+      "scope": "REWRITE",
+      "external": "NONE",
+      "routes": [
+        {
+          "planned": "PUT /api/v1/me/favorites/{id}",
+          "status": "PRESENT"
+        },
+        {
+          "planned": "DELETE /api/v1/me/favorites/{id}",
+          "status": "REPLACED",
+          "actualTargets": [
+            "PUT /api/v1/me/favorites/{id}"
+          ],
+          "semantics": "enabled=false 取消；已有收藏记录按当前可见内容投影。"
+        }
+      ],
+      "missingCount": 0
+    },
+    {
+      "featureId": "ENG-02",
+      "feature": "收藏列表",
+      "scope": "REWRITE",
+      "external": "NONE",
+      "routes": [
+        {
+          "planned": "GET /api/v1/me/favorites",
+          "status": "PRESENT"
+        }
+      ],
+      "missingCount": 0
+    },
+    {
+      "featureId": "ENG-03",
+      "feature": "浏览上报/历史/清空",
+      "scope": "REWRITE",
+      "external": "NONE",
+      "routes": [
+        {
+          "planned": "POST /api/v1/me/articles/{id}/browse",
+          "status": "REPLACED",
+          "actualTargets": [
+            "POST /api/v1/me/history/{id}"
+          ],
+          "semantics": "服务验证资讯当前公开后记浏览；清理采用 DELETE /api/v1/me/history。"
+        },
+        {
+          "planned": "GET /api/v1/me/history",
+          "status": "PRESENT"
+        },
+        {
+          "planned": "DELETE /api/v1/me/history",
+          "status": "PRESENT"
+        }
+      ],
+      "missingCount": 0
+    },
+    {
+      "featureId": "ENG-04",
+      "feature": "明确标记已读",
+      "scope": "REWRITE",
+      "external": "NONE",
+      "routes": [
+        {
+          "planned": "PUT /api/v1/me/articles/{id}/read",
+          "status": "REPLACED",
+          "actualTargets": [
+            "PUT /api/v1/me/read/{id}"
+          ],
+          "semantics": "请求版本必须与当前发布版本相同；409 由客户端重新加载且再次确认。"
+        }
+      ],
+      "missingCount": 0
+    },
+    {
+      "featureId": "ENG-05",
+      "feature": "分享行为",
+      "scope": "REWRITE",
+      "external": "NONE",
+      "routes": [
+        {
+          "planned": "POST /api/v1/events",
+          "status": "REPLACED",
+          "actualTargets": [
+            "POST /api/v1/me/events"
+          ],
+          "semantics": "分享等事件类型在 body.type，登录用户、事件ID去重与服务冷却共同校验。"
+        }
+      ],
+      "missingCount": 0
+    },
+    {
+      "featureId": "ENG-06",
+      "feature": "举报与处理",
+      "scope": "REWRITE",
+      "external": "NONE",
+      "routes": [
+        {
+          "planned": "POST /api/v1/me/reports",
+          "status": "COMPOSED",
+          "actualTargets": [
+            "POST /api/v1/me/reports/{id}",
+            "POST /api/v1/admin/moderation/{kind}/{id}"
+          ],
+          "semantics": "客户路径 id 是 articleId；处理 kind=reports，决定为 RESOLVED/DISMISSED。"
+        },
+        {
+          "planned": "POST /api/v1/staff/reports/{id}/resolve",
+          "status": "COMPOSED",
+          "actualTargets": [
+            "POST /api/v1/me/reports/{id}",
+            "POST /api/v1/admin/moderation/{kind}/{id}"
+          ],
+          "semantics": "客户路径 id 是 articleId；处理 kind=reports，决定为 RESOLVED/DISMISSED。"
+        }
+      ],
+      "missingCount": 0
+    },
+    {
+      "featureId": "ENG-07",
+      "feature": "平台反馈",
+      "scope": "REWRITE",
+      "external": "NONE",
+      "routes": [
+        {
+          "planned": "POST /api/v1/me/feedback",
+          "status": "PRESENT"
+        },
+        {
+          "planned": "GET /api/v1/me/feedback",
+          "status": "PRESENT"
+        },
+        {
+          "planned": "POST /api/v1/staff/feedback/{id}/resolve",
+          "status": "REPLACED",
+          "actualTargets": [
+            "POST /api/v1/admin/moderation/{kind}/{id}"
+          ],
+          "semantics": "kind=feedback；客户反馈写入另有已存在的 /api/v1/me/feedback。"
+        }
+      ],
+      "missingCount": 0
+    },
+    {
+      "featureId": "NOT-01",
+      "feature": "提醒规则CRUD",
+      "scope": "REWRITE",
+      "external": "PLATFORM_PENDING",
+      "routes": [
+        {
+          "planned": "GET /api/v1/me/notifications/rules",
+          "status": "PRESENT"
+        },
+        {
+          "planned": "POST /api/v1/me/notifications/rules",
+          "status": "PRESENT"
+        },
+        {
+          "planned": "PATCH /api/v1/me/notifications/rules/{id}",
+          "status": "REPLACED",
+          "actualTargets": [
+            "PUT /api/v1/me/notifications/rules/{id}"
+          ],
+          "semantics": "更新整个规则并提交 expectedVersion；本地规则验收与真实平台送达分别判定。"
+        }
+      ],
+      "missingCount": 0
+    },
+    {
+      "featureId": "NOT-02",
+      "feature": "具体时间提醒",
+      "scope": "REWRITE",
+      "external": "PLATFORM_PENDING",
+      "routes": [
+        {
+          "planned": "POST /api/v1/me/notifications/rules",
+          "status": "PRESENT"
+        },
+        {
+          "planned": "WORKER due-notifications",
+          "status": "NON_HTTP_DELIVERY"
+        }
+      ],
+      "missingCount": 0
+    },
+    {
+      "featureId": "NOT-03",
+      "feature": "每日摘要",
+      "scope": "REWRITE",
+      "external": "PLATFORM_PENDING",
+      "routes": [
+        {
+          "planned": "WORKER daily-digests",
+          "status": "NON_HTTP_DELIVERY"
+        }
+      ],
+      "missingCount": 0
+    },
+    {
+      "featureId": "NOT-04",
+      "feature": "即时提醒",
+      "scope": "REWRITE",
+      "external": "PLATFORM_PENDING",
+      "routes": [
+        {
+          "planned": "WORKER article-published-consumer",
+          "status": "NON_HTTP_DELIVERY"
+        }
+      ],
+      "missingCount": 0
+    },
+    {
+      "featureId": "NOT-05",
+      "feature": "升降级/取消",
+      "scope": "REWRITE",
+      "external": "PLATFORM_PENDING",
+      "routes": [
+        {
+          "planned": "PATCH /api/v1/me/notifications/rules/{id}",
+          "status": "REPLACED",
+          "actualTargets": [
+            "PUT /api/v1/me/notifications/rules/{id}"
+          ],
+          "semantics": "enabled=false 暂停；DELETE 明确取消；规则版本变更使待发送任务取消。"
+        },
+        {
+          "planned": "DELETE /api/v1/me/notifications/rules/{id}",
+          "status": "PRESENT"
+        }
+      ],
+      "missingCount": 0
+    },
+    {
+      "featureId": "NOT-06",
+      "feature": "微信订阅消息授权",
+      "scope": "REWRITE",
+      "external": "PLATFORM_PENDING",
+      "routes": [
+        {
+          "planned": "POST /api/v1/me/notifications/authorizations",
+          "status": "PLATFORM_PENDING",
+          "actualTargets": [],
+          "semantics": "真实平台授权/回调需要独立资源和供应商协议联调；本地合成入口不作为生产替代。"
+        }
+      ],
+      "missingCount": 0
+    },
+    {
+      "featureId": "NOT-07",
+      "feature": "公众号状态/绑定",
+      "scope": "REWRITE",
+      "external": "PLATFORM_PENDING",
+      "routes": [
+        {
+          "planned": "GET /api/v1/me/notifications/bindings",
+          "status": "COMPOSED",
+          "actualTargets": [
+            "GET /api/v1/me/notifications/status"
+          ],
+          "semantics": "绑定状态集中在 status.bindings；真正的绑定证明和回调仍待平台资源。"
+        },
+        {
+          "planned": "POST /api/v1/notifications/callbacks/official-account",
+          "status": "PLATFORM_PENDING",
+          "actualTargets": [],
+          "semantics": "真实平台授权/回调需要独立资源和供应商协议联调；本地合成入口不作为生产替代。"
+        }
+      ],
+      "missingCount": 0
+    },
+    {
+      "featureId": "NOT-08",
+      "feature": "企微绑定/回调",
+      "scope": "REWRITE",
+      "external": "PLATFORM_PENDING",
+      "routes": [
+        {
+          "planned": "POST /api/v1/me/notifications/wecom-binding",
+          "status": "PLATFORM_PENDING",
+          "actualTargets": [],
+          "semantics": "真实平台授权/回调需要独立资源和供应商协议联调；本地合成入口不作为生产替代。"
+        },
+        {
+          "planned": "POST /api/v1/notifications/callbacks/wecom",
+          "status": "PLATFORM_PENDING",
+          "actualTargets": [],
+          "semantics": "真实平台授权/回调需要独立资源和供应商协议联调；本地合成入口不作为生产替代。"
+        }
+      ],
+      "missingCount": 0
+    },
+    {
+      "featureId": "NOT-09",
+      "feature": "额度预留结算",
+      "scope": "REWRITE",
+      "external": "PLATFORM_PENDING",
+      "routes": [
+        {
+          "planned": "WORKER reserve-quota",
+          "status": "NON_HTTP_DELIVERY"
+        },
+        {
+          "planned": "GET /api/v1/me/notifications/quota",
+          "status": "REPLACED",
+          "actualTargets": [
+            "GET /api/v1/me/notifications/status"
+          ],
+          "semantics": "quotas 与 bindings 合并在 status；本地合成账本已验收，真实配额凭据仍待平台。"
+        }
+      ],
+      "missingCount": 0
+    },
+    {
+      "featureId": "NOT-10",
+      "feature": "通道失败重试与账本",
+      "scope": "REWRITE",
+      "external": "PLATFORM_PENDING",
+      "routes": [
+        {
+          "planned": "GET /api/v1/me/notifications/deliveries",
+          "status": "PRESENT"
+        },
+        {
+          "planned": "WORKER delivery-retry",
+          "status": "NON_HTTP_DELIVERY"
+        }
+      ],
+      "missingCount": 0
+    },
+    {
+      "featureId": "ACT-01",
+      "feature": "活动列表详情",
+      "scope": "REWRITE",
+      "external": "NONE",
+      "routes": [
+        {
+          "planned": "GET /api/v1/activities",
+          "status": "PRESENT"
+        },
+        {
+          "planned": "GET /api/v1/activities/{id}",
+          "status": "PRESENT"
+        }
+      ],
+      "missingCount": 0
+    },
+    {
+      "featureId": "ACT-02",
+      "feature": "活动表单与报名",
+      "scope": "REWRITE",
+      "external": "NONE",
+      "routes": [
+        {
+          "planned": "POST /api/v1/activities/{id}/registrations",
+          "status": "REPLACED",
+          "actualTargets": [
+            "POST /api/v1/me/activities/{id}/registration"
+          ],
+          "semantics": "登录用户提交最新 formVersionId 和答案；活动表单在公开详情 form。"
+        }
+      ],
+      "missingCount": 0
+    },
+    {
+      "featureId": "ACT-03",
+      "feature": "容量/候补",
+      "scope": "REWRITE",
+      "external": "NONE",
+      "routes": [
+        {
+          "planned": "WORKER promote-waitlist",
+          "status": "NON_HTTP_DELIVERY"
+        },
+        {
+          "planned": "POST /api/v1/activities/{id}/registrations",
+          "status": "REPLACED",
+          "actualTargets": [
+            "POST /api/v1/me/activities/{id}/registration"
+          ],
+          "semantics": "同一操作在行锁内确定确认/候补状态，无需客户选择候补接口。"
+        }
+      ],
+      "missingCount": 0
+    },
+    {
+      "featureId": "ACT-04",
+      "feature": "我的报名/取消",
+      "scope": "REWRITE",
+      "external": "NONE",
+      "routes": [
+        {
+          "planned": "GET /api/v1/me/registrations",
+          "status": "PRESENT"
+        },
+        {
+          "planned": "DELETE /api/v1/me/registrations/{id}",
+          "status": "REPLACED",
+          "actualTargets": [
+            "DELETE /api/v1/me/activities/{id}/registration"
+          ],
+          "semantics": "路径 id 是活动ID，服务只取消当前用户报名；取消后递补最早候补。"
+        }
+      ],
+      "missingCount": 0
+    },
+    {
+      "featureId": "ACT-05",
+      "feature": "后台配置/参与者/导出",
+      "scope": "REWRITE",
+      "external": "NONE",
+      "routes": [
+        {
+          "planned": "POST /api/v1/staff/activities",
+          "status": "COMPOSED",
+          "actualTargets": [
+            "POST /api/v1/admin/activities",
+            "GET /api/v1/admin/activities/{id}",
+            "POST /api/v1/admin/exports"
+          ],
+          "semantics": "详情包含 form 和 registrations；导出 dataset=activity-registrations/activityId 且同时检查管理与导出权限。"
+        },
+        {
+          "planned": "GET /api/v1/staff/activities/{id}/registrations",
+          "status": "COMPOSED",
+          "actualTargets": [
+            "POST /api/v1/admin/activities",
+            "GET /api/v1/admin/activities/{id}",
+            "POST /api/v1/admin/exports"
+          ],
+          "semantics": "详情包含 form 和 registrations；导出 dataset=activity-registrations/activityId 且同时检查管理与导出权限。"
+        },
+        {
+          "planned": "POST /api/v1/staff/activities/{id}/exports",
+          "status": "COMPOSED",
+          "actualTargets": [
+            "POST /api/v1/admin/activities",
+            "GET /api/v1/admin/activities/{id}",
+            "POST /api/v1/admin/exports"
+          ],
+          "semantics": "详情包含 form 和 registrations；导出 dataset=activity-registrations/activityId 且同时检查管理与导出权限。"
+        }
+      ],
+      "missingCount": 0
+    },
+    {
+      "featureId": "REV-01",
+      "feature": "项目与要求配置",
+      "scope": "REWRITE",
+      "external": "NONE",
+      "routes": [
+        {
+          "planned": "POST /api/v1/staff/reviews/campaigns",
+          "status": "COMPOSED",
+          "actualTargets": [
+            "POST /api/v1/admin/review-campaigns",
+            "PUT /api/v1/admin/review-campaigns/{id}"
+          ],
+          "semantics": "requirements 与项目在一个事务保存；产生申报后资格要求冻结，不能更改既有标准。"
+        },
+        {
+          "planned": "PUT /api/v1/staff/reviews/campaigns/{id}/requirements",
+          "status": "COMPOSED",
+          "actualTargets": [
+            "POST /api/v1/admin/review-campaigns",
+            "PUT /api/v1/admin/review-campaigns/{id}"
+          ],
+          "semantics": "requirements 与项目在一个事务保存；产生申报后资格要求冻结，不能更改既有标准。"
+        }
+      ],
+      "missingCount": 0
+    },
+    {
+      "featureId": "REV-02",
+      "feature": "资格检查",
+      "scope": "REWRITE",
+      "external": "NONE",
+      "routes": [
+        {
+          "planned": "GET /api/v1/reviews/campaigns/{id}/eligibility",
+          "status": "REPLACED",
+          "actualTargets": [
+            "GET /api/v1/me/review-campaigns/{id}/eligibility"
+          ],
+          "semantics": "资格基于当前登录用户，返回 eligible 与不满足的规则键。"
+        }
+      ],
+      "missingCount": 0
+    },
+    {
+      "featureId": "REV-03",
+      "feature": "申请草稿",
+      "scope": "REWRITE",
+      "external": "NONE",
+      "routes": [
+        {
+          "planned": "POST /api/v1/reviews/campaigns/{id}/applications",
+          "status": "REPLACED",
+          "actualTargets": [
+            "POST /api/v1/me/review-campaigns/{id}/draft"
+          ],
+          "semantics": "草稿保存生成新提交版本，材料包含在 Materials 请求；不用任意 PATCH 改冻结的历史。"
+        },
+        {
+          "planned": "PATCH /api/v1/me/review-applications/{id}",
+          "status": "REPLACED",
+          "actualTargets": [
+            "POST /api/v1/me/review-campaigns/{id}/draft"
+          ],
+          "semantics": "草稿保存生成新提交版本，材料包含在 Materials 请求；不用任意 PATCH 改冻结的历史。"
+        }
+      ],
+      "missingCount": 0
+    },
+    {
+      "featureId": "REV-04",
+      "feature": "材料上传与版本",
+      "scope": "REWRITE",
+      "external": "NONE",
+      "routes": [
+        {
+          "planned": "POST /api/v1/me/review-applications/{id}/materials",
+          "status": "COMPOSED",
+          "actualTargets": [
+            "POST /api/v1/me/review-campaigns/{id}/draft",
+            "POST /api/v1/me/files"
+          ],
+          "semantics": "先上传私有文件，再按 requirementKey 保存材料清单；提交后的材料不可原地修改。"
+        }
+      ],
+      "missingCount": 0
+    },
+    {
+      "featureId": "REV-05",
+      "feature": "提交/补正/撤回",
+      "scope": "REWRITE",
+      "external": "NONE",
+      "routes": [
+        {
+          "planned": "POST /api/v1/me/review-applications/{id}/submit",
+          "status": "REPLACED",
+          "actualTargets": [
+            "POST /api/v1/me/review-applications/{id}/actions"
+          ],
+          "semantics": "action=SUBMIT/WITHDRAW，submissionId 和 expectedVersion 确保操作确切提交。"
+        },
+        {
+          "planned": "POST /api/v1/me/review-applications/{id}/withdraw",
+          "status": "REPLACED",
+          "actualTargets": [
+            "POST /api/v1/me/review-applications/{id}/actions"
+          ],
+          "semantics": "action=SUBMIT/WITHDRAW，submissionId 和 expectedVersion 确保操作确切提交。"
+        }
+      ],
+      "missingCount": 0
+    },
+    {
+      "featureId": "REV-06",
+      "feature": "评审决定与私有材料权限",
+      "scope": "REWRITE",
+      "external": "NONE",
+      "routes": [
+        {
+          "planned": "POST /api/v1/staff/reviews/applications/{id}/decisions",
+          "status": "COMPOSED",
+          "actualTargets": [
+            "POST /api/v1/admin/review-applications/{id}/decisions",
+            "POST /api/v1/admin/files/{id}/tickets"
+          ],
+          "semantics": "审核决定绑定 submissionId；私有票据按评审组织范围校验且只能使用一次。"
+        },
+        {
+          "planned": "POST /api/v1/staff/reviews/materials/{id}/tickets",
+          "status": "COMPOSED",
+          "actualTargets": [
+            "POST /api/v1/admin/review-applications/{id}/decisions",
+            "POST /api/v1/admin/files/{id}/tickets"
+          ],
+          "semantics": "审核决定绑定 submissionId；私有票据按评审组织范围校验且只能使用一次。"
+        }
+      ],
+      "missingCount": 0
+    },
+    {
+      "featureId": "RES-01",
+      "feature": "资料包/科目浏览",
+      "scope": "REWRITE",
+      "external": "NONE",
+      "routes": [
+        {
+          "planned": "GET /api/v1/resources/packages",
+          "status": "PRESENT"
+        },
+        {
+          "planned": "GET /api/v1/resources/subjects",
+          "status": "PRESENT"
+        }
+      ],
+      "missingCount": 0
+    },
+    {
+      "featureId": "RES-02",
+      "feature": "年级/专业字典",
+      "scope": "REWRITE",
+      "external": "NONE",
+      "routes": [
+        {
+          "planned": "GET /api/v1/catalog/study-dimensions",
+          "status": "COMPOSED",
+          "actualTargets": [
+            "GET /api/v1/resources/dimensions",
+            "PUT /api/v1/admin/resources/dimensions/{id}"
+          ],
+          "semantics": "统一 GRADE/MAJOR 维度表，版本冲突返回409。"
+        },
+        {
+          "planned": "PUT /api/v1/staff/catalog/study-dimensions/{id}",
+          "status": "COMPOSED",
+          "actualTargets": [
+            "GET /api/v1/resources/dimensions",
+            "PUT /api/v1/admin/resources/dimensions/{id}"
+          ],
+          "semantics": "统一 GRADE/MAJOR 维度表，版本冲突返回409。"
+        }
+      ],
+      "missingCount": 0
+    },
+    {
+      "featureId": "RES-03",
+      "feature": "考试日程与倒计时",
+      "scope": "REWRITE",
+      "external": "NONE",
+      "routes": [
+        {
+          "planned": "GET /api/v1/resources/exams",
+          "status": "PRESENT"
+        }
+      ],
+      "missingCount": 0
+    },
+    {
+      "featureId": "RES-04",
+      "feature": "教材资料文件",
+      "scope": "REWRITE",
+      "external": "NONE",
+      "routes": [
+        {
+          "planned": "POST /api/v1/staff/resources/files",
+          "status": "COMPOSED",
+          "actualTargets": [
+            "POST /api/v1/admin/files",
+            "GET /api/v1/resources/packages/{id}"
+          ],
+          "semantics": "后台上传独立文件后由资料包 fileIds 建引用；公开详情只投影当前版本 files。"
+        },
+        {
+          "planned": "GET /api/v1/resources/packages/{id}/files",
+          "status": "COMPOSED",
+          "actualTargets": [
+            "POST /api/v1/admin/files",
+            "GET /api/v1/resources/packages/{id}"
+          ],
+          "semantics": "后台上传独立文件后由资料包 fileIds 建引用；公开详情只投影当前版本 files。"
+        }
+      ],
+      "missingCount": 0
+    },
+    {
+      "featureId": "RES-05",
+      "feature": "签名下载与日志",
+      "scope": "REWRITE",
+      "external": "NONE",
+      "routes": [
+        {
+          "planned": "POST /api/v1/downloads/tickets",
+          "status": "COMPOSED",
+          "actualTargets": [
+            "POST /api/v1/me/files/{id}/tickets",
+            "GET /api/v1/files/download/{token}"
+          ],
+          "semantics": "票据绑定身份、文件可见性和两分钟期限，成功服务读取记日志且票据只能使用一次。"
+        },
+        {
+          "planned": "GET /api/v1/downloads/{ticketId}",
+          "status": "COMPOSED",
+          "actualTargets": [
+            "POST /api/v1/me/files/{id}/tickets",
+            "GET /api/v1/files/download/{token}"
+          ],
+          "semantics": "票据绑定身份、文件可见性和两分钟期限，成功服务读取记日志且票据只能使用一次。"
+        }
+      ],
+      "missingCount": 0
+    },
+    {
+      "featureId": "RES-06",
+      "feature": "插件版本与校验和",
+      "scope": "REWRITE",
+      "external": "NONE",
+      "routes": [
+        {
+          "planned": "GET /api/v1/plugins",
+          "status": "COMPOSED",
+          "actualTargets": [
+            "GET /api/v1/resources/artifacts",
+            "POST /api/v1/admin/resources/artifacts/{id}/versions"
+          ],
+          "semantics": "插件统一称 artifact，发布版本冻结附件SHA256和版本名。"
+        },
+        {
+          "planned": "POST /api/v1/staff/plugins/{id}/versions",
+          "status": "COMPOSED",
+          "actualTargets": [
+            "GET /api/v1/resources/artifacts",
+            "POST /api/v1/admin/resources/artifacts/{id}/versions"
+          ],
+          "semantics": "插件统一称 artifact，发布版本冻结附件SHA256和版本名。"
+        }
+      ],
+      "missingCount": 0
+    },
+    {
+      "featureId": "RES-07",
+      "feature": "下载教程/攻略",
+      "scope": "REWRITE",
+      "external": "NONE",
+      "routes": [
+        {
+          "planned": "GET /api/v1/plugins/{id}/guide",
+          "status": "COMPOSED",
+          "actualTargets": [
+            "GET /api/v1/resources/artifacts/{id}",
+            "GET /api/v1/articles/{id}"
+          ],
+          "semantics": "guideArticleId 指向 GUIDE 类型资讯；教程复用新资讯模型和公开权限，不复制正文。"
+        },
+        {
+          "planned": "GET /api/v1/resources/guides",
+          "status": "COMPOSED",
+          "actualTargets": [
+            "GET /api/v1/resources/artifacts/{id}",
+            "GET /api/v1/articles/{id}"
+          ],
+          "semantics": "guideArticleId 指向 GUIDE 类型资讯；教程复用新资讯模型和公开权限，不复制正文。"
+        }
+      ],
+      "missingCount": 0
+    },
+    {
+      "featureId": "OPS-01",
+      "feature": "Banner",
+      "scope": "REWRITE",
+      "external": "NONE",
+      "routes": [
+        {
+          "planned": "GET /api/v1/home/banners",
+          "status": "COMPOSED",
+          "actualTargets": [
+            "GET /api/v1/home",
+            "POST /api/v1/admin/operation/banners"
+          ],
+          "semantics": "首页一次返回 banners；管理接口只接受允许的链接类型和有效时段。"
+        },
+        {
+          "planned": "POST /api/v1/staff/operations/banners",
+          "status": "COMPOSED",
+          "actualTargets": [
+            "GET /api/v1/home",
+            "POST /api/v1/admin/operation/banners"
+          ],
+          "semantics": "首页一次返回 banners；管理接口只接受允许的链接类型和有效时段。"
+        }
+      ],
+      "missingCount": 0
+    },
+    {
+      "featureId": "OPS-02",
+      "feature": "首页推荐位",
+      "scope": "REWRITE",
+      "external": "NONE",
+      "routes": [
+        {
+          "planned": "GET /api/v1/home/recommendations",
+          "status": "COMPOSED",
+          "actualTargets": [
+            "GET /api/v1/home",
+            "POST /api/v1/admin/operation/recommendations"
+          ],
+          "semantics": "首页 recommendations 只包含当前可见内容；独立显式字段投影。"
+        },
+        {
+          "planned": "POST /api/v1/staff/operations/recommendations",
+          "status": "COMPOSED",
+          "actualTargets": [
+            "GET /api/v1/home",
+            "POST /api/v1/admin/operation/recommendations"
+          ],
+          "semantics": "首页 recommendations 只包含当前可见内容；独立显式字段投影。"
+        }
+      ],
+      "missingCount": 0
+    },
+    {
+      "featureId": "OPS-03",
+      "feature": "静态协议与关于我们",
+      "scope": "REWRITE",
+      "external": "NONE",
+      "routes": [
+        {
+          "planned": "GET /api/v1/pages/{key}",
+          "status": "PRESENT"
+        },
+        {
+          "planned": "POST /api/v1/staff/operations/pages/{key}/versions",
+          "status": "REPLACED",
+          "actualTargets": [
+            "POST /api/v1/admin/operation/pages"
+          ],
+          "semantics": "pageKey 位于请求体；同意使用的 pageVersion 不可变。"
+        }
+      ],
+      "missingCount": 0
+    },
+    {
+      "featureId": "OPS-04",
+      "feature": "活动栏目配置",
+      "scope": "REWRITE",
+      "external": "NONE",
+      "routes": [
+        {
+          "planned": "GET /api/v1/activities/columns",
+          "status": "COMPOSED",
+          "actualTargets": [
+            "GET /api/v1/home",
+            "POST /api/v1/admin/operation/activity-columns"
+          ],
+          "semantics": "首页 activityColumns 返回有效栏目；保存验证分类。"
+        },
+        {
+          "planned": "POST /api/v1/staff/operations/activity-columns",
+          "status": "COMPOSED",
+          "actualTargets": [
+            "GET /api/v1/home",
+            "POST /api/v1/admin/operation/activity-columns"
+          ],
+          "semantics": "首页 activityColumns 返回有效栏目；保存验证分类。"
+        }
+      ],
+      "missingCount": 0
+    },
+    {
+      "featureId": "OPS-05",
+      "feature": "上传/附件治理",
+      "scope": "REWRITE",
+      "external": "NONE",
+      "routes": [
+        {
+          "planned": "POST /api/v1/files/uploads",
+          "status": "COMPOSED",
+          "actualTargets": [
+            "POST /api/v1/me/files",
+            "POST /api/v1/admin/files",
+            "POST /api/v1/me/files/{id}/tickets",
+            "POST /api/v1/admin/files/{id}/tickets"
+          ],
+          "semantics": "按 CUSTOMER/STAFF 分开上传与授权，后台上传另有业务权限，文件不直接暴露静态路径。"
+        },
+        {
+          "planned": "POST /api/v1/files/{id}/tickets",
+          "status": "COMPOSED",
+          "actualTargets": [
+            "POST /api/v1/me/files",
+            "POST /api/v1/admin/files",
+            "POST /api/v1/me/files/{id}/tickets",
+            "POST /api/v1/admin/files/{id}/tickets"
+          ],
+          "semantics": "按 CUSTOMER/STAFF 分开上传与授权，后台上传另有业务权限，文件不直接暴露静态路径。"
+        },
+        {
+          "planned": "WORKER cleanup-unreferenced-files",
+          "status": "NON_HTTP_DELIVERY"
+        }
+      ],
+      "missingCount": 0
+    },
+    {
+      "featureId": "OPS-06",
+      "feature": "关键词黑名单",
+      "scope": "REWRITE",
+      "external": "NONE",
+      "routes": [
+        {
+          "planned": "PUT /api/v1/staff/catalog/keyword-blocklist/{id}",
+          "status": "REPLACED",
+          "actualTargets": [
+            "POST /api/v1/admin/catalog/blacklist"
+          ],
+          "semantics": "按规范化关键词写黑名单；禁止搜索命中和重新创建。"
+        }
+      ],
+      "missingCount": 0
+    },
+    {
+      "featureId": "ANA-01",
+      "feature": "可见曝光/冷却",
+      "scope": "REWRITE",
+      "external": "NONE",
+      "routes": [
+        {
+          "planned": "POST /api/v1/events/exposures",
+          "status": "REPLACED",
+          "actualTargets": [
+            "POST /api/v1/me/events"
+          ],
+          "semantics": "type=VISIBLE_EXPOSURE；uni-app 可视比例>=50%持续1秒才提交；后台不把曝光等同已读。"
+        }
+      ],
+      "missingCount": 0
+    },
+    {
+      "featureId": "ANA-02",
+      "feature": "页面浏览/停留",
+      "scope": "REWRITE",
+      "external": "NONE",
+      "routes": [
+        {
+          "planned": "POST /api/v1/events",
+          "status": "REPLACED",
+          "actualTargets": [
+            "POST /api/v1/me/events"
+          ],
+          "semantics": "type=PAGE_VIEW/PAGE_STAY；隐藏不累计停留，服务校验时长。"
+        }
+      ],
+      "missingCount": 0
+    },
+    {
+      "featureId": "ANA-03",
+      "feature": "搜索点击/筛选/Banner事件",
+      "scope": "REWRITE",
+      "external": "NONE",
+      "routes": [
+        {
+          "planned": "POST /api/v1/events",
+          "status": "REPLACED",
+          "actualTargets": [
+            "POST /api/v1/me/events"
+          ],
+          "semantics": "type=SEARCH_CLICK/FILTER/BANNER_CLICK，集中校验和幂等采集。"
+        }
+      ],
+      "missingCount": 0
+    },
+    {
+      "featureId": "ANA-04",
+      "feature": "下载事件",
+      "scope": "REWRITE",
+      "external": "NONE",
+      "routes": [
+        {
+          "planned": "WORKER download-events",
+          "status": "NON_HTTP_DELIVERY"
+        }
+      ],
+      "missingCount": 0
+    },
+    {
+      "featureId": "ANA-05",
+      "feature": "内容效果与日报",
+      "scope": "REWRITE",
+      "external": "NONE",
+      "routes": [
+        {
+          "planned": "GET /api/v1/staff/analytics/articles",
+          "status": "COMPOSED",
+          "actualTargets": [
+            "GET /api/v1/admin/analytics",
+            "POST /api/v1/admin/analytics/aggregate"
+          ],
+          "semantics": "概览 content/daily 与日报重建分离，重建整日替换不重复累计。"
+        },
+        {
+          "planned": "GET /api/v1/staff/analytics/daily",
+          "status": "COMPOSED",
+          "actualTargets": [
+            "GET /api/v1/admin/analytics",
+            "POST /api/v1/admin/analytics/aggregate"
+          ],
+          "semantics": "概览 content/daily 与日报重建分离，重建整日替换不重复累计。"
+        }
+      ],
+      "missingCount": 0
+    },
+    {
+      "featureId": "ANA-06",
+      "feature": "用户去标识化统计",
+      "scope": "REWRITE",
+      "external": "NONE",
+      "routes": [
+        {
+          "planned": "GET /api/v1/staff/analytics/users",
+          "status": "REPLACED",
+          "actualTargets": [
+            "GET /api/v1/admin/analytics/users"
+          ],
+          "semantics": "只返回全平台总量/UV，不提供任何用户标识或行明细。"
+        }
+      ],
+      "missingCount": 0
+    },
+    {
+      "featureId": "ADM-01",
+      "feature": "运营角色权限",
+      "scope": "REWRITE",
+      "external": "NONE",
+      "routes": [
+        {
+          "planned": "GET /system/role/list",
+          "status": "PRESENT"
+        },
+        {
+          "planned": "POST /system/role",
+          "status": "PRESENT"
+        },
+        {
+          "planned": "POST /system/role/authUser",
+          "status": "REPLACED",
+          "actualTargets": [
+            "PUT /system/role/authUser/selectAll"
+          ],
+          "semantics": "使用允许的公司框架授权用户操作；新业务每次请求读取当前角色菜单，已有会话即时撤权。"
+        }
+      ],
+      "missingCount": 0
+    },
+    {
+      "featureId": "ADM-02",
+      "feature": "创作者角色与数据范围",
+      "scope": "REWRITE",
+      "external": "NONE",
+      "routes": [
+        {
+          "planned": "GET /api/v1/staff/articles",
+          "status": "COMPOSED",
+          "actualTargets": [
+            "GET /api/v1/admin/articles",
+            "POST /api/v1/admin/articles"
+          ],
+          "semantics": "创作者的读写接口相同，服务通过自身/department scope 过滤；按钮按真实权限显示。"
+        },
+        {
+          "planned": "POST /api/v1/staff/articles",
+          "status": "COMPOSED",
+          "actualTargets": [
+            "GET /api/v1/admin/articles",
+            "POST /api/v1/admin/articles"
+          ],
+          "semantics": "创作者的读写接口相同，服务通过自身/department scope 过滤；按钮按真实权限显示。"
+        }
+      ],
+      "missingCount": 0
+    },
+    {
+      "featureId": "ADM-03",
+      "feature": "部门/菜单/用户框架能力",
+      "scope": "REWRITE",
+      "external": "NONE",
+      "routes": [
+        {
+          "planned": "GET /system/user/list",
+          "status": "PRESENT"
+        },
+        {
+          "planned": "GET /system/dept/list",
+          "status": "PRESENT"
+        },
+        {
+          "planned": "GET /system/menu/list",
+          "status": "PRESENT"
+        }
+      ],
+      "missingCount": 0
+    },
+    {
+      "featureId": "ADM-04",
+      "feature": "审计/导出",
+      "scope": "REWRITE",
+      "external": "NONE",
+      "routes": [
+        {
+          "planned": "GET /api/v1/staff/audit-events",
+          "status": "COMPOSED",
+          "actualTargets": [
+            "GET /api/v1/admin/audit",
+            "POST /api/v1/admin/exports"
+          ],
+          "semantics": "独立成功/拒绝写审计；服务端导出有数据集允许列表、领域权限、独立导出权限和内容总量限制。"
+        },
+        {
+          "planned": "POST /api/v1/staff/exports",
+          "status": "COMPOSED",
+          "actualTargets": [
+            "GET /api/v1/admin/audit",
+            "POST /api/v1/admin/exports"
+          ],
+          "semantics": "独立成功/拒绝写审计；服务端导出有数据集允许列表、领域权限、独立导出权限和内容总量限制。"
+        }
+      ],
+      "missingCount": 0
+    },
+    {
+      "featureId": "ADM-05",
+      "feature": "备份恢复/部署",
+      "scope": "REWRITE",
+      "external": "NONE",
+      "routes": [
+        {
+          "planned": "SCRIPT backup-restore-drill",
+          "status": "NON_HTTP_DELIVERY"
+        },
+        {
+          "planned": "SCRIPT rollback-drill",
+          "status": "NON_HTTP_DELIVERY"
+        }
+      ],
+      "missingCount": 0
+    },
+    {
+      "featureId": "ADM-06",
+      "feature": "独立本地验收报告",
+      "scope": "REWRITE",
+      "external": "NONE",
+      "routes": [
+        {
+          "planned": "SCRIPT local_acceptance",
+          "status": "NON_HTTP_DELIVERY"
+        },
+        {
+          "planned": "SCRIPT gate_report",
+          "status": "NON_HTTP_DELIVERY"
+        }
+      ],
+      "missingCount": 0
+    }
+  ],
+  "missingHttpRoutes": 0,
+  "decidedDifferences": 93,
+  "platformPendingRoutes": [
+    {
+      "featureId": "NOT-06",
+      "planned": "POST /api/v1/me/notifications/authorizations",
+      "status": "PLATFORM_PENDING",
+      "actualTargets": [],
+      "semantics": "真实平台授权/回调需要独立资源和供应商协议联调；本地合成入口不作为生产替代。"
+    },
+    {
+      "featureId": "NOT-07",
+      "planned": "POST /api/v1/notifications/callbacks/official-account",
+      "status": "PLATFORM_PENDING",
+      "actualTargets": [],
+      "semantics": "真实平台授权/回调需要独立资源和供应商协议联调；本地合成入口不作为生产替代。"
+    },
+    {
+      "featureId": "NOT-08",
+      "planned": "POST /api/v1/me/notifications/wecom-binding",
+      "status": "PLATFORM_PENDING",
+      "actualTargets": [],
+      "semantics": "真实平台授权/回调需要独立资源和供应商协议联调；本地合成入口不作为生产替代。"
+    },
+    {
+      "featureId": "NOT-08",
+      "planned": "POST /api/v1/notifications/callbacks/wecom",
+      "status": "PLATFORM_PENDING",
+      "actualTargets": [],
+      "semantics": "真实平台授权/回调需要独立资源和供应商协议联调；本地合成入口不作为生产替代。"
+    }
+  ],
+  "notes": [
+    "Planned routes are research identifiers, not compatibility obligations.",
+    "PRESENT means a route string exists; REPLACED/COMPOSED document explicit reviewed semantics, not legacy compatibility.",
+    "NON_HTTP_DELIVERY requires worker or script evidence.",
+    "PLATFORM_PENDING is a real blocked operation, not satisfied by local synthetic tests."
+  ],
+  "sourceFingerprints": {
+    "backend": "f1db2725104b426066cf8a322ed6a4f408353224af5b11aeabcd28a80286d62b",
+    "admin": "9a8beb316a4e6016de701599285af19812f325af915c03370c68271248f0c4ed",
+    "client": "166faf08b494846a8f600f746598e80cc3b645f29a60ba805cdd6be1384530ee"
+  },
+  "openapiSha256": "6adc41d077c9b37052261cf2ab4c6efa70b53843fc316689c12f3242d9b4ab0c"
+}

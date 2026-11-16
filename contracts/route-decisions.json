@@ -1,0 +1,884 @@
+{
+  "policy": "New contract is authoritative. No legacy code or compatibility aliases imported.",
+  "decisions": [
+    {
+      "featureId": "AUTH-04",
+      "planned": "PATCH /api/v1/me/profile",
+      "decision": "REPLACED",
+      "actualTargets": [
+        "PUT /api/v1/me/profile"
+      ],
+      "semantics": "完整更新昵称和组织，PUT 请求只接受 ProfileRequest 声明字段。"
+    },
+    {
+      "featureId": "AUTH-05",
+      "planned": "POST /api/v1/me/identity-bindings",
+      "decision": "NOT_IN_BASELINE",
+      "actualTargets": [],
+      "semantics": "候选需求未纳入既定重制范围，保持单独确认。"
+    },
+    {
+      "featureId": "AUTH-06",
+      "planned": "POST /api/v1/me/closure",
+      "decision": "COMPOSED",
+      "actualTargets": [
+        "DELETE /api/v1/me/account",
+        "POST /api/v1/me/consents"
+      ],
+      "semantics": "注销采用 DELETE 和明确 confirmation；同意记录绑定确切页面版本。"
+    },
+    {
+      "featureId": "CAT-01",
+      "planned": "POST /api/v1/staff/catalog/categories",
+      "decision": "COMPOSED",
+      "actualTargets": [
+        "POST /api/v1/admin/catalog/{kind}",
+        "PUT /api/v1/admin/catalog/{kind}/{id}"
+      ],
+      "semantics": "kind=categories，维护分类树和锁版本。"
+    },
+    {
+      "featureId": "CAT-01",
+      "planned": "PATCH /api/v1/staff/catalog/categories/{id}",
+      "decision": "COMPOSED",
+      "actualTargets": [
+        "POST /api/v1/admin/catalog/{kind}",
+        "PUT /api/v1/admin/catalog/{kind}/{id}"
+      ],
+      "semantics": "kind=categories，维护分类树和锁版本。"
+    },
+    {
+      "featureId": "CAT-02",
+      "planned": "POST /api/v1/staff/catalog/organizations",
+      "decision": "COMPOSED",
+      "actualTargets": [
+        "POST /api/v1/admin/catalog/{kind}",
+        "PUT /api/v1/admin/catalog/{kind}/{id}"
+      ],
+      "semantics": "kind=organizations，维护学校学院树。"
+    },
+    {
+      "featureId": "CAT-02",
+      "planned": "PATCH /api/v1/staff/catalog/organizations/{id}",
+      "decision": "COMPOSED",
+      "actualTargets": [
+        "POST /api/v1/admin/catalog/{kind}",
+        "PUT /api/v1/admin/catalog/{kind}/{id}"
+      ],
+      "semantics": "kind=organizations，维护学校学院树。"
+    },
+    {
+      "featureId": "CAT-03",
+      "planned": "POST /api/v1/staff/catalog/keywords",
+      "decision": "COMPOSED",
+      "actualTargets": [
+        "POST /api/v1/admin/catalog/{kind}",
+        "PUT /api/v1/admin/catalog/{kind}/{id}"
+      ],
+      "semantics": "kind=keywords，规范名和展示名由服务校验。"
+    },
+    {
+      "featureId": "CAT-03",
+      "planned": "PATCH /api/v1/staff/catalog/keywords/{id}",
+      "decision": "COMPOSED",
+      "actualTargets": [
+        "POST /api/v1/admin/catalog/{kind}",
+        "PUT /api/v1/admin/catalog/{kind}/{id}"
+      ],
+      "semantics": "kind=keywords，规范名和展示名由服务校验。"
+    },
+    {
+      "featureId": "CAT-05",
+      "planned": "POST /api/v1/staff/catalog/keywords/{id}/aliases",
+      "decision": "REPLACED",
+      "actualTargets": [
+        "POST /api/v1/admin/catalog/keywords/{id}/aliases"
+      ],
+      "semantics": "别名绑定规范关键词并检查唯一性。"
+    },
+    {
+      "featureId": "CAT-06",
+      "planned": "PUT /api/v1/me/filter-subscriptions",
+      "decision": "NOT_IN_BASELINE",
+      "actualTargets": [],
+      "semantics": "候选需求未纳入既定重制范围，保持单独确认。"
+    },
+    {
+      "featureId": "CAT-06",
+      "planned": "DELETE /api/v1/me/filter-subscriptions/{id}",
+      "decision": "NOT_IN_BASELINE",
+      "actualTargets": [],
+      "semantics": "候选需求未纳入既定重制范围，保持单独确认。"
+    },
+    {
+      "featureId": "ART-01",
+      "planned": "POST /api/v1/staff/articles",
+      "decision": "REPLACED",
+      "actualTargets": [
+        "POST /api/v1/admin/articles"
+      ],
+      "semantics": "工作人员域统一命名 admin，服务仍检查编辑权限和内容范围。"
+    },
+    {
+      "featureId": "ART-02",
+      "planned": "PUT /api/v1/staff/articles/{id}",
+      "decision": "COMPOSED",
+      "actualTargets": [
+        "POST /api/v1/admin/articles/{id}/versions",
+        "GET /api/v1/admin/articles/{id}"
+      ],
+      "semantics": "编辑创建不可变版本；详情的 versions 返回全部保留版本，不另加同义路由。"
+    },
+    {
+      "featureId": "ART-02",
+      "planned": "GET /api/v1/staff/articles/{id}/versions",
+      "decision": "COMPOSED",
+      "actualTargets": [
+        "POST /api/v1/admin/articles/{id}/versions",
+        "GET /api/v1/admin/articles/{id}"
+      ],
+      "semantics": "编辑创建不可变版本；详情的 versions 返回全部保留版本，不另加同义路由。"
+    },
+    {
+      "featureId": "ART-03",
+      "planned": "POST /api/v1/staff/articles/{id}/submit",
+      "decision": "REPLACED",
+      "actualTargets": [
+        "POST /api/v1/admin/articles/{id}/transitions"
+      ],
+      "semantics": "action=SUBMIT 或 WITHDRAW，绑定 versionId 和 expectedVersion。"
+    },
+    {
+      "featureId": "ART-03",
+      "planned": "POST /api/v1/staff/articles/{id}/withdraw",
+      "decision": "REPLACED",
+      "actualTargets": [
+        "POST /api/v1/admin/articles/{id}/transitions"
+      ],
+      "semantics": "action=SUBMIT 或 WITHDRAW，绑定 versionId 和 expectedVersion。"
+    },
+    {
+      "featureId": "ART-04",
+      "planned": "POST /api/v1/staff/articles/{id}/review",
+      "decision": "REPLACED",
+      "actualTargets": [
+        "POST /api/v1/admin/articles/{id}/transitions"
+      ],
+      "semantics": "action=APPROVE 或 REJECT，审核员权限、范围、版本均校验。"
+    },
+    {
+      "featureId": "ART-05",
+      "planned": "POST /api/v1/staff/articles/{id}/publish",
+      "decision": "REPLACED",
+      "actualTargets": [
+        "POST /api/v1/admin/articles/{id}/transitions"
+      ],
+      "semantics": "action=PUBLISH 或 OFFLINE；发布只允许已审核的确切版本。"
+    },
+    {
+      "featureId": "ART-05",
+      "planned": "POST /api/v1/staff/articles/{id}/offline",
+      "decision": "REPLACED",
+      "actualTargets": [
+        "POST /api/v1/admin/articles/{id}/transitions"
+      ],
+      "semantics": "action=PUBLISH 或 OFFLINE；发布只允许已审核的确切版本。"
+    },
+    {
+      "featureId": "ART-09",
+      "planned": "POST /api/v1/staff/articles/{id}/replacements",
+      "decision": "COMPOSED",
+      "actualTargets": [
+        "POST /api/v1/admin/articles/{id}/replacement",
+        "GET /api/v1/articles/{id}/replacement",
+        "POST /api/v1/me/follows/articles/{id}/replacement"
+      ],
+      "semantics": "后台替换串行检查有向图；公开投影只返回可见最终目标；客户提交 targetId 明确确认转关注。"
+    },
+    {
+      "featureId": "ART-09",
+      "planned": "POST /api/v1/me/replacement-decisions",
+      "decision": "COMPOSED",
+      "actualTargets": [
+        "POST /api/v1/admin/articles/{id}/replacement",
+        "GET /api/v1/articles/{id}/replacement",
+        "POST /api/v1/me/follows/articles/{id}/replacement"
+      ],
+      "semantics": "后台替换串行检查有向图；公开投影只返回可见最终目标；客户提交 targetId 明确确认转关注。"
+    },
+    {
+      "featureId": "ART-10",
+      "planned": "GET /api/v1/staff/articles",
+      "decision": "COMPOSED",
+      "actualTargets": [
+        "GET /api/v1/admin/articles",
+        "GET /api/v1/articles/archive"
+      ],
+      "semantics": "后台看全部有权限内容；归档投影不泄露已撤下正文。"
+    },
+    {
+      "featureId": "ART-10",
+      "planned": "GET /api/v1/me/articles/archive",
+      "decision": "COMPOSED",
+      "actualTargets": [
+        "GET /api/v1/admin/articles",
+        "GET /api/v1/articles/archive"
+      ],
+      "semantics": "后台看全部有权限内容；归档投影不泄露已撤下正文。"
+    },
+    {
+      "featureId": "SUB-01",
+      "planned": "PUT /api/v1/me/follows",
+      "decision": "REPLACED",
+      "actualTargets": [
+        "PUT /api/v1/me/follows/{type}/{id}"
+      ],
+      "semantics": "type=KEYWORD，enabled=true/false 分别订阅/取消，保持幂等。"
+    },
+    {
+      "featureId": "SUB-01",
+      "planned": "DELETE /api/v1/me/follows/{targetType}/{targetId}",
+      "decision": "REPLACED",
+      "actualTargets": [
+        "PUT /api/v1/me/follows/{type}/{id}"
+      ],
+      "semantics": "type=KEYWORD，enabled=true/false 分别订阅/取消，保持幂等。"
+    },
+    {
+      "featureId": "SUB-02",
+      "planned": "PUT /api/v1/me/follows",
+      "decision": "REPLACED",
+      "actualTargets": [
+        "PUT /api/v1/me/follows/{type}/{id}"
+      ],
+      "semantics": "type=ARTICLE，enabled=true/false 分别关注/取消；替换不自动转移。"
+    },
+    {
+      "featureId": "SUB-02",
+      "planned": "DELETE /api/v1/me/follows/{targetType}/{targetId}",
+      "decision": "REPLACED",
+      "actualTargets": [
+        "PUT /api/v1/me/follows/{type}/{id}"
+      ],
+      "semantics": "type=ARTICLE，enabled=true/false 分别关注/取消；替换不自动转移。"
+    },
+    {
+      "featureId": "SUB-04",
+      "planned": "GET /api/v1/me/subscription-feed",
+      "decision": "REPLACED",
+      "actualTargets": [
+        "GET /api/v1/me/subscription-boxes"
+      ],
+      "semantics": "盒子同时返回当前可见资讯 items，避免另外维护聚合流。"
+    },
+    {
+      "featureId": "SUB-05",
+      "planned": "PUT /api/v1/me/boxes/{id}/visibility",
+      "decision": "REPLACED",
+      "actualTargets": [
+        "PUT /api/v1/me/subscription-boxes/{id}/hidden"
+      ],
+      "semantics": "hidden 控制盒子偏好，不删除关注。"
+    },
+    {
+      "featureId": "SUB-06",
+      "planned": "GET /api/v1/me/subscription-summary",
+      "decision": "REPLACED",
+      "actualTargets": [
+        "GET /api/v1/me/subscription-boxes"
+      ],
+      "semantics": "items.unread 比较用户已读版本与当前发布版本，unreadCount 返回盒子汇总。"
+    },
+    {
+      "featureId": "ENG-01",
+      "planned": "DELETE /api/v1/me/favorites/{id}",
+      "decision": "REPLACED",
+      "actualTargets": [
+        "PUT /api/v1/me/favorites/{id}"
+      ],
+      "semantics": "enabled=false 取消；已有收藏记录按当前可见内容投影。"
+    },
+    {
+      "featureId": "ENG-03",
+      "planned": "POST /api/v1/me/articles/{id}/browse",
+      "decision": "REPLACED",
+      "actualTargets": [
+        "POST /api/v1/me/history/{id}"
+      ],
+      "semantics": "服务验证资讯当前公开后记浏览；清理采用 DELETE /api/v1/me/history。"
+    },
+    {
+      "featureId": "ENG-04",
+      "planned": "PUT /api/v1/me/articles/{id}/read",
+      "decision": "REPLACED",
+      "actualTargets": [
+        "PUT /api/v1/me/read/{id}"
+      ],
+      "semantics": "请求版本必须与当前发布版本相同；409 由客户端重新加载且再次确认。"
+    },
+    {
+      "featureId": "ENG-05",
+      "planned": "POST /api/v1/events",
+      "decision": "REPLACED",
+      "actualTargets": [
+        "POST /api/v1/me/events"
+      ],
+      "semantics": "分享等事件类型在 body.type，登录用户、事件ID去重与服务冷却共同校验。"
+    },
+    {
+      "featureId": "ENG-06",
+      "planned": "POST /api/v1/me/reports",
+      "decision": "COMPOSED",
+      "actualTargets": [
+        "POST /api/v1/me/reports/{id}",
+        "POST /api/v1/admin/moderation/{kind}/{id}"
+      ],
+      "semantics": "客户路径 id 是 articleId；处理 kind=reports，决定为 RESOLVED/DISMISSED。"
+    },
+    {
+      "featureId": "ENG-06",
+      "planned": "POST /api/v1/staff/reports/{id}/resolve",
+      "decision": "COMPOSED",
+      "actualTargets": [
+        "POST /api/v1/me/reports/{id}",
+        "POST /api/v1/admin/moderation/{kind}/{id}"
+      ],
+      "semantics": "客户路径 id 是 articleId；处理 kind=reports，决定为 RESOLVED/DISMISSED。"
+    },
+    {
+      "featureId": "ENG-07",
+      "planned": "POST /api/v1/staff/feedback/{id}/resolve",
+      "decision": "REPLACED",
+      "actualTargets": [
+        "POST /api/v1/admin/moderation/{kind}/{id}"
+      ],
+      "semantics": "kind=feedback；客户反馈写入另有已存在的 /api/v1/me/feedback。"
+    },
+    {
+      "featureId": "NOT-01",
+      "planned": "PATCH /api/v1/me/notifications/rules/{id}",
+      "decision": "REPLACED",
+      "actualTargets": [
+        "PUT /api/v1/me/notifications/rules/{id}"
+      ],
+      "semantics": "更新整个规则并提交 expectedVersion；本地规则验收与真实平台送达分别判定。"
+    },
+    {
+      "featureId": "NOT-05",
+      "planned": "PATCH /api/v1/me/notifications/rules/{id}",
+      "decision": "REPLACED",
+      "actualTargets": [
+        "PUT /api/v1/me/notifications/rules/{id}"
+      ],
+      "semantics": "enabled=false 暂停；DELETE 明确取消；规则版本变更使待发送任务取消。"
+    },
+    {
+      "featureId": "NOT-06",
+      "planned": "POST /api/v1/me/notifications/authorizations",
+      "decision": "PLATFORM_PENDING",
+      "actualTargets": [],
+      "semantics": "真实平台授权/回调需要独立资源和供应商协议联调；本地合成入口不作为生产替代。"
+    },
+    {
+      "featureId": "NOT-07",
+      "planned": "GET /api/v1/me/notifications/bindings",
+      "decision": "COMPOSED",
+      "actualTargets": [
+        "GET /api/v1/me/notifications/status"
+      ],
+      "semantics": "绑定状态集中在 status.bindings；真正的绑定证明和回调仍待平台资源。"
+    },
+    {
+      "featureId": "NOT-07",
+      "planned": "POST /api/v1/notifications/callbacks/official-account",
+      "decision": "PLATFORM_PENDING",
+      "actualTargets": [],
+      "semantics": "真实平台授权/回调需要独立资源和供应商协议联调；本地合成入口不作为生产替代。"
+    },
+    {
+      "featureId": "NOT-08",
+      "planned": "POST /api/v1/me/notifications/wecom-binding",
+      "decision": "PLATFORM_PENDING",
+      "actualTargets": [],
+      "semantics": "真实平台授权/回调需要独立资源和供应商协议联调；本地合成入口不作为生产替代。"
+    },
+    {
+      "featureId": "NOT-08",
+      "planned": "POST /api/v1/notifications/callbacks/wecom",
+      "decision": "PLATFORM_PENDING",
+      "actualTargets": [],
+      "semantics": "真实平台授权/回调需要独立资源和供应商协议联调；本地合成入口不作为生产替代。"
+    },
+    {
+      "featureId": "NOT-09",
+      "planned": "GET /api/v1/me/notifications/quota",
+      "decision": "REPLACED",
+      "actualTargets": [
+        "GET /api/v1/me/notifications/status"
+      ],
+      "semantics": "quotas 与 bindings 合并在 status；本地合成账本已验收，真实配额凭据仍待平台。"
+    },
+    {
+      "featureId": "ACT-02",
+      "planned": "POST /api/v1/activities/{id}/registrations",
+      "decision": "REPLACED",
+      "actualTargets": [
+        "POST /api/v1/me/activities/{id}/registration"
+      ],
+      "semantics": "登录用户提交最新 formVersionId 和答案；活动表单在公开详情 form。"
+    },
+    {
+      "featureId": "ACT-03",
+      "planned": "POST /api/v1/activities/{id}/registrations",
+      "decision": "REPLACED",
+      "actualTargets": [
+        "POST /api/v1/me/activities/{id}/registration"
+      ],
+      "semantics": "同一操作在行锁内确定确认/候补状态，无需客户选择候补接口。"
+    },
+    {
+      "featureId": "ACT-04",
+      "planned": "DELETE /api/v1/me/registrations/{id}",
+      "decision": "REPLACED",
+      "actualTargets": [
+        "DELETE /api/v1/me/activities/{id}/registration"
+      ],
+      "semantics": "路径 id 是活动ID，服务只取消当前用户报名；取消后递补最早候补。"
+    },
+    {
+      "featureId": "ACT-05",
+      "planned": "POST /api/v1/staff/activities",
+      "decision": "COMPOSED",
+      "actualTargets": [
+        "POST /api/v1/admin/activities",
+        "GET /api/v1/admin/activities/{id}",
+        "POST /api/v1/admin/exports"
+      ],
+      "semantics": "详情包含 form 和 registrations；导出 dataset=activity-registrations/activityId 且同时检查管理与导出权限。"
+    },
+    {
+      "featureId": "ACT-05",
+      "planned": "GET /api/v1/staff/activities/{id}/registrations",
+      "decision": "COMPOSED",
+      "actualTargets": [
+        "POST /api/v1/admin/activities",
+        "GET /api/v1/admin/activities/{id}",
+        "POST /api/v1/admin/exports"
+      ],
+      "semantics": "详情包含 form 和 registrations；导出 dataset=activity-registrations/activityId 且同时检查管理与导出权限。"
+    },
+    {
+      "featureId": "ACT-05",
+      "planned": "POST /api/v1/staff/activities/{id}/exports",
+      "decision": "COMPOSED",
+      "actualTargets": [
+        "POST /api/v1/admin/activities",
+        "GET /api/v1/admin/activities/{id}",
+        "POST /api/v1/admin/exports"
+      ],
+      "semantics": "详情包含 form 和 registrations；导出 dataset=activity-registrations/activityId 且同时检查管理与导出权限。"
+    },
+    {
+      "featureId": "REV-01",
+      "planned": "POST /api/v1/staff/reviews/campaigns",
+      "decision": "COMPOSED",
+      "actualTargets": [
+        "POST /api/v1/admin/review-campaigns",
+        "PUT /api/v1/admin/review-campaigns/{id}"
+      ],
+      "semantics": "requirements 与项目在一个事务保存；产生申报后资格要求冻结，不能更改既有标准。"
+    },
+    {
+      "featureId": "REV-01",
+      "planned": "PUT /api/v1/staff/reviews/campaigns/{id}/requirements",
+      "decision": "COMPOSED",
+      "actualTargets": [
+        "POST /api/v1/admin/review-campaigns",
+        "PUT /api/v1/admin/review-campaigns/{id}"
+      ],
+      "semantics": "requirements 与项目在一个事务保存；产生申报后资格要求冻结，不能更改既有标准。"
+    },
+    {
+      "featureId": "REV-02",
+      "planned": "GET /api/v1/reviews/campaigns/{id}/eligibility",
+      "decision": "REPLACED",
+      "actualTargets": [
+        "GET /api/v1/me/review-campaigns/{id}/eligibility"
+      ],
+      "semantics": "资格基于当前登录用户，返回 eligible 与不满足的规则键。"
+    },
+    {
+      "featureId": "REV-03",
+      "planned": "POST /api/v1/reviews/campaigns/{id}/applications",
+      "decision": "REPLACED",
+      "actualTargets": [
+        "POST /api/v1/me/review-campaigns/{id}/draft"
+      ],
+      "semantics": "草稿保存生成新提交版本，材料包含在 Materials 请求；不用任意 PATCH 改冻结的历史。"
+    },
+    {
+      "featureId": "REV-03",
+      "planned": "PATCH /api/v1/me/review-applications/{id}",
+      "decision": "REPLACED",
+      "actualTargets": [
+        "POST /api/v1/me/review-campaigns/{id}/draft"
+      ],
+      "semantics": "草稿保存生成新提交版本，材料包含在 Materials 请求；不用任意 PATCH 改冻结的历史。"
+    },
+    {
+      "featureId": "REV-04",
+      "planned": "POST /api/v1/me/review-applications/{id}/materials",
+      "decision": "COMPOSED",
+      "actualTargets": [
+        "POST /api/v1/me/review-campaigns/{id}/draft",
+        "POST /api/v1/me/files"
+      ],
+      "semantics": "先上传私有文件，再按 requirementKey 保存材料清单；提交后的材料不可原地修改。"
+    },
+    {
+      "featureId": "REV-05",
+      "planned": "POST /api/v1/me/review-applications/{id}/submit",
+      "decision": "REPLACED",
+      "actualTargets": [
+        "POST /api/v1/me/review-applications/{id}/actions"
+      ],
+      "semantics": "action=SUBMIT/WITHDRAW，submissionId 和 expectedVersion 确保操作确切提交。"
+    },
+    {
+      "featureId": "REV-05",
+      "planned": "POST /api/v1/me/review-applications/{id}/withdraw",
+      "decision": "REPLACED",
+      "actualTargets": [
+        "POST /api/v1/me/review-applications/{id}/actions"
+      ],
+      "semantics": "action=SUBMIT/WITHDRAW，submissionId 和 expectedVersion 确保操作确切提交。"
+    },
+    {
+      "featureId": "REV-06",
+      "planned": "POST /api/v1/staff/reviews/applications/{id}/decisions",
+      "decision": "COMPOSED",
+      "actualTargets": [
+        "POST /api/v1/admin/review-applications/{id}/decisions",
+        "POST /api/v1/admin/files/{id}/tickets"
+      ],
+      "semantics": "审核决定绑定 submissionId；私有票据按评审组织范围校验且只能使用一次。"
+    },
+    {
+      "featureId": "REV-06",
+      "planned": "POST /api/v1/staff/reviews/materials/{id}/tickets",
+      "decision": "COMPOSED",
+      "actualTargets": [
+        "POST /api/v1/admin/review-applications/{id}/decisions",
+        "POST /api/v1/admin/files/{id}/tickets"
+      ],
+      "semantics": "审核决定绑定 submissionId；私有票据按评审组织范围校验且只能使用一次。"
+    },
+    {
+      "featureId": "RES-02",
+      "planned": "GET /api/v1/catalog/study-dimensions",
+      "decision": "COMPOSED",
+      "actualTargets": [
+        "GET /api/v1/resources/dimensions",
+        "PUT /api/v1/admin/resources/dimensions/{id}"
+      ],
+      "semantics": "统一 GRADE/MAJOR 维度表，版本冲突返回409。"
+    },
+    {
+      "featureId": "RES-02",
+      "planned": "PUT /api/v1/staff/catalog/study-dimensions/{id}",
+      "decision": "COMPOSED",
+      "actualTargets": [
+        "GET /api/v1/resources/dimensions",
+        "PUT /api/v1/admin/resources/dimensions/{id}"
+      ],
+      "semantics": "统一 GRADE/MAJOR 维度表，版本冲突返回409。"
+    },
+    {
+      "featureId": "RES-04",
+      "planned": "POST /api/v1/staff/resources/files",
+      "decision": "COMPOSED",
+      "actualTargets": [
+        "POST /api/v1/admin/files",
+        "GET /api/v1/resources/packages/{id}"
+      ],
+      "semantics": "后台上传独立文件后由资料包 fileIds 建引用；公开详情只投影当前版本 files。"
+    },
+    {
+      "featureId": "RES-04",
+      "planned": "GET /api/v1/resources/packages/{id}/files",
+      "decision": "COMPOSED",
+      "actualTargets": [
+        "POST /api/v1/admin/files",
+        "GET /api/v1/resources/packages/{id}"
+      ],
+      "semantics": "后台上传独立文件后由资料包 fileIds 建引用；公开详情只投影当前版本 files。"
+    },
+    {
+      "featureId": "RES-05",
+      "planned": "POST /api/v1/downloads/tickets",
+      "decision": "COMPOSED",
+      "actualTargets": [
+        "POST /api/v1/me/files/{id}/tickets",
+        "GET /api/v1/files/download/{token}"
+      ],
+      "semantics": "票据绑定身份、文件可见性和两分钟期限，成功服务读取记日志且票据只能使用一次。"
+    },
+    {
+      "featureId": "RES-05",
+      "planned": "GET /api/v1/downloads/{ticketId}",
+      "decision": "COMPOSED",
+      "actualTargets": [
+        "POST /api/v1/me/files/{id}/tickets",
+        "GET /api/v1/files/download/{token}"
+      ],
+      "semantics": "票据绑定身份、文件可见性和两分钟期限，成功服务读取记日志且票据只能使用一次。"
+    },
+    {
+      "featureId": "RES-06",
+      "planned": "GET /api/v1/plugins",
+      "decision": "COMPOSED",
+      "actualTargets": [
+        "GET /api/v1/resources/artifacts",
+        "POST /api/v1/admin/resources/artifacts/{id}/versions"
+      ],
+      "semantics": "插件统一称 artifact，发布版本冻结附件SHA256和版本名。"
+    },
+    {
+      "featureId": "RES-06",
+      "planned": "POST /api/v1/staff/plugins/{id}/versions",
+      "decision": "COMPOSED",
+      "actualTargets": [
+        "GET /api/v1/resources/artifacts",
+        "POST /api/v1/admin/resources/artifacts/{id}/versions"
+      ],
+      "semantics": "插件统一称 artifact，发布版本冻结附件SHA256和版本名。"
+    },
+    {
+      "featureId": "RES-07",
+      "planned": "GET /api/v1/plugins/{id}/guide",
+      "decision": "COMPOSED",
+      "actualTargets": [
+        "GET /api/v1/resources/artifacts/{id}",
+        "GET /api/v1/articles/{id}"
+      ],
+      "semantics": "guideArticleId 指向 GUIDE 类型资讯；教程复用新资讯模型和公开权限，不复制正文。"
+    },
+    {
+      "featureId": "RES-07",
+      "planned": "GET /api/v1/resources/guides",
+      "decision": "COMPOSED",
+      "actualTargets": [
+        "GET /api/v1/resources/artifacts/{id}",
+        "GET /api/v1/articles/{id}"
+      ],
+      "semantics": "guideArticleId 指向 GUIDE 类型资讯；教程复用新资讯模型和公开权限，不复制正文。"
+    },
+    {
+      "featureId": "OPS-01",
+      "planned": "GET /api/v1/home/banners",
+      "decision": "COMPOSED",
+      "actualTargets": [
+        "GET /api/v1/home",
+        "POST /api/v1/admin/operation/banners"
+      ],
+      "semantics": "首页一次返回 banners；管理接口只接受允许的链接类型和有效时段。"
+    },
+    {
+      "featureId": "OPS-01",
+      "planned": "POST /api/v1/staff/operations/banners",
+      "decision": "COMPOSED",
+      "actualTargets": [
+        "GET /api/v1/home",
+        "POST /api/v1/admin/operation/banners"
+      ],
+      "semantics": "首页一次返回 banners；管理接口只接受允许的链接类型和有效时段。"
+    },
+    {
+      "featureId": "OPS-02",
+      "planned": "GET /api/v1/home/recommendations",
+      "decision": "COMPOSED",
+      "actualTargets": [
+        "GET /api/v1/home",
+        "POST /api/v1/admin/operation/recommendations"
+      ],
+      "semantics": "首页 recommendations 只包含当前可见内容；独立显式字段投影。"
+    },
+    {
+      "featureId": "OPS-02",
+      "planned": "POST /api/v1/staff/operations/recommendations",
+      "decision": "COMPOSED",
+      "actualTargets": [
+        "GET /api/v1/home",
+        "POST /api/v1/admin/operation/recommendations"
+      ],
+      "semantics": "首页 recommendations 只包含当前可见内容；独立显式字段投影。"
+    },
+    {
+      "featureId": "OPS-03",
+      "planned": "POST /api/v1/staff/operations/pages/{key}/versions",
+      "decision": "REPLACED",
+      "actualTargets": [
+        "POST /api/v1/admin/operation/pages"
+      ],
+      "semantics": "pageKey 位于请求体；同意使用的 pageVersion 不可变。"
+    },
+    {
+      "featureId": "OPS-04",
+      "planned": "GET /api/v1/activities/columns",
+      "decision": "COMPOSED",
+      "actualTargets": [
+        "GET /api/v1/home",
+        "POST /api/v1/admin/operation/activity-columns"
+      ],
+      "semantics": "首页 activityColumns 返回有效栏目；保存验证分类。"
+    },
+    {
+      "featureId": "OPS-04",
+      "planned": "POST /api/v1/staff/operations/activity-columns",
+      "decision": "COMPOSED",
+      "actualTargets": [
+        "GET /api/v1/home",
+        "POST /api/v1/admin/operation/activity-columns"
+      ],
+      "semantics": "首页 activityColumns 返回有效栏目；保存验证分类。"
+    },
+    {
+      "featureId": "OPS-05",
+      "planned": "POST /api/v1/files/uploads",
+      "decision": "COMPOSED",
+      "actualTargets": [
+        "POST /api/v1/me/files",
+        "POST /api/v1/admin/files",
+        "POST /api/v1/me/files/{id}/tickets",
+        "POST /api/v1/admin/files/{id}/tickets"
+      ],
+      "semantics": "按 CUSTOMER/STAFF 分开上传与授权，后台上传另有业务权限，文件不直接暴露静态路径。"
+    },
+    {
+      "featureId": "OPS-05",
+      "planned": "POST /api/v1/files/{id}/tickets",
+      "decision": "COMPOSED",
+      "actualTargets": [
+        "POST /api/v1/me/files",
+        "POST /api/v1/admin/files",
+        "POST /api/v1/me/files/{id}/tickets",
+        "POST /api/v1/admin/files/{id}/tickets"
+      ],
+      "semantics": "按 CUSTOMER/STAFF 分开上传与授权，后台上传另有业务权限，文件不直接暴露静态路径。"
+    },
+    {
+      "featureId": "OPS-06",
+      "planned": "PUT /api/v1/staff/catalog/keyword-blocklist/{id}",
+      "decision": "REPLACED",
+      "actualTargets": [
+        "POST /api/v1/admin/catalog/blacklist"
+      ],
+      "semantics": "按规范化关键词写黑名单；禁止搜索命中和重新创建。"
+    },
+    {
+      "featureId": "ANA-01",
+      "planned": "POST /api/v1/events/exposures",
+      "decision": "REPLACED",
+      "actualTargets": [
+        "POST /api/v1/me/events"
+      ],
+      "semantics": "type=VISIBLE_EXPOSURE；uni-app 可视比例>=50%持续1秒才提交；后台不把曝光等同已读。"
+    },
+    {
+      "featureId": "ANA-02",
+      "planned": "POST /api/v1/events",
+      "decision": "REPLACED",
+      "actualTargets": [
+        "POST /api/v1/me/events"
+      ],
+      "semantics": "type=PAGE_VIEW/PAGE_STAY；隐藏不累计停留，服务校验时长。"
+    },
+    {
+      "featureId": "ANA-03",
+      "planned": "POST /api/v1/events",
+      "decision": "REPLACED",
+      "actualTargets": [
+        "POST /api/v1/me/events"
+      ],
+      "semantics": "type=SEARCH_CLICK/FILTER/BANNER_CLICK，集中校验和幂等采集。"
+    },
+    {
+      "featureId": "ANA-05",
+      "planned": "GET /api/v1/staff/analytics/articles",
+      "decision": "COMPOSED",
+      "actualTargets": [
+        "GET /api/v1/admin/analytics",
+        "POST /api/v1/admin/analytics/aggregate"
+      ],
+      "semantics": "概览 content/daily 与日报重建分离，重建整日替换不重复累计。"
+    },
+    {
+      "featureId": "ANA-05",
+      "planned": "GET /api/v1/staff/analytics/daily",
+      "decision": "COMPOSED",
+      "actualTargets": [
+        "GET /api/v1/admin/analytics",
+        "POST /api/v1/admin/analytics/aggregate"
+      ],
+      "semantics": "概览 content/daily 与日报重建分离，重建整日替换不重复累计。"
+    },
+    {
+      "featureId": "ANA-06",
+      "planned": "GET /api/v1/staff/analytics/users",
+      "decision": "REPLACED",
+      "actualTargets": [
+        "GET /api/v1/admin/analytics/users"
+      ],
+      "semantics": "只返回全平台总量/UV，不提供任何用户标识或行明细。"
+    },
+    {
+      "featureId": "ADM-01",
+      "planned": "POST /system/role/authUser",
+      "decision": "REPLACED",
+      "actualTargets": [
+        "PUT /system/role/authUser/selectAll"
+      ],
+      "semantics": "使用允许的公司框架授权用户操作；新业务每次请求读取当前角色菜单，已有会话即时撤权。"
+    },
+    {
+      "featureId": "ADM-02",
+      "planned": "GET /api/v1/staff/articles",
+      "decision": "COMPOSED",
+      "actualTargets": [
+        "GET /api/v1/admin/articles",
+        "POST /api/v1/admin/articles"
+      ],
+      "semantics": "创作者的读写接口相同，服务通过自身/department scope 过滤；按钮按真实权限显示。"
+    },
+    {
+      "featureId": "ADM-02",
+      "planned": "POST /api/v1/staff/articles",
+      "decision": "COMPOSED",
+      "actualTargets": [
+        "GET /api/v1/admin/articles",
+        "POST /api/v1/admin/articles"
+      ],
+      "semantics": "创作者的读写接口相同，服务通过自身/department scope 过滤；按钮按真实权限显示。"
+    },
+    {
+      "featureId": "ADM-04",
+      "planned": "GET /api/v1/staff/audit-events",
+      "decision": "COMPOSED",
+      "actualTargets": [
+        "GET /api/v1/admin/audit",
+        "POST /api/v1/admin/exports"
+      ],
+      "semantics": "独立成功/拒绝写审计；服务端导出有数据集允许列表、领域权限、独立导出权限和内容总量限制。"
+    },
+    {
+      "featureId": "ADM-04",
+      "planned": "POST /api/v1/staff/exports",
+      "decision": "COMPOSED",
+      "actualTargets": [
+        "GET /api/v1/admin/audit",
+        "POST /api/v1/admin/exports"
+      ],
+      "semantics": "独立成功/拒绝写审计；服务端导出有数据集允许列表、领域权限、独立导出权限和内容总量限制。"
+    }
+  ]
+}

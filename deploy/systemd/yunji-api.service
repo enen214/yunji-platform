@@ -1,0 +1,27 @@
+[Unit]
+Description=Yunji platform API
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=yunji
+Group=yunji
+WorkingDirectory=/opt/yunji/current/backend
+EnvironmentFile=/etc/yunji/api.env
+ExecStart=/usr/bin/java -Dfile.encoding=UTF-8 -Xms256m -Xmx1536m -jar /opt/yunji/current/backend/agri-admin.jar
+Restart=on-failure
+RestartSec=5
+TimeoutStopSec=45
+SuccessExitStatus=143
+UMask=0077
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/var/lib/yunji /var/log/yunji
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target

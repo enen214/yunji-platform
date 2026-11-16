@@ -9,10 +9,11 @@ import java.time.*;
 import java.sql.Timestamp;
 import java.util.*;
 
+/** Legacy scheduled-rule pipeline plus quota ledger. Real change-driven dispatch lives in ReminderBatchService/ProviderDispatch. */
 @Service
 public class NotificationService {
- private final Db db;private final Actors actors;private final ArticleAccess articles;private final boolean local;private final String secret;
- public NotificationService(Db db,Actors actors,ArticleAccess articles,@Value("${yunji.local-enabled:false}") boolean local,@Value("${yunji.local-secret:}") String secret){this.db=db;this.actors=actors;this.articles=articles;this.local=local;this.secret=secret;}
+ private final Db db;private final Actors actors;private final ArticleAccess articles;private final ProviderDispatch dispatch;private final boolean local;private final String secret;
+ public NotificationService(Db db,Actors actors,ArticleAccess articles,ProviderDispatch dispatch,@Value("${yunji.local-enabled:false}") boolean local,@Value("${yunji.local-secret:}") String secret){this.db=db;this.actors=actors;this.articles=articles;this.dispatch=dispatch;this.local=local;this.secret=secret;}
  public record Rule(String targetType,long targetId,String mode,String channel,String timezone,Instant scheduledAt,String localSendTime,String quietStart,String quietEnd,boolean enabled,int expectedVersion){}
  public record Authorization(String provider,String appId,String callbackKey,int amount,String outcome){}
  private void localSecret(String supplied){BusinessException.require(local&&!secret.isBlank()&&java.security.MessageDigest.isEqual(secret.getBytes(),Objects.toString(supplied,"").getBytes()),404,"接口不存在");}
@@ -88,5 +89,5 @@ public class NotificationService {
  @Transactional public Map<String,Object> reconcile(long id,String outcome,String evidence){actors.staff().require("yunji:notification:manage");BusinessException.require(Set.of("SENT","PERMANENT_FAILURE").contains(outcome),422,"只允许有证据的终态");String proof=Db.text(evidence,1000);BusinessException.require(proof.length()>=10,422,"核实证据需要至少10字符");var d=db.one("SELECT * FROM notification_delivery WHERE id=? AND status='UNKNOWN' FOR UPDATE",id);settle(d,outcome.equals("SENT")?"COMMIT":"RELEASE");db.update("UPDATE notification_delivery SET status=?,sent_at=IF(?='SENT',UTC_TIMESTAMP(),NULL) WHERE id=?",outcome,outcome,id);db.audit(actors.staff().id(),"STAFF","NOTIFICATION_RECONCILE","DELIVERY",id,Map.of("outcome",outcome,"evidence",proof));return db.one("SELECT * FROM notification_delivery WHERE id=?",id);}
  public List<Map<String,Object>> ledger(){actors.staff().require("yunji:notification:manage");return db.rows("SELECT d.*,q.operation,q.amount FROM notification_delivery d LEFT JOIN notification_quota_ledger q ON q.delivery_id=d.id ORDER BY d.created_at DESC,d.id DESC LIMIT 500");}
  public List<Map<String,Object>> adminRules(){actors.staff().require("yunji:notification:manage");return db.rows("SELECT * FROM notification_rule WHERE tenant_id='000000' ORDER BY updated_at DESC,id DESC LIMIT 200");}
- public Map<String,Object> capabilities(){actors.staff().require("yunji:notification:manage");return Map.of("localSimulation",local,"realProviderReady",false);}
+ public Map<String,Object> capabilities(){actors.staff().require("yunji:notification:manage");return Map.of("localSimulation",local,"realProviderReady",dispatch.realProviderReady(),"wecomReady",dispatch.wecomConfigured(),"wechatReady",dispatch.wechatConfigured());}
 }

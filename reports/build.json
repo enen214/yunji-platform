@@ -1,0 +1,56 @@
+{
+  "startedAt": "2026-10-28T07:58:27.082170+00:00",
+  "sourceFingerprints": {
+    "backend": "174f59b4b9062c50536d196875be93e9583bf9d9ec0346575cb33762a7fa02ce",
+    "admin": "25e29947476c60b361d2b900fe64da7821a296654874b7349c0dcb03b340de1e",
+    "client": "08c1a2d19adb9c20055863b8ab6717c8b3ad30b80046e669a1250cb560c9d268"
+  },
+  "cases": [
+    {
+      "id": "backend-verify",
+      "status": "PASS",
+      "exitCode": 0,
+      "log": "reports/build/backend-verify.log"
+    },
+    {
+      "id": "admin-typecheck",
+      "status": "PASS",
+      "exitCode": 0,
+      "log": "reports/build/admin-typecheck.log"
+    },
+    {
+      "id": "admin-build",
+      "status": "PASS",
+      "exitCode": 0,
+      "log": "reports/build/admin-build.log"
+    },
+    {
+      "id": "client-typecheck",
+      "status": "PASS",
+      "exitCode": 0,
+      "log": "reports/build/client-typecheck.log"
+    },
+    {
+      "id": "client-build-h5",
+      "status": "PASS",
+      "exitCode": 0,
+      "log": "reports/build/client-build-h5.log"
+    },
+    {
+      "id": "client-build-mp-weixin",
+      "status": "PASS",
+      "exitCode": 0,
+      "log": "reports/build/client-build-mp-weixin.log"
+    }
+  ],
+  "sourceUnchanged": true,
+  "artifactFingerprints": {
+    "backend": "d01aa4a65990abc95970f72fb94ec6cfc60eec8b5329640d9561203071b3edda",
+    "admin": "6301fb7b67e750acc19c9c2f38ca6af7435b9aa5dcd0519d4d20cc7bade8d0e2",
+    "client-h5": "5531923987c17f3ade7a17f3930a59e4002d7a93e68c83edb09ee6746afc7ec7",
+    "client-mp-weixin": "d7e2eb146edead59c919f7fd8218e312f61094b04f24f37e5b0816cce23f4d17"
+  },
+  "completedAt": "2026-10-28T07:59:58.495689+00:00",
+  "passed": 6,
+  "failed": 0
+}

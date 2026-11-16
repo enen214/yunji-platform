@@ -1,0 +1,306 @@
+{
+  "generatedAt": "2026-10-22T14:15:50.783440+00:00",
+  "sourceFingerprints": {
+    "backend": "784c1b596f259c6cbe52670e0a92815d7749c65f1aa140bf0a15f8d6c57a5a48",
+    "admin": "9a8beb316a4e6016de701599285af19812f325af915c03370c68271248f0c4ed",
+    "client": "71cfb46669558e0c145a59121e7b88106f22959a749dbcb35cfabbad57476c97"
+  },
+  "testSourceSha256": "f3af8f6b92a538227195bc69d6fedcddab2c2ebf3bdb6e7ac94d9ce3685af33c",
+  "requirementsSha256": "cb3f74d941f43963a43ef6d84dafb10762e12c8c3e583c312ba32481577531b3",
+  "evidenceSha256": {
+    "latest": "7a01c4933997ce5579c1ebc023c055eaf5219e3aaba4e41bb07c2594f94339e4",
+    "browser": "e7a892cc7e6f3742d1cd32ac5be0413004ab71a2fd14833dbc9cab7c236eae61",
+    "browser-extended": "6c9d71abd6a2010af40d9716e307ae4d8de99ca1fa53d6b9325b07de435ddf69",
+    "browser-closure": "24a867d9b6ee97347d140b013d274147c541bfa346321ef973473b9b23bf6827",
+    "reminder-rebuild": "d567f8bf70cf5fb2087d9760763a9504ebe9bb21d45a1ff527388dd44632adca",
+    "browser-reminder-rebuild": "fe3c0932b0f4e57fb655561e49e0d6659a6d761cab4330937c00ca049d8ca594"
+  },
+  "localScenariosPassed": true,
+  "rows": [
+    {
+      "requirement": "1.1 原生导航",
+      "decision": "uni-app 四项原生导航，H5 浏览器通过；微信开发工具/真机待验",
+      "caseIds": [
+        "client-native-tabs-boards-label-tree"
+      ],
+      "missingEvidence": [],
+      "localScenarioStatus": "PASS"
+    },
+    {
+      "requirement": "1.2 首页",
+      "decision": "独立搜索、轮播、关注摘要与双列分页；不造运营数据",
+      "caseIds": [
+        "summary-auth-required",
+        "summary-count-real",
+        "customer-mobile-no-horizontal-overflow"
+      ],
+      "missingEvidence": [],
+      "localScenarioStatus": "PASS"
+    },
+    {
+      "requirement": "1.3 搜索",
+      "decision": "服务端筛选、快照分页、个人历史与受限公开热搜",
+      "caseIds": [
+        "client-independent-search-history-and-filter",
+        "search-filter-and-paginate",
+        "search-pages-do-not-repeat",
+        "search-cursor-binds-filter",
+        "search-reject-unknown-type",
+        "search-history-bounded",
+        "hot-never-publishes-private-query",
+        "search-history-clear"
+      ],
+      "missingEvidence": [],
+      "localScenarioStatus": "PASS"
+    },
+    {
+      "requirement": "1.4 板块/标签/关键词",
+      "decision": "唯一板块，标签同板块树；精确关注、多标签 OR；关键词独立",
+      "caseIds": [
+        "admin-label-create-independent-form",
+        "client-native-tabs-boards-label-tree",
+        "label-reject-cycle",
+        "label-reject-cross-board-parent",
+        "article-reject-cross-board-label",
+        "label-keywords-from-published-articles"
+      ],
+      "missingEvidence": [],
+      "localScenarioStatus": "PASS"
+    },
+    {
+      "requirement": "1.5 信息盒子",
+      "decision": "三 Tab、独立关注管理、标签选择；已读绑定确切版本",
+      "caseIds": [
+        "label-box-unread-exact-membership",
+        "label-read-decrements-box",
+        "client-exact-version-conflict-refresh-real-ui",
+        "client-replacement-auto-follow-real-ui"
+      ],
+      "missingEvidence": [],
+      "localScenarioStatus": "PASS"
+    },
+    {
+      "requirement": "1.6 详情类型",
+      "decision": "新增 NOTICE 时间状态、GUIDE 阅读引导，保留所有原类型和操作；共用正文组件",
+      "caseIds": [
+        "guide-uses-article-model",
+        "customer-article-favorite-follow-read-real-ui",
+        "search-filter-and-paginate"
+      ],
+      "missingEvidence": [],
+      "localScenarioStatus": "PASS"
+    },
+    {
+      "requirement": "1.7 个人中心",
+      "decision": "收藏/历史/资料/报名/申报/反馈独立页；单项和清空操作",
+      "caseIds": [
+        "customer-favorites-and-history-real-ui",
+        "customer-profile-edit-real-ui",
+        "history-individual-delete",
+        "favorites-clear",
+        "customer-feedback-real-ui"
+      ],
+      "missingEvidence": [],
+      "localScenarioStatus": "PASS"
+    },
+    {
+      "requirement": "1.8 强提醒",
+      "decision": "V21/V22 新变更模型：已读抑制、用户级设置与冻结批次、更替触发、即时成功降级、失败补提、自动本地调度；真实平台身份/授权/模板与发送接线仍待资源及联调。保留原日程接口和兼容入口。",
+      "caseIds": [
+        "client-reminder-independent-subpages",
+        "client-reminder-edit-pause-resume-real-ui",
+        "customer-reminder-create-pause-real-ui",
+        "notification-capabilities-honest",
+        "reminder-read-suppresses-pending",
+        "reminder-no-empty-daily",
+        "reminder-new-change-outside-frozen-batch",
+        "reminder-instant-success-downgrades",
+        "reminder-scheduler-runs-without-admin-click",
+        "rebuild-operator-result-proof-ui"
+      ],
+      "missingEvidence": [],
+      "localScenarioStatus": "PASS"
+    },
+    {
+      "requirement": "1.9 活动",
+      "decision": "总览全部/收藏进入报名闭环；新增通用资料中心入口，无独立活动附件关系",
+      "caseIds": [
+        "client-activity-favorite-overview",
+        "customer-activity-register-cancel-real-ui"
+      ],
+      "missingEvidence": [],
+      "localScenarioStatus": "PASS"
+    },
+    {
+      "requirement": "1.10 资料插件",
+      "decision": "保留完整资源域和教程关联；下载文件与教程内容由运营发布",
+      "caseIds": [
+        "customer-resource-file-browser-download",
+        "admin-resource-artifact-create-edit-withdraw-real-ui",
+        "admin-package-edit-prefill-real-ui"
+      ],
+      "missingEvidence": [],
+      "localScenarioStatus": "PASS"
+    },
+    {
+      "requirement": "1.11 登录协议",
+      "decision": "保留新版，本地身份验收不替代真实微信交换",
+      "caseIds": [
+        "customer-consent-real-ui",
+        "client-login-direct-entry-can-return-to-feed",
+        "client-guest-subscriptions-login-return-does-not-loop"
+      ],
+      "missingEvidence": [],
+      "localScenarioStatus": "PASS"
+    },
+    {
+      "requirement": "2.1 后台结构",
+      "decision": "分组导航、面包屑、独立列表/表单/详情路由；现有封顶列表仅对已加载内容分页；基础字段控件复用",
+      "caseIds": [
+        "admin-label-create-independent-form",
+        "admin-resource-artifact-create-edit-withdraw-real-ui",
+        "admin-review-decision-real-ui"
+      ],
+      "missingEvidence": [],
+      "localScenarioStatus": "PASS"
+    },
+    {
+      "requirement": "2.2 内容运营",
+      "decision": "通知/历史/更替/策略按现有文章领域展示与跳转，不另造重复库",
+      "caseIds": [
+        "new-admin-content-notices",
+        "new-admin-content-history",
+        "new-admin-content-replacements",
+        "new-admin-content-strategy"
+      ],
+      "missingEvidence": [],
+      "localScenarioStatus": "PASS"
+    },
+    {
+      "requirement": "2.2 板块与客户",
+      "decision": "板块标签治理，客户目录仅超级管理员最小字段分页只读",
+      "caseIds": [
+        "customers-admin-paging",
+        "customers-reject-customer-token",
+        "new-admin-customers",
+        "labels-staff-token-boundary"
+      ],
+      "missingEvidence": [],
+      "localScenarioStatus": "PASS"
+    },
+    {
+      "requirement": "2.2 提醒与企微",
+      "decision": "设置/模板实际持久化，企微五运营入口复用提醒域；新增去重用户统计和审计暂停，真实接线仍待资源与研发",
+      "caseIds": [
+        "new-admin-reminders-rules",
+        "new-admin-reminders-records",
+        "new-admin-reminders-settings",
+        "new-admin-reminders-templates",
+        "new-admin-reminders-statistics",
+        "new-admin-reminders-monitor",
+        "new-admin-reminders-wecom",
+        "closure-admin-distinct-user-statistics",
+        "closure-admin-pause-rule-real-ui",
+        "closure-wecom-five-views-real-navigation",
+        "reminder-pause-request-idempotent",
+        "reminder-statistics-distinct-users-and-mode-overlap"
+      ],
+      "missingEvidence": [],
+      "localScenarioStatus": "PASS"
+    },
+    {
+      "requirement": "2.2 统计",
+      "decision": "四个独立视图，实际聚合与用户概况；无敏感画像推断",
+      "caseIds": [
+        "new-admin-analytics-dashboard",
+        "new-admin-analytics-content",
+        "new-admin-analytics-behavior",
+        "new-admin-analytics-profile"
+      ],
+      "missingEvidence": [],
+      "localScenarioStatus": "PASS"
+    },
+    {
+      "requirement": "2.2 系统与监控",
+      "decision": "基座岗位/字典/参数/公告写操作接入；客户端和监控只读。本轮自动证据覆盖读接口与页面，未穷举每种写操作",
+      "caseIds": [
+        "new-admin-foundation-post",
+        "new-admin-foundation-dict",
+        "new-admin-foundation-config",
+        "new-admin-foundation-notice",
+        "new-admin-foundation-cache",
+        "new-admin-foundation-online",
+        "new-admin-foundation-login"
+      ],
+      "missingEvidence": [],
+      "localScenarioStatus": "PASS"
+    },
+    {
+      "requirement": "2.2 OSS/租户/调度",
+      "decision": "专项架构待办，未启用；不能通过框架菜单承诺新业务已经支持",
+      "caseIds": [],
+      "missingEvidence": [],
+      "localScenarioStatus": "DECISION_ONLY"
+    },
+    {
+      "requirement": "2.3 / 3 公众号退役",
+      "decision": "拒绝新规则，迁移停用既有规则，历史账本保留",
+      "caseIds": [
+        "retired-official-channel-rejected"
+      ],
+      "missingEvidence": [],
+      "localScenarioStatus": "PASS"
+    },
+    {
+      "requirement": "3 后端兼容",
+      "decision": "数据库至 V22；本轮不新增迁移、不改后端依赖配置；基座沿用授权路径",
+      "caseIds": [
+        "search-filter-and-paginate",
+        "framework-user-list",
+        "framework-clientid-mismatch"
+      ],
+      "missingEvidence": [],
+      "localScenarioStatus": "PASS"
+    },
+    {
+      "requirement": "4 旧版遗留",
+      "decision": "工作流、生成器、废弃静态页面不回迁；新代码保留正常错误/权限状态",
+      "caseIds": [],
+      "missingEvidence": [],
+      "localScenarioStatus": "DECISION_ONLY"
+    },
+    {
+      "requirement": "部署环境",
+      "decision": "已确认 Linux amd64 + Docker；容器模板静态检查，镜像/目标机运行未验收",
+      "caseIds": [],
+      "missingEvidence": [],
+      "localScenarioStatus": "DECISION_ONLY"
+    },
+    {
+      "requirement": "2026-10-16 about 与协议",
+      "decision": "about 前端固定事实文案，后台移除旧选项；terms/privacy 仍版本管理",
+      "caseIds": [
+        "closure-about-static-even-offline",
+        "closure-legal-page-still-versioned",
+        "closure-about-removed-from-admin-options"
+      ],
+      "missingEvidence": [],
+      "localScenarioStatus": "PASS"
+    },
+    {
+      "requirement": "2026-10-16 活动资料与按钮",
+      "decision": "活动提供通用资料中心入口，不含活动专属关联；提醒选项有边框与选中底色，真实微信待验",
+      "caseIds": [
+        "closure-activity-resource-entry-navigates",
+        "closure-reminder-tabs-visible-control-boundaries"
+      ],
+      "missingEvidence": [],
+      "localScenarioStatus": "PASS"
+    }
+  ],
+  "limitations": [
+    "Case evidence covers explicitly listed scenarios only.",
+    "Source freshness and complete suite success are checked by release-gate.json.",
+    "Decision-only and external-pending rows are not completed product functions."
+  ]
+}

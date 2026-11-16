@@ -1,0 +1,68 @@
+{
+  "scope": "ISOLATED_WECHAT_CLIENT_AND_COMPILED_CONTROLS",
+  "cases": [
+    {
+      "id": "native-phone-rejection-does-not-login",
+      "status": "PASS"
+    },
+    {
+      "id": "native-codes-distinct-and-no-plaintext-phone",
+      "status": "PASS"
+    },
+    {
+      "id": "ordinary-native-login-does-not-request-phone",
+      "status": "PASS"
+    },
+    {
+      "id": "abandoned-native-login-does-not-call-backend",
+      "status": "PASS"
+    },
+    {
+      "id": "invalid-app-id-fails-before-login",
+      "status": "PASS"
+    },
+    {
+      "id": "empty-identity-code-fails-before-backend",
+      "status": "PASS"
+    },
+    {
+      "id": "sheet-consent-and-duplicate-guard",
+      "status": "PASS"
+    },
+    {
+      "id": "sheet-late-response-after-leave-is-ignored",
+      "status": "PASS"
+    },
+    {
+      "id": "page-consent-and-duplicate-guard",
+      "status": "PASS"
+    },
+    {
+      "id": "page-late-response-after-leave-is-ignored",
+      "status": "PASS"
+    },
+    {
+      "id": "compiled-native-buttons-have-phone-authorization-bindings",
+      "status": "PASS"
+    }
+  ],
+  "passed": 11,
+  "failed": 0,
+  "limits": [
+    "No native authorization UI or actual phone API call is executed."
+  ],
+  "generatedAt": "2026-10-28T08:05:03.309137+00:00",
+  "sourceFingerprints": {
+    "backend": "174f59b4b9062c50536d196875be93e9583bf9d9ec0346575cb33762a7fa02ce",
+    "admin": "25e29947476c60b361d2b900fe64da7821a296654874b7349c0dcb03b340de1e",
+    "client": "08c1a2d19adb9c20055863b8ab6717c8b3ad30b80046e669a1250cb560c9d268"
+  },
+  "sourceUnchanged": true,
+  "artifactFingerprints": {
+    "backend": "d01aa4a65990abc95970f72fb94ec6cfc60eec8b5329640d9561203071b3edda",
+    "admin": "6301fb7b67e750acc19c9c2f38ca6af7435b9aa5dcd0519d4d20cc7bade8d0e2",
+    "client-h5": "5531923987c17f3ade7a17f3930a59e4002d7a93e68c83edb09ee6746afc7ec7",
+    "client-mp-weixin": "d7e2eb146edead59c919f7fd8218e312f61094b04f24f37e5b0816cce23f4d17"
+  },
+  "testSourceSha256": "8689c843d5d9f4c3af27f1c381a119c6fc8c895fda478872791a6b600662d925"
+}

@@ -1,0 +1,5 @@
+FROM nginx:1.28-alpine
+COPY deploy/docker/nginx.conf /etc/nginx/conf.d/default.conf
+COPY apps/admin/dist/ /usr/share/nginx/html/admin/
+COPY apps/client/dist/build/h5/ /usr/share/nginx/html/client/
+EXPOSE 80

@@ -14,10 +14,11 @@ import java.util.*;
 @Service
 public class ReminderTrackingService {
     private final Db db; private final Actors actors; private final ArticleAccess articles;
+    private final ProviderDispatch dispatch;
     private final boolean local; private final String secret;
-    public ReminderTrackingService(Db db, Actors actors, ArticleAccess articles,
+    public ReminderTrackingService(Db db, Actors actors, ArticleAccess articles, ProviderDispatch dispatch,
             @Value("${yunji.local-enabled:false}") boolean local, @Value("${yunji.local-secret:}") String secret) {
-        this.db=db; this.actors=actors; this.articles=articles; this.local=local; this.secret=secret;
+        this.db=db; this.actors=actors; this.articles=articles; this.dispatch=dispatch; this.local=local; this.secret=secret;
     }
     public record Tracking(@NotBlank String targetType,@Positive long targetId,@NotBlank String mode,boolean enabled,@Min(0) int expectedVersion) {}
     public record Preference(boolean enabled,@NotBlank String slot,@Min(0) int expectedVersion) {}
@@ -25,7 +26,7 @@ public class ReminderTrackingService {
                           @Size(min=3,max=3) List<String> slots,@Size(max=128) String dailyTemplate,
                           @Size(max=128) String instantTemplate,@Min(0) int expectedVersion) {}
     public record Authorization(@NotBlank @Size(max=100) String receiptKey,boolean wecomBound,
-                                @Min(0) @Max(10) int amount,@NotBlank String outcome) {}
+                                boolean authorized,@NotBlank String outcome) {}
     public Map<String,Object> lock() {return db.one("SELECT * FROM reminder_control WHERE id=1 FOR UPDATE");}
     public void active(long user) {db.one("SELECT id FROM app_user WHERE id=? AND status='ACTIVE' AND deleted_at IS NULL",user);}
     private LocalTime time(String value) {try {return LocalTime.parse(value);}catch(Exception e){throw new BusinessException(422,"时间格式应为 HH:mm");}}
@@ -56,11 +57,16 @@ public class ReminderTrackingService {
         var result=new LinkedHashMap<String,Object>();result.put("slots",slots(c));result.put("timezone",c.get("timezone"));
         result.put("enabled",p.isEmpty()||Db.number(p.get(0).get("enabled"))==1);
         result.put("slot",p.isEmpty()?slots(c).get(0):time(p.get(0).get("slot").toString()).toString());
-        result.put("lockVersion",p.isEmpty()?0:p.get(0).get("lockVersion"));result.put("localSimulation",local);
-        result.put("realProviderReady",false);result.put("instantTemplate",c.get("instantTemplate"));
-        var perms=db.rows("SELECT wecom_bound,available,reserved,consumed,wecom_contact_state FROM reminder_permission WHERE user_id=?",user);
-        result.put("wecomState",perms.isEmpty()?"NONE":Objects.toString(perms.get(0).get("wecomContactState"),"NONE"));
-        result.put("permissions",perms);return result;
+        result.put("lockVersion",p.isEmpty()?0:p.get(0).get("lockVersion"));
+        result.put("localSimulation",local);result.put("realProviderReady",dispatch.realProviderReady());
+        result.put("instantTemplate",c.get("instantTemplate"));
+        // V27 移除了预留/已用额度列，一次性订阅授权只保留 available 事实；为兼容客户端视图补 0。
+        var permissions=new ArrayList<Map<String,Object>>();
+        var perms=db.rows("SELECT wecom_bound,available FROM reminder_permission WHERE user_id=?",user);
+        if(!perms.isEmpty()){var row=perms.get(0);
+            permissions.add(Map.of("wecomBound",Db.number(row.get("wecomBound"))==1,"available",Db.number(row.get("available")),"reserved",0,"consumed",0));}
+        result.put("wecomState",perms.isEmpty()?"NONE":(Db.number(perms.get(0).get("wecomBound"))==1?"BOUND":"NONE"));
+        result.put("permissions",permissions);return result;
     }
     @Transactional public Map<String,Object> preference(long user,Preference b) {
         var c=lock();active(user);String slot=time(b.slot()).toString();BusinessException.require(slots(c).contains(slot),422,"请选择当前提供的时段");
@@ -69,20 +75,16 @@ public class ReminderTrackingService {
         db.update("INSERT INTO reminder_preference(user_id,enabled,slot,lock_version) VALUES(?,?,?,1) ON DUPLICATE KEY UPDATE enabled=VALUES(enabled),slot=VALUES(slot),lock_version=lock_version+1",user,b.enabled(),slot);
         db.audit(user,"CUSTOMER","REMINDER_PREFERENCE","USER",user,b);return settings(user);
     }
+    /** 客户自助“我已添加企微”只记录意向，绑定事实必须由企微回调写入，这里不改动绑定状态。 */
     @Transactional public Map<String,Object> requestWecomContact(long user) {
         lock();active(user);
-        var p=db.rows("SELECT wecom_bound FROM reminder_permission WHERE user_id=?",user);
-        boolean bound=!p.isEmpty()&&Db.number(p.get(0).get("wecomBound"))==1;
-        if(!bound)db.update("INSERT INTO reminder_permission(user_id,wecom_contact_state) VALUES(?,?) ON DUPLICATE KEY UPDATE wecom_contact_state=VALUES(wecom_contact_state)",user,"CONTACTED");
         db.audit(user,"CUSTOMER","REMINDER_WECOM_REQUEST","USER",user,Map.of());return settings(user);
     }
+    /** Self-reported binding is a local-acceptance channel only; production must verify via WeCom callback. */
     @Transactional public Map<String,Object> wecomLink(long user) {
+        BusinessException.require(local,404,"接口不存在");
         lock();active(user);
-        var p=db.rows("SELECT wecom_bound,wecom_contact_state FROM reminder_permission WHERE user_id=?",user);
-        boolean bound=!p.isEmpty()&&Db.number(p.get(0).get("wecomBound"))==1;
-        String state=p.isEmpty()?"NONE":Objects.toString(p.get(0).get("wecomContactState"),"NONE");
-        if(!bound)BusinessException.require("CONTACTED".equals(state),409,"你没有添加企业微信");
-        db.update("INSERT INTO reminder_permission(user_id,wecom_bound,wecom_contact_state) VALUES(?,1,'BOUND') ON DUPLICATE KEY UPDATE wecom_bound=1,wecom_contact_state='BOUND'",user);
+        db.update("INSERT INTO reminder_permission(user_id,wecom_bound,wecom_external_userid) VALUES(?,1,?) ON DUPLICATE KEY UPDATE wecom_bound=1,wecom_external_userid=VALUES(wecom_external_userid)",user,"local-ext-"+user);
         db.audit(user,"CUSTOMER","REMINDER_WECOM_LINK","USER",user,Map.of());return settings(user);
     }
     @Transactional public Map<String,Object> save(long user,Long id,Tracking b) {
@@ -99,7 +101,7 @@ public class ReminderTrackingService {
             BusinessException.require(Db.number(old.get("lockVersion"))==b.expectedVersion(),409,"跟踪已变化，请刷新");
             BusinessException.require(old.get("targetType").equals(b.targetType())&&Db.number(old.get("targetId"))==b.targetId(),422,"编辑不能更换跟踪对象");}
         if(b.enabled()&&b.mode().equals("DAILY"))BusinessException.require(db.count("SELECT COUNT(*) FROM reminder_permission WHERE user_id=? AND wecom_bound=1",user)>0,409,"请先添加并绑定企业微信联系人");
-        if(b.enabled()&&b.mode().equals("INSTANT"))BusinessException.require(db.count("SELECT COUNT(*) FROM reminder_permission WHERE user_id=? AND available>0",user)>0,409,"需要有效的一次性订阅授权；本地验收请先配置模拟授权");
+        if(b.enabled()&&b.mode().equals("INSTANT"))BusinessException.require(db.count("SELECT COUNT(*) FROM reminder_permission WHERE user_id=? AND available=1",user)>0,409,"请先授权一次微信一次性订阅消息，再开启及时提醒");
         if(b.enabled()) {
             db.one("SELECT tenant_id FROM article_replacement_guard WHERE tenant_id='000000' FOR UPDATE");
             db.update("INSERT INTO user_follow(id,user_id,target_type,target_id) VALUES(?,?,?,?) ON DUPLICATE KEY UPDATE deleted_at=NULL",db.id(),user,b.targetType(),b.targetId());
@@ -155,17 +157,35 @@ public class ReminderTrackingService {
     public record KeywordSummary(String id,String name,long newCount,String latestArticleId,String latestTitle,String latestDate,Long trackingId,boolean enabled){}
     public List<KeywordSummary> keywords(long user){
         // Window aggregation avoids one article query per followed keyword and returns exact counts.
-        return db.rows("SELECT * FROM (SELECT f.target_id id,k.display_name name,COALESCE(t.enabled,0) enabled,t.id tracking_id,f.created_at followed_at,COUNT(a.id) OVER(PARTITION BY f.id) new_count,a.id latest_article_id,a.title latest_title,a.published_at latest_date,ROW_NUMBER() OVER(PARTITION BY f.id ORDER BY a.published_at DESC,a.id DESC) position_no FROM user_follow f JOIN keyword k ON k.id=f.target_id LEFT JOIN reminder_tracking t ON t.user_id=f.user_id AND t.target_type='KEYWORD' AND t.target_id=f.target_id LEFT JOIN article_keyword_rel ak ON ak.keyword_id=f.target_id LEFT JOIN article a ON a.id=ak.article_id AND a.published_at>=f.created_at AND "+ArticleAccess.VISIBLE+" AND NOT EXISTS(SELECT 1 FROM user_read_state r WHERE r.user_id=f.user_id AND r.article_id=a.id AND r.read_version_id=a.current_version_id) WHERE f.user_id=? AND f.target_type='KEYWORD' AND f.deleted_at IS NULL AND k.tenant_id='000000' AND k.status='ENABLED' AND k.deleted_at IS NULL) ranked WHERE position_no=1 ORDER BY followed_at DESC,id DESC LIMIT 200",user).stream().map(r->new KeywordSummary(r.get("id").toString(),r.get("name").toString(),Db.number(r.get("newCount")),(String)r.get("latestArticleId"),(String)r.get("latestTitle"),Objects.toString(r.get("latestDate"),""),r.get("trackingId")==null?null:Db.number(r.get("trackingId")),Db.number(r.get("enabled"))==1)).toList();
+        return db.rows("SELECT * FROM (SELECT f.target_id id,k.display_name name,COALESCE(t.enabled,0) enabled,t.id tracking_id,f.created_at followed_at,COUNT(a.id) OVER(PARTITION BY f.id) new_count,a.id latest_article_id,a.title latest_title,a.published_at latest_date,ROW_NUMBER() OVER(PARTITION BY f.id ORDER BY a.published_at DESC,a.id DESC) position_no FROM user_follow f JOIN keyword k ON k.id=f.target_id LEFT JOIN reminder_tracking t ON t.user_id=f.user_id AND t.target_type='KEYWORD' AND t.target_id=f.target_id LEFT JOIN article_keyword_rel ak ON ak.keyword_id=f.target_id LEFT JOIN article a ON a.id=ak.article_id AND COALESCE((SELECT MIN(pr.created_at) FROM article_review pr WHERE pr.article_id=a.id AND pr.action='PUBLISH'),a.published_at)>=f.created_at AND "+ArticleAccess.VISIBLE+" AND NOT EXISTS(SELECT 1 FROM user_read_state r WHERE r.user_id=f.user_id AND r.article_id=a.id AND r.read_version_id=a.current_version_id) WHERE f.user_id=? AND f.target_type='KEYWORD' AND f.deleted_at IS NULL AND k.tenant_id='000000' AND k.status='ENABLED' AND k.deleted_at IS NULL) ranked WHERE position_no=1 ORDER BY followed_at DESC,id DESC LIMIT 200",user).stream().map(r->new KeywordSummary(r.get("id").toString(),r.get("name").toString(),Db.number(r.get("newCount")),(String)r.get("latestArticleId"),(String)r.get("latestTitle"),Objects.toString(r.get("latestDate"),""),r.get("trackingId")==null?null:Db.number(r.get("trackingId")),Db.number(r.get("enabled"))==1)).toList();
     }
     public Map<String,Object> changes(long user,int page,int size) {return changes(user,page,size,"");}
     public Map<String,Object> changes(long user,int page,int size,String mode) {return changes(user,page,size,mode,"");}
-    public Map<String,Object> changes(long user,int page,int size,String mode,String eventType) {
+    public Map<String,Object> changes(long user,int page,int size,String mode,String targetType) {return changes(user,page,size,mode,targetType,"");}
+    public Map<String,Object> changes(long user,int page,int size,String mode,String targetType,String eventType) {
         BusinessException.require(Set.of("","DAILY","INSTANT").contains(mode),422,"提醒方式无效");
-        BusinessException.require(Set.of("","PUBLISHED","REVISED","REPLACED").contains(eventType),422,"事件类型无效");
-        String scoped=mode.isBlank()?"":" AND EXISTS(SELECT 1 FROM reminder_match m JOIN reminder_tracking t ON t.id=m.tracking_id WHERE m.change_id=c.id AND t.enabled=1 AND t.mode='"+mode+"' AND m.tracking_version=t.lock_version) ";
-        String event=eventType.isBlank()?"":" AND c.event_type='"+eventType+"'";
-        return page("SELECT c.*,v.title FROM reminder_change c JOIN article_version v ON v.id=c.version_id JOIN article a ON a.id=c.article_id WHERE c.user_id=? AND c.state IN('PENDING','BATCHED') AND "+ArticleAccess.VISIBLE+scoped+event+" ORDER BY c.created_at DESC,c.id DESC",
-            "SELECT COUNT(*) FROM reminder_change c JOIN article a ON a.id=c.article_id WHERE c.user_id=? AND c.state IN('PENDING','BATCHED') AND "+ArticleAccess.VISIBLE+scoped+event,user,page,size);
+        BusinessException.require(Set.of("","ARTICLE","KEYWORD").contains(targetType),422,"提醒来源无效");
+        // 实际枚举以 PUBLISHED / REVISED 为主；REPLACED 是旧口径，客户端更替提醒仍在用，保留兼容。
+        BusinessException.require(Set.of("","PUBLISHED","REVISED","REPLACED").contains(eventType),422,"提醒事件无效");
+        StringBuilder scope=new StringBuilder();
+        if(!mode.isBlank()||!targetType.isBlank()||!eventType.isBlank()){
+            scope.append(" AND EXISTS(SELECT 1 FROM reminder_match m JOIN reminder_tracking t ON t.id=m.tracking_id WHERE m.change_id=c.id AND t.enabled=1 AND m.tracking_version=t.lock_version");
+            if(!mode.isBlank())scope.append(" AND t.mode='").append(mode).append("'");
+            if(!targetType.isBlank())scope.append(" AND t.target_type='").append(targetType).append("'");
+            scope.append(") ");
+            if(!eventType.isBlank())scope.append(" AND c.event_type='").append(eventType).append("'");
+        }
+        String scoped=scope.toString();
+        return page("SELECT c.*,v.title FROM reminder_change c JOIN article_version v ON v.id=c.version_id JOIN article a ON a.id=c.article_id WHERE c.user_id=? AND c.state IN('PENDING','BATCHED') AND "+ArticleAccess.VISIBLE+scoped+" ORDER BY c.created_at DESC,c.id DESC",
+            "SELECT COUNT(*) FROM reminder_change c JOIN article a ON a.id=c.article_id WHERE c.user_id=? AND c.state IN('PENDING','BATCHED') AND "+ArticleAccess.VISIBLE+scoped,user,page,size);
+    }
+    public Map<String,Object> countChanges(long user) {
+        var row=db.one("SELECT COALESCE(SUM(CASE WHEN EXISTS(SELECT 1 FROM reminder_match m JOIN reminder_tracking t ON t.id=m.tracking_id WHERE m.change_id=c.id AND t.enabled=1 AND m.tracking_version=t.lock_version AND t.mode='DAILY' AND t.target_type='ARTICLE') THEN 1 ELSE 0 END),0) replacement,COALESCE(SUM(CASE WHEN EXISTS(SELECT 1 FROM reminder_match m JOIN reminder_tracking t ON t.id=m.tracking_id WHERE m.change_id=c.id AND t.enabled=1 AND m.tracking_version=t.lock_version AND t.mode='DAILY' AND t.target_type='KEYWORD') THEN 1 ELSE 0 END),0) keyword,COALESCE(SUM(CASE WHEN EXISTS(SELECT 1 FROM reminder_match m JOIN reminder_tracking t ON t.id=m.tracking_id WHERE m.change_id=c.id AND t.enabled=1 AND m.tracking_version=t.lock_version AND t.mode='INSTANT') THEN 1 ELSE 0 END),0) instant FROM reminder_change c JOIN article a ON a.id=c.article_id WHERE c.user_id=? AND c.state IN('PENDING','BATCHED') AND "+ArticleAccess.VISIBLE,user);
+        var result=new LinkedHashMap<String,Object>();
+        result.put("replacement",Db.number(row.get("replacement")));
+        result.put("keyword",Db.number(row.get("keyword")));
+        result.put("instant",Db.number(row.get("instant")));
+        return result;
     }
     private Map<String,Object> page(String sql,String count,long user,int page,int size) {return Map.of("items",db.rows(sql+" LIMIT ? OFFSET ?",user,size,(page-1)*size),"total",db.count(count,user),"page",page,"size",size);}
     @Transactional public void dismiss(long user,long id) {
@@ -197,13 +217,23 @@ public class ReminderTrackingService {
         }
         db.update("UPDATE reminder_change SET state='SUPERSEDED' WHERE article_id=? AND state='PENDING'",old);capture(newer,version,"REPLACED",false);
     }
-    @Transactional public void close(long user) {lock();db.update("UPDATE reminder_tracking SET enabled=0,lock_version=lock_version+1 WHERE user_id=?",user);db.update("UPDATE reminder_change SET state='CANCELLED' WHERE user_id=? AND state='PENDING'",user);db.update("UPDATE reminder_permission SET wecom_bound=0,available=0,wecom_contact_state='NONE' WHERE user_id=?",user);}
+    @Transactional public void close(long user) {lock();db.update("UPDATE reminder_tracking SET enabled=0,lock_version=lock_version+1 WHERE user_id=?",user);db.update("UPDATE reminder_change SET state='CANCELLED' WHERE user_id=? AND state='PENDING'",user);db.update("UPDATE reminder_permission SET wecom_bound=0,available=0 WHERE user_id=?",user);}
     @Transactional public Map<String,Object> authorize(long user,Authorization b,String supplied) {
         BusinessException.require(local&&!secret.isBlank()&&java.security.MessageDigest.isEqual(secret.getBytes(),Objects.toString(supplied,"").getBytes()),404,"接口不存在");
         lock();active(user);BusinessException.require(Set.of("SUCCESS","FAILURE","UNKNOWN","RETRY").contains(b.outcome()),422,"模拟结果无效");
         String hash=Db.hash(user+":"+db.json(b));var old=db.rows("SELECT payload_hash FROM reminder_local_receipt WHERE receipt_key=?",b.receiptKey());
         if(!old.isEmpty()){BusinessException.require(hash.equals(old.get(0).get("payloadHash")),409,"重复键内容冲突");return settings(user);}
         db.update("INSERT INTO reminder_local_receipt(receipt_key,payload_hash) VALUES(?,?)",b.receiptKey(),hash);
-        db.update("INSERT INTO reminder_permission(user_id,wecom_bound,available,simulation_outcome) VALUES(?,?,?,?) ON DUPLICATE KEY UPDATE wecom_bound=VALUES(wecom_bound),available=available+VALUES(available),simulation_outcome=VALUES(simulation_outcome)",user,b.wecomBound(),b.amount(),b.outcome());return settings(user);
+        db.update("INSERT INTO reminder_permission(user_id,wecom_bound,available,simulation_outcome) VALUES(?,?,?,?) ON DUPLICATE KEY UPDATE wecom_bound=VALUES(wecom_bound),available=VALUES(available),simulation_outcome=VALUES(simulation_outcome)",user,b.wecomBound(),b.authorized()?1:0,b.outcome());return settings(user);
+    }
+    /** The WeChat client is the only authority for a one-time subscription consent; we store that fact, not a count. */
+    @Transactional public Map<String,Object> instantConsent(long user,String templateId,String result) {
+        lock();active(user);
+        String template=Objects.toString(db.one("SELECT instant_template FROM reminder_control WHERE id=1").get("instantTemplate"),"");
+        BusinessException.require(!template.isBlank()&&template.equals(templateId),422,"订阅消息模板与当前配置不一致");
+        boolean accepted="accept".equals(result);
+        db.update("INSERT INTO reminder_permission(user_id,available) VALUES(?,?) ON DUPLICATE KEY UPDATE available=VALUES(available)",user,accepted?1:0);
+        db.audit(user,"CUSTOMER","REMINDER_INSTANT_CONSENT","USER",user,Map.of("templateId",templateId,"accepted",accepted));
+        return settings(user);
     }
 }

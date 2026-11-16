@@ -20,7 +20,7 @@ public class NotificationController {
  public record Reconcile(String outcome,String evidence){}
  @PostMapping("/api/v1/admin/notifications/{id}/reconcile") public ApiResponse<Views.DeliveryView> reconcile(@PathVariable long id,@RequestBody Reconcile b){return ApiResponse.ok(ViewMapper.of(s.reconcile(id,b.outcome,b.evidence),Views.DeliveryView.class));}
  @GetMapping("/api/v1/admin/notifications/ledger") public ApiResponse<java.util.List<Views.DeliveryView>> ledger(){return ApiResponse.ok(ViewMapper.list(s.ledger(),Views.DeliveryView.class));}
- public record Capabilities(boolean localSimulation,boolean realProviderReady){}
+ public record Capabilities(boolean localSimulation,boolean realProviderReady,boolean wecomReady,boolean wechatReady){}
  @GetMapping("/api/v1/admin/notifications/rules") public ApiResponse<java.util.List<Views.RuleView>> adminRules(){return ApiResponse.ok(ViewMapper.list(s.adminRules(),Views.RuleView.class));}
  @GetMapping("/api/v1/admin/notifications/capabilities") public ApiResponse<Capabilities> capabilities(){return ApiResponse.ok(ViewMapper.of(s.capabilities(),Capabilities.class));}
 }

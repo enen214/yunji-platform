@@ -1,0 +1,141 @@
+{
+  "version": "2026-10-22",
+  "scope": "Reviewed static prototype adapted to real uni-app and existing business domains; finite local scenarios",
+  "items": [
+    {
+      "id": "PROTO-AUTH",
+      "caseIds": [
+        "prototype-login-sheet-cancel-preserves-page",
+        "prototype-login-consent-and-intent-replay"
+      ]
+    },
+    {
+      "id": "PROTO-DISCOVERY",
+      "caseIds": [
+        "prototype-home-two-columns-and-filter-cancel",
+        "prototype-home-type-filter-sends-real-or-query",
+        "prototype-search-filter-cancel-does-not-apply",
+        "prototype-catalog-root-lifecycle-and-keyword-filter",
+        "prototype-content-types-or",
+        "prototype-keywords-intersect-label",
+        "prototype-multitype-snapshot-no-repeat",
+        "prototype-cursor-binds-keywords",
+        "prototype-operator-recommendation-deduplicated",
+        "prototype-operator-activity-column-reachable"
+      ]
+    },
+    {
+      "id": "PROTO-FOLLOWS",
+      "caseIds": [
+        "prototype-follows-collapsed-four-and-full-search",
+        "prototype-follow-groups-real-membership",
+        "prototype-bulk-labels-save",
+        "prototype-bulk-labels-atomic-rollback",
+        "prototype-bulk-labels-no-partial-save",
+        "prototype-bulk-labels-anonymous-denied"
+      ]
+    },
+    {
+      "id": "PROTO-BOX",
+      "caseIds": [
+        "prototype-box-summary-failure-retry-and-no-read-write",
+        "prototype-swipe-only-reveals-explicit-read"
+      ]
+    },
+    {
+      "id": "PROTO-ARTICLE",
+      "caseIds": [
+        "prototype-article-source-not-body-and-rail-cancel",
+        "prototype-article-real-favorite-confirm",
+        "prototype-article-share-link-contains-route",
+        "prototype-article-keywords-from-real-relations",
+        "prototype-original-separate-from-body",
+        "prototype-detail-real-labels",
+        "prototype-detail-real-keywords"
+      ]
+    },
+    {
+      "id": "PROTO-REMINDER",
+      "caseIds": [
+        "prototype-reminder-add-keyword-real-rule",
+        "prototype-reminder-three-views-have-real-counts",
+        "prototype-reminder-object-filter-total",
+        "prototype-reminder-object-filter-exact",
+        "prototype-reminder-object-type-required",
+        "prototype-reminder-object-filter-anonymous"
+      ]
+    },
+    {
+      "id": "PROTO-CLOSURE",
+      "caseIds": [
+        "prototype-my-menu-and-service-reachability",
+        "prototype-responsive-all-new-pages",
+        "prototype-screenshots-and-no-runtime-errors",
+        "prototype-feedback-type-persisted",
+        "prototype-feedback-contact-explicit-unverified",
+        "prototype-feedback-invalid-type"
+      ]
+    },
+    {
+      "id": "FEEDBACK-20261022",
+      "caseIds": [
+        "feedback-ui-admin-guide-structured-editor",
+        "feedback-ui-three-detail-templates",
+        "feedback-ui-follow-toggle-and-quick-reminder-atomic",
+        "feedback-ui-search-multiboard-linked-labels",
+        "feedback-ui-admin-topic-order-banner-client-loop",
+        "feedback-ui-profile-and-follows-clean-entries",
+        "feedback-three-type-guide-fields-versioned",
+        "feedback-basic-contact-and-related",
+        "feedback-presentation-invalid-step-rejected",
+        "feedback-presentation-related-bounded",
+        "feedback-presentation-null-step-rejected",
+        "feedback-board-multiselect-or",
+        "feedback-board-multiselect-label-intersection",
+        "feedback-board-single-legacy-compatible",
+        "feedback-board-negative-denied",
+        "feedback-board-list-bounded",
+        "feedback-cursor-binds-board-selection",
+        "feedback-quick-reminder-anonymous-denied",
+        "feedback-quick-reminder-staff-denied",
+        "feedback-quick-reminder-concurrent-one-rule",
+        "feedback-quick-reminder-daily",
+        "feedback-quick-reminder-auto-follow",
+        "feedback-quick-reminder-does-not-fabricate-update",
+        "feedback-reminder-user-ownership",
+        "feedback-reminder-pause-retains-follow",
+        "feedback-reminder-restores-same-rule",
+        "feedback-unfollow-pauses-rule",
+        "feedback-invalid-target-atomic-no-follow",
+        "feedback-keyword-follow-creates-daily",
+        "feedback-keyword-three-level-membership",
+        "feedback-keyword-new-content-real-count",
+        "feedback-daily-real-update-visible",
+        "feedback-box-type-and-publication-time",
+        "feedback-keyword-unfollow-removes-summary",
+        "feedback-daily-no-disabled-rule-updates",
+        "feedback-quick-retains-instant-mode",
+        "feedback-quick-does-not-mint-consent",
+        "feedback-quick-existing-offline-target-denied",
+        "feedback-topic-admin-anonymous-denied",
+        "feedback-topic-admin-customer-denied",
+        "feedback-draft-topic-not-public",
+        "feedback-topic-independent-ordered-articles",
+        "feedback-topic-description-sanitized",
+        "feedback-topic-stale-edit-denied",
+        "feedback-topic-duplicate-articles-denied",
+        "feedback-topic-null-article-denied",
+        "feedback-topic-invalid-image-denied",
+        "feedback-banner-links-real-topic",
+        "feedback-topic-offline-hides-banner",
+        "feedback-topic-offline-deeplink-denied"
+      ]
+    }
+  ],
+  "externalPending": [
+    "WeChat DevTools and physical device layout/lifecycle/share/authorization",
+    "Real WeChat and WeCom identity, delivery and callback integration",
+    "Target Linux amd64 Docker deployment and operational acceptance",
+    "Product sign-off on documented professional adaptations"
+  ]
+}

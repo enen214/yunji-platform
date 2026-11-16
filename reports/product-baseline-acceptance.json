@@ -1,0 +1,1011 @@
+{
+  "scope": "LOCAL_REAL_MYSQL_REDIS_FOUNDATION",
+  "sourceDigest": "307f4a1e9f5575e43c25a6485abe8b7839ee06d552099dc2295cf99153ababf7",
+  "generatedAt": "2026-10-28T08:00:57.379840+00:00",
+  "durationSeconds": 58.73,
+  "results": [
+    {
+      "id": "clean-install-and-repeat-migrations",
+      "featureIds": [
+        "PB-20261027"
+      ],
+      "status": "PASS",
+      "durationMs": 1703
+    },
+    {
+      "id": "anonymous-admin-denied",
+      "featureIds": [
+        "PB-20261027"
+      ],
+      "status": "PASS",
+      "durationMs": 31
+    },
+    {
+      "id": "customer-admin-denied",
+      "featureIds": [
+        "PB-20261027"
+      ],
+      "status": "PASS",
+      "durationMs": 31
+    },
+    {
+      "id": "six-db-navigation-groups",
+      "featureIds": [
+        "PB-20261027"
+      ],
+      "status": "PASS",
+      "durationMs": 47
+    },
+    {
+      "id": "create-reject-labelIds",
+      "featureIds": [
+        "PB-20261027"
+      ],
+      "status": "PASS",
+      "durationMs": 141
+    },
+    {
+      "id": "create-reject-categoryIds",
+      "featureIds": [
+        "PB-20261027"
+      ],
+      "status": "PASS",
+      "durationMs": 47
+    },
+    {
+      "id": "create-reject-keywordNames",
+      "featureIds": [
+        "PB-20261027"
+      ],
+      "status": "PASS",
+      "durationMs": 47
+    },
+    {
+      "id": "create-reject-summary",
+      "featureIds": [
+        "PB-20261027"
+      ],
+      "status": "PASS",
+      "durationMs": 47
+    },
+    {
+      "id": "create-reject-originalText",
+      "featureIds": [
+        "PB-20261027"
+      ],
+      "status": "PASS",
+      "durationMs": 31
+    },
+    {
+      "id": "create-reject-richText",
+      "featureIds": [
+        "PB-20261027"
+      ],
+      "status": "PASS",
+      "durationMs": 47
+    },
+    {
+      "id": "save-publishes-immediately",
+      "featureIds": [
+        "PB-20261027"
+      ],
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "body-sanitized",
+      "featureIds": [
+        "PB-20261027"
+      ],
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "detail-taxonomy-complete",
+      "featureIds": [
+        "PB-20261027"
+      ],
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "hot-feed-includes-new",
+      "featureIds": [
+        "PB-20261027"
+      ],
+      "status": "PASS",
+      "durationMs": 15
+    },
+    {
+      "id": "zero-hot-excluded",
+      "featureIds": [
+        "PB-20261027"
+      ],
+      "status": "PASS",
+      "durationMs": 16
+    },
+    {
+      "id": "zero-hot-searchable",
+      "featureIds": [
+        "PB-20261027"
+      ],
+      "status": "PASS",
+      "durationMs": 31
+    },
+    {
+      "id": "server-exposure-30s-dedup",
+      "featureIds": [
+        "PB-20261027"
+      ],
+      "status": "PASS",
+      "durationMs": 46
+    },
+    {
+      "id": "daily-three-cools-feed",
+      "featureIds": [
+        "PB-20261027"
+      ],
+      "status": "PASS",
+      "durationMs": 16
+    },
+    {
+      "id": "day-reset-feed-reenters",
+      "featureIds": [
+        "PB-20261027"
+      ],
+      "status": "PASS",
+      "durationMs": 16
+    },
+    {
+      "id": "lifetime-nine-implicit-read",
+      "featureIds": [
+        "PB-20261027"
+      ],
+      "status": "PASS",
+      "durationMs": 47
+    },
+    {
+      "id": "follow-no-auto-reminder",
+      "featureIds": [
+        "PB-20261027"
+      ],
+      "status": "PASS",
+      "durationMs": 47
+    },
+    {
+      "id": "daily-reminder-needs-binding",
+      "featureIds": [
+        "PB-20261027"
+      ],
+      "status": "PASS",
+      "durationMs": 47
+    },
+    {
+      "id": "unfollow-can-keep-reminder",
+      "featureIds": [
+        "PB-20261027"
+      ],
+      "status": "PASS",
+      "durationMs": 15
+    },
+    {
+      "id": "unfollow-can-pause-reminder",
+      "featureIds": [
+        "PB-20261027"
+      ],
+      "status": "PASS",
+      "durationMs": 31
+    },
+    {
+      "id": "undo-stale-rule-rejected",
+      "featureIds": [
+        "PB-20261027"
+      ],
+      "status": "PASS",
+      "durationMs": 16
+    },
+    {
+      "id": "undo-stale-follow-rollback",
+      "featureIds": [
+        "PB-20261027"
+      ],
+      "status": "PASS",
+      "durationMs": 15
+    },
+    {
+      "id": "undo-owner-only",
+      "featureIds": [
+        "PB-20261027"
+      ],
+      "status": "PASS",
+      "durationMs": 16
+    },
+    {
+      "id": "undo-restores-follow-and-reminder",
+      "featureIds": [
+        "PB-20261027"
+      ],
+      "status": "PASS",
+      "durationMs": 47
+    },
+    {
+      "id": "detail-view-explicit-read",
+      "featureIds": [
+        "PB-20261027"
+      ],
+      "status": "PASS",
+      "durationMs": 63
+    },
+    {
+      "id": "edit-stable-content-id",
+      "featureIds": [
+        "PB-20261027"
+      ],
+      "status": "PASS",
+      "durationMs": 31
+    },
+    {
+      "id": "edit-does-not-append-business-version",
+      "featureIds": [
+        "PB-20261027"
+      ],
+      "status": "PASS",
+      "durationMs": 62
+    },
+    {
+      "id": "edit-does-not-reset-read",
+      "featureIds": [
+        "PB-20261027"
+      ],
+      "status": "PASS",
+      "durationMs": 32
+    },
+    {
+      "id": "optimistic-conflict",
+      "featureIds": [
+        "PB-20261027"
+      ],
+      "status": "PASS",
+      "durationMs": 31
+    },
+    {
+      "id": "edit-does-not-republish",
+      "featureIds": [
+        "PB-20261027"
+      ],
+      "status": "PASS",
+      "durationMs": 62
+    },
+    {
+      "id": "exact-taxonomy-candidate",
+      "featureIds": [
+        "PB-20261027"
+      ],
+      "status": "PASS",
+      "durationMs": 47
+    },
+    {
+      "id": "replaced-old-still-readable",
+      "featureIds": [
+        "PB-20261027"
+      ],
+      "status": "PASS",
+      "durationMs": 16
+    },
+    {
+      "id": "replacement-migrates-follow",
+      "featureIds": [
+        "PB-20261027"
+      ],
+      "status": "PASS",
+      "durationMs": 31
+    },
+    {
+      "id": "replacement-highest-box",
+      "featureIds": [
+        "PB-20261027"
+      ],
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "replacement-cycle-rejected",
+      "featureIds": [
+        "PB-20261027"
+      ],
+      "status": "PASS",
+      "durationMs": 63
+    },
+    {
+      "id": "guide-image-only",
+      "featureIds": [
+        "PB-20261027"
+      ],
+      "status": "PASS",
+      "durationMs": 31
+    },
+    {
+      "id": "notice-requires-dates",
+      "featureIds": [
+        "PB-20261027"
+      ],
+      "status": "PASS",
+      "durationMs": 47
+    },
+    {
+      "id": "ended-readable",
+      "featureIds": [
+        "PB-20261027"
+      ],
+      "status": "PASS",
+      "durationMs": 16
+    },
+    {
+      "id": "offline-not-readable",
+      "featureIds": [
+        "PB-20261027"
+      ],
+      "status": "PASS",
+      "durationMs": 15
+    },
+    {
+      "id": "import-independent-row-transaction",
+      "featureIds": [
+        "PB-20261027"
+      ],
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "failed-row-keyword-rollback",
+      "featureIds": [
+        "PB-20261027"
+      ],
+      "status": "PASS",
+      "durationMs": 46
+    },
+    {
+      "id": "import-replay-same-batch",
+      "featureIds": [
+        "PB-20261027"
+      ],
+      "status": "PASS",
+      "durationMs": 47
+    },
+    {
+      "id": "import-key-payload-conflict",
+      "featureIds": [
+        "PB-20261027"
+      ],
+      "status": "PASS",
+      "durationMs": 47
+    },
+    {
+      "id": "import-receipt-owner",
+      "featureIds": [
+        "PB-20261027"
+      ],
+      "status": "PASS",
+      "durationMs": 16
+    },
+    {
+      "id": "import-duplicate-json-fields",
+      "featureIds": [
+        "PB-20261027"
+      ],
+      "status": "PASS",
+      "durationMs": 31
+    },
+    {
+      "id": "import-cap-501-preflight",
+      "featureIds": [
+        "PB-20261027"
+      ],
+      "status": "PASS",
+      "durationMs": 47
+    },
+    {
+      "id": "import-json-file-entry",
+      "featureIds": [
+        "PB-20261027"
+      ],
+      "status": "PASS",
+      "durationMs": 78
+    },
+    {
+      "id": "import-reused-keywords-receipt",
+      "featureIds": [
+        "PB-20261027"
+      ],
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "import-no-internal-candidates",
+      "featureIds": [
+        "PB-20261027"
+      ],
+      "status": "PASS",
+      "durationMs": 62
+    },
+    {
+      "id": "import-full-500",
+      "featureIds": [
+        "PB-20261027"
+      ],
+      "status": "PASS",
+      "durationMs": 5172
+    },
+    {
+      "id": "global-file-history-retained",
+      "featureIds": [
+        "PB-20261027"
+      ],
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "anonymous-download-denied",
+      "featureIds": [
+        "PB-20261027"
+      ],
+      "status": "PASS",
+      "durationMs": 32
+    },
+    {
+      "id": "ticket-issue-does-not-count-download",
+      "featureIds": [
+        "PB-20261027"
+      ],
+      "status": "PASS",
+      "durationMs": 47
+    },
+    {
+      "id": "global-file-public-no-storage-id",
+      "featureIds": [
+        "PB-20261027"
+      ],
+      "status": "PASS",
+      "durationMs": 16
+    },
+    {
+      "id": "completion-before-read-denied",
+      "featureIds": [
+        "PB-20261027"
+      ],
+      "status": "PASS",
+      "durationMs": 78
+    },
+    {
+      "id": "completion-other-user-denied",
+      "featureIds": [
+        "PB-20261027"
+      ],
+      "status": "PASS",
+      "durationMs": 31
+    },
+    {
+      "id": "download-ticket-other-user-denied",
+      "featureIds": [
+        "PB-20261027"
+      ],
+      "status": "PASS",
+      "durationMs": 16
+    },
+    {
+      "id": "download-ticket-byte-content",
+      "featureIds": [
+        "PB-20261027"
+      ],
+      "status": "PASS",
+      "durationMs": 16
+    },
+    {
+      "id": "server-read-alone-not-download-complete",
+      "featureIds": [
+        "PB-20261027"
+      ],
+      "status": "PASS",
+      "durationMs": 62
+    },
+    {
+      "id": "activity-file-day-download-dedup",
+      "featureIds": [
+        "PB-20261027"
+      ],
+      "status": "PASS",
+      "durationMs": 63
+    },
+    {
+      "id": "download-ticket-single-use",
+      "featureIds": [
+        "PB-20261027"
+      ],
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "referenced-file-cannot-delete",
+      "featureIds": [
+        "PB-20261027"
+      ],
+      "status": "PASS",
+      "durationMs": 31
+    },
+    {
+      "id": "disabled-file-download-denied",
+      "featureIds": [
+        "PB-20261027"
+      ],
+      "status": "PASS",
+      "durationMs": 32
+    },
+    {
+      "id": "new-single-role-login",
+      "featureIds": [
+        "PB-20261027"
+      ],
+      "status": "PASS",
+      "durationMs": 110
+    },
+    {
+      "id": "new-operator-business-access",
+      "featureIds": [
+        "PB-20261027"
+      ],
+      "status": "PASS",
+      "durationMs": 47
+    },
+    {
+      "id": "self-disable-denied",
+      "featureIds": [
+        "PB-20261027"
+      ],
+      "status": "PASS",
+      "durationMs": 31
+    },
+    {
+      "id": "disabled-account-session-denied",
+      "featureIds": [
+        "PB-20261027"
+      ],
+      "status": "PASS",
+      "durationMs": 16
+    },
+    {
+      "id": "product-statistics-query",
+      "featureIds": [
+        "PB-20261027"
+      ],
+      "status": "PASS",
+      "durationMs": 31
+    },
+    {
+      "id": "single-role-customer-directory",
+      "featureIds": [
+        "PB-20261027"
+      ],
+      "status": "PASS",
+      "durationMs": 31
+    },
+    {
+      "id": "discovery-summary-label-count",
+      "featureIds": [
+        "PB-20261027"
+      ],
+      "status": "PASS",
+      "durationMs": 15
+    },
+    {
+      "id": "single-search-history-delete",
+      "featureIds": [
+        "PB-20261027"
+      ],
+      "status": "PASS",
+      "durationMs": 63
+    },
+    {
+      "id": "ranking-emergency-before-pin-before-normal",
+      "featureIds": [
+        "PB-BOUNDARY"
+      ],
+      "status": "PASS",
+      "durationMs": 31
+    },
+    {
+      "id": "pinned-exempts-explicit-read",
+      "featureIds": [
+        "PB-BOUNDARY"
+      ],
+      "status": "PASS",
+      "durationMs": 16
+    },
+    {
+      "id": "search-snapshot-stable-paging-revokes-hidden",
+      "featureIds": [
+        "PB-BOUNDARY"
+      ],
+      "status": "PASS",
+      "durationMs": 47
+    },
+    {
+      "id": "snapshot-query-tampering-rejected",
+      "featureIds": [
+        "PB-BOUNDARY"
+      ],
+      "status": "PASS",
+      "durationMs": 31
+    },
+    {
+      "id": "snapshot-user-binding-enforced",
+      "featureIds": [
+        "PB-BOUNDARY"
+      ],
+      "status": "PASS",
+      "durationMs": 16
+    },
+    {
+      "id": "expired-snapshot-explicit-conflict",
+      "featureIds": [
+        "PB-BOUNDARY"
+      ],
+      "status": "PASS",
+      "durationMs": 16
+    },
+    {
+      "id": "admin-page-can-find-older-than-200",
+      "featureIds": [
+        "PB-BOUNDARY"
+      ],
+      "status": "PASS",
+      "durationMs": 15
+    },
+    {
+      "id": "admin-page-500-import-total",
+      "featureIds": [
+        "PB-BOUNDARY"
+      ],
+      "status": "PASS",
+      "durationMs": 32
+    },
+    {
+      "id": "admin-page-last-full-page",
+      "featureIds": [
+        "PB-BOUNDARY"
+      ],
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "admin-page-limits-enforced",
+      "featureIds": [
+        "PB-BOUNDARY"
+      ],
+      "status": "PASS",
+      "durationMs": 62
+    },
+    {
+      "id": "retired-route-packages",
+      "featureIds": [
+        "PB-BOUNDARY"
+      ],
+      "status": "PASS",
+      "durationMs": 16
+    },
+    {
+      "id": "retired-route-exams",
+      "featureIds": [
+        "PB-BOUNDARY"
+      ],
+      "status": "PASS",
+      "durationMs": 31
+    },
+    {
+      "id": "retired-route-artifacts",
+      "featureIds": [
+        "PB-BOUNDARY"
+      ],
+      "status": "PASS",
+      "durationMs": 16
+    },
+    {
+      "id": "retired-consent-recording-route",
+      "featureIds": [
+        "PB-BOUNDARY"
+      ],
+      "status": "PASS",
+      "durationMs": 15
+    },
+    {
+      "id": "retired-account-close-route",
+      "featureIds": [
+        "PB-BOUNDARY"
+      ],
+      "status": "PASS",
+      "durationMs": 16
+    },
+    {
+      "id": "concurrent-keyword-normalization-single-identity",
+      "featureIds": [
+        "PB-BOUNDARY"
+      ],
+      "status": "PASS",
+      "durationMs": 141
+    },
+    {
+      "id": "keyword-alias-reuses-canonical-identity",
+      "featureIds": [
+        "PB-BOUNDARY"
+      ],
+      "status": "PASS",
+      "durationMs": 16
+    },
+    {
+      "id": "manual-create-respects-keyword-blacklist",
+      "featureIds": [
+        "PB-BOUNDARY"
+      ],
+      "status": "PASS",
+      "durationMs": 31
+    },
+    {
+      "id": "hot-soft-archive-bounded-execution",
+      "featureIds": [
+        "PB-BOUNDARY"
+      ],
+      "status": "PASS",
+      "durationMs": 16
+    },
+    {
+      "id": "hot-archive-preserves-detail",
+      "featureIds": [
+        "PB-BOUNDARY"
+      ],
+      "status": "PASS",
+      "durationMs": 31
+    },
+    {
+      "id": "hot-archive-repeat-idempotent",
+      "featureIds": [
+        "PB-BOUNDARY"
+      ],
+      "status": "PASS",
+      "durationMs": 47
+    },
+    {
+      "id": "replacement-chain-follows-final-target",
+      "featureIds": [
+        "PB-BOUNDARY"
+      ],
+      "status": "PASS",
+      "durationMs": 31
+    },
+    {
+      "id": "replacement-chain-resolves-to-final-target",
+      "featureIds": [
+        "PB-BOUNDARY"
+      ],
+      "status": "PASS",
+      "durationMs": 32
+    },
+    {
+      "id": "multi-label-two-boxes-share-article",
+      "featureIds": [
+        "PB-BOUNDARY"
+      ],
+      "status": "PASS",
+      "durationMs": 16
+    },
+    {
+      "id": "multi-label-shared-exposure-dedup",
+      "featureIds": [
+        "PB-BOUNDARY"
+      ],
+      "status": "PASS",
+      "durationMs": 47
+    },
+    {
+      "id": "click-30s-dedup",
+      "featureIds": [
+        "PB-BOUNDARY"
+      ],
+      "status": "PASS",
+      "durationMs": 78
+    },
+    {
+      "id": "multi-label-read-removes-all-boxes",
+      "featureIds": [
+        "PB-BOUNDARY"
+      ],
+      "status": "PASS",
+      "durationMs": 32
+    },
+    {
+      "id": "activity-concurrent-no-oversell",
+      "featureIds": [
+        "PB-BOUNDARY"
+      ],
+      "status": "PASS",
+      "durationMs": 62
+    },
+    {
+      "id": "activity-cancel-promotes-waitlist",
+      "featureIds": [
+        "PB-BOUNDARY"
+      ],
+      "status": "PASS",
+      "durationMs": 46
+    },
+    {
+      "id": "review-single-role-no-organization",
+      "featureIds": [
+        "PB-BOUNDARY"
+      ],
+      "status": "PASS",
+      "durationMs": 32
+    },
+    {
+      "id": "review-missing-required-material",
+      "featureIds": [
+        "PB-BOUNDARY"
+      ],
+      "status": "PASS",
+      "durationMs": 31
+    },
+    {
+      "id": "review-owner-isolation",
+      "featureIds": [
+        "PB-BOUNDARY"
+      ],
+      "status": "PASS",
+      "durationMs": 15
+    },
+    {
+      "id": "review-submitted-material-frozen",
+      "featureIds": [
+        "PB-BOUNDARY"
+      ],
+      "status": "PASS",
+      "durationMs": 31
+    },
+    {
+      "id": "review-stale-submission-rejected",
+      "featureIds": [
+        "PB-BOUNDARY"
+      ],
+      "status": "PASS",
+      "durationMs": 15
+    },
+    {
+      "id": "review-correction-history-retained",
+      "featureIds": [
+        "PB-BOUNDARY"
+      ],
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "review-global-activity-reference",
+      "featureIds": [
+        "PB-BOUNDARY"
+      ],
+      "status": "PASS",
+      "durationMs": 16
+    },
+    {
+      "id": "keyword-new-publication-captures-reminder",
+      "featureIds": [
+        "PB-BOUNDARY"
+      ],
+      "status": "PASS",
+      "durationMs": 78
+    },
+    {
+      "id": "read-cancels-pending-reminder",
+      "featureIds": [
+        "PB-BOUNDARY"
+      ],
+      "status": "PASS",
+      "durationMs": 63
+    },
+    {
+      "id": "daily-task-created-before-staff-execution",
+      "featureIds": [
+        "PB-BOUNDARY"
+      ],
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "daily-task-not-repeated-without-confirmation",
+      "featureIds": [
+        "PB-BOUNDARY"
+      ],
+      "status": "PASS",
+      "durationMs": 15
+    },
+    {
+      "id": "staff-confirmation-final",
+      "featureIds": [
+        "PB-BOUNDARY"
+      ],
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "instant-synthetic-send-and-downgrade",
+      "featureIds": [
+        "PB-BOUNDARY"
+      ],
+      "status": "PASS",
+      "durationMs": 62
+    },
+    {
+      "id": "unknown-transport-never-blind-retry",
+      "featureIds": [
+        "PB-BOUNDARY"
+      ],
+      "status": "PASS",
+      "durationMs": 31
+    },
+    {
+      "id": "monitor-surfaces-unknown-incident",
+      "featureIds": [
+        "PB-BOUNDARY"
+      ],
+      "status": "PASS",
+      "durationMs": 47
+    },
+    {
+      "id": "definite-failure-retry-after-proof",
+      "featureIds": [
+        "PB-BOUNDARY"
+      ],
+      "status": "PASS",
+      "durationMs": 31
+    },
+    {
+      "id": "implicit-read-cancels-already-batched-unsent",
+      "featureIds": [
+        "PB-BOUNDARY"
+      ],
+      "status": "PASS",
+      "durationMs": 15
+    },
+    {
+      "id": "analytics-review-and-registration-source-counts",
+      "featureIds": [
+        "PB-BOUNDARY"
+      ],
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "reminder-statistics-source-trend-contract",
+      "featureIds": [
+        "PB-BOUNDARY"
+      ],
+      "status": "PASS",
+      "durationMs": 16
+    }
+  ],
+  "fatal": null,
+  "pass": 123,
+  "fail": 0,
+  "externalNotVerified": [
+    "WECHAT_REAL",
+    "WECOM_REAL",
+    "WECHAT_CLOUD_REAL",
+    "LINUX_DOCKER",
+    "WECHAT_DEVTOOLS_DEVICE"
+  ],
+  "runtime": "D:\\yunjiwxCongxie\\yunji-platform\\.runtime\\run-4e94981164",
+  "sourceFingerprints": {
+    "backend": "174f59b4b9062c50536d196875be93e9583bf9d9ec0346575cb33762a7fa02ce",
+    "admin": "25e29947476c60b361d2b900fe64da7821a296654874b7349c0dcb03b340de1e",
+    "client": "08c1a2d19adb9c20055863b8ab6717c8b3ad30b80046e669a1250cb560c9d268"
+  },
+  "sourceUnchanged": true,
+  "testSourceSha256": "8689c843d5d9f4c3af27f1c381a119c6fc8c895fda478872791a6b600662d925",
+  "contractSha256": "a42c409eed276901e3bd66c4e46ecef0104397c052d73af2bf00376b0c5708e6"
+}

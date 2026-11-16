@@ -1,0 +1,112 @@
+{
+  "generatedAt": "2026-10-12T10:27:45.262112+00:00",
+  "scope": "READ_ONLY_STATIC_BUSINESS_LOGIC_COMPARISON",
+  "sourceFingerprints": {
+    "backend": "ba00a58e1531e4d1cf4df1c21bec9f68fb2e88d1e942c30b288f184be03b46dd",
+    "admin": "f94c36ca3a7664780000ef7b88b488b1b1e96d1ac0fb9671f76c3621a22752d7",
+    "client": "7d95808d859f13f888a5f0a1af5bfc1a067991d4856c0ec1b763cfce752c6f23"
+  },
+  "logicEquivalent": false,
+  "sampleRuntimeExecuted": false,
+  "businessCodeChanged": false,
+  "findings": [
+    "Daily rules do not implement user-wide unread change batches.",
+    "Explicit read does not suppress pending notification deliveries.",
+    "User-wide daily schedule is not implemented.",
+    "Replacement migrates rules but lacks a dedicated notification event and success-bound downgrade.",
+    "Current pending count measures sampled delivery rows, not unique content changes.",
+    "Old sample frontend request arguments and authorization outcomes are inconsistent.",
+    "Old WeCom task creation is treated as delivery completion without recipient evidence."
+  ],
+  "evidenceFiles": [
+    {
+      "path": "yangben/xyzx0.7/src/utils/strongRemind.js",
+      "sha256": "a59da99576b26d8efc3ace953af908dce2596bee08f423eec9f3e7a96fa52700"
+    },
+    {
+      "path": "yangben/xyzx0.7/src/pages/my/reminder/reminder.vue",
+      "sha256": "4e7aebd866fbac16e1c3a16fe6658efdc6b8548e8103f6104abe9ca9588cf75a"
+    },
+    {
+      "path": "yangben/xyzx0.7/src/pages/my/reminder/reminder-time-setting.vue",
+      "sha256": "14765f283f81741d757c4f8c7ffae2288260b75f6ebc65df33eb3298b6d19dfc"
+    },
+    {
+      "path": "yangben/xyzx0.7/src/config/api.js",
+      "sha256": "3b7d0f72d55f2f85b314aa8aa13af93cf0a529582ee482b8c8ccff23537a3cea"
+    },
+    {
+      "path": "yangben/hd0.5/cis4j/agri-modules/agri-system/src/main/java/com/sunshine/system/service/impl/UserRemindServiceImpl.java",
+      "sha256": "1314b52e5697133e7c9375c6f1f8748c71235a31579c44565aa34a253cbeb5d1"
+    },
+    {
+      "path": "yangben/hd0.5/cis4j/agri-modules/agri-system/src/main/java/com/sunshine/system/service/impl/DailyRemindServiceImpl.java",
+      "sha256": "f056c90ef786406f6df146c7e00f046980b521e996ebf4088c79b28f71ecab9d"
+    },
+    {
+      "path": "yangben/hd0.5/cis4j/agri-modules/agri-system/src/main/java/com/sunshine/system/service/impl/InstantRemindPushServiceImpl.java",
+      "sha256": "e2d5257a1d3f5daedadf702ff4d3e1cb762889e60c6b52497528bd4313b4e11c"
+    },
+    {
+      "path": "yangben/hd0.5/cis4j/agri-modules/agri-system/src/main/java/com/sunshine/system/task/RemindTask.java",
+      "sha256": "7385b69f3eb716a475ce140ddac3927da62f5ade089eea92ec2d4baca0a40bc9"
+    },
+    {
+      "path": "yangben/hd0.5/cis4j/agri-modules/agri-system/src/main/java/com/sunshine/system/mapper/UserRemindMapper.java",
+      "sha256": "67dea62d276f14bdc5457f4092b57777ea857e5988f59a22309b9e13c071668a"
+    },
+    {
+      "path": "yangben/hd0.5/cis4j/agri-modules/agri-system/src/main/java/com/sunshine/system/mapper/UserRemindTriggerMapper.java",
+      "sha256": "37dfb6f99c32ec53e12f1a25d6ce29b9adbe701771f8e83f40fb5bb964aad786"
+    },
+    {
+      "path": "yangben/hd0.5/cis4j/agri-modules/agri-message/src/main/java/com/sunshine/message/service/SubMessageReadService.java",
+      "sha256": "a032ccd2950a80ec5564b77b26a00c07e4d6ed310a119e5878c89eb85ce9fc0a"
+    },
+    {
+      "path": "yangben/hd0.5/cis4j/agri-modules/agri-message/src/main/java/com/sunshine/message/service/impl/InfoSyncService.java",
+      "sha256": "49e3bc904f8b99fc82b242df354f073f332140cef49e5197dd783fab10e588ee"
+    },
+    {
+      "path": "yangben/hd0.5/cis4j/agri-modules/agri-message/src/main/java/com/sunshine/message/service/impl/SubMessageReplaceConfirmServiceImpl.java",
+      "sha256": "3756e785fd231c9981eb72e27f004238c3914d3d029088b0615bea292b238736"
+    },
+    {
+      "path": "yunji-platform/backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/notification/application/NotificationService.java",
+      "sha256": "1cc409e714a944e6d7eed713ee4812f39670bfbf88efe56e7de488c93bc18d0b"
+    },
+    {
+      "path": "yunji-platform/backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/notification/api/NotificationController.java",
+      "sha256": "945d43a59dc1850247f48a1538ef52c0fb9398de079c24e70a383d45ae95ada3"
+    },
+    {
+      "path": "yunji-platform/backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/engagement/application/EngagementService.java",
+      "sha256": "15497407b37d9e7495afcc180c9735bbe6bb03145d3806a448d1708090b7c66a"
+    },
+    {
+      "path": "yunji-platform/backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/article/application/ArticleCommands.java",
+      "sha256": "3799b443f4fe159dda1c5af9ae3e569bbfe893822883167e2a79eaefe9fdc412"
+    },
+    {
+      "path": "yunji-platform/apps/client/src/pages/notifications/index.vue",
+      "sha256": "3411206937f857149e6a717e611f937dc1f395bde1d25d704b3ef6cb35500974"
+    },
+    {
+      "path": "yunji-platform/apps/client/src/pages/notification-edit/index.vue",
+      "sha256": "daf0cf65295b6522a3ffe76d6b46d830c3000b9a6ee1499cbc54784f8fc01ba0"
+    },
+    {
+      "path": "yunji-platform/apps/client/src/pages/notification-settings/index.vue",
+      "sha256": "4a2d622ae79dee2b56e49da1ca124801c4e81b9aebb6dc5da711207d46cdfd68"
+    },
+    {
+      "path": "yunji-platform/tests/notification_ops_suite.py",
+      "sha256": "c49c944d9abdb1afc581f9a7513ecd3c68791ba9c0ddacb92c95aed27c027980"
+    }
+  ],
+  "limits": [
+    "Static source review only; old client and backend releases are not proven compatible.",
+    "Existing acceptance cases cover current implementation, not complete equivalence to the sample.",
+    "Proposed redesign and its checklist have not been implemented or executed."
+  ]
+}

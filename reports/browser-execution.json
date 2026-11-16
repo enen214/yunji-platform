@@ -1,0 +1,41 @@
+{
+  "startedAt": "2026-10-22T14:12:51.180936+00:00",
+  "sourceFingerprints": {
+    "backend": "784c1b596f259c6cbe52670e0a92815d7749c65f1aa140bf0a15f8d6c57a5a48",
+    "admin": "9a8beb316a4e6016de701599285af19812f325af915c03370c68271248f0c4ed",
+    "client": "71cfb46669558e0c145a59121e7b88106f22959a749dbcb35cfabbad57476c97"
+  },
+  "testSourceSha256": "f3af8f6b92a538227195bc69d6fedcddab2c2ebf3bdb6e7ac94d9ce3685af33c",
+  "suites": [
+    {
+      "name": "browser",
+      "exitCode": 0
+    },
+    {
+      "name": "browser-extended",
+      "exitCode": 0
+    },
+    {
+      "name": "browser-closure",
+      "exitCode": 0
+    },
+    {
+      "name": "browser-reminder-rebuild",
+      "exitCode": 0
+    },
+    {
+      "name": "browser-prototype",
+      "exitCode": 0
+    }
+  ],
+  "completedAt": "2026-10-22T14:15:46.741101+00:00",
+  "sourceUnchanged": true,
+  "logDirectory": "D:\\yunjiwxCongxie\\yunji-platform\\.runtime\\run-f3c52a5cfa",
+  "reportSha256": {
+    "browser": "e7a892cc7e6f3742d1cd32ac5be0413004ab71a2fd14833dbc9cab7c236eae61",
+    "browser-extended": "6c9d71abd6a2010af40d9716e307ae4d8de99ca1fa53d6b9325b07de435ddf69",
+    "browser-closure": "24a867d9b6ee97347d140b013d274147c541bfa346321ef973473b9b23bf6827",
+    "browser-reminder-rebuild": "fe3c0932b0f4e57fb655561e49e0d6659a6d761cab4330937c00ca049d8ca594",
+    "browser-prototype": "31024e40027e4b821f4433588ddfd40ac6b76c1a38fe1035d87292564031caa2"
+  }
+}

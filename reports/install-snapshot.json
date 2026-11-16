@@ -1,0 +1,71 @@
+{
+  "scope": "EMPTY_INSTALLATION_SCHEMA_SEED_ROUND_TRIP",
+  "cases": [
+    {
+      "id": "empty-business-tables",
+      "status": "PASS"
+    },
+    {
+      "id": "only-disabled-bootstrap-admin",
+      "status": "PASS"
+    },
+    {
+      "id": "schema-seed-data-roundtrip",
+      "status": "PASS"
+    },
+    {
+      "id": "schema-roundtrip",
+      "status": "PASS"
+    },
+    {
+      "id": "incremental-migrator-recognizes-snapshot",
+      "status": "PASS"
+    },
+    {
+      "id": "no-synthetic-business-after-roundtrip",
+      "status": "PASS"
+    }
+  ],
+  "manifest": {
+    "baseline": "2026-10-27",
+    "generatedAt": "2026-10-28T08:05:00.468653+00:00",
+    "sourceMigrations": {
+      "database/framework-schema.sql": "cb7cd3bae9757eaf85cb5139fb1cc76c2022623f53e670aa379cab2493032e36",
+      "database/migrations/V1__core_schema.sql": "0a6d5c2778950950709225f37a80a0de2986a24c0dc3dcb3188d21626a217af1",
+      "database/migrations/V2__seed_catalog.sql": "baf6fa2b4603c5d7ed23aee47d872dca8a5335b7ecfd683276cbdb646aed361c",
+      "database/migrations/V3__identity_outbox_extensions.sql": "e466fde78350e4f6cd6968677b96949f73b57c52afb80a8b6d43624a0993459d",
+      "database/migrations/V4__core_integrity.sql": "70df53957dfca43d76724c961c553229bfcb650fe9a8120a2077d6c50e32fbd0",
+      "database/migrations/V5__identity_and_version_workflow.sql": "bfc2afeb1c8cccb274ac4c2af640bef2923f0eb0b9b7a7f0d62c6afbb7a2bf64",
+      "database/migrations/V6__catalog_versions.sql": "bb3be9652a36ab55d0d22c2814e9cdf94f5678efc0bf19ae34858c9a1972ded6",
+      "database/migrations/V7__engagement_events.sql": "587401e1fc419e13a43890bcd63c6c8985867243e3ee4305adecf970f160def3",
+      "database/migrations/V8__files_activity_review_resource.sql": "cacae23543e25868bd1d4404223b19c519932b973704bc540f565e6ee06676c2",
+      "database/migrations/V9__reviewer_scope.sql": "50ad5e677829cd9af259bec503192a283a791dd916dbcbc2ed1eebf2c40bb33a",
+      "database/migrations/V10__notification_ledger.sql": "539e4ca17c66435c43d1302e158b987e2e858edc6d60bdc96d1b9576111f8209",
+      "database/migrations/V11__operation_and_rule_snapshots.sql": "c0bbab25d4bcdcacb9e9329f6844d7d70f9fb2f615be0e5a4d0d54aaae2b9e14",
+      "database/migrations/V12__business_permissions.sql": "33447c13830cb52273b3f27752abd77d445c14aaa84f92575b8f78c28437eb0d",
+      "database/migrations/V13__article_feed_snapshot.sql": "c193373f52a179c53aa95c9754b642259027c6c4bbed12e13c090a984116e818",
+      "database/migrations/V14__resource_lifecycle.sql": "870d6de2a9661903e870aa80f37e91fc35d3119f32f1a2423e14f0bdfb97fcfe",
+      "database/migrations/V15__file_cleanup_state.sql": "bce44c5bda3849b10f303bc5819b33e5a1ea2762e49af34f8e39fba529c9264b",
+      "database/migrations/V16__replacement_serialization.sql": "2b99caefb195ab26f6f0efd9b091c8db5a24b9bfab27e7fae886254e0f156a43",
+      "database/migrations/V17__export_permission.sql": "a9c776c35ccab7c4b4b485dea82e54729d104b91a2e2777d9bec506bad3843b2",
+      "database/migrations/V18__filtered_requirements_alignment.sql": "dda16fb35564d3ab3238ca30985a095d669a672f39a944c7a8373a2a53b9d35b",
+      "database/migrations/V19__content_lifecycle_and_preferences.sql": "1d3e25a0a92e582982f1f8b285f37ba91e2a3def1bc65ff7d5deca95d62e655b",
+      "database/migrations/V20__discovery_labels_and_search.sql": "c8389b44cf34da7fccd1d0d030910b15594de6d8379a740cdb4ef8d2653d9f17",
+      "database/migrations/V21__reminder_batches_and_catalog_curation.sql": "23de9fe2003155d2d104ad9583fb16905e1d0fca643c3eadbeaef02902172c78",
+      "database/migrations/V22__reminder_planner_cursor.sql": "15aeb6f7228c8c2d77a9d1ce24ad8dd367f0d85f4016eb14a3efb4173459a919",
+      "database/migrations/V23__activity_topics.sql": "4228804c5820c5600c2c7018fd3780b960002f5f4091c6dd9661e8454da8e840",
+      "database/migrations/V24__product_baseline.sql": "f7ef53f25c8de8164250e068b3d7eff6c9565aefeeedf93b701875390bb0e8df",
+      "database/migrations/V25__global_function_library.sql": "d5f5b9b2dbba50ebf4a2459e5903ef9accb9f426ea3c5a93f5978650a0896987",
+      "database/migrations/V26__hot_archive.sql": "291677b0242bc7d101b607af097ab6f2f29ee6d50914802810c6e3c5d494fa04"
+    },
+    "files": {
+      "schema.sql": "5172396055899fbf663b746513a094485c92354fec36599da70ad94c2ad870a8",
+      "seed.sql": "ce11b3fc5e2564549e219aed37e3a8e86cd677b38840f76b2720d87f2d4650f7"
+    },
+    "bootstrapRequired": true,
+    "containsBusinessFixtures": false
+  },
+  "passed": 6,
+  "failed": 0,
+  "generatedAt": "2026-10-28T08:05:01.906667+00:00"
+}

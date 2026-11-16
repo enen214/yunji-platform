@@ -1,0 +1,346 @@
+{
+  "scope": "LOCAL_REAL_ADMIN_AND_CUSTOMER_UI",
+  "startedAt": "2026-10-22T14:13:32.355Z",
+  "cases": [
+    {
+      "id": "customer-local-code-login-real-ui",
+      "status": "PASS"
+    },
+    {
+      "id": "customer-profile-edit-real-ui",
+      "status": "PASS"
+    },
+    {
+      "id": "customer-article-favorite-follow-read-real-ui",
+      "status": "PASS"
+    },
+    {
+      "id": "customer-subscription-hide-unhide-real-ui",
+      "status": "PASS"
+    },
+    {
+      "id": "customer-favorites-and-history-real-ui",
+      "status": "PASS"
+    },
+    {
+      "id": "customer-activity-register-cancel-real-ui",
+      "status": "PASS"
+    },
+    {
+      "id": "customer-review-upload-draft-submit-real-ui",
+      "status": "PASS"
+    },
+    {
+      "id": "customer-resource-file-browser-download",
+      "status": "PASS"
+    },
+    {
+      "id": "customer-reminder-create-pause-real-ui",
+      "status": "PASS"
+    },
+    {
+      "id": "customer-consent-real-ui",
+      "status": "PASS"
+    },
+    {
+      "id": "customer-feedback-real-ui",
+      "status": "PASS"
+    },
+    {
+      "id": "customer-mobile-no-horizontal-overflow",
+      "status": "PASS"
+    },
+    {
+      "id": "admin-login-extended-real-ui",
+      "status": "PASS"
+    },
+    {
+      "id": "admin-categories-page-real-api",
+      "status": "PASS"
+    },
+    {
+      "id": "admin-organizations-page-real-api",
+      "status": "PASS"
+    },
+    {
+      "id": "admin-keywords-page-real-api",
+      "status": "PASS"
+    },
+    {
+      "id": "admin-activities-page-real-api",
+      "status": "PASS"
+    },
+    {
+      "id": "admin-review-campaigns-page-real-api",
+      "status": "PASS"
+    },
+    {
+      "id": "admin-review-applications-page-real-api",
+      "status": "PASS"
+    },
+    {
+      "id": "admin-packages-page-real-api",
+      "status": "PASS"
+    },
+    {
+      "id": "admin-subjects-page-real-api",
+      "status": "PASS"
+    },
+    {
+      "id": "admin-dimensions-page-real-api",
+      "status": "PASS"
+    },
+    {
+      "id": "admin-exams-page-real-api",
+      "status": "PASS"
+    },
+    {
+      "id": "admin-artifacts-page-real-api",
+      "status": "PASS"
+    },
+    {
+      "id": "admin-files-page-real-api",
+      "status": "PASS"
+    },
+    {
+      "id": "admin-notifications-page-real-api",
+      "status": "PASS"
+    },
+    {
+      "id": "admin-banners-page-real-api",
+      "status": "PASS"
+    },
+    {
+      "id": "admin-recommendations-page-real-api",
+      "status": "PASS"
+    },
+    {
+      "id": "admin-pages-page-real-api",
+      "status": "PASS"
+    },
+    {
+      "id": "admin-columns-page-real-api",
+      "status": "PASS"
+    },
+    {
+      "id": "admin-reports-page-real-api",
+      "status": "PASS"
+    },
+    {
+      "id": "admin-feedback-page-real-api",
+      "status": "PASS"
+    },
+    {
+      "id": "admin-analytics-page-real-api",
+      "status": "PASS"
+    },
+    {
+      "id": "admin-audit-page-real-api",
+      "status": "PASS"
+    },
+    {
+      "id": "admin-system-page-real-api",
+      "status": "PASS"
+    },
+    {
+      "id": "admin-package-edit-prefill-real-ui",
+      "status": "PASS"
+    },
+    {
+      "id": "admin-review-campaign-edit-preserves-material-rules",
+      "status": "PASS"
+    },
+    {
+      "id": "admin-system-department-create-real-ui",
+      "status": "PASS"
+    },
+    {
+      "id": "admin-system-menu-create-real-ui",
+      "status": "PASS"
+    },
+    {
+      "id": "admin-system-role-create-edit-permissions-real-ui",
+      "status": "PASS"
+    },
+    {
+      "id": "admin-system-user-create-edit-role-real-ui",
+      "status": "PASS"
+    },
+    {
+      "id": "admin-system-user-business-scope-real-ui",
+      "status": "PASS"
+    },
+    {
+      "id": "admin-system-password-reset-real-ui",
+      "status": "PASS"
+    },
+    {
+      "id": "admin-system-delete-unreferenced-synthetic-records",
+      "status": "PASS"
+    },
+    {
+      "id": "admin-resource-dimension-create-edit-withdraw-real-ui",
+      "status": "PASS"
+    },
+    {
+      "id": "admin-resource-subject-create-edit-withdraw-real-ui",
+      "status": "PASS"
+    },
+    {
+      "id": "admin-resource-exam-create-edit-withdraw-real-ui",
+      "status": "PASS"
+    },
+    {
+      "id": "admin-resource-artifact-create-edit-withdraw-real-ui",
+      "status": "PASS"
+    },
+    {
+      "id": "admin-review-decision-real-ui",
+      "status": "PASS"
+    },
+    {
+      "id": "customer-review-decision-visible-real-ui",
+      "status": "PASS"
+    },
+    {
+      "id": "client-independent-search-history-and-filter",
+      "status": "PASS"
+    },
+    {
+      "id": "admin-label-create-independent-form",
+      "status": "PASS"
+    },
+    {
+      "id": "client-native-tabs-boards-label-tree",
+      "status": "PASS"
+    },
+    {
+      "id": "client-activity-favorite-overview",
+      "status": "PASS"
+    },
+    {
+      "id": "client-reminder-independent-subpages",
+      "status": "PASS"
+    },
+    {
+      "id": "new-admin-customers",
+      "status": "PASS"
+    },
+    {
+      "id": "new-admin-analytics-dashboard",
+      "status": "PASS"
+    },
+    {
+      "id": "new-admin-analytics-content",
+      "status": "PASS"
+    },
+    {
+      "id": "new-admin-analytics-behavior",
+      "status": "PASS"
+    },
+    {
+      "id": "new-admin-analytics-profile",
+      "status": "PASS"
+    },
+    {
+      "id": "new-admin-reminders-rules",
+      "status": "PASS"
+    },
+    {
+      "id": "new-admin-reminders-records",
+      "status": "PASS"
+    },
+    {
+      "id": "new-admin-reminders-settings",
+      "status": "PASS"
+    },
+    {
+      "id": "new-admin-reminders-templates",
+      "status": "PASS"
+    },
+    {
+      "id": "new-admin-reminders-statistics",
+      "status": "PASS"
+    },
+    {
+      "id": "new-admin-reminders-monitor",
+      "status": "PASS"
+    },
+    {
+      "id": "new-admin-reminders-wecom",
+      "status": "PASS"
+    },
+    {
+      "id": "new-admin-foundation-post",
+      "status": "PASS"
+    },
+    {
+      "id": "new-admin-foundation-dict",
+      "status": "PASS"
+    },
+    {
+      "id": "new-admin-foundation-config",
+      "status": "PASS"
+    },
+    {
+      "id": "new-admin-foundation-notice",
+      "status": "PASS"
+    },
+    {
+      "id": "new-admin-foundation-cache",
+      "status": "PASS"
+    },
+    {
+      "id": "new-admin-foundation-online",
+      "status": "PASS"
+    },
+    {
+      "id": "new-admin-foundation-login",
+      "status": "PASS"
+    },
+    {
+      "id": "new-admin-content-notices",
+      "status": "PASS"
+    },
+    {
+      "id": "new-admin-content-history",
+      "status": "PASS"
+    },
+    {
+      "id": "new-admin-content-replacements",
+      "status": "PASS"
+    },
+    {
+      "id": "new-admin-content-strategy",
+      "status": "PASS"
+    },
+    {
+      "id": "client-new-pages-mobile-layout",
+      "status": "PASS"
+    },
+    {
+      "id": "customer-logout-relogin-navigation",
+      "status": "PASS"
+    },
+    {
+      "id": "extended-no-browser-runtime-errors",
+      "status": "PASS"
+    }
+  ],
+  "errors": [],
+  "networkFailures": [
+    {
+      "method": "POST",
+      "path": "/api/v1/me/reminders/rules",
+      "error": "net::ERR_FAILED"
+    }
+  ],
+  "loginRequest": {
+    "matchesIssuedCode": true,
+    "codeLength": 43,
+    "expectedLength": 43,
+    "appId": "local-client"
+  },
+  "passed": 81,
+  "failed": 0
+}

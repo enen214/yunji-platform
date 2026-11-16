@@ -1,0 +1,73 @@
+{
+  "scope": "PRODUCT_BASELINE_REAL_BROWSER",
+  "cases": [
+    {
+      "id": "baseline-login-dismiss-and-replay",
+      "status": "PASS"
+    },
+    {
+      "id": "baseline-home-hot-two-column-live-summary",
+      "status": "PASS"
+    },
+    {
+      "id": "baseline-search-delete-single-history",
+      "status": "PASS"
+    },
+    {
+      "id": "baseline-filter-groups-by-board",
+      "status": "PASS"
+    },
+    {
+      "id": "baseline-follow-undo-retains-page-row",
+      "status": "PASS"
+    },
+    {
+      "id": "baseline-box-three-tiers-inline-grouping",
+      "status": "PASS"
+    },
+    {
+      "id": "baseline-reminders-no-delivery-ledger",
+      "status": "PASS"
+    },
+    {
+      "id": "baseline-admin-real-login-single-role-menu",
+      "status": "PASS"
+    },
+    {
+      "id": "baseline-admin-create-saves-and-publishes",
+      "status": "PASS"
+    },
+    {
+      "id": "baseline-admin-import-text-partial-receipt",
+      "status": "PASS"
+    },
+    {
+      "id": "baseline-admin-global-file-upload-ui",
+      "status": "PASS"
+    },
+    {
+      "id": "baseline-activity-file-download-client-confirmed",
+      "status": "PASS"
+    },
+    {
+      "id": "baseline-admin-analytics-and-user-timeline",
+      "status": "PASS"
+    },
+    {
+      "id": "baseline-browser-no-runtime-errors",
+      "status": "PASS"
+    }
+  ],
+  "errors": [],
+  "passed": 14,
+  "failed": 0,
+  "sourceFingerprints": {
+    "backend": "174f59b4b9062c50536d196875be93e9583bf9d9ec0346575cb33762a7fa02ce",
+    "admin": "25e29947476c60b361d2b900fe64da7821a296654874b7349c0dcb03b340de1e",
+    "client": "08c1a2d19adb9c20055863b8ab6717c8b3ad30b80046e669a1250cb560c9d268"
+  },
+  "sourceUnchanged": true,
+  "testSourceSha256": "8689c843d5d9f4c3af27f1c381a119c6fc8c895fda478872791a6b600662d925",
+  "generatedAt": "2026-10-28T08:01:44.710877+00:00",
+  "logDirectory": "D:\\yunjiwxCongxie\\yunji-platform\\.runtime\\run-ac32dedb71"
+}

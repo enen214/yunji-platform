@@ -1,0 +1,84 @@
+{
+  "baseline": "2026-10-27",
+  "generatedAt": "2026-10-28T08:07:54.084018+00:00",
+  "sourceFingerprints": {
+    "backend": "174f59b4b9062c50536d196875be93e9583bf9d9ec0346575cb33762a7fa02ce",
+    "admin": "25e29947476c60b361d2b900fe64da7821a296654874b7349c0dcb03b340de1e",
+    "client": "08c1a2d19adb9c20055863b8ab6717c8b3ad30b80046e669a1250cb560c9d268"
+  },
+  "testSourceSha256": "8689c843d5d9f4c3af27f1c381a119c6fc8c895fda478872791a6b600662d925",
+  "checks": {
+    "build": true,
+    "product-baseline-acceptance": true,
+    "browser-product-baseline": true,
+    "workbench-demo": true,
+    "client-compat": true,
+    "wechat-login": true,
+    "operations": true,
+    "builtArtifactsCurrent": true,
+    "client-compatArtifactCurrent": true,
+    "wechat-loginArtifactCurrent": true,
+    "contractExportCurrent": true,
+    "emptyInstallationRoundTrip": true,
+    "sourceProvenance": true,
+    "ruleLedgerReviewed": true,
+    "handoffDocuments": true,
+    "candidateExecutionCurrent": true
+  },
+  "caseCounts": {
+    "build": {
+      "passed": 6,
+      "failed": 0
+    },
+    "product-baseline-acceptance": {
+      "passed": 123,
+      "failed": 0
+    },
+    "browser-product-baseline": {
+      "passed": 14,
+      "failed": 0
+    },
+    "workbench-demo": {
+      "passed": 8,
+      "failed": 0
+    },
+    "client-compat": {
+      "passed": 11,
+      "failed": 0
+    },
+    "wechat-login": {
+      "passed": 11,
+      "failed": 0
+    },
+    "operations": {
+      "passed": 20,
+      "failed": 0
+    }
+  },
+  "pushCandidateReady": true,
+  "allRequirementsComplete": false,
+  "releaseEligible": false,
+  "productionBlockers": [
+    "Real reminder transport is not wired into ReminderWorker; local simulated delivery is not real WeCom task creation or WeChat sending.",
+    "Cloud storage adapter and upload consistency require real integration and duplicate local storage removal.",
+    "WeChat developer tools/device, target Linux amd64 Docker, current dependency security and receiving-team acceptance are not certified."
+  ],
+  "productGaps": [
+    "Per-activity bespoke pages need actual activity content and design.",
+    "Avatar editing/upload is not complete.",
+    "Snapshot load threshold, real warning-channel integration and target daily backup schedule require further work.",
+    "See the 234-rule ledger for engineering variances and unverified rules."
+  ],
+  "evidenceSha256": {
+    "build": "bdb4ce3c030623f7f10339bb29e1d30a305330e12dd3442376b47096fcdab100",
+    "product-baseline-acceptance": "d1781a5dfa3cde1e0d9af7bb609bf3457a0c93db6215c04620c56b3fd08a3ba6",
+    "browser-product-baseline": "2305db50eb4ddb74d695173de76638d607d8bc9223c8c0db938ffddb77b6e5b5",
+    "workbench-demo": "36dd7f5c082ac3c3e6666a23046d5f25e66707ca8ffb06764a2949f0299d861b",
+    "client-compat": "10a33deed44a60ffef233695908b63c601735c98e603cad173489abcdc184632",
+    "wechat-login": "606f7e48f307065579a6a66b499b8f108a03fe43a5aa73fd777093b653d50692",
+    "operations": "bd677bb17c2ba37924231d1329fc68791504c10a36895e6cb3ff86d2816a3dff",
+    "install-snapshot": "748e410e9628c0dde8bf24be499623257359aa2414c1a6bca8c48841a49e83c0",
+    "provenance": "b75c700b6e068fbb3b19da8db7a52b68207b1cb8e2a7942fd207f5bf2212d7f4"
+  },
+  "limit": "Candidate means finite local checks pass and disclosed gaps are reviewable; it does not mean all 234 rules, external delivery or production completion."
+}

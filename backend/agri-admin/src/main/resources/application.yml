@@ -97,6 +97,15 @@ yunji:
     scheduler-enabled: ${YUNJI_HOT_ARCHIVE_SCHEDULER_ENABLED:false}
     poll-ms: ${YUNJI_HOT_ARCHIVE_POLL_MS:60000}
   public-tenant: '000000'
+  reminder:
+    lead-minutes: ${YUNJI_REMINDER_LEAD_MINUTES:5}
+    overdue-minutes: ${YUNJI_REMINDER_OVERDUE_MINUTES:5}
+    scheduler-enabled: ${YUNJI_REMINDER_SCHEDULER_ENABLED:true}
+    poll-ms: ${YUNJI_REMINDER_POLL_MS:30000}
+    instant-template: ${YUNJI_REMINDER_INSTANT_TEMPLATE:}
+    subscribe-page: ${YUNJI_REMINDER_SUBSCRIBE_PAGE:pages/article/index}
+    miniprogram-state: ${YUNJI_REMINDER_MINIPROGRAM_STATE:developer}
+    subscribe-fields: ${YUNJI_REMINDER_SUBSCRIBE_FIELDS:}
   local-enabled: false
   local-secret: ${YUNJI_LOCAL_SECRET:}
   storage-root: ${YUNJI_STORAGE_ROOT}

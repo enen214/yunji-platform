@@ -49,6 +49,14 @@ public class DiscoveryService {
         actors.staff();
         String term="%"+q.replace("!","!!").replace("%","!%").replace("_","!_")+"%";
         String where="tenant_id='000000' AND deleted_at IS NULL AND COALESCE(nickname,'') LIKE ? ESCAPE '!'";
-        return Map.of("total",db.count("SELECT COUNT(*) FROM app_user WHERE "+where,term),"items",db.rows("SELECT u.*,(SELECT MAX(e.ingested_at) FROM behavior_event e WHERE e.user_id=u.id) last_active_at,(SELECT COUNT(DISTINCT DATE(e.ingested_at+INTERVAL 8 HOUR)) FROM behavior_event e WHERE e.user_id=u.id AND e.ingested_at>=UTC_TIMESTAMP()-INTERVAL 30 DAY) active_days30,(SELECT IF(COUNT(DISTINCT DATE(e.ingested_at+INTERVAL 8 HOUR))>1,DATEDIFF(MAX(DATE(e.ingested_at+INTERVAL 8 HOUR)),MIN(DATE(e.ingested_at+INTERVAL 8 HOUR)))/(COUNT(DISTINCT DATE(e.ingested_at+INTERVAL 8 HOUR))-1),NULL) FROM behavior_event e WHERE e.user_id=u.id AND e.ingested_at>=UTC_TIMESTAMP()-INTERVAL 30 DAY) average_interval_days FROM (SELECT id,nickname,status,created_at,last_login_at FROM app_user WHERE "+where+" ORDER BY created_at DESC,id LIMIT ? OFFSET ?) u",term,size,(page-1)*size));
+        var items=db.rows("SELECT u.*,(SELECT MAX(e.ingested_at) FROM behavior_event e WHERE e.user_id=u.id) last_active_at,(SELECT COUNT(DISTINCT DATE(e.ingested_at+INTERVAL 8 HOUR)) FROM behavior_event e WHERE e.user_id=u.id AND DATE(e.ingested_at+INTERVAL 8 HOUR)>=DATE(UTC_TIMESTAMP()+INTERVAL 8 HOUR)-INTERVAL 29 DAY) active_days30,(SELECT COUNT(DISTINCT DATE(e.ingested_at+INTERVAL 8 HOUR)) FROM behavior_event e WHERE e.user_id=u.id AND DATE(e.ingested_at+INTERVAL 8 HOUR)>=DATE(UTC_TIMESTAMP()+INTERVAL 8 HOUR)-INTERVAL 6 DAY) active_days7,(SELECT IF(COUNT(DISTINCT DATE(e.ingested_at+INTERVAL 8 HOUR))>1,DATEDIFF(MAX(DATE(e.ingested_at+INTERVAL 8 HOUR)),MIN(DATE(e.ingested_at+INTERVAL 8 HOUR)))/(COUNT(DISTINCT DATE(e.ingested_at+INTERVAL 8 HOUR))-1),NULL) FROM behavior_event e WHERE e.user_id=u.id AND DATE(e.ingested_at+INTERVAL 8 HOUR)>=DATE(UTC_TIMESTAMP()+INTERVAL 8 HOUR)-INTERVAL 29 DAY) average_interval_days FROM (SELECT id,nickname,status,created_at,last_login_at FROM app_user WHERE "+where+" ORDER BY created_at DESC,id LIMIT ? OFFSET ?) u",term,size,(page-1)*size);
+        for(var row:items)row.put("segment",com.sunshine.yunji.content.analytics.api.ProductAnalyticsController.segment(days(row.get("activeDays7")),days(row.get("activeDays30"))));
+        return Map.of("total",db.count("SELECT COUNT(*) FROM app_user WHERE "+where,term),"items",items);
+    }
+    /** 计数列按 0 兜底：Db.number 遇到 null 会抛 422「ID或版本号格式错误」，用在这里是误导。 */
+    private static long days(Object v){
+        if(v==null)return 0;
+        if(v instanceof Number n)return n.longValue();
+        try{return Long.parseLong(String.valueOf(v).trim());}catch(NumberFormatException e){return 0;}
     }
 }

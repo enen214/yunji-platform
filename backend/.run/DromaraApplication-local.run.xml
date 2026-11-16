@@ -1,0 +1,25 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="DromaraApplication-local" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+    <module name="agri-admin" />
+    <option name="SPRING_BOOT_MAIN_CLASS" value="com.sunshine.DromaraApplication" />
+    <option name="ACTIVE_PROFILES" value="local" />
+    <envs>
+      <env name="YUNJI_PROFILE" value="local" />
+      <env name="YUNJI_API_PORT" value="8088" />
+      <env name="YUNJI_DB_URL" value="jdbc:mysql://127.0.0.1:3306/yunji_dev?connectionTimeZone=UTC&amp;forceConnectionTimeZoneToSession=true&amp;characterEncoding=UTF-8" />
+      <env name="YUNJI_DB_USERNAME" value="root" />
+      <env name="YUNJI_DB_PASSWORD" value="root123" />
+      <env name="YUNJI_REDIS_HOST" value="127.0.0.1" />
+      <env name="YUNJI_REDIS_PORT" value="6379" />
+      <env name="YUNJI_REDIS_PASSWORD" value="144460" />
+      <env name="YUNJI_MONITOR_PASSWORD" value="yunji-local-2026" />
+      <env name="YUNJI_TOKEN_SECRET" value="a1b2c3d4e5f60718293a4b5c6d7e8f90a1b2c3d4e5f60718293a4b5c6d7e8f90" />
+      <env name="YUNJI_STORAGE_ROOT" value="D:/yunji-files" />
+      <env name="YUNJI_PUBLIC_TENANT" value="000000" />
+      <env name="YUNJI_LOCAL_SECRET" value="yunji-local-secret-2026" />
+    </envs>
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>

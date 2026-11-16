@@ -1,0 +1,19 @@
+{
+  "source": "yangben/cis4j",
+  "commit": "b4d44eebdefbd4cb7df37922c67657fa1614846b",
+  "exported_files": 627,
+  "excluded": [
+    "agri-admin/src/main/resources/application-dev.yml",
+    "agri-admin/src/main/resources/application-prod.yml",
+    "agri-admin/src/main/resources/application.yml",
+    "agri-admin/src/main/resources/i18n/messages.properties",
+    "agri-admin/src/main/resources/i18n/messages_en_US.properties",
+    "agri-admin/src/main/resources/i18n/messages_zh_CN.properties",
+    "agri-common/agri-common-mybatis/src/main/resources/common-mybatis.yml",
+    "agri-common/agri-common-mybatis/src/main/resources/spy.properties",
+    "agri-common/agri-common-satoken/src/main/resources/common-satoken.yml",
+    "agri-modules/agri-generator/src/main/resources/generator.yml"
+  ],
+  "sanitized": ["agri-common/agri-common-web/src/main/java/com/sunshine/common/web/config/ResourcesConfig.java"],
+  "note": "保留框架编译血统；运行配置/初始化账号/认证适配仍待实施，不复制原配置与数据库数据。"
+}

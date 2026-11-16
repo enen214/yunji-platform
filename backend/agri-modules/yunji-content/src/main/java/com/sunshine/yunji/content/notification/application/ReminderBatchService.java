@@ -12,8 +12,8 @@ import java.util.*;
 /** Durable planning/claim/settlement. External work is performed outside these transactions. */
 @Service
 public class ReminderBatchService {
-    private final Db db; private final ReminderTrackingService tracking; private final Actors actors; private final boolean local;
-    public ReminderBatchService(Db db,ReminderTrackingService tracking,Actors actors,@Value("${yunji.local-enabled:false}") boolean local) {this.db=db;this.tracking=tracking;this.actors=actors;this.local=local;}
+    private final Db db; private final ReminderTrackingService tracking; private final Actors actors; private final boolean local; private final int leadMinutes;
+    public ReminderBatchService(Db db,ReminderTrackingService tracking,Actors actors,@Value("${yunji.local-enabled:false}") boolean local,@Value("${yunji.reminder.lead-minutes:5}") int leadMinutes) {this.db=db;this.tracking=tracking;this.actors=actors;this.local=local;this.leadMinutes=Math.max(0,leadMinutes);}
     private boolean yes(Object value){return Db.number(value)==1;}
     private boolean visible(Map<String,Object> c){return db.count("SELECT COUNT(*) FROM article a WHERE a.id=? AND a.current_version_id=? AND "+ArticleAccess.VISIBLE,c.get("articleId"),c.get("versionId"))==1;}
     private boolean future(Map<String,Object> c){return db.count("SELECT COUNT(*) FROM article a WHERE a.id=? AND a.current_version_id=? AND "+ArticleAccess.CURRENT+" AND a.effective_from>UTC_TIMESTAMP()",c.get("articleId"),c.get("versionId"))==1;}
@@ -31,7 +31,7 @@ public class ReminderBatchService {
             long uid=Db.number(user.get("userId"));var settings=tracking.settings(uid);if(!Boolean.TRUE.equals(settings.get("enabled")))continue;
             ZonedDateTime now=ZonedDateTime.now(ZoneId.of(control.get("timezone").toString()));
             var pref=db.one("SELECT * FROM reminder_preference WHERE user_id=?",uid);
-            ZonedDateTime taskTime=now.toLocalDate().atTime(LocalTime.parse(pref.get("slot").toString())).atZone(now.getZone()).minusMinutes(5);
+            ZonedDateTime taskTime=now.toLocalDate().atTime(LocalTime.parse(pref.get("slot").toString())).atZone(now.getZone()).minusMinutes(leadMinutes);
             boolean due=yes(control.get("dailyEnabled"))&&!now.isBefore(taskTime)&&!now.toLocalDate().toString().equals(Objects.toString(pref.get("lastBatchDate"),""));
             var daily=new ArrayList<Map<String,Object>>();
             for(var c:db.rows("SELECT c.* FROM reminder_change c WHERE c.user_id=? AND c.state='PENDING' AND NOT EXISTS(SELECT 1 FROM article a WHERE a.id=c.article_id AND a.current_version_id=c.version_id AND "+ArticleAccess.CURRENT+" AND a.effective_from>UTC_TIMESTAMP()) ORDER BY c.created_at,c.id LIMIT 200",uid)) {
@@ -39,7 +39,7 @@ public class ReminderBatchService {
                 String suppress=!visible(c)?"SUPERSEDED":read(c)?"READ":matches(c).isEmpty()?"CANCELLED":null;
                 if(suppress!=null){db.update("UPDATE reminder_change SET state=? WHERE id=?",suppress,c.get("id"));continue;}
                 boolean instant=matches(c).stream().anyMatch(m->m.get("mode").equals("INSTANT"));
-                if(instant){if(yes(control.get("instantEnabled"))&&db.count("SELECT COUNT(*) FROM reminder_match current_match JOIN reminder_match other_match ON other_match.tracking_id=current_match.tracking_id JOIN reminder_batch_item i ON i.change_id=other_match.change_id JOIN reminder_batch b ON b.id=i.batch_id WHERE current_match.change_id=? AND b.channel='WECHAT_SUBSCRIBE' AND b.state IN('PENDING','WAITING_AUTH','SENDING','UNKNOWN')",c.get("id"))==0){batch(uid,"WECHAT_SUBSCRIBE",List.of(c));planned++;}}
+                if(instant){if(yes(control.get("instantEnabled"))&&db.count("SELECT COUNT(*) FROM reminder_match current_match JOIN reminder_match other_match ON other_match.tracking_id=current_match.tracking_id JOIN reminder_batch_item i ON i.change_id=other_match.change_id JOIN reminder_batch b ON b.id=i.batch_id WHERE current_match.change_id=? AND b.channel='WECHAT_SUBSCRIBE' AND b.state IN('PENDING','SENDING','UNKNOWN')",c.get("id"))==0){batch(uid,"WECHAT_SUBSCRIBE",List.of(c));planned++;}}
                 else if(due)daily.add(c);
             }
             if(!daily.isEmpty()) {batch(uid,"WECom",daily);planned++;db.update("UPDATE reminder_preference SET last_batch_date=? WHERE user_id=?",now.toLocalDate(),uid);}
@@ -57,35 +57,46 @@ public class ReminderBatchService {
     }
     @Transactional public Map<String,Object> claim() {
         var control=tracking.lock();
-        var rows=db.rows("SELECT * FROM reminder_batch WHERE state IN('PENDING','WAITING_AUTH') AND next_attempt_at<=UTC_TIMESTAMP() ORDER BY next_attempt_at,created_at,id LIMIT 100");
+        var rows=db.rows("SELECT * FROM reminder_batch WHERE state='PENDING' AND next_attempt_at<=UTC_TIMESTAMP() ORDER BY next_attempt_at,created_at,id LIMIT 100");
         for(var b:rows) {
             long id=Db.number(b.get("id")),user=Db.number(b.get("userId"));boolean wecom=b.get("channel").equals("WECom");
-            if(!yes(control.get(wecom?"dailyEnabled":"instantEnabled"))){defer(id);continue;}
+            if(!yes(control.get(wecom?"dailyEnabled":"instantEnabled"))){fail(id,"CHANNEL_DISABLED");continue;}
             boolean active=db.count("SELECT COUNT(*) FROM app_user WHERE id=? AND status='ACTIVE' AND deleted_at IS NULL",user)==1;
             boolean enabled=db.count("SELECT COUNT(*) FROM reminder_preference WHERE user_id=? AND enabled=1",user)==1;
-            if(active&&!enabled){defer(id);continue;}
+            if(active&&!enabled){fail(id,"PREFERENCE_DISABLED");continue;}
             var eligible=new ArrayList<Map<String,Object>>();
             for(var c:db.rows("SELECT c.* FROM reminder_change c JOIN reminder_batch_item i ON i.change_id=c.id WHERE i.batch_id=? AND c.state='BATCHED'",id)) {
                 if(active&&visible(c)&&!read(c)&&!matches(c).isEmpty())eligible.add(c);
                 else db.update("UPDATE reminder_change SET state=? WHERE id=?",read(c)?"READ":"CANCELLED",c.get("id"));
             }
-            if(eligible.isEmpty()){settleQuota(b,false);db.update("UPDATE reminder_batch SET state='CANCELLED',completed_at=UTC_TIMESTAMP() WHERE id=?",id);continue;}
+            if(eligible.isEmpty()){db.update("UPDATE reminder_batch SET state='CANCELLED',completed_at=UTC_TIMESTAMP() WHERE id=?",id);continue;}
             var perms=db.rows("SELECT * FROM reminder_permission WHERE user_id=?",user);
-            String wecomExtId=wecom?(perms.isEmpty()?null:Objects.toString(perms.get(0).get("wecomExternalUserid"),"")):"";
-            if(perms.isEmpty()||(wecom?(!yes(perms.get(0).get("wecomBound"))||wecomExtId.isBlank()):Db.number(perms.get(0).get("available"))==0&&!yes(b.get("quotaReserved")))) {
-                db.update("UPDATE reminder_batch SET state='WAITING_AUTH',next_attempt_at=UTC_TIMESTAMP()+INTERVAL 30 SECOND WHERE id=?",id);continue;
-            }
-            if(!wecom&&!yes(b.get("quotaReserved"))) {db.update("UPDATE reminder_permission SET available=available-1,reserved=reserved+1 WHERE user_id=?",user);db.update("UPDATE reminder_batch SET quota_reserved=1 WHERE id=?",id);}
+            boolean authorized=!perms.isEmpty()&&(wecom?yes(perms.get(0).get("wecomBound")):yes(perms.get(0).get("available")));
+            if(!authorized){fail(id,"AUTH_REQUIRED");continue;}
             String lease=db.token();db.update("UPDATE reminder_batch SET state='SENDING',snapshot=?,attempts=attempts+1,lease_token=?,lease_until=UTC_TIMESTAMP()+INTERVAL 2 MINUTE WHERE id=?",snapshot(eligible),lease,id);
             var result=db.one("SELECT * FROM reminder_batch WHERE id=?",id);result.put("simulationOutcome",perms.get(0).get("simulationOutcome"));return result;
         }
         return Map.of();
     }
-    private void defer(long id){db.update("UPDATE reminder_batch SET next_attempt_at=UTC_TIMESTAMP()+INTERVAL 30 SECOND WHERE id=?",id);}
-    private void settleQuota(Map<String,Object> b,boolean success) {
-        if(!yes(b.get("quotaReserved")))return;
-        db.update("UPDATE reminder_permission SET reserved=reserved-1,"+(success?"consumed=consumed+1":"available=available+1")+" WHERE user_id=? AND reserved>0",b.get("userId"));
-        db.update("UPDATE reminder_batch SET quota_reserved=0 WHERE id=?",b.get("id"));
+    /** 7-16 一键全部发送：把待人工执行的企微批次整批落为已确认，逐批写审计。 */
+    @Transactional public Map<String,Object> confirmAll(int max) {
+        actors.staff().require("yunji:notification:manage");tracking.lock();
+        int limit=Math.max(1,Math.min(1000,max));
+        var rows=db.rows("SELECT id FROM reminder_batch WHERE channel='WECom' AND state='AWAITING_STAFF' ORDER BY created_at,id LIMIT ?",limit);
+        int confirmed=0;
+        for(var row:rows) {
+            long id=Db.number(row.get("id"));
+            if(db.update("UPDATE reminder_batch SET state='SENT' WHERE id=? AND state='AWAITING_STAFF'",id)!=1)continue;
+            var b=db.one("SELECT * FROM reminder_batch WHERE id=?",id);
+            terminal(b,"SENT");confirmed++;
+            db.audit(actors.staff().id(),"STAFF","REMINDER_CONFIRM_BATCH","BATCH",id,Map.of("channel","WECom"));
+        }
+        db.audit(actors.staff().id(),"STAFF","REMINDER_CONFIRM_ALL","BATCH",0,Map.of("confirmed",confirmed));
+        return Map.of("confirmed",confirmed);
+    }
+    private void fail(long id,String code) {
+        db.update("UPDATE reminder_batch SET state='FAILED',error_code=?,completed_at=UTC_TIMESTAMP() WHERE id=?",code,id);
+        db.update("UPDATE reminder_change c JOIN reminder_batch_item i ON i.change_id=c.id SET c.state='CANCELLED' WHERE i.batch_id=? AND c.state='BATCHED'",id);
     }
     @Transactional public void finish(long id,String lease,String outcome,String providerId,String code) {
         tracking.lock();var b=db.one("SELECT * FROM reminder_batch WHERE id=?",id);
@@ -97,11 +108,13 @@ public class ReminderBatchService {
     }
     private void terminal(Map<String,Object> b,String state) {
         if(!Set.of("SENT","ACCEPTED","FAILED").contains(state))return;
-        boolean success=!state.equals("FAILED");settleQuota(b,success);
+        boolean success=!state.equals("FAILED");
         db.update("UPDATE reminder_batch SET completed_at=UTC_TIMESTAMP() WHERE id=?",b.get("id"));
         db.update("UPDATE reminder_change c JOIN reminder_batch_item i ON i.change_id=c.id SET c.state=? WHERE i.batch_id=? AND c.state='BATCHED'",success?"SENT":"CANCELLED",b.get("id"));
         if(success&&b.get("channel").equals("WECHAT_SUBSCRIBE")) {
-            db.update("UPDATE reminder_tracking t JOIN reminder_match m ON m.tracking_id=t.id JOIN reminder_batch_item i ON i.change_id=m.change_id SET t.mode='DAILY',t.lock_version=t.lock_version+1 WHERE i.batch_id=? AND t.mode='INSTANT' AND t.lock_version=m.tracking_version",b.get("id"));
+            // One-time consent is spent by the single message it authorized.
+            // 规范 7-08：不回落 DAILY。用户规则保持 INSTANT，前端如实提示需重新授权，不做静默降级。
+            db.update("UPDATE reminder_permission SET available=0 WHERE user_id=?",b.get("userId"));
             db.update("UPDATE reminder_match m JOIN reminder_change c ON c.id=m.change_id JOIN reminder_tracking t ON t.id=m.tracking_id SET m.tracking_version=t.lock_version WHERE c.user_id=? AND c.state='PENDING' AND t.mode='DAILY' AND t.enabled=1",b.get("userId"));
         }
     }
