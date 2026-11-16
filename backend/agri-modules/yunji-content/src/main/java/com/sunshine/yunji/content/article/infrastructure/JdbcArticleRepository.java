@@ -38,6 +38,7 @@ public class JdbcArticleRepository implements ArticleRepository {
         if(!filter.labelIds().isEmpty()){where+=" AND EXISTS(SELECT 1 FROM article_label_rel lr JOIN content_label l ON l.id=lr.label_id JOIN content_category lc ON lc.id=l.category_id WHERE lr.article_id=a.id AND lr.label_id IN (:labels) AND l.tenant_id=:tenant AND l.status='ENABLED' AND l.deleted_at IS NULL AND lc.status='ENABLED' AND lc.deleted_at IS NULL)";p.addValue("labels",filter.labelIds());}
         if(!filter.categoryIds().isEmpty()){where+=" AND EXISTS(SELECT 1 FROM article_category_rel cr JOIN content_category cc ON cc.id=cr.category_id WHERE cr.article_id=a.id AND cr.category_id IN (:categories) AND cc.tenant_id=:tenant AND cc.status='ENABLED' AND cc.deleted_at IS NULL)";p.addValue("categories",filter.categoryIds());}
         if(hotOnly)where+=" AND a.hot_until>"+FeedSql.DAY;
+        if(hotOnly&&customerId!=null)where+=" AND (a.pinned=1 OR ("+FeedSql.unread(Long.toString(customerId))+" AND NOT EXISTS(SELECT 1 FROM user_exposure_total e WHERE e.user_id="+customerId+" AND e.article_id=a.id AND e.day_key="+FeedSql.DAY+" AND e.day_count>=3)))";
         if(q!=null&&!q.isBlank()) {
             where+=" AND (a.title LIKE :q ESCAPE '!' OR a.summary LIKE :q ESCAPE '!' OR a.source_name LIKE :q ESCAPE '!')";
             p.addValue("q","%"+q.replace("!","!!").replace("%","!%").replace("_","!_")+"%");

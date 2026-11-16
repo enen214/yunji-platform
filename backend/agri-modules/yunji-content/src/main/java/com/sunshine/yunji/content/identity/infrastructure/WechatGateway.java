@@ -17,11 +17,12 @@ import java.util.Map;
 /** Official WeChat login transport. Never logs codes, tokens, identifiers or phone numbers. */
 @Component
 public class WechatGateway {
-    public record Identity(String appId, String openid, String phoneMasked) {
-        public Identity(String appId, String openid) { this(appId, openid, null); }
+    public record Identity(String appId, String openid, String phoneMasked, String phoneHash) {
+        public Identity(String appId, String openid) { this(appId, openid, null, null); }
         @Override public String toString() { return "WechatIdentity[redacted]"; }
     }
     private final String appId, secret;
+    private final IdentityCrypto crypto;
     private final ObjectMapper mapper;
     private final URI origin;
     private final HttpClient http = HttpClient.newBuilder().connectTimeout(Duration.ofSeconds(5))
@@ -31,12 +32,12 @@ public class WechatGateway {
 
     @Autowired
     public WechatGateway(ObjectMapper mapper, @Value("${yunji.wechat.app-id:}") String appId,
-                         @Value("${yunji.wechat.secret:}") String secret) {
-        this(mapper, appId, secret, URI.create("https://api.weixin.qq.com"));
+                         @Value("${yunji.wechat.secret:}") String secret, IdentityCrypto crypto) {
+        this(mapper, appId, secret, crypto, URI.create("https://api.weixin.qq.com"));
     }
     // Test seam is package-private; the public API cannot override the provider host.
-    WechatGateway(ObjectMapper mapper, String appId, String secret, URI origin) {
-        this.mapper = mapper; this.appId = appId; this.secret = secret; this.origin = origin;
+    WechatGateway(ObjectMapper mapper, String appId, String secret, IdentityCrypto crypto, URI origin) {
+        this.mapper = mapper; this.appId = appId; this.secret = secret; this.crypto = crypto; this.origin = origin;
     }
     public Identity exchange(String code, String suppliedApp) { return exchange(code, suppliedApp, null); }
 
@@ -52,6 +53,7 @@ public class WechatGateway {
         BusinessException.require(openid.isTextual() && !openid.asText().isBlank() && openid.asText().length() <= 128,
             503, "微信身份响应异常");
         String masked = null;
+        String phoneHash = null;
         if (phoneCode != null) {
             // No fallback and no automatic retry: both codes are single-use, phone calls may consume quota.
             var phone = send("/wxa/business/getuserphonenumber?access_token=" + encode(accessToken()), Map.of("code", phoneCode));
@@ -64,8 +66,9 @@ public class WechatGateway {
             // Keep a constant-size mask: no plaintext phone persists or leaves this gateway.
             masked = value.length() >= 10 ? value.substring(0, 3) + "****" + value.substring(value.length() - 4)
                 : value.substring(0, 1) + "****" + value.substring(value.length() - 2);
+            phoneHash = crypto.hash("PHONE", appId, value);
         }
-        return new Identity(appId, openid.asText(), masked);
+        return new Identity(appId, openid.asText(), masked, phoneHash);
     }
 
     /** Internal cloud API only; callers cannot choose a provider host or arbitrary endpoint. */

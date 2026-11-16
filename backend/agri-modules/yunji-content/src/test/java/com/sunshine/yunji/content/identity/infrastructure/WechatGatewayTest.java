@@ -11,6 +11,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class WechatGatewayTest {
     private static final String APP = "wx0123456789abcdef";
+    private static final IdentityCrypto CRYPTO = new IdentityCrypto("synthetic-hmac-key-0123456789abcdef", "");
     private static final String PHONE = "{\"errcode\":0,\"phone_info\":{\"purePhoneNumber\":\"13800001234\",\"watermark\":{\"appid\":\"" + APP + "\"}}}";
     static class Provider implements AutoCloseable {
         final HttpServer server;
@@ -33,7 +34,7 @@ class WechatGatewayTest {
             });
             server.start();
         }
-        WechatGateway gateway() { return new WechatGateway(new ObjectMapper(), APP, "synthetic-secret", URI.create("http://127.0.0.1:" + server.getAddress().getPort())); }
+        WechatGateway gateway() { return new WechatGateway(new ObjectMapper(), APP, "synthetic-secret", CRYPTO, URI.create("http://127.0.0.1:" + server.getAddress().getPort())); }
         public void close() { server.stop(0); }
     }
     @Test void phoneLoginSeparatesCodesCachesStableTokenAndReturnsOnlyMask() throws Exception {
@@ -63,7 +64,7 @@ class WechatGatewayTest {
         try (var provider = new Provider()) {
             assertEquals(422, assertThrows(BusinessException.class, () -> provider.gateway().exchange("code", "wrong", "phone")).status);
             assertTrue(provider.calls.isEmpty());
-            assertEquals(503, assertThrows(BusinessException.class, () -> new WechatGateway(new ObjectMapper(), "", "").exchange("code", APP)).status);
+            assertEquals(503, assertThrows(BusinessException.class, () -> new WechatGateway(new ObjectMapper(), "", "", CRYPTO).exchange("code", APP)).status);
         }
     }
     @Test void invalidIdentityDoesNotConsumePhoneQuota() throws Exception {

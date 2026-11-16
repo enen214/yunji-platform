@@ -17,9 +17,26 @@ public class IdentityService {
     public IdentityService(Db db,com.sunshine.yunji.content.notification.application.ReminderTrackingService reminders,IdentityCrypto crypto,@Value("${yunji.local-enabled:false}") boolean local,@Value("${yunji.local-secret:}") String secret){this.db=db;this.reminders=reminders;this.crypto=crypto;this.local=local;this.secret=secret;}
     public boolean isLocal(){return local;}
     @Transactional public Map<String,Object> providerLogin(WechatGateway.Identity identity){
-        String hash=crypto.hash("WECHAT",identity.appId(),identity.openid());var found=db.rows("SELECT user_id FROM app_user_identity WHERE tenant_id='000000' AND provider='WECHAT' AND provider_app_id=? AND subject_hash=?",identity.appId(),hash);long user;
-        if(found.isEmpty()){user=db.id();db.update("INSERT INTO app_user(id,nickname) VALUES(?,'新用户')",user);db.update("INSERT INTO app_user_identity(id,user_id,provider,provider_app_id,subject_hash,encrypted_subject,key_version) VALUES(?,?,'WECHAT',?,?,?,1)",db.id(),user,identity.appId(),hash,crypto.encrypt(identity.openid()));}
-        else user=Db.number(found.get(0).get("userId"));
+        String hash=crypto.hash("WECHAT",identity.appId(),identity.openid());
+        var found=db.rows("SELECT user_id FROM app_user_identity WHERE tenant_id='000000' AND provider='WECHAT' AND provider_app_id=? AND subject_hash=?",identity.appId(),hash);
+        Long openidUser=found.isEmpty()?null:Db.number(found.get(0).get("userId"));
+        Long phoneUser=null;
+        if(identity.phoneHash()!=null){var p=db.rows("SELECT id FROM app_user WHERE tenant_id='000000' AND phone_hash=? AND deleted_at IS NULL",identity.phoneHash());phoneUser=p.isEmpty()?null:Db.number(p.get(0).get("id"));}
+        long user;
+        if(phoneUser!=null){
+            user=phoneUser;
+            if(openidUser==null){
+                db.update("INSERT INTO app_user_identity(id,user_id,provider,provider_app_id,subject_hash,encrypted_subject,key_version) VALUES(?,?,'WECHAT',?,?,?,1)",db.id(),user,identity.appId(),hash,crypto.encrypt(identity.openid()));
+            }else if(openidUser!=user){
+                db.update("UPDATE app_user_identity SET user_id=? WHERE tenant_id='000000' AND provider='WECHAT' AND provider_app_id=? AND subject_hash=?",user,identity.appId(),hash);
+                db.update("UPDATE app_user SET status='CLOSED',phone_hash=NULL,deleted_at=UTC_TIMESTAMP() WHERE id=?",openidUser);
+                db.audit(user,"CUSTOMER","ACCOUNT_MERGE","USER",openidUser,Map.of("fromUserId",Long.toString(openidUser)));
+            }
+        }else{
+            if(openidUser==null){user=db.id();db.update("INSERT INTO app_user(id,nickname) VALUES(?,'新用户')",user);db.update("INSERT INTO app_user_identity(id,user_id,provider,provider_app_id,subject_hash,encrypted_subject,key_version) VALUES(?,?,'WECHAT',?,?,?,1)",db.id(),user,identity.appId(),hash,crypto.encrypt(identity.openid()));}
+            else user=openidUser;
+            if(identity.phoneHash()!=null)db.update("UPDATE app_user SET phone_hash=? WHERE id=?",identity.phoneHash(),user);
+        }
         db.one("SELECT id FROM app_user WHERE id=? AND status='ACTIVE' AND deleted_at IS NULL",user);
         if(identity.phoneMasked()!=null)db.update("UPDATE app_user SET phone_masked=? WHERE id=?",identity.phoneMasked(),user);
         String token=db.token();db.update("INSERT INTO customer_session(token_hash,user_id,expires_at) VALUES(?,?,UTC_TIMESTAMP()+INTERVAL 2 HOUR)",Db.hash(token),user);db.update("UPDATE app_user SET last_login_at=UTC_TIMESTAMP() WHERE id=?",user);db.audit(user,"CUSTOMER","CUSTOMER_LOGIN","USER",user,Map.of("local",false,"provider","WECHAT","phoneAuthorized",identity.phoneMasked()!=null));return Map.of("accessToken",token,"expiresIn",7200,"userId",Long.toString(user),"realm","CUSTOMER");
@@ -44,8 +61,9 @@ public class IdentityService {
         db.audit(user,"CUSTOMER","CUSTOMER_LOGIN","USER",user,Map.of("local",local));return Map.of("accessToken",token,"expiresIn",7200,"userId",Long.toString(user),"realm","CUSTOMER");
     }
     public Map<String,Object> profile(long user){return db.one("SELECT id,nickname,avatar_url,phone_masked,organization_id,status FROM app_user WHERE id=? AND tenant_id='000000' AND deleted_at IS NULL",user);}
-    @Transactional public Map<String,Object> profile(long user,String nickname,Long organization){
+    @Transactional public Map<String,Object> profile(long user,String nickname,Long organization,String avatarUrl){
         if(organization!=null)db.one("SELECT id FROM organization WHERE id=? AND tenant_id='000000' AND deleted_at IS NULL AND status='ENABLED'",organization);
+        if(avatarUrl!=null&&!avatarUrl.isBlank())db.update("UPDATE app_user SET avatar_url=? WHERE id=?",Db.text(avatarUrl,2000000),user);
         db.update("UPDATE app_user SET nickname=?,organization_id=? WHERE id=?",Db.text(nickname,100),organization,user);
         db.audit(user,"CUSTOMER","PROFILE_EDIT","USER",user,Map.of("changed",true));return profile(user);
     }
@@ -59,7 +77,7 @@ public class IdentityService {
     @Transactional public void close(long user,String confirmation){
         reminders.lock();
         BusinessException.require("注销账号".equals(confirmation),422,"需要明确确认注销");
-        db.update("UPDATE app_user SET status='CLOSED',nickname=NULL,avatar_url=NULL,phone_masked=NULL,deleted_at=UTC_TIMESTAMP() WHERE id=?",user);
+        db.update("UPDATE app_user SET status='CLOSED',nickname=NULL,avatar_url=NULL,phone_masked=NULL,phone_hash=NULL,deleted_at=UTC_TIMESTAMP() WHERE id=?",user);
         db.update("DELETE FROM customer_session WHERE user_id=?",user);
         db.update("DELETE FROM customer_search_history WHERE user_id=?",user);
         db.update("DELETE FROM activity_favorite WHERE user_id=?",user);

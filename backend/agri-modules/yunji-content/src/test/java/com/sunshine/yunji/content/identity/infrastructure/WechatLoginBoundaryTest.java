@@ -27,7 +27,7 @@ class WechatLoginBoundaryTest {
         when(db.one(anyString(), any(Object[].class))).thenReturn(Map.of("id", "71"));
         when(db.token()).thenReturn("synthetic-session");
         var service = new IdentityService(db, mock(ReminderTrackingService.class), crypto, true, "local-secret");
-        var session = service.providerLogin(new WechatGateway.Identity("app", "openid", "138****1234"));
+        var session = service.providerLogin(new WechatGateway.Identity("app", "openid", "138****1234", null));
         assertEquals("71", session.get("userId"));
         assertEquals(Set.of("accessToken", "expiresIn", "userId", "realm"), session.keySet());
         verify(db).update("UPDATE app_user SET phone_masked=? WHERE id=?", "138****1234", 71L);

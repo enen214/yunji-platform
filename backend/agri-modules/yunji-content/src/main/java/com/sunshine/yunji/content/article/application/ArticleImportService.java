@@ -83,7 +83,7 @@ public class ArticleImportService {
         }
         data.put("labelIds",labels);data.put("keywordNames",names(row,"keywordNames"));data.put("title",required(row,"title"));data.put("contentType",required(row,"contentType"));
         for(String field:List.of("sourceName","sourceUrl","hotDays","urgent","pinned","pushEnabled"))if(row.hasNonNull(field))data.put(field,mapper.convertValue(row.get(field),Object.class));
-        for(var pair:List.of(new String[]{"levelOneContent","originalText"},new String[]{"levelTwoContent","richText"},new String[]{"levelThreeContent","summary"},new String[]{"importance","contentWeight"},new String[]{"timeLimitType","lifespan"},new String[]{"longImage","longImageUrl"}))if(row.hasNonNull(pair[0]))data.put(pair[1],mapper.convertValue(row.get(pair[0]),Object.class));
+        for(var pair:List.of(new String[]{"levelOneContent","originalText"},new String[]{"levelTwoContent","richText"},new String[]{"levelThreeContent","summary"},new String[]{"importance","contentWeight"},new String[]{"timeLimitType","lifespan"},new String[]{"longImage","longImageUrl"},new String[]{"coverImage","coverUrl"}))if(row.hasNonNull(pair[0]))data.put(pair[1],mapper.convertValue(row.get(pair[0]),Object.class));
         for(String field:List.of("effectiveFrom","effectiveTo"))if(row.hasNonNull(field)&&!row.get(field).asText().isBlank()){
             try{data.put(field,LocalDateTime.parse(row.get(field).asText(),DateTimeFormatter.ofPattern("uuuu-MM-dd HH:mm:ss").withResolverStyle(ResolverStyle.STRICT)).atZone(com.sunshine.yunji.content.discovery.domain.FeedRanking.BUSINESS_ZONE).toInstant().toString());}catch(Exception e){throw new BusinessException(422,"时间应为yyyy-MM-dd HH:mm:ss，按Asia/Shanghai解释");}
         }

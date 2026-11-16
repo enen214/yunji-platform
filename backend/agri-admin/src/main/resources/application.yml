@@ -106,6 +106,10 @@ yunji:
   wechat:
     app-id: ${YUNJI_WECHAT_APP_ID:}
     secret: ${YUNJI_WECHAT_SECRET:}
+  wecom:
+    corp-id: ${YUNJI_WECOM_CORP_ID:}
+    corp-secret: ${YUNJI_WECOM_CORP_SECRET:}
+    sender: ${YUNJI_WECOM_SENDER:}
   cloud:
     environment: ${YUNJI_WECHAT_CLOUD_ENV:}
   weighted-ranking: false

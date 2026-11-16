@@ -41,7 +41,7 @@ public class CatalogCommands {
     }
     @Transactional public void delete(String kind,long id){
         var a=actors.staff();a.require("yunji:catalog:manage");String table=table(kind);db.one("SELECT id FROM "+table+" WHERE id=? AND tenant_id='000000' AND deleted_at IS NULL FOR UPDATE",id);
-        if(!kind.equals("keywords"))BusinessException.require(db.count("SELECT COUNT(*) FROM "+table+" WHERE parent_id=? AND deleted_at IS NULL",id)==0,409,"请先处理子级目录");
+        if(kind.equals("organizations"))BusinessException.require(db.count("SELECT COUNT(*) FROM organization WHERE parent_id=? AND deleted_at IS NULL",id)==0,409,"请先处理子级目录");
         String relation=switch(kind){case "categories"->"article_category_rel";case "organizations"->"article_organization_rel";default->"article_keyword_rel";};String column=switch(kind){case "categories"->"category_id";case "organizations"->"organization_id";default->"keyword_id";};
         BusinessException.require(db.count("SELECT COUNT(*) FROM "+relation+" r JOIN article a ON a.id=r.article_id WHERE r."+column+"=? AND a.status='PUBLISHED'",id)==0,409,"目录仍被已发布内容引用");
         db.update("UPDATE "+table+" SET deleted_at=UTC_TIMESTAMP(),status='DISABLED',lock_version=lock_version+1 WHERE id=?",id);db.audit(a.id(),"STAFF","CATALOG_DELETE",kind,id,Map.of());

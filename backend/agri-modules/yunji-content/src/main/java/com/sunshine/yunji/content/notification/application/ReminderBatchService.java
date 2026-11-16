@@ -56,7 +56,7 @@ public class ReminderBatchService {
         return db.json(Map.of("items",items));
     }
     @Transactional public Map<String,Object> claim() {
-        var control=tracking.lock();if(!local)return Map.of();
+        var control=tracking.lock();
         var rows=db.rows("SELECT * FROM reminder_batch WHERE state IN('PENDING','WAITING_AUTH') AND next_attempt_at<=UTC_TIMESTAMP() ORDER BY next_attempt_at,created_at,id LIMIT 100");
         for(var b:rows) {
             long id=Db.number(b.get("id")),user=Db.number(b.get("userId"));boolean wecom=b.get("channel").equals("WECom");
@@ -71,7 +71,8 @@ public class ReminderBatchService {
             }
             if(eligible.isEmpty()){settleQuota(b,false);db.update("UPDATE reminder_batch SET state='CANCELLED',completed_at=UTC_TIMESTAMP() WHERE id=?",id);continue;}
             var perms=db.rows("SELECT * FROM reminder_permission WHERE user_id=?",user);
-            if(perms.isEmpty()||(wecom?!yes(perms.get(0).get("wecomBound")):Db.number(perms.get(0).get("available"))==0&&!yes(b.get("quotaReserved")))) {
+            String wecomExtId=wecom?(perms.isEmpty()?null:Objects.toString(perms.get(0).get("wecomExternalUserid"),"")):"";
+            if(perms.isEmpty()||(wecom?(!yes(perms.get(0).get("wecomBound"))||wecomExtId.isBlank()):Db.number(perms.get(0).get("available"))==0&&!yes(b.get("quotaReserved")))) {
                 db.update("UPDATE reminder_batch SET state='WAITING_AUTH',next_attempt_at=UTC_TIMESTAMP()+INTERVAL 30 SECOND WHERE id=?",id);continue;
             }
             if(!wecom&&!yes(b.get("quotaReserved"))) {db.update("UPDATE reminder_permission SET available=available-1,reserved=reserved+1 WHERE user_id=?",user);db.update("UPDATE reminder_batch SET quota_reserved=1 WHERE id=?",id);}

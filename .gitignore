@@ -33,3 +33,6 @@ Thumbs.db
 # ===== 后端构建产物 =====
 .flattened-pom.xml
 *.xml.versionsBackup
+
+# ===== 迁移/导出报告（中间产物，不提交）=====
+export-report.json
