@@ -74,7 +74,7 @@ public class JdbcArticleRepository implements ArticleRepository {
                 p.addValue("token",Db.hash(token)).addValue("fingerprint",fingerprint).addValue("issued",Timestamp.from(issued))
                     .addValue("cards",mapper.writeValueAsString(frozen));
                 jdbc.update("DELETE FROM article_feed_snapshot WHERE expires_at<UTC_TIMESTAMP() LIMIT 100",p);
-                jdbc.update("INSERT INTO article_feed_snapshot(token_hash,tenant_id,query_hash,issued_at,expires_at,cards_json) VALUES(:token,:tenant,:fingerprint,:issued,UTC_TIMESTAMP()+INTERVAL 1 DAY,:cards)",p);
+                jdbc.update("INSERT INTO article_feed_snapshot(token_hash,tenant_id,query_hash,issued_at,expires_at,cards_json) VALUES(:token,:tenant,:fingerprint,:issued,UTC_TIMESTAMP()+INTERVAL 1 DAY,:cards)",p); // TODO: 待确认 L9 快照保留 1 天，数值待产品确认
             } else {
                 String[] parts=cursor.split(":",-1);
                 BusinessException.require(parts.length==2&&parts[0].matches("[a-f0-9-]{36}")&&parts[1].matches("[0-9]{1,6}"),400,"cursor 无效");
@@ -82,7 +82,7 @@ public class JdbcArticleRepository implements ArticleRepository {
                 var found=jdbc.queryForList("SELECT *,DATE_FORMAT(issued_at,'%Y-%m-%dT%H:%i:%s.%fZ') issued_iso FROM article_feed_snapshot WHERE token_hash=:token AND tenant_id=:tenant AND expires_at>UTC_TIMESTAMP()",p);
                 BusinessException.require(!found.isEmpty(),409,"资讯快照已过期，请刷新列表");
                 var row=found.get(0);BusinessException.require(fingerprint.equals(row.get("query_hash")),400,"cursor 与查询条件不匹配");
-                jdbc.update("UPDATE article_feed_snapshot SET expires_at=UTC_TIMESTAMP()+INTERVAL 1 DAY WHERE token_hash=:token",p);
+                jdbc.update("UPDATE article_feed_snapshot SET expires_at=UTC_TIMESTAMP()+INTERVAL 1 DAY WHERE token_hash=:token",p); // TODO: 待确认 L9 快照保留 1 天，数值待产品确认
                 issued=Instant.parse(row.get("issued_iso").toString());
                 BusinessException.require(snapshotAt!=null&&issued.equals(Instant.parse(snapshotAt)),400,"快照标识不匹配");
                 frozen=mapper.readValue(row.get("cards_json").toString(),new TypeReference<List<ArticleCard>>(){});

@@ -47,6 +47,7 @@ public class ProductAnalyticsController {
   return ApiResponse.ok(ViewMapper.list(rows,User.class).stream().map(u->new User(u.id(),u.nickname(),u.lastActiveAt(),u.activeDays30(),u.averageIntervalDays(),u.events30(),u.activeDays7(),segment(u.activeDays7(),u.activeDays30()))).toList());
  }
  /** 粘性分层口径见规格 T2-9：7 天≥4 高频；7 天 1~3 中频；7 天 0 但 30 天≥1 低频；30 天 0 沉睡。 */
+ // TODO: 待确认 T2-9 粘性分层阈值（高频≥4 天/周），数值待产品确认
  public static String segment(long days7,long days30){
   if(days7>=4)return "HIGH";
   if(days7>=1)return "MID";

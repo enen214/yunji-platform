@@ -5,6 +5,7 @@ import java.time.*;
 /** Product formula. Visibility and special priority tiers are evaluated separately. */
 public final class FeedRanking {
     public static final ZoneId BUSINESS_ZONE=ZoneId.of("Asia/Shanghai");
+    // TODO: 待确认 曝光衰减 9 档权重、满 9 次归零，数值待产品确认
     private static final double[] EXPOSURE={1,1,.95,.9,.8,.7,.6,.45,.3};
     private FeedRanking() {}
     public static double exposure(int count) {
@@ -17,6 +18,7 @@ public final class FeedRanking {
         double half=switch(lifespan){case "URGENT"->6;case "SHORT"->24;case "SCHEDULED"->48;case "LONG"->168;default->throw new IllegalArgumentException("lifespan");};
         Instant anchor="SCHEDULED".equals(lifespan)&&effective!=null?effective:published;
         double age=Math.max(0,Duration.between(anchor,now).toMillis()/3600000.0);
+        // TODO: 待确认 排序权重＝重要度×10＋热点天数×5＋时效分；关注系数 1.5/2.0，数值待产品确认
         return (importance*10+hotDays*5+50*Math.pow(2,-age/half))*(matches==0?1:matches==1?1.5:2)*exposure(exposures);
     }
 }

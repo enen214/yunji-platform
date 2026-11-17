@@ -40,8 +40,6 @@ public class FileService {
   var f=db.one("SELECT * FROM file_object WHERE id=? AND tenant_id='000000' AND status='VERIFIED'",id);
   if(p.realm.equals(f.get("ownerRealm"))&&Long.toString(p.id).equals(f.get("ownerId")))return f;
   if(p.realm.equals("STAFF")&&actors.staff().admin())return f;
-  if(p.realm.equals("CUSTOMER")&&db.count("SELECT COUNT(*) FROM resource_file f JOIN resource_package r ON r.id=f.package_id AND r.current_version_no=f.version_no WHERE f.file_id=? AND r.status='PUBLISHED' AND r.tenant_id='000000'",id)>0)return f;
-  if(p.realm.equals("CUSTOMER")&&db.count("SELECT COUNT(*) FROM artifact_version v JOIN artifact a ON a.id=v.artifact_id WHERE v.file_id=? AND v.status='PUBLISHED' AND a.status='PUBLISHED' AND a.tenant_id='000000'",id)>0)return f;
   if(p.realm.equals("STAFF")){
    actors.staff().require("yunji:review:decide");long n=db.count("SELECT COUNT(*) FROM review_submission_file sf JOIN review_submission s ON s.id=sf.submission_id JOIN review_application a ON a.id=s.application_id JOIN review_campaign c ON c.id=a.campaign_id JOIN reviewer_scope scope ON scope.organization_id=c.organization_id WHERE sf.file_id=? AND s.submitted_at IS NOT NULL AND c.tenant_id='000000' AND scope.user_id=?",id,p.id);
    if(n>0)return f;
