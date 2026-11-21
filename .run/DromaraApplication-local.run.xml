@@ -25,6 +25,7 @@
       <env name="YUNJI_IDENTITY_HMAC_KEY" value="" />
       <env name="YUNJI_IDENTITY_ENCRYPTION_KEY" value="YWJjZGVmZ2hpamtsbW5vcHFyc3R1dnd4eXoxMjM0NTY=" />
       <env name="YUNJI_WECHAT_APP_ID" value="wxa0842a9b01c0464b" />
+      <env name="YUNJI_WECHAT_SECRET" value="7ebc42d369b7c709297eec2f94b347f7" />
       <env name="YUNJI_WECHAT_LOCAL_SIMULATE" value="false" />
     </envs>
     <method v="2">
