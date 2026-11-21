@@ -1,0 +1,29 @@
+captcha:
+  enable: false
+spring:
+  datasource:
+    url: 'jdbc:mysql://127.0.0.1:3306/yunji_local?connectionTimeZone=UTC&forceConnectionTimeZoneToSession=true&characterEncoding=UTF-8'
+    username: root
+    password: root123
+  data:
+    redis:
+      password: yunji_local_redis
+  boot:
+    admin:
+      client:
+        password: monitor-local-2026
+sa-token:
+  jwt-secret-key: 2d817c1712413876103f877b0f2a1057b8156d65b787d2875711380f7999321f
+yunji:
+  local-enabled: true
+  local-secret: yunji-local-secret-2026
+  storage-root: /Users/rcj/.yunji/storage
+  identity:
+    hmac-key: a1b2c3d4e5f60718293a4b5c6d7e8f90a1b2c3d4e5f60718293a4b5c6d7e8f90
+    encryption-key: YWJjZGVmZ2hpamtsbW5vcHFyc3R1dnd4eXoxMjM0NTY=
+  wechat:
+    app-id: wxa0842a9b01c0464b
+    # secret 走环境变量 YUNJI_WECHAT_SECRET 注入，本仓库中不保存明文。
+    # 本地运行时由 IDEA 运行配置（.run/*.run.xml）或 config 目录下的本地覆盖文件注入真实 secret。
+    secret: ${YUNJI_WECHAT_SECRET:}
+    local-simulate: false

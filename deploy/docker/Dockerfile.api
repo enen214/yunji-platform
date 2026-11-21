@@ -1,0 +1,8 @@
+FROM eclipse-temurin:21-jre-jammy
+RUN groupadd --gid 10001 yunji && useradd --uid 10001 --gid yunji --no-create-home yunji \
+    && mkdir -p /app /var/lib/yunji/files && chown -R yunji:yunji /app /var/lib/yunji
+WORKDIR /app
+COPY --chown=yunji:yunji backend/agri-admin/target/agri-admin.jar /app/app.jar
+USER 10001:10001
+EXPOSE 18088
+ENTRYPOINT ["java","-jar","/app/app.jar"]

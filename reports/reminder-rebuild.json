@@ -1,0 +1,613 @@
+{
+  "scope": "REMINDER_REBUILD_LOCAL",
+  "releaseEligible": false,
+  "startedAt": "2026-10-22T14:11:02.101908+00:00",
+  "sourceFingerprints": {
+    "backend": "784c1b596f259c6cbe52670e0a92815d7749c65f1aa140bf0a15f8d6c57a5a48",
+    "admin": "9a8beb316a4e6016de701599285af19812f325af915c03370c68271248f0c4ed",
+    "client": "71cfb46669558e0c145a59121e7b88106f22959a749dbcb35cfabbad57476c97",
+    "tests": "f3af8f6b92a538227195bc69d6fedcddab2c2ebf3bdb6e7ac94d9ce3685af33c",
+    "deploy": "958a9a59ce0bf4df65ed9e74798789957d7a66b7ee0643b7a685630a6ff3e577"
+  },
+  "cases": [
+    {
+      "id": "reminder-anonymous-denied",
+      "featureIds": [
+        "SR-01"
+      ],
+      "status": "PASS",
+      "durationMs": 31
+    },
+    {
+      "id": "reminder-admin-permission",
+      "featureIds": [
+        "SR-01"
+      ],
+      "status": "PASS",
+      "durationMs": 47
+    },
+    {
+      "id": "reminder-authorization-receipt-idempotent",
+      "featureIds": [
+        "SR-07"
+      ],
+      "status": "PASS",
+      "durationMs": 31
+    },
+    {
+      "id": "reminder-authorization-receipt-conflict",
+      "featureIds": [
+        "SR-07"
+      ],
+      "status": "PASS",
+      "durationMs": 31
+    },
+    {
+      "id": "reminder-authorize-no-client-mint",
+      "featureIds": [
+        "SR-07"
+      ],
+      "status": "PASS",
+      "durationMs": 16
+    },
+    {
+      "id": "reminder-no-retroactive-changes",
+      "featureIds": [
+        "SR-03"
+      ],
+      "status": "PASS",
+      "durationMs": 16
+    },
+    {
+      "id": "reminder-rule-cross-user",
+      "featureIds": [
+        "SR-01"
+      ],
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "reminder-settings-save",
+      "featureIds": [
+        "SR-06"
+      ],
+      "status": "PASS",
+      "durationMs": 31
+    },
+    {
+      "id": "reminder-settings-stale",
+      "featureIds": [
+        "SR-06"
+      ],
+      "status": "PASS",
+      "durationMs": 47
+    },
+    {
+      "id": "reminder-revision-article-only",
+      "featureIds": [
+        "SR-03"
+      ],
+      "status": "PASS",
+      "durationMs": 62
+    },
+    {
+      "id": "reminder-ignore-cross-user",
+      "featureIds": [
+        "SR-04"
+      ],
+      "status": "PASS",
+      "durationMs": 31
+    },
+    {
+      "id": "reminder-read-suppresses-pending",
+      "featureIds": [
+        "SR-04"
+      ],
+      "status": "PASS",
+      "durationMs": 31
+    },
+    {
+      "id": "reminder-read-keeps-tracking",
+      "featureIds": [
+        "SR-04"
+      ],
+      "status": "PASS",
+      "durationMs": 16
+    },
+    {
+      "id": "reminder-no-empty-daily",
+      "featureIds": [
+        "SR-05"
+      ],
+      "status": "PASS",
+      "durationMs": 31
+    },
+    {
+      "id": "reminder-old-read-does-not-suppress-new",
+      "featureIds": [
+        "SR-04"
+      ],
+      "status": "PASS",
+      "durationMs": 31
+    },
+    {
+      "id": "reminder-wecom-task-awaits-staff",
+      "featureIds": [
+        "SR-07"
+      ],
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "reminder-wecom-does-not-consume-wechat-quota",
+      "featureIds": [
+        "SR-07"
+      ],
+      "status": "PASS",
+      "durationMs": 78
+    },
+    {
+      "id": "reminder-unexecuted-task-not-recreated",
+      "featureIds": [
+        "SR-05"
+      ],
+      "status": "PASS",
+      "durationMs": 31
+    },
+    {
+      "id": "reminder-new-change-outside-frozen-batch",
+      "featureIds": [
+        "SR-05"
+      ],
+      "status": "PASS",
+      "durationMs": 78
+    },
+    {
+      "id": "reminder-reconcile-needs-proof",
+      "featureIds": [
+        "SR-07"
+      ],
+      "status": "PASS",
+      "durationMs": 31
+    },
+    {
+      "id": "reminder-completion-keeps-later-changes",
+      "featureIds": [
+        "SR-05"
+      ],
+      "status": "PASS",
+      "durationMs": 62
+    },
+    {
+      "id": "reminder-dismiss-keeps-rule",
+      "featureIds": [
+        "SR-04"
+      ],
+      "status": "PASS",
+      "durationMs": 31
+    },
+    {
+      "id": "reminder-instant-local-send",
+      "featureIds": [
+        "SR-07"
+      ],
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "reminder-instant-success-downgrades",
+      "featureIds": [
+        "SR-05"
+      ],
+      "status": "PASS",
+      "durationMs": 31
+    },
+    {
+      "id": "reminder-instant-quota-once",
+      "featureIds": [
+        "SR-07"
+      ],
+      "status": "PASS",
+      "durationMs": 63
+    },
+    {
+      "id": "reminder-unknown-frozen",
+      "featureIds": [
+        "SR-07"
+      ],
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "reminder-unknown-keeps-instant",
+      "featureIds": [
+        "SR-05"
+      ],
+      "status": "PASS",
+      "durationMs": 15
+    },
+    {
+      "id": "reminder-unknown-no-retry",
+      "featureIds": [
+        "SR-07"
+      ],
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "reminder-failure-restores-reservation",
+      "featureIds": [
+        "SR-07"
+      ],
+      "status": "PASS",
+      "durationMs": 78
+    },
+    {
+      "id": "reminder-replacement-migrates-rule",
+      "featureIds": [
+        "SR-03"
+      ],
+      "status": "PASS",
+      "durationMs": 31
+    },
+    {
+      "id": "reminder-replacement-emits-change",
+      "featureIds": [
+        "SR-03"
+      ],
+      "status": "PASS",
+      "durationMs": 78
+    },
+    {
+      "id": "reminder-concurrent-worker-single-membership",
+      "featureIds": [
+        "SR-05"
+      ],
+      "status": "PASS",
+      "durationMs": 62
+    },
+    {
+      "id": "curation-write",
+      "featureIds": [
+        "CAT-06"
+      ],
+      "status": "PASS",
+      "durationMs": 47
+    },
+    {
+      "id": "curation-public-explicit-keyword",
+      "featureIds": [
+        "CAT-06"
+      ],
+      "status": "PASS",
+      "durationMs": 15
+    },
+    {
+      "id": "curation-stale-rejected",
+      "featureIds": [
+        "CAT-06"
+      ],
+      "status": "PASS",
+      "durationMs": 47
+    },
+    {
+      "id": "reminder-statistics-not-sample",
+      "featureIds": [
+        "SR-06"
+      ],
+      "status": "PASS",
+      "durationMs": 110
+    },
+    {
+      "id": "reminder-expired-lease-freezes",
+      "featureIds": [
+        "SR-07"
+      ],
+      "status": "PASS",
+      "durationMs": 78
+    },
+    {
+      "id": "reminder-expired-lease-auditable",
+      "featureIds": [
+        "SR-07"
+      ],
+      "status": "PASS",
+      "durationMs": 63
+    },
+    {
+      "id": "reminder-customer-cannot-tick",
+      "featureIds": [
+        "SR-01"
+      ],
+      "status": "PASS",
+      "durationMs": 15
+    },
+    {
+      "id": "reminder-rules-page-bound",
+      "featureIds": [
+        "SR-06"
+      ],
+      "status": "PASS",
+      "durationMs": 32
+    },
+    {
+      "id": "reminder-control-persist",
+      "featureIds": [
+        "SR-06"
+      ],
+      "status": "PASS",
+      "durationMs": 31
+    },
+    {
+      "id": "reminder-control-stale",
+      "featureIds": [
+        "SR-06"
+      ],
+      "status": "PASS",
+      "durationMs": 31
+    },
+    {
+      "id": "reminder-control-duplicate-slots",
+      "featureIds": [
+        "SR-06"
+      ],
+      "status": "PASS",
+      "durationMs": 31
+    },
+    {
+      "id": "reminder-multiple-keywords-one-change",
+      "featureIds": [
+        "SR-03"
+      ],
+      "status": "PASS",
+      "durationMs": 78
+    },
+    {
+      "id": "reminder-multiple-keywords-keep-sources",
+      "featureIds": [
+        "SR-03"
+      ],
+      "status": "PASS",
+      "durationMs": 62
+    },
+    {
+      "id": "reminder-read-worker-race-consistent",
+      "featureIds": [
+        "SR-04"
+      ],
+      "status": "PASS",
+      "durationMs": 94
+    },
+    {
+      "id": "reminder-wecom-channel-filter",
+      "featureIds": [
+        "SR-06"
+      ],
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "reminder-unknown-cannot-retry",
+      "featureIds": [
+        "SR-07"
+      ],
+      "status": "PASS",
+      "durationMs": 63
+    },
+    {
+      "id": "reminder-definite-failure-retry",
+      "featureIds": [
+        "SR-07"
+      ],
+      "status": "PASS",
+      "durationMs": 47
+    },
+    {
+      "id": "reminder-retry-request-dedup",
+      "featureIds": [
+        "SR-07"
+      ],
+      "status": "PASS",
+      "durationMs": 31
+    },
+    {
+      "id": "reminder-retry-success-one-quota",
+      "featureIds": [
+        "SR-07"
+      ],
+      "status": "PASS",
+      "durationMs": 78
+    },
+    {
+      "id": "reminder-retry-success-downgrades",
+      "featureIds": [
+        "SR-05"
+      ],
+      "status": "PASS",
+      "durationMs": 15
+    },
+    {
+      "id": "reminder-future-effective-keeps-pending",
+      "featureIds": [
+        "SR-03"
+      ],
+      "status": "PASS",
+      "durationMs": 63
+    },
+    {
+      "id": "reminder-effective-now-plans",
+      "featureIds": [
+        "SR-03"
+      ],
+      "status": "PASS",
+      "durationMs": 78
+    },
+    {
+      "id": "reminder-planner-does-not-starve-later-users",
+      "featureIds": [
+        "SR-05"
+      ],
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "reminder-can-pause-offline-article",
+      "featureIds": [
+        "SR-04"
+      ],
+      "status": "PASS",
+      "durationMs": 31
+    },
+    {
+      "id": "reminder-pause-anonymous-denied",
+      "featureIds": [
+        "SR-01"
+      ],
+      "status": "PASS",
+      "durationMs": 31
+    },
+    {
+      "id": "reminder-pause-staff-permission",
+      "featureIds": [
+        "SR-01"
+      ],
+      "status": "PASS",
+      "durationMs": 47
+    },
+    {
+      "id": "reminder-pause-customer-denied",
+      "featureIds": [
+        "SR-01"
+      ],
+      "status": "PASS",
+      "durationMs": 32
+    },
+    {
+      "id": "reminder-pause-missing-rule",
+      "featureIds": [
+        "SR-06"
+      ],
+      "status": "PASS",
+      "durationMs": 31
+    },
+    {
+      "id": "reminder-pause-reason-required",
+      "featureIds": [
+        "SR-06"
+      ],
+      "status": "PASS",
+      "durationMs": 15
+    },
+    {
+      "id": "reminder-pause-whitespace-rejected",
+      "featureIds": [
+        "SR-06"
+      ],
+      "status": "PASS",
+      "durationMs": 16
+    },
+    {
+      "id": "reminder-pause-stale-version",
+      "featureIds": [
+        "SR-06"
+      ],
+      "status": "PASS",
+      "durationMs": 31
+    },
+    {
+      "id": "reminder-operator-pause",
+      "featureIds": [
+        "SR-06"
+      ],
+      "status": "PASS",
+      "durationMs": 32
+    },
+    {
+      "id": "reminder-pause-request-idempotent",
+      "featureIds": [
+        "SR-06"
+      ],
+      "status": "PASS",
+      "durationMs": 31
+    },
+    {
+      "id": "reminder-pause-once-audit",
+      "featureIds": [
+        "SR-06"
+      ],
+      "status": "PASS",
+      "durationMs": 78
+    },
+    {
+      "id": "reminder-pause-does-not-recall-platform-batches",
+      "featureIds": [
+        "SR-07"
+      ],
+      "status": "PASS",
+      "durationMs": 63
+    },
+    {
+      "id": "reminder-pause-already-paused",
+      "featureIds": [
+        "SR-06"
+      ],
+      "status": "PASS",
+      "durationMs": 31
+    },
+    {
+      "id": "reminder-customer-resumes-after-operator-pause",
+      "featureIds": [
+        "SR-06"
+      ],
+      "status": "PASS",
+      "durationMs": 31
+    },
+    {
+      "id": "reminder-admin-rule-title",
+      "featureIds": [
+        "SR-06"
+      ],
+      "status": "PASS",
+      "durationMs": 32
+    },
+    {
+      "id": "reminder-statistics-distinct-users-and-mode-overlap",
+      "featureIds": [
+        "SR-06"
+      ],
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "reminder-statistics-disabled-user-excluded",
+      "featureIds": [
+        "SR-06"
+      ],
+      "status": "PASS",
+      "durationMs": 15
+    },
+    {
+      "id": "reminder-statistics-deleted-user-excluded",
+      "featureIds": [
+        "SR-06"
+      ],
+      "status": "PASS",
+      "durationMs": 15
+    },
+    {
+      "id": "reminder-scheduler-runs-without-admin-click",
+      "featureIds": [
+        "SR-05",
+        "SR-07"
+      ],
+      "status": "PASS",
+      "durationMs": 29329
+    }
+  ],
+  "upgradeFromV20": true,
+  "logDirectory": "D:\\yunjiwxCongxie\\yunji-platform\\.runtime\\run-7e3a14cc88",
+  "completedAt": "2026-10-22T14:12:50.858059+00:00",
+  "passed": 74,
+  "failed": 0,
+  "sourceUnchanged": true
+}

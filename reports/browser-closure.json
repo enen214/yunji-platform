@@ -1,0 +1,103 @@
+{
+  "scope": "LOCAL_CLOSURE_UI",
+  "startedAt": "2026-10-22T14:14:11.745Z",
+  "cases": [
+    {
+      "id": "client-login-direct-entry-can-return-to-feed",
+      "status": "PASS"
+    },
+    {
+      "id": "client-guest-subscriptions-login-return-does-not-loop",
+      "status": "PASS"
+    },
+    {
+      "id": "client-guest-notifications-login-return-does-not-loop",
+      "status": "PASS"
+    },
+    {
+      "id": "client-school-filter-removed-mobile",
+      "status": "PASS"
+    },
+    {
+      "id": "client-school-filter-removed-desktop",
+      "status": "PASS"
+    },
+    {
+      "id": "client-visible-exposure-offscreen-behavior",
+      "status": "PASS"
+    },
+    {
+      "id": "client-hidden-stay-time-excluded-h5-lifecycle",
+      "status": "PASS"
+    },
+    {
+      "id": "client-reminder-edit-pause-resume-real-ui",
+      "status": "PASS"
+    },
+    {
+      "id": "client-exact-version-conflict-refresh-real-ui",
+      "status": "PASS"
+    },
+    {
+      "id": "client-replacement-auto-follow-real-ui",
+      "status": "PASS"
+    },
+    {
+      "id": "creator-page-and-button-permissions-real-ui",
+      "status": "PASS"
+    },
+    {
+      "id": "reviewer-cannot-create-real-ui",
+      "status": "PASS"
+    },
+    {
+      "id": "admin-audit-export-download-real-ui",
+      "status": "PASS"
+    },
+    {
+      "id": "admin-content-replacement-real-ui",
+      "status": "PASS"
+    },
+    {
+      "id": "admin-activity-participant-export-real-ui",
+      "status": "PASS"
+    },
+    {
+      "id": "closure-no-runtime-errors",
+      "status": "PASS"
+    }
+  ],
+  "errors": [],
+  "stayObserved": [
+    {
+      "eventId": "mvjmgzd73siq28sofo5",
+      "type": "PAGE_STAY",
+      "objectId": "1238547314604859743",
+      "occurredAt": "2026-10-22T14:14:23.755Z",
+      "payload": {
+        "durationMs": 4059
+      }
+    },
+    {
+      "eventId": "mvjmh0qwgb1rblj9zb7",
+      "type": "PAGE_VIEW",
+      "objectId": "1238547314604859743",
+      "occurredAt": "2026-10-22T14:14:25.544Z",
+      "payload": {}
+    },
+    {
+      "eventId": "mvjmh1fnvuxx6r01kog",
+      "type": "PAGE_VIEW",
+      "objectId": "1238547314604859743",
+      "occurredAt": "2026-10-22T14:14:26.435Z",
+      "payload": {}
+    }
+  ],
+  "replacementDetail": {
+    "status": 404,
+    "body": "{\"code\":404,\"msg\":\"内容不存在或不可见\",\"data\":null}"
+  },
+  "completedAt": "2026-10-22T14:14:31.107Z",
+  "passed": 16,
+  "failed": 0
+}

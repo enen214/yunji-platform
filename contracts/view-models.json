@@ -1,0 +1,2678 @@
+{
+  "CodeView": [
+    {
+      "name": "code",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "expiresIn",
+      "type": "Integer",
+      "nullable": false
+    }
+  ],
+  "CustomerSessionView": [
+    {
+      "name": "accessToken",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "expiresIn",
+      "type": "Integer",
+      "nullable": false
+    },
+    {
+      "name": "userId",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "realm",
+      "type": "String",
+      "nullable": false,
+      "enum": [
+        "CUSTOMER"
+      ]
+    }
+  ],
+  "ProfileView": [
+    {
+      "name": "id",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "nickname",
+      "type": "String",
+      "nullable": true
+    },
+    {
+      "name": "avatarUrl",
+      "type": "String",
+      "nullable": true
+    },
+    {
+      "name": "phoneMasked",
+      "type": "String",
+      "nullable": true
+    },
+    {
+      "name": "status",
+      "type": "String",
+      "nullable": false
+    }
+  ],
+  "StaffSessionView": [
+    {
+      "name": "userId",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "departmentId",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "realm",
+      "type": "String",
+      "nullable": false,
+      "enum": [
+        "STAFF"
+      ]
+    },
+    {
+      "name": "superAdmin",
+      "type": "Boolean",
+      "nullable": false
+    },
+    {
+      "name": "permissions",
+      "type": "List<String>",
+      "nullable": false
+    }
+  ],
+  "ArticleVersionView": [
+    {
+      "name": "id",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "articleId",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "versionNo",
+      "type": "Integer",
+      "nullable": false
+    },
+    {
+      "name": "title",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "summary",
+      "type": "String",
+      "nullable": true
+    },
+    {
+      "name": "coverUrl",
+      "type": "String",
+      "nullable": true
+    },
+    {
+      "name": "sourceName",
+      "type": "String",
+      "nullable": true
+    },
+    {
+      "name": "sourceUrl",
+      "type": "String",
+      "nullable": true
+    },
+    {
+      "name": "contentType",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "effectiveFrom",
+      "type": "String",
+      "nullable": true,
+      "format": "date-time"
+    },
+    {
+      "name": "effectiveTo",
+      "type": "String",
+      "nullable": true,
+      "format": "date-time"
+    },
+    {
+      "name": "richText",
+      "type": "String",
+      "nullable": true
+    },
+    {
+      "name": "relationSnapshot",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "changeSummary",
+      "type": "String",
+      "nullable": true
+    },
+    {
+      "name": "createdBy",
+      "type": "String",
+      "nullable": true
+    },
+    {
+      "name": "createdAt",
+      "type": "String",
+      "nullable": false,
+      "format": "date-time"
+    },
+    {
+      "name": "reviewState",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "submittedAt",
+      "type": "String",
+      "nullable": true,
+      "format": "date-time"
+    },
+    {
+      "name": "decidedAt",
+      "type": "String",
+      "nullable": true,
+      "format": "date-time"
+    },
+    {
+      "name": "pinned",
+      "type": "Boolean",
+      "nullable": false
+    },
+    {
+      "name": "contentWeight",
+      "type": "Integer",
+      "nullable": false
+    },
+    {
+      "name": "hotWeight",
+      "type": "Integer",
+      "nullable": false
+    },
+    {
+      "name": "interpretation",
+      "type": "String",
+      "nullable": true
+    },
+    {
+      "name": "originalText",
+      "type": "String",
+      "nullable": true
+    },
+    {
+      "name": "carrierType",
+      "type": "String",
+      "nullable": false,
+      "enum": [
+        "TEXT_IMAGE",
+        "LONG_IMAGE",
+        "FILE"
+      ]
+    }
+  ],
+  "ArticleReviewView": [
+    {
+      "name": "id",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "articleId",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "versionId",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "action",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "comment",
+      "type": "String",
+      "nullable": true
+    },
+    {
+      "name": "operatorId",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "operatorDeptId",
+      "type": "String",
+      "nullable": true
+    },
+    {
+      "name": "createdAt",
+      "type": "String",
+      "nullable": false,
+      "format": "date-time"
+    },
+    {
+      "name": "requestId",
+      "type": "String",
+      "nullable": true
+    }
+  ],
+  "ActivityFormView": [
+    {
+      "name": "id",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "activityId",
+      "type": "String",
+      "nullable": true
+    },
+    {
+      "name": "versionNo",
+      "type": "Integer",
+      "nullable": false
+    },
+    {
+      "name": "schemaJson",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "createdAt",
+      "type": "String",
+      "nullable": true,
+      "format": "date-time"
+    }
+  ],
+  "RegistrationView": [
+    {
+      "name": "id",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "activityId",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "userId",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "formVersionId",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "answerSnapshot",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "status",
+      "type": "String",
+      "nullable": false,
+      "enum": [
+        "CONFIRMED",
+        "WAITLISTED",
+        "CANCELLED"
+      ]
+    },
+    {
+      "name": "queueSeq",
+      "type": "Long",
+      "nullable": false
+    },
+    {
+      "name": "submittedAt",
+      "type": "String",
+      "nullable": false,
+      "format": "date-time"
+    },
+    {
+      "name": "cancelledAt",
+      "type": "String",
+      "nullable": true,
+      "format": "date-time"
+    },
+    {
+      "name": "lockVersion",
+      "type": "Integer",
+      "nullable": false
+    },
+    {
+      "name": "title",
+      "type": "String",
+      "nullable": true
+    },
+    {
+      "name": "eventStart",
+      "type": "String",
+      "nullable": true,
+      "format": "date-time"
+    }
+  ],
+  "ReviewRequirementView": [
+    {
+      "name": "campaignId",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "ruleVersion",
+      "type": "Integer",
+      "nullable": false
+    },
+    {
+      "name": "requirementKey",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "label",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "required",
+      "type": "Boolean",
+      "nullable": false
+    },
+    {
+      "name": "fileTypeAllowlist",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "maxSize",
+      "type": "Long",
+      "nullable": false
+    },
+    {
+      "name": "eligibilityJson",
+      "type": "String",
+      "nullable": false
+    }
+  ],
+  "ReviewSubmissionView": [
+    {
+      "name": "id",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "applicationId",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "versionNo",
+      "type": "Integer",
+      "nullable": false
+    },
+    {
+      "name": "requirementSnapshot",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "eligibilitySnapshot",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "submittedAt",
+      "type": "String",
+      "nullable": true,
+      "format": "date-time"
+    }
+  ],
+  "ReviewMaterialView": [
+    {
+      "name": "submissionId",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "requirementKey",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "fileId",
+      "type": "String",
+      "nullable": false
+    }
+  ],
+  "ReviewDecisionView": [
+    {
+      "name": "id",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "applicationId",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "submissionId",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "decision",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "comment",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "reviewerId",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "decidedAt",
+      "type": "String",
+      "nullable": false,
+      "format": "date-time"
+    }
+  ],
+  "BannerView": [
+    {
+      "name": "id",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "tenantId",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "title",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "imageUrl",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "linkType",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "linkValue",
+      "type": "String",
+      "nullable": true
+    },
+    {
+      "name": "sortOrder",
+      "type": "Integer",
+      "nullable": false
+    },
+    {
+      "name": "status",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "effectiveFrom",
+      "type": "String",
+      "nullable": true,
+      "format": "date-time"
+    },
+    {
+      "name": "effectiveTo",
+      "type": "String",
+      "nullable": true,
+      "format": "date-time"
+    },
+    {
+      "name": "createdBy",
+      "type": "String",
+      "nullable": true
+    },
+    {
+      "name": "createdAt",
+      "type": "String",
+      "nullable": false,
+      "format": "date-time"
+    },
+    {
+      "name": "updatedAt",
+      "type": "String",
+      "nullable": false,
+      "format": "date-time"
+    },
+    {
+      "name": "deletedAt",
+      "type": "String",
+      "nullable": true,
+      "format": "date-time"
+    }
+  ],
+  "RecommendationView": [
+    {
+      "name": "id",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "articleId",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "coverUrl",
+      "type": "String",
+      "nullable": true
+    },
+    {
+      "name": "sortOrder",
+      "type": "Integer",
+      "nullable": false
+    },
+    {
+      "name": "status",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "effectiveFrom",
+      "type": "String",
+      "nullable": true,
+      "format": "date-time"
+    },
+    {
+      "name": "effectiveTo",
+      "type": "String",
+      "nullable": true,
+      "format": "date-time"
+    },
+    {
+      "name": "createdBy",
+      "type": "String",
+      "nullable": true
+    },
+    {
+      "name": "createdAt",
+      "type": "String",
+      "nullable": false,
+      "format": "date-time"
+    }
+  ],
+  "ColumnView": [
+    {
+      "name": "id",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "tenantId",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "name",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "categoryId",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "sortOrder",
+      "type": "Integer",
+      "nullable": false
+    },
+    {
+      "name": "status",
+      "type": "String",
+      "nullable": false
+    }
+  ],
+  "FeedbackView": [
+    {
+      "name": "id",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "tenantId",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "userId",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "type",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "description",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "status",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "handlerId",
+      "type": "String",
+      "nullable": true
+    },
+    {
+      "name": "handledAt",
+      "type": "String",
+      "nullable": true,
+      "format": "date-time"
+    },
+    {
+      "name": "createdAt",
+      "type": "String",
+      "nullable": false,
+      "format": "date-time"
+    }
+  ],
+  "ReportView": [
+    {
+      "name": "id",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "userId",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "articleId",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "reportType",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "reason",
+      "type": "String",
+      "nullable": true
+    },
+    {
+      "name": "status",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "handledBy",
+      "type": "String",
+      "nullable": true
+    },
+    {
+      "name": "handledAt",
+      "type": "String",
+      "nullable": true,
+      "format": "date-time"
+    },
+    {
+      "name": "createdAt",
+      "type": "String",
+      "nullable": false,
+      "format": "date-time"
+    }
+  ],
+  "FollowView": [
+    {
+      "name": "id",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "userId",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "targetType",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "targetId",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "createdAt",
+      "type": "String",
+      "nullable": false,
+      "format": "date-time"
+    },
+    {
+      "name": "deletedAt",
+      "type": "String",
+      "nullable": true,
+      "format": "date-time"
+    },
+    {
+      "name": "name",
+      "type": "String",
+      "nullable": true
+    },
+    {
+      "name": "hidden",
+      "type": "Boolean",
+      "nullable": true
+    },
+    {
+      "name": "pushEnabled",
+      "type": "Boolean",
+      "nullable": false
+    },
+    {
+      "name": "labels",
+      "type": "List<FollowLabelView>",
+      "nullable": false
+    }
+  ],
+  "RuleView": [
+    {
+      "name": "id",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "userId",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "channel",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "enabled",
+      "type": "Boolean",
+      "nullable": false
+    },
+    {
+      "name": "quietStart",
+      "type": "String",
+      "nullable": true
+    },
+    {
+      "name": "quietEnd",
+      "type": "String",
+      "nullable": true
+    },
+    {
+      "name": "createdAt",
+      "type": "String",
+      "nullable": false,
+      "format": "date-time"
+    },
+    {
+      "name": "updatedAt",
+      "type": "String",
+      "nullable": false,
+      "format": "date-time"
+    },
+    {
+      "name": "tenantId",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "targetType",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "targetId",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "mode",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "timezone",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "scheduledAt",
+      "type": "String",
+      "nullable": true,
+      "format": "date-time"
+    },
+    {
+      "name": "localSendTime",
+      "type": "String",
+      "nullable": true
+    },
+    {
+      "name": "ruleHash",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "lockVersion",
+      "type": "Integer",
+      "nullable": false
+    },
+    {
+      "name": "nextRunAt",
+      "type": "String",
+      "nullable": true,
+      "format": "date-time"
+    }
+  ],
+  "DeliveryView": [
+    {
+      "name": "id",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "userId",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "articleId",
+      "type": "String",
+      "nullable": true
+    },
+    {
+      "name": "channel",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "templateKey",
+      "type": "String",
+      "nullable": true
+    },
+    {
+      "name": "status",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "providerMessageId",
+      "type": "String",
+      "nullable": true
+    },
+    {
+      "name": "errorCode",
+      "type": "String",
+      "nullable": true
+    },
+    {
+      "name": "sentAt",
+      "type": "String",
+      "nullable": true,
+      "format": "date-time"
+    },
+    {
+      "name": "createdAt",
+      "type": "String",
+      "nullable": false,
+      "format": "date-time"
+    },
+    {
+      "name": "ruleId",
+      "type": "String",
+      "nullable": true
+    },
+    {
+      "name": "ruleVersion",
+      "type": "Integer",
+      "nullable": false
+    },
+    {
+      "name": "dedupeKey",
+      "type": "String",
+      "nullable": true
+    },
+    {
+      "name": "articleVersionId",
+      "type": "String",
+      "nullable": true
+    },
+    {
+      "name": "attempts",
+      "type": "Integer",
+      "nullable": false
+    },
+    {
+      "name": "nextAttemptAt",
+      "type": "String",
+      "nullable": false,
+      "format": "date-time"
+    },
+    {
+      "name": "leaseUntil",
+      "type": "String",
+      "nullable": true,
+      "format": "date-time"
+    },
+    {
+      "name": "quotaReserved",
+      "type": "Boolean",
+      "nullable": false
+    },
+    {
+      "name": "ruleSnapshot",
+      "type": "String",
+      "nullable": true
+    },
+    {
+      "name": "contentSnapshot",
+      "type": "String",
+      "nullable": true
+    },
+    {
+      "name": "operation",
+      "type": "String",
+      "nullable": true
+    },
+    {
+      "name": "amount",
+      "type": "Integer",
+      "nullable": true
+    }
+  ],
+  "AliasView": [
+    {
+      "name": "id",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "tenantId",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "normalizedAlias",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "keywordId",
+      "type": "String",
+      "nullable": false
+    }
+  ],
+  "ArticleAdminView": [
+    {
+      "name": "id",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "tenantId",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "title",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "summary",
+      "type": "String",
+      "nullable": true
+    },
+    {
+      "name": "coverUrl",
+      "type": "String",
+      "nullable": true
+    },
+    {
+      "name": "sourceType",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "sourceName",
+      "type": "String",
+      "nullable": true
+    },
+    {
+      "name": "sourceUrl",
+      "type": "String",
+      "nullable": true
+    },
+    {
+      "name": "contentType",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "status",
+      "type": "String",
+      "nullable": false,
+      "enum": [
+        "DRAFT",
+        "PUBLISHED",
+        "OFFLINE"
+      ]
+    },
+    {
+      "name": "visibility",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "currentVersionId",
+      "type": "String",
+      "nullable": true
+    },
+    {
+      "name": "latestVersionId",
+      "type": "String",
+      "nullable": true
+    },
+    {
+      "name": "effectiveFrom",
+      "type": "String",
+      "nullable": true,
+      "format": "date-time"
+    },
+    {
+      "name": "effectiveTo",
+      "type": "String",
+      "nullable": true,
+      "format": "date-time"
+    },
+    {
+      "name": "pinned",
+      "type": "Boolean",
+      "nullable": false
+    },
+    {
+      "name": "contentWeight",
+      "type": "Integer",
+      "nullable": false
+    },
+    {
+      "name": "hotWeight",
+      "type": "Integer",
+      "nullable": false
+    },
+    {
+      "name": "publishedAt",
+      "type": "String",
+      "nullable": true,
+      "format": "date-time"
+    },
+    {
+      "name": "offlineAt",
+      "type": "String",
+      "nullable": true,
+      "format": "date-time"
+    },
+    {
+      "name": "createdBy",
+      "type": "String",
+      "nullable": true
+    },
+    {
+      "name": "createdDeptId",
+      "type": "String",
+      "nullable": true
+    },
+    {
+      "name": "createdAt",
+      "type": "String",
+      "nullable": false,
+      "format": "date-time"
+    },
+    {
+      "name": "updatedBy",
+      "type": "String",
+      "nullable": true
+    },
+    {
+      "name": "updatedAt",
+      "type": "String",
+      "nullable": false,
+      "format": "date-time"
+    },
+    {
+      "name": "versionNo",
+      "type": "Integer",
+      "nullable": false
+    },
+    {
+      "name": "deletedAt",
+      "type": "String",
+      "nullable": true,
+      "format": "date-time"
+    },
+    {
+      "name": "lockVersion",
+      "type": "Integer",
+      "nullable": false
+    },
+    {
+      "name": "submittedVersionId",
+      "type": "String",
+      "nullable": true
+    },
+    {
+      "name": "versions",
+      "type": "List<ArticleVersionView>",
+      "nullable": true
+    },
+    {
+      "name": "reviews",
+      "type": "List<ArticleReviewView>",
+      "nullable": true
+    },
+    {
+      "name": "carrierType",
+      "type": "String",
+      "nullable": false,
+      "enum": [
+        "TEXT_IMAGE",
+        "LONG_IMAGE",
+        "FILE"
+      ]
+    },
+    {
+      "name": "abnormal",
+      "type": "Boolean",
+      "nullable": false
+    }
+  ],
+  "ActivityView": [
+    {
+      "name": "id",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "tenantId",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "articleId",
+      "type": "String",
+      "nullable": true
+    },
+    {
+      "name": "title",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "organizationId",
+      "type": "String",
+      "nullable": true
+    },
+    {
+      "name": "registrationStart",
+      "type": "String",
+      "nullable": false,
+      "format": "date-time"
+    },
+    {
+      "name": "registrationEnd",
+      "type": "String",
+      "nullable": false,
+      "format": "date-time"
+    },
+    {
+      "name": "eventStart",
+      "type": "String",
+      "nullable": false,
+      "format": "date-time"
+    },
+    {
+      "name": "eventEnd",
+      "type": "String",
+      "nullable": false,
+      "format": "date-time"
+    },
+    {
+      "name": "capacity",
+      "type": "Integer",
+      "nullable": false
+    },
+    {
+      "name": "confirmedCount",
+      "type": "Integer",
+      "nullable": false
+    },
+    {
+      "name": "waitlistEnabled",
+      "type": "Boolean",
+      "nullable": false
+    },
+    {
+      "name": "status",
+      "type": "String",
+      "nullable": false,
+      "enum": [
+        "DRAFT",
+        "PUBLISHED",
+        "CLOSED"
+      ]
+    },
+    {
+      "name": "lockVersion",
+      "type": "Integer",
+      "nullable": false
+    },
+    {
+      "name": "createdBy",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "createdAt",
+      "type": "String",
+      "nullable": false,
+      "format": "date-time"
+    },
+    {
+      "name": "remaining",
+      "type": "Integer",
+      "nullable": true
+    },
+    {
+      "name": "form",
+      "type": "ActivityFormView",
+      "nullable": true
+    },
+    {
+      "name": "registrations",
+      "type": "List<RegistrationView>",
+      "nullable": true
+    }
+  ],
+  "CampaignView": [
+    {
+      "name": "id",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "tenantId",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "organizationId",
+      "type": "String",
+      "nullable": true
+    },
+    {
+      "name": "articleId",
+      "type": "String",
+      "nullable": true
+    },
+    {
+      "name": "title",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "openAt",
+      "type": "String",
+      "nullable": false,
+      "format": "date-time"
+    },
+    {
+      "name": "closeAt",
+      "type": "String",
+      "nullable": false,
+      "format": "date-time"
+    },
+    {
+      "name": "ruleVersion",
+      "type": "Integer",
+      "nullable": false
+    },
+    {
+      "name": "status",
+      "type": "String",
+      "nullable": false,
+      "enum": [
+        "DRAFT",
+        "PUBLISHED",
+        "CLOSED"
+      ]
+    },
+    {
+      "name": "createdBy",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "lockVersion",
+      "type": "Integer",
+      "nullable": false
+    },
+    {
+      "name": "requirements",
+      "type": "List<ReviewRequirementView>",
+      "nullable": true
+    }
+  ],
+  "ApplicationView": [
+    {
+      "name": "id",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "campaignId",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "userId",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "status",
+      "type": "String",
+      "nullable": false,
+      "enum": [
+        "DRAFT",
+        "SUBMITTED",
+        "WITHDRAWN",
+        "APPROVED",
+        "REJECTED",
+        "CORRECTION"
+      ]
+    },
+    {
+      "name": "currentSubmissionId",
+      "type": "String",
+      "nullable": true
+    },
+    {
+      "name": "latestSubmissionId",
+      "type": "String",
+      "nullable": true
+    },
+    {
+      "name": "lockVersion",
+      "type": "Integer",
+      "nullable": false
+    },
+    {
+      "name": "title",
+      "type": "String",
+      "nullable": true
+    },
+    {
+      "name": "organizationId",
+      "type": "String",
+      "nullable": true
+    },
+    {
+      "name": "submissions",
+      "type": "List<ReviewSubmissionView>",
+      "nullable": true
+    },
+    {
+      "name": "files",
+      "type": "List<ReviewMaterialView>",
+      "nullable": true
+    },
+    {
+      "name": "decisions",
+      "type": "List<ReviewDecisionView>",
+      "nullable": true
+    }
+  ],
+  "FileView": [
+    {
+      "name": "id",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "ownerRealm",
+      "type": "String",
+      "nullable": true
+    },
+    {
+      "name": "ownerId",
+      "type": "String",
+      "nullable": true
+    },
+    {
+      "name": "sha256",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "sizeBytes",
+      "type": "Long",
+      "nullable": false
+    },
+    {
+      "name": "mediaType",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "displayName",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "privacy",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "status",
+      "type": "String",
+      "nullable": false,
+      "enum": [
+        "UPLOADED",
+        "VERIFIED",
+        "REJECTED",
+        "DELETED",
+        "PURGED"
+      ]
+    },
+    {
+      "name": "createdAt",
+      "type": "String",
+      "nullable": true
+    }
+  ],
+  "TicketView": [
+    {
+      "name": "ticket",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "expiresIn",
+      "type": "Integer",
+      "nullable": false
+    },
+    {
+      "name": "path",
+      "type": "String",
+      "nullable": false
+    }
+  ],
+  "CleanupView": [
+    {
+      "name": "dryRun",
+      "type": "Boolean",
+      "nullable": false
+    },
+    {
+      "name": "retentionDays",
+      "type": "Integer",
+      "nullable": false
+    },
+    {
+      "name": "candidates",
+      "type": "Integer",
+      "nullable": false
+    },
+    {
+      "name": "removed",
+      "type": "Integer",
+      "nullable": false
+    },
+    {
+      "name": "alreadyMissing",
+      "type": "Integer",
+      "nullable": false
+    },
+    {
+      "name": "purged",
+      "type": "Integer",
+      "nullable": false
+    },
+    {
+      "name": "failed",
+      "type": "Integer",
+      "nullable": false
+    },
+    {
+      "name": "failedIds",
+      "type": "List<String>",
+      "nullable": false
+    }
+  ],
+  "EligibilityView": [
+    {
+      "name": "eligible",
+      "type": "Boolean",
+      "nullable": false
+    },
+    {
+      "name": "failedRequirementKeys",
+      "type": "List<String>",
+      "nullable": false
+    }
+  ],
+  "RequestView": [
+    {
+      "name": "id",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "status",
+      "type": "String",
+      "nullable": false
+    }
+  ],
+  "ReplacementResultView": [
+    {
+      "name": "oldArticleId",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "newArticleId",
+      "type": "String",
+      "nullable": false
+    }
+  ],
+  "ArchivedView": [
+    {
+      "name": "id",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "title",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "summary",
+      "type": "String",
+      "nullable": true
+    },
+    {
+      "name": "currentVersionId",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "effectiveTo",
+      "type": "String",
+      "nullable": true
+    }
+  ],
+  "FavoriteView": [
+    {
+      "name": "id",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "title",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "summary",
+      "type": "String",
+      "nullable": true
+    },
+    {
+      "name": "currentVersionId",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "createdAt",
+      "type": "String",
+      "nullable": true
+    }
+  ],
+  "HistoryView": [
+    {
+      "name": "id",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "title",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "lastBrowsedAt",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "browseCount",
+      "type": "Integer",
+      "nullable": false
+    }
+  ],
+  "BoxItemView": [
+    {
+      "name": "id",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "title",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "currentVersionId",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "unread",
+      "type": "Integer",
+      "nullable": false
+    },
+    {
+      "name": "contentType",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "publishedAt",
+      "type": "String",
+      "nullable": true
+    }
+  ],
+  "ReplacementTargetView": [
+    {
+      "name": "id",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "title",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "versionId",
+      "type": "String",
+      "nullable": false
+    }
+  ],
+  "ReplacementHintView": [
+    {
+      "name": "articleId",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "status",
+      "type": "String",
+      "nullable": false,
+      "enum": [
+        "NONE",
+        "AVAILABLE",
+        "UNAVAILABLE"
+      ]
+    },
+    {
+      "name": "target",
+      "type": "ReplacementTargetView",
+      "nullable": true
+    }
+  ],
+  "BoxView": [
+    {
+      "name": "id",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "userId",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "targetType",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "targetId",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "createdAt",
+      "type": "String",
+      "nullable": false,
+      "format": "date-time"
+    },
+    {
+      "name": "deletedAt",
+      "type": "String",
+      "nullable": true,
+      "format": "date-time"
+    },
+    {
+      "name": "name",
+      "type": "String",
+      "nullable": true
+    },
+    {
+      "name": "hidden",
+      "type": "Boolean",
+      "nullable": true
+    },
+    {
+      "name": "items",
+      "type": "List<BoxItemView>",
+      "nullable": false
+    },
+    {
+      "name": "unreadCount",
+      "type": "Long",
+      "nullable": false
+    },
+    {
+      "name": "replacement",
+      "type": "ReplacementHintView",
+      "nullable": true
+    },
+    {
+      "name": "boxKind",
+      "type": "String",
+      "nullable": false,
+      "enum": [
+        "CATEGORY",
+        "FOLLOWING",
+        "REPLACEMENT"
+      ]
+    },
+    {
+      "name": "pushEnabled",
+      "type": "Boolean",
+      "nullable": false
+    }
+  ],
+  "PageView": [
+    {
+      "name": "versionId",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "pageKey",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "versionNo",
+      "type": "Integer",
+      "nullable": false
+    },
+    {
+      "name": "title",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "content",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "publishedAt",
+      "type": "String",
+      "nullable": false
+    }
+  ],
+  "HomeView": [
+    {
+      "name": "banners",
+      "type": "List<HomeBannerView>",
+      "nullable": false
+    },
+    {
+      "name": "recommendations",
+      "type": "List<HomeRecommendationView>",
+      "nullable": false
+    },
+    {
+      "name": "activityColumns",
+      "type": "List<ColumnView>",
+      "nullable": false
+    }
+  ],
+  "AuditView": [
+    {
+      "name": "id",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "actorId",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "actorClient",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "action",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "objectType",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "objectId",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "requestId",
+      "type": "String",
+      "nullable": true
+    },
+    {
+      "name": "createdAt",
+      "type": "String",
+      "nullable": false
+    }
+  ],
+  "MetricView": [
+    {
+      "name": "metricDate",
+      "type": "String",
+      "nullable": true
+    },
+    {
+      "name": "metricKey",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "value",
+      "type": "Long",
+      "nullable": false
+    }
+  ],
+  "ContentMetricView": [
+    {
+      "name": "id",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "title",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "events",
+      "type": "Long",
+      "nullable": false
+    },
+    {
+      "name": "viewCount",
+      "type": "Long",
+      "nullable": false
+    },
+    {
+      "name": "viewerCount",
+      "type": "Long",
+      "nullable": false
+    },
+    {
+      "name": "favoriteCount",
+      "type": "Long",
+      "nullable": false
+    }
+  ],
+  "AnalyticsView": [
+    {
+      "name": "publicationCount",
+      "type": "Long",
+      "nullable": false
+    },
+    {
+      "name": "content",
+      "type": "List<ContentMetricView>",
+      "nullable": false
+    },
+    {
+      "name": "daily",
+      "type": "List<MetricView>",
+      "nullable": false
+    }
+  ],
+  "AggregateView": [
+    {
+      "name": "date",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "timezone",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "metrics",
+      "type": "List<MetricView>",
+      "nullable": false
+    }
+  ],
+  "BindingView": [
+    {
+      "name": "provider",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "appId",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "bindingState",
+      "type": "String",
+      "nullable": false
+    }
+  ],
+  "QuotaView": [
+    {
+      "name": "id",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "appId",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "channel",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "templateKey",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "available",
+      "type": "Integer",
+      "nullable": false
+    },
+    {
+      "name": "reserved",
+      "type": "Integer",
+      "nullable": false
+    },
+    {
+      "name": "consumed",
+      "type": "Integer",
+      "nullable": false
+    }
+  ],
+  "NotificationStatusView": [
+    {
+      "name": "bindings",
+      "type": "List<BindingView>",
+      "nullable": false
+    },
+    {
+      "name": "quotas",
+      "type": "List<QuotaView>",
+      "nullable": false
+    },
+    {
+      "name": "platformStatus",
+      "type": "String",
+      "nullable": false
+    }
+  ],
+  "TickView": [
+    {
+      "name": "planned",
+      "type": "Integer",
+      "nullable": false
+    },
+    {
+      "name": "processed",
+      "type": "Integer",
+      "nullable": false
+    },
+    {
+      "name": "platformStatus",
+      "type": "String",
+      "nullable": false
+    }
+  ],
+  "DepartmentScopeView": [
+    {
+      "name": "departmentId",
+      "type": "String",
+      "nullable": false
+    }
+  ],
+  "ReviewScopeView": [
+    {
+      "name": "organizationId",
+      "type": "String",
+      "nullable": true
+    }
+  ],
+  "AccessUserView": [
+    {
+      "name": "id",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "userName",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "nickName",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "deptId",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "status",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "departmentScope",
+      "type": "List<DepartmentScopeView>",
+      "nullable": false
+    },
+    {
+      "name": "reviewScope",
+      "type": "List<ReviewScopeView>",
+      "nullable": false
+    }
+  ],
+  "CatalogEntryView": [
+    {
+      "name": "id",
+      "type": "String",
+      "nullable": true
+    },
+    {
+      "name": "tenantId",
+      "type": "String",
+      "nullable": true
+    },
+    {
+      "name": "parentId",
+      "type": "String",
+      "nullable": true
+    },
+    {
+      "name": "code",
+      "type": "String",
+      "nullable": true
+    },
+    {
+      "name": "name",
+      "type": "String",
+      "nullable": true
+    },
+    {
+      "name": "description",
+      "type": "String",
+      "nullable": true
+    },
+    {
+      "name": "sortOrder",
+      "type": "Integer",
+      "nullable": true
+    },
+    {
+      "name": "status",
+      "type": "String",
+      "nullable": true
+    },
+    {
+      "name": "createdBy",
+      "type": "String",
+      "nullable": true
+    },
+    {
+      "name": "createdAt",
+      "type": "String",
+      "nullable": true
+    },
+    {
+      "name": "updatedBy",
+      "type": "String",
+      "nullable": true
+    },
+    {
+      "name": "updatedAt",
+      "type": "String",
+      "nullable": true
+    },
+    {
+      "name": "deletedAt",
+      "type": "String",
+      "nullable": true
+    },
+    {
+      "name": "lockVersion",
+      "type": "Integer",
+      "nullable": true
+    },
+    {
+      "name": "type",
+      "type": "String",
+      "nullable": true
+    },
+    {
+      "name": "shortName",
+      "type": "String",
+      "nullable": true
+    },
+    {
+      "name": "logoUrl",
+      "type": "String",
+      "nullable": true
+    },
+    {
+      "name": "displayName",
+      "type": "String",
+      "nullable": true
+    },
+    {
+      "name": "normalizedName",
+      "type": "String",
+      "nullable": true
+    }
+  ],
+  "HomeBannerView": [
+    {
+      "name": "id",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "title",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "imageUrl",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "linkType",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "linkValue",
+      "type": "String",
+      "nullable": false
+    }
+  ],
+  "HomeRecommendationView": [
+    {
+      "name": "id",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "articleId",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "title",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "summary",
+      "type": "String",
+      "nullable": true
+    },
+    {
+      "name": "coverUrl",
+      "type": "String",
+      "nullable": true
+    },
+    {
+      "name": "contentType",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "sourceName",
+      "type": "String",
+      "nullable": true
+    },
+    {
+      "name": "publishedAt",
+      "type": "String",
+      "nullable": true
+    },
+    {
+      "name": "effectiveFrom",
+      "type": "String",
+      "nullable": true,
+      "format": "date-time"
+    },
+    {
+      "name": "effectiveTo",
+      "type": "String",
+      "nullable": true,
+      "format": "date-time"
+    }
+  ],
+  "ModerationView": [
+    {
+      "name": "id",
+      "type": "String",
+      "nullable": true
+    },
+    {
+      "name": "userId",
+      "type": "String",
+      "nullable": true
+    },
+    {
+      "name": "articleId",
+      "type": "String",
+      "nullable": true
+    },
+    {
+      "name": "reportType",
+      "type": "String",
+      "nullable": true
+    },
+    {
+      "name": "reason",
+      "type": "String",
+      "nullable": true
+    },
+    {
+      "name": "status",
+      "type": "String",
+      "nullable": true
+    },
+    {
+      "name": "handledBy",
+      "type": "String",
+      "nullable": true
+    },
+    {
+      "name": "handledAt",
+      "type": "String",
+      "nullable": true,
+      "format": "date-time"
+    },
+    {
+      "name": "createdAt",
+      "type": "String",
+      "nullable": true,
+      "format": "date-time"
+    },
+    {
+      "name": "tenantId",
+      "type": "String",
+      "nullable": true
+    },
+    {
+      "name": "type",
+      "type": "String",
+      "nullable": true
+    },
+    {
+      "name": "description",
+      "type": "String",
+      "nullable": true
+    },
+    {
+      "name": "handlerId",
+      "type": "String",
+      "nullable": true
+    }
+  ],
+  "AdminPageSummaryView": [
+    {
+      "name": "id",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "pageKey",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "title",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "versionNo",
+      "type": "Integer",
+      "nullable": false
+    },
+    {
+      "name": "status",
+      "type": "String",
+      "nullable": false
+    }
+  ],
+  "NotificationDeliverySummaryView": [
+    {
+      "name": "id",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "articleId",
+      "type": "String",
+      "nullable": true
+    },
+    {
+      "name": "channel",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "status",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "errorCode",
+      "type": "String",
+      "nullable": true
+    },
+    {
+      "name": "sentAt",
+      "type": "String",
+      "nullable": true,
+      "format": "date-time"
+    },
+    {
+      "name": "createdAt",
+      "type": "String",
+      "nullable": false,
+      "format": "date-time"
+    },
+    {
+      "name": "ruleId",
+      "type": "String",
+      "nullable": true
+    },
+    {
+      "name": "articleVersionId",
+      "type": "String",
+      "nullable": true
+    },
+    {
+      "name": "attempts",
+      "type": "Integer",
+      "nullable": false
+    }
+  ],
+  "PublicActivityView": [
+    {
+      "name": "id",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "articleId",
+      "type": "String",
+      "nullable": true
+    },
+    {
+      "name": "title",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "organizationId",
+      "type": "String",
+      "nullable": true
+    },
+    {
+      "name": "registrationStart",
+      "type": "String",
+      "nullable": false,
+      "format": "date-time"
+    },
+    {
+      "name": "registrationEnd",
+      "type": "String",
+      "nullable": false,
+      "format": "date-time"
+    },
+    {
+      "name": "eventStart",
+      "type": "String",
+      "nullable": false,
+      "format": "date-time"
+    },
+    {
+      "name": "eventEnd",
+      "type": "String",
+      "nullable": false,
+      "format": "date-time"
+    },
+    {
+      "name": "capacity",
+      "type": "Integer",
+      "nullable": false
+    },
+    {
+      "name": "confirmedCount",
+      "type": "Integer",
+      "nullable": false
+    },
+    {
+      "name": "waitlistEnabled",
+      "type": "Boolean",
+      "nullable": false
+    },
+    {
+      "name": "status",
+      "type": "String",
+      "nullable": false,
+      "enum": [
+        "DRAFT",
+        "PUBLISHED",
+        "CLOSED"
+      ]
+    },
+    {
+      "name": "createdAt",
+      "type": "String",
+      "nullable": false,
+      "format": "date-time"
+    },
+    {
+      "name": "remaining",
+      "type": "Integer",
+      "nullable": true
+    },
+    {
+      "name": "form",
+      "type": "ActivityFormView",
+      "nullable": true
+    },
+    {
+      "name": "reviewCampaignIds",
+      "type": "List<String>",
+      "nullable": true
+    },
+    {
+      "name": "description",
+      "type": "String",
+      "nullable": true
+    },
+    {
+      "name": "coverUrl",
+      "type": "String",
+      "nullable": true
+    }
+  ],
+  "PublicCampaignView": [
+    {
+      "name": "id",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "organizationId",
+      "type": "String",
+      "nullable": true
+    },
+    {
+      "name": "articleId",
+      "type": "String",
+      "nullable": true
+    },
+    {
+      "name": "title",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "openAt",
+      "type": "String",
+      "nullable": false,
+      "format": "date-time"
+    },
+    {
+      "name": "closeAt",
+      "type": "String",
+      "nullable": false,
+      "format": "date-time"
+    },
+    {
+      "name": "ruleVersion",
+      "type": "Integer",
+      "nullable": false
+    },
+    {
+      "name": "status",
+      "type": "String",
+      "nullable": false,
+      "enum": [
+        "DRAFT",
+        "PUBLISHED",
+        "CLOSED"
+      ]
+    },
+    {
+      "name": "requirements",
+      "type": "List<ReviewRequirementView>",
+      "nullable": true
+    }
+  ],
+  "FollowLabelView": [
+    {
+      "name": "id",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "name",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "categoryId",
+      "type": "String",
+      "nullable": false
+    },
+    {
+      "name": "categoryName",
+      "type": "String",
+      "nullable": false
+    }
+  ]
+}

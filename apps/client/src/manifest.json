@@ -1,0 +1,9 @@
+{
+  "name": "云迹",
+  "appid": "",
+  "versionName": "0.1.0",
+  "versionCode": "100",
+  "vueVersion": "3",
+  "h5": { "router": { "mode": "hash" } },
+  "mp-weixin": { "appid": "wxa0842a9b01c0464b", "setting": { "urlCheck": false }, "usingComponents": true }
+}

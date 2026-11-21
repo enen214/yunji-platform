@@ -1,0 +1,6 @@
+com.sunshine.common.translation.config.TranslationConfig
+com.sunshine.common.translation.core.impl.DeptNameTranslationImpl
+com.sunshine.common.translation.core.impl.DictTypeTranslationImpl
+com.sunshine.common.translation.core.impl.OssUrlTranslationImpl
+com.sunshine.common.translation.core.impl.UserNameTranslationImpl
+com.sunshine.common.translation.core.impl.NicknameTranslationImpl

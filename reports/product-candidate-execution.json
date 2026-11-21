@@ -1,0 +1,68 @@
+{
+  "generatedAt": "2026-10-28T08:05:05.400964+00:00",
+  "sourceFingerprints": {
+    "backend": "174f59b4b9062c50536d196875be93e9583bf9d9ec0346575cb33762a7fa02ce",
+    "admin": "25e29947476c60b361d2b900fe64da7821a296654874b7349c0dcb03b340de1e",
+    "client": "08c1a2d19adb9c20055863b8ab6717c8b3ad30b80046e669a1250cb560c9d268"
+  },
+  "testSourceSha256": "8689c843d5d9f4c3af27f1c381a119c6fc8c895fda478872791a6b600662d925",
+  "sourceUnchanged": true,
+  "cases": [
+    {
+      "id": "build_acceptance",
+      "status": "PASS",
+      "exitCode": 0,
+      "log": "reports/product-run/build_acceptance.log"
+    },
+    {
+      "id": "product_baseline_acceptance",
+      "status": "PASS",
+      "exitCode": 0,
+      "log": "reports/product-run/product_baseline_acceptance.log"
+    },
+    {
+      "id": "product_browser_acceptance",
+      "status": "PASS",
+      "exitCode": 0,
+      "log": "reports/product-run/product_browser_acceptance.log"
+    },
+    {
+      "id": "workbench_demo_acceptance",
+      "status": "PASS",
+      "exitCode": 0,
+      "log": "reports/product-run/workbench_demo_acceptance.log"
+    },
+    {
+      "id": "operations_acceptance",
+      "status": "PASS",
+      "exitCode": 0,
+      "log": "reports/product-run/operations_acceptance.log"
+    },
+    {
+      "id": "install_snapshot",
+      "status": "PASS",
+      "exitCode": 0,
+      "log": "reports/product-run/install_snapshot.log"
+    },
+    {
+      "id": "client_compat_acceptance",
+      "status": "PASS",
+      "exitCode": 0,
+      "log": "reports/product-run/client_compat_acceptance.log"
+    },
+    {
+      "id": "wechat_login_acceptance",
+      "status": "PASS",
+      "exitCode": 0,
+      "log": "reports/product-run/wechat_login_acceptance.log"
+    },
+    {
+      "id": "provenance_audit",
+      "status": "PASS",
+      "exitCode": 0,
+      "log": "reports/product-run/provenance_audit.log"
+    }
+  ],
+  "passed": 9,
+  "failed": 0
+}

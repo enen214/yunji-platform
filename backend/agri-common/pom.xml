@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>cis4j</artifactId>
+        <groupId>com.sunshine</groupId>
+        <version>${revision}</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <modules>
+        <module>agri-common-bom</module>
+        <module>agri-common-social</module>
+        <module>agri-common-core</module>
+        <module>agri-common-doc</module>
+        <module>agri-common-excel</module>
+        <module>agri-common-idempotent</module>
+        <module>agri-common-job</module>
+        <module>agri-common-log</module>
+        <module>agri-common-mail</module>
+        <module>agri-common-mybatis</module>
+        <module>agri-common-oss</module>
+        <module>agri-common-ratelimiter</module>
+        <module>agri-common-redis</module>
+        <module>agri-common-satoken</module>
+        <module>agri-common-security</module>
+        <module>agri-common-sms</module>
+        <module>agri-common-web</module>
+        <module>agri-common-translation</module>
+        <module>agri-common-sensitive</module>
+        <module>agri-common-json</module>
+        <module>agri-common-encrypt</module>
+        <module>agri-common-tenant</module>
+        <module>agri-common-websocket</module>
+        <module>agri-common-sse</module>
+    </modules>
+
+    <artifactId>agri-common</artifactId>
+    <packaging>pom</packaging>
+
+    <description>
+        common 通用模块
+    </description>
+
+</project>

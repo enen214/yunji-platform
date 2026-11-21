@@ -1,0 +1,97 @@
+{
+  "scope": "NATIVE_WINDOWS_PRODUCTION_CONFIG_AND_DATABASE_REHEARSAL",
+  "linuxRuntimeVerified": false,
+  "startedAt": "2026-10-28T08:02:29.883081+00:00",
+  "sourceFingerprints": {
+    "backend": "174f59b4b9062c50536d196875be93e9583bf9d9ec0346575cb33762a7fa02ce",
+    "admin": "25e29947476c60b361d2b900fe64da7821a296654874b7349c0dcb03b340de1e",
+    "client": "08c1a2d19adb9c20055863b8ab6717c8b3ad30b80046e669a1250cb560c9d268"
+  },
+  "cases": [
+    {
+      "id": "new-production-database-initialize-no-fixtures",
+      "status": "PASS"
+    },
+    {
+      "id": "migration-checksum-repeatable",
+      "status": "PASS"
+    },
+    {
+      "id": "initialize-existing-database-refused",
+      "status": "PASS"
+    },
+    {
+      "id": "migration-concurrent-lock-refused",
+      "status": "PASS"
+    },
+    {
+      "id": "migration-checksum-tampering-refused",
+      "status": "PASS"
+    },
+    {
+      "id": "production-default-password-start-refused",
+      "status": "PASS"
+    },
+    {
+      "id": "production-admin-bootstrap",
+      "status": "PASS"
+    },
+    {
+      "id": "production-local-gateway-start-refused",
+      "status": "PASS"
+    },
+    {
+      "id": "production-short-token-start-refused",
+      "status": "PASS"
+    },
+    {
+      "id": "mixed-production-local-profile-refused",
+      "status": "PASS"
+    },
+    {
+      "id": "production-valid-config-start",
+      "status": "PASS"
+    },
+    {
+      "id": "production-local-login-entry-404",
+      "status": "PASS"
+    },
+    {
+      "id": "new-backup-database-and-files-checksums",
+      "status": "PASS"
+    },
+    {
+      "id": "restore-to-new-database-and-directory",
+      "status": "PASS"
+    },
+    {
+      "id": "restored-database-content-digest-matches",
+      "status": "PASS"
+    },
+    {
+      "id": "restored-private-file-digest-matches",
+      "status": "PASS"
+    },
+    {
+      "id": "restore-existing-target-refused",
+      "status": "PASS"
+    },
+    {
+      "id": "restore-tampered-backup-refused",
+      "status": "PASS"
+    },
+    {
+      "id": "restored-database-production-start",
+      "status": "PASS"
+    },
+    {
+      "id": "restored-production-local-login-entry-404",
+      "status": "PASS"
+    }
+  ],
+  "completedAt": "2026-10-28T08:04:31.188531+00:00",
+  "sourceUnchanged": true,
+  "logDirectory": "D:\\yunjiwxCongxie\\yunji-platform\\.runtime\\run-96f470f164",
+  "passed": 20,
+  "failed": 0
+}

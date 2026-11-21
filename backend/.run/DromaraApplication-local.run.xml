@@ -1,0 +1,34 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="DromaraApplication-local" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+    <module name="agri-admin" />
+    <option name="SPRING_BOOT_MAIN_CLASS" value="com.sunshine.DromaraApplication" />
+    <option name="ACTIVE_PROFILES" value="local" />
+    <option name="VM_PARAMETERS" value="-Dfile.encoding=UTF-8" />
+    <option name="PROGRAM_PARAMETERS" value="--server.port=18088 --server.address=127.0.0.1" />
+    <!-- 凭据值一律留空，由本机环境变量注入，仓库中不保存任何明文凭据。
+         本地运行前请自行填写：YUNJI_DB_PASSWORD、YUNJI_TOKEN_SECRET、YUNJI_IDENTITY_HMAC_KEY、YUNJI_WECHAT_SECRET。
+         WeChat AppSecret 从本地环境变量注入，不写入仓库。 -->
+    <envs>
+      <env name="YUNJI_PROFILE" value="local" />
+      <env name="YUNJI_API_PORT" value="18088" />
+      <env name="YUNJI_DB_URL" value="jdbc:mysql://127.0.0.1:3306/yunji_local?connectionTimeZone=UTC&amp;forceConnectionTimeZoneToSession=true&amp;characterEncoding=UTF-8" />
+      <env name="YUNJI_DB_USERNAME" value="root" />
+      <env name="YUNJI_DB_PASSWORD" value="" />
+      <env name="YUNJI_REDIS_HOST" value="127.0.0.1" />
+      <env name="YUNJI_REDIS_PORT" value="16379" />
+      <env name="YUNJI_REDIS_PASSWORD" value="yunji_local_redis" />
+      <env name="YUNJI_MONITOR_PASSWORD" value="monitor-local-2026" />
+      <env name="YUNJI_TOKEN_SECRET" value="" />
+      <env name="YUNJI_LOCAL_SECRET" value="yunji-local-secret-2026" />
+      <env name="YUNJI_STORAGE_ROOT" value="/Users/rcj/.yunji/storage" />
+      <env name="YUNJI_PUBLIC_TENANT" value="000000" />
+      <env name="YUNJI_IDENTITY_HMAC_KEY" value="" />
+      <env name="YUNJI_IDENTITY_ENCRYPTION_KEY" value="YWJjZGVmZ2hpamtsbW5vcHFyc3R1dnd4eXoxMjM0NTY=" />
+      <env name="YUNJI_WECHAT_APP_ID" value="wxa0842a9b01c0464b" />
+      <env name="YUNJI_WECHAT_LOCAL_SIMULATE" value="false" />
+    </envs>
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>

@@ -1,0 +1,3245 @@
+[
+  {
+    "featureId": "AUTH-01",
+    "domain": "身份",
+    "feature": "STAFF密码登录与退出",
+    "scope": "REWRITE",
+    "implementation": "LOCAL_IMPLEMENTATION_WITH_EVIDENCE",
+    "localTestId": "AUTH-01-LOCAL",
+    "external": "NONE",
+    "acceptance": "固定的本地场景验收；不证明所有组合、真实平台、Linux、容量或业务签字。",
+    "domainPackage": "identity",
+    "stage": "S1",
+    "dependsOnDomains": [],
+    "tables": [
+      "app_user",
+      "app_user_identity",
+      "user_consent"
+    ],
+    "routes": [
+      "POST /auth/login",
+      "POST /auth/logout"
+    ],
+    "plannedCaseIds": [
+      "AUTH-01-LOCAL-POS",
+      "AUTH-01-LOCAL-NEG",
+      "AUTH-01-LOCAL-CON"
+    ],
+    "executedCaseIds": [
+      "creator-password-login",
+      "framework-password-login",
+      "reviewer-password-login",
+      "staff-logout",
+      "staff-logout-session-invalid"
+    ],
+    "evidenceReport": "reports/latest.json",
+    "localVerification": "PASS",
+    "completeFeatureAcceptance": "LOCAL_SCENARIOS_PASSED"
+  },
+  {
+    "featureId": "AUTH-02",
+    "domain": "身份",
+    "feature": "CUSTOMER微信登录与退出",
+    "scope": "REWRITE",
+    "implementation": "LOCAL_IMPLEMENTATION_WITH_EVIDENCE",
+    "localTestId": "AUTH-02-LOCAL",
+    "external": "PLATFORM_PENDING",
+    "acceptance": "固定的本地场景验收；不证明所有组合、真实平台、Linux、容量或业务签字。",
+    "domainPackage": "identity",
+    "stage": "S1",
+    "dependsOnDomains": [],
+    "tables": [
+      "app_user",
+      "app_user_identity",
+      "user_consent"
+    ],
+    "routes": [
+      "POST /api/v1/auth/customer/wechat",
+      "POST /api/v1/auth/customer/logout"
+    ],
+    "plannedCaseIds": [
+      "AUTH-02-LOCAL-POS",
+      "AUTH-02-LOCAL-NEG",
+      "AUTH-02-LOCAL-CON"
+    ],
+    "executedCaseIds": [
+      "customer-auth-durable-audit",
+      "customer-logout",
+      "customer-logout-session-invalid",
+      "identity-subject-encrypted",
+      "wechat-business-local-exchange",
+      "wechat-code-replay-denied"
+    ],
+    "evidenceReport": "reports/latest.json",
+    "localVerification": "PASS",
+    "completeFeatureAcceptance": "LOCAL_SCENARIOS_PASSED_PLATFORM_PENDING"
+  },
+  {
+    "featureId": "AUTH-03",
+    "domain": "身份",
+    "feature": "本地合成用户登录",
+    "scope": "REWRITE",
+    "implementation": "LOCAL_IMPLEMENTATION_WITH_EVIDENCE",
+    "localTestId": "AUTH-03-LOCAL",
+    "external": "NONE",
+    "acceptance": "固定的本地场景验收；不证明所有组合、真实平台、Linux、容量或业务签字。",
+    "domainPackage": "identity",
+    "stage": "S1",
+    "dependsOnDomains": [],
+    "tables": [
+      "app_user",
+      "app_user_identity",
+      "user_consent"
+    ],
+    "routes": [
+      "POST /api/v1/auth/customer/local"
+    ],
+    "plannedCaseIds": [
+      "AUTH-03-LOCAL-POS",
+      "AUTH-03-LOCAL-NEG",
+      "AUTH-03-LOCAL-CON"
+    ],
+    "executedCaseIds": [
+      "customer-auth-durable-audit",
+      "customer-logout",
+      "customer-logout-session-invalid",
+      "customer-single-use-code",
+      "local-code-secret"
+    ],
+    "evidenceReport": "reports/latest.json",
+    "localVerification": "PASS",
+    "completeFeatureAcceptance": "LOCAL_SCENARIOS_PASSED"
+  },
+  {
+    "featureId": "AUTH-04",
+    "domain": "身份",
+    "feature": "用户资料编辑",
+    "scope": "REWRITE",
+    "implementation": "LOCAL_IMPLEMENTATION_WITH_EVIDENCE",
+    "localTestId": "AUTH-04-LOCAL",
+    "external": "NONE",
+    "acceptance": "固定的本地场景验收；不证明所有组合、真实平台、Linux、容量或业务签字。",
+    "domainPackage": "identity",
+    "stage": "S1",
+    "dependsOnDomains": [],
+    "tables": [
+      "app_user",
+      "app_user_identity",
+      "user_consent"
+    ],
+    "routes": [
+      "GET /api/v1/me/profile",
+      "PATCH /api/v1/me/profile"
+    ],
+    "plannedCaseIds": [
+      "AUTH-04-LOCAL-POS",
+      "AUTH-04-LOCAL-NEG",
+      "AUTH-04-LOCAL-CON"
+    ],
+    "executedCaseIds": [
+      "anonymous-protected",
+      "customer-profile",
+      "profile-invalid-org"
+    ],
+    "evidenceReport": "reports/latest.json",
+    "localVerification": "PASS",
+    "completeFeatureAcceptance": "LOCAL_SCENARIOS_PASSED"
+  },
+  {
+    "featureId": "AUTH-05",
+    "domain": "身份",
+    "feature": "手机号/微信身份绑定",
+    "scope": "CANDIDATE_CONFIRM",
+    "implementation": "CANDIDATE_NOT_IN_BASELINE",
+    "localTestId": "AUTH-05-LOCAL",
+    "external": "NONE",
+    "acceptance": "固定的本地场景验收；不证明所有组合、真实平台、Linux、容量或业务签字。",
+    "domainPackage": "identity",
+    "stage": "S1",
+    "dependsOnDomains": [],
+    "tables": [
+      "app_user",
+      "app_user_identity",
+      "user_consent"
+    ],
+    "routes": [
+      "POST /api/v1/me/identity-bindings"
+    ],
+    "plannedCaseIds": [
+      "AUTH-05-LOCAL-POS",
+      "AUTH-05-LOCAL-NEG",
+      "AUTH-05-LOCAL-CON"
+    ],
+    "executedCaseIds": [],
+    "evidenceReport": null,
+    "localVerification": "NOT_IN_BASELINE",
+    "completeFeatureAcceptance": "NOT_IN_BASELINE"
+  },
+  {
+    "featureId": "AUTH-06",
+    "domain": "身份",
+    "feature": "协议同意与账号注销",
+    "scope": "REWRITE",
+    "implementation": "LOCAL_IMPLEMENTATION_WITH_EVIDENCE",
+    "localTestId": "AUTH-06-LOCAL",
+    "external": "NONE",
+    "acceptance": "固定的本地场景验收；不证明所有组合、真实平台、Linux、容量或业务签字。",
+    "domainPackage": "identity",
+    "stage": "S1",
+    "dependsOnDomains": [],
+    "tables": [
+      "app_user",
+      "app_user_identity",
+      "user_consent"
+    ],
+    "routes": [
+      "POST /api/v1/me/consents",
+      "POST /api/v1/me/closure"
+    ],
+    "plannedCaseIds": [
+      "AUTH-06-LOCAL-POS",
+      "AUTH-06-LOCAL-NEG",
+      "AUTH-06-LOCAL-CON"
+    ],
+    "executedCaseIds": [
+      "close-account",
+      "close-explicit-confirmation",
+      "closed-session-invalid",
+      "consent-version"
+    ],
+    "evidenceReport": "reports/latest.json",
+    "localVerification": "PASS",
+    "completeFeatureAcceptance": "LOCAL_SCENARIOS_PASSED"
+  },
+  {
+    "featureId": "CAT-01",
+    "domain": "目录",
+    "feature": "分类树与维护",
+    "scope": "REWRITE",
+    "implementation": "LOCAL_IMPLEMENTATION_WITH_EVIDENCE",
+    "localTestId": "CAT-01-LOCAL",
+    "external": "NONE",
+    "acceptance": "固定的本地场景验收；不证明所有组合、真实平台、Linux、容量或业务签字。",
+    "domainPackage": "catalog",
+    "stage": "S2",
+    "dependsOnDomains": [
+      "AUTH"
+    ],
+    "tables": [
+      "content_category",
+      "organization",
+      "keyword",
+      "keyword_alias"
+    ],
+    "routes": [
+      "GET /api/v1/catalog/categories",
+      "POST /api/v1/staff/catalog/categories",
+      "PATCH /api/v1/staff/catalog/categories/{id}"
+    ],
+    "plannedCaseIds": [
+      "CAT-01-LOCAL-POS",
+      "CAT-01-LOCAL-NEG",
+      "CAT-01-LOCAL-CON"
+    ],
+    "executedCaseIds": [
+      "catalog-cycle-denied",
+      "categories-deleted-hidden-public",
+      "categories-edit-current-version",
+      "categories-soft-delete",
+      "categories-stale-edit-denied",
+      "category-unique-code",
+      "label-reject-cycle",
+      "label-reject-cross-board-parent",
+      "article-reject-cross-board-label"
+    ],
+    "evidenceReport": "reports/latest.json",
+    "localVerification": "PASS",
+    "completeFeatureAcceptance": "LOCAL_SCENARIOS_PASSED"
+  },
+  {
+    "featureId": "CAT-02",
+    "domain": "目录",
+    "feature": "学校学院部门维护",
+    "scope": "REWRITE",
+    "implementation": "LOCAL_IMPLEMENTATION_WITH_EVIDENCE",
+    "localTestId": "CAT-02-LOCAL",
+    "external": "NONE",
+    "acceptance": "固定的本地场景验收；不证明所有组合、真实平台、Linux、容量或业务签字。",
+    "domainPackage": "catalog",
+    "stage": "S2",
+    "dependsOnDomains": [
+      "AUTH"
+    ],
+    "tables": [
+      "content_category",
+      "organization",
+      "keyword",
+      "keyword_alias"
+    ],
+    "routes": [
+      "GET /api/v1/catalog/organizations",
+      "POST /api/v1/staff/catalog/organizations",
+      "PATCH /api/v1/staff/catalog/organizations/{id}"
+    ],
+    "plannedCaseIds": [
+      "CAT-02-LOCAL-POS",
+      "CAT-02-LOCAL-NEG",
+      "CAT-02-LOCAL-CON"
+    ],
+    "executedCaseIds": [
+      "organization-created",
+      "organizations-deleted-hidden-public",
+      "organizations-edit-current-version",
+      "organizations-soft-delete",
+      "organizations-stale-edit-denied"
+    ],
+    "evidenceReport": "reports/latest.json",
+    "localVerification": "PASS",
+    "completeFeatureAcceptance": "LOCAL_SCENARIOS_PASSED"
+  },
+  {
+    "featureId": "CAT-03",
+    "domain": "目录",
+    "feature": "关键词搜索与维护",
+    "scope": "REWRITE",
+    "implementation": "LOCAL_IMPLEMENTATION_WITH_EVIDENCE",
+    "localTestId": "CAT-03-LOCAL",
+    "external": "NONE",
+    "acceptance": "固定的本地场景验收；不证明所有组合、真实平台、Linux、容量或业务签字。",
+    "domainPackage": "catalog",
+    "stage": "S2",
+    "dependsOnDomains": [
+      "AUTH"
+    ],
+    "tables": [
+      "content_category",
+      "organization",
+      "keyword",
+      "keyword_alias"
+    ],
+    "routes": [
+      "GET /api/v1/catalog/keywords",
+      "POST /api/v1/staff/catalog/keywords",
+      "PATCH /api/v1/staff/catalog/keywords/{id}"
+    ],
+    "plannedCaseIds": [
+      "CAT-03-LOCAL-POS",
+      "CAT-03-LOCAL-NEG",
+      "CAT-03-LOCAL-CON"
+    ],
+    "executedCaseIds": [
+      "keyword-search",
+      "keywords-deleted-hidden-public",
+      "keywords-edit-current-version",
+      "keywords-soft-delete",
+      "keywords-stale-edit-denied"
+    ],
+    "evidenceReport": "reports/latest.json",
+    "localVerification": "PASS",
+    "completeFeatureAcceptance": "LOCAL_SCENARIOS_PASSED"
+  },
+  {
+    "featureId": "CAT-04",
+    "domain": "目录",
+    "feature": "类型+组织筛选",
+    "scope": "REWRITE",
+    "implementation": "LOCAL_IMPLEMENTATION_WITH_EVIDENCE",
+    "localTestId": "CAT-04-LOCAL",
+    "external": "NONE",
+    "acceptance": "固定的本地场景验收；不证明所有组合、真实平台、Linux、容量或业务签字。",
+    "domainPackage": "catalog",
+    "stage": "S2",
+    "dependsOnDomains": [
+      "AUTH"
+    ],
+    "tables": [
+      "content_category",
+      "organization",
+      "keyword",
+      "keyword_alias"
+    ],
+    "routes": [
+      "GET /api/v1/articles"
+    ],
+    "plannedCaseIds": [
+      "CAT-04-LOCAL-POS",
+      "CAT-04-LOCAL-NEG",
+      "CAT-04-LOCAL-CON"
+    ],
+    "executedCaseIds": [
+      "combined-filter-no-cross-org"
+    ],
+    "evidenceReport": "reports/latest.json",
+    "localVerification": "PASS",
+    "completeFeatureAcceptance": "LOCAL_SCENARIOS_PASSED"
+  },
+  {
+    "featureId": "CAT-05",
+    "domain": "目录",
+    "feature": "关键词别名与治理",
+    "scope": "REWRITE",
+    "implementation": "LOCAL_IMPLEMENTATION_WITH_EVIDENCE",
+    "localTestId": "CAT-05-LOCAL",
+    "external": "NONE",
+    "acceptance": "固定的本地场景验收；不证明所有组合、真实平台、Linux、容量或业务签字。",
+    "domainPackage": "catalog",
+    "stage": "S2",
+    "dependsOnDomains": [
+      "AUTH"
+    ],
+    "tables": [
+      "content_category",
+      "organization",
+      "keyword",
+      "keyword_alias"
+    ],
+    "routes": [
+      "POST /api/v1/staff/catalog/keywords/{id}/aliases"
+    ],
+    "plannedCaseIds": [
+      "CAT-05-LOCAL-POS",
+      "CAT-05-LOCAL-NEG",
+      "CAT-05-LOCAL-CON"
+    ],
+    "executedCaseIds": [
+      "keyword-alias-search",
+      "keyword-alias-unique"
+    ],
+    "evidenceReport": "reports/latest.json",
+    "localVerification": "PASS",
+    "completeFeatureAcceptance": "LOCAL_SCENARIOS_PASSED"
+  },
+  {
+    "featureId": "CAT-06",
+    "domain": "目录",
+    "feature": "可选组合订阅",
+    "scope": "CANDIDATE_CONFIRM",
+    "implementation": "CANDIDATE_NOT_IN_BASELINE",
+    "localTestId": "CAT-06-LOCAL",
+    "external": "NONE",
+    "acceptance": "固定的本地场景验收；不证明所有组合、真实平台、Linux、容量或业务签字。",
+    "domainPackage": "catalog",
+    "stage": "S2",
+    "dependsOnDomains": [
+      "AUTH"
+    ],
+    "tables": [
+      "content_category",
+      "organization",
+      "keyword",
+      "keyword_alias"
+    ],
+    "routes": [
+      "PUT /api/v1/me/filter-subscriptions",
+      "DELETE /api/v1/me/filter-subscriptions/{id}"
+    ],
+    "plannedCaseIds": [
+      "CAT-06-LOCAL-POS",
+      "CAT-06-LOCAL-NEG",
+      "CAT-06-LOCAL-CON"
+    ],
+    "executedCaseIds": [],
+    "evidenceReport": null,
+    "localVerification": "NOT_IN_BASELINE",
+    "completeFeatureAcceptance": "NOT_IN_BASELINE"
+  },
+  {
+    "featureId": "ART-01",
+    "domain": "资讯",
+    "feature": "草稿创建",
+    "scope": "REWRITE",
+    "implementation": "LOCAL_IMPLEMENTATION_WITH_EVIDENCE",
+    "localTestId": "ART-01-LOCAL",
+    "external": "NONE",
+    "acceptance": "固定的本地场景验收；不证明所有组合、真实平台、Linux、容量或业务签字。",
+    "domainPackage": "article",
+    "stage": "S3",
+    "dependsOnDomains": [
+      "AUTH",
+      "CAT"
+    ],
+    "tables": [
+      "article",
+      "article_version",
+      "article_review",
+      "article_*_rel",
+      "outbox_event"
+    ],
+    "routes": [
+      "POST /api/v1/staff/articles"
+    ],
+    "plannedCaseIds": [
+      "ART-01-LOCAL-POS",
+      "ART-01-LOCAL-NEG",
+      "ART-01-LOCAL-CON"
+    ],
+    "executedCaseIds": [
+      "article-create-dedup",
+      "idempotency-body-conflict"
+    ],
+    "evidenceReport": "reports/latest.json",
+    "localVerification": "PASS",
+    "completeFeatureAcceptance": "LOCAL_SCENARIOS_PASSED"
+  },
+  {
+    "featureId": "ART-02",
+    "domain": "资讯",
+    "feature": "草稿编辑与版本",
+    "scope": "REWRITE",
+    "implementation": "LOCAL_IMPLEMENTATION_WITH_EVIDENCE",
+    "localTestId": "ART-02-LOCAL",
+    "external": "NONE",
+    "acceptance": "固定的本地场景验收；不证明所有组合、真实平台、Linux、容量或业务签字。",
+    "domainPackage": "article",
+    "stage": "S3",
+    "dependsOnDomains": [
+      "AUTH",
+      "CAT"
+    ],
+    "tables": [
+      "article",
+      "article_version",
+      "article_review",
+      "article_*_rel",
+      "outbox_event"
+    ],
+    "routes": [
+      "PUT /api/v1/staff/articles/{id}",
+      "GET /api/v1/staff/articles/{id}/versions"
+    ],
+    "plannedCaseIds": [
+      "ART-02-LOCAL-POS",
+      "ART-02-LOCAL-NEG",
+      "ART-02-LOCAL-CON"
+    ],
+    "executedCaseIds": [
+      "article-immutable-revisions",
+      "optimistic-conflict",
+      "revision-keeps-public-during-review",
+      "revision-keeps-public-v1"
+    ],
+    "evidenceReport": "reports/latest.json",
+    "localVerification": "PASS",
+    "completeFeatureAcceptance": "LOCAL_SCENARIOS_PASSED"
+  },
+  {
+    "featureId": "ART-03",
+    "domain": "资讯",
+    "feature": "提交审核/撤回",
+    "scope": "REWRITE",
+    "implementation": "LOCAL_IMPLEMENTATION_WITH_EVIDENCE",
+    "localTestId": "ART-03-LOCAL",
+    "external": "NONE",
+    "acceptance": "固定的本地场景验收；不证明所有组合、真实平台、Linux、容量或业务签字。",
+    "domainPackage": "article",
+    "stage": "S3",
+    "dependsOnDomains": [
+      "AUTH",
+      "CAT"
+    ],
+    "tables": [
+      "article",
+      "article_version",
+      "article_review",
+      "article_*_rel",
+      "outbox_event"
+    ],
+    "routes": [
+      "POST /api/v1/staff/articles/{id}/submit",
+      "POST /api/v1/staff/articles/{id}/withdraw"
+    ],
+    "plannedCaseIds": [
+      "ART-03-LOCAL-POS",
+      "ART-03-LOCAL-NEG",
+      "ART-03-LOCAL-CON"
+    ],
+    "executedCaseIds": [
+      "article-rejected-version-cannot-resubmit",
+      "article-withdraw-clears-review-pointer",
+      "article-withdraw-submitted",
+      "revision-submit",
+      "submit-version"
+    ],
+    "evidenceReport": "reports/latest.json",
+    "localVerification": "PASS",
+    "completeFeatureAcceptance": "LOCAL_SCENARIOS_PASSED"
+  },
+  {
+    "featureId": "ART-04",
+    "domain": "资讯",
+    "feature": "审核退回/通过",
+    "scope": "REWRITE",
+    "implementation": "LOCAL_IMPLEMENTATION_WITH_EVIDENCE",
+    "localTestId": "ART-04-LOCAL",
+    "external": "NONE",
+    "acceptance": "固定的本地场景验收；不证明所有组合、真实平台、Linux、容量或业务签字。",
+    "domainPackage": "article",
+    "stage": "S3",
+    "dependsOnDomains": [
+      "AUTH",
+      "CAT"
+    ],
+    "tables": [
+      "article",
+      "article_version",
+      "article_review",
+      "article_*_rel",
+      "outbox_event"
+    ],
+    "routes": [
+      "POST /api/v1/staff/articles/{id}/review"
+    ],
+    "plannedCaseIds": [
+      "ART-04-LOCAL-POS",
+      "ART-04-LOCAL-NEG",
+      "ART-04-LOCAL-CON"
+    ],
+    "executedCaseIds": [
+      "approve-exact-version",
+      "article-reject-requires-reason",
+      "article-reject-submitted",
+      "article-rejected-version-cannot-resubmit",
+      "revision-approve"
+    ],
+    "evidenceReport": "reports/latest.json",
+    "localVerification": "PASS",
+    "completeFeatureAcceptance": "LOCAL_SCENARIOS_PASSED"
+  },
+  {
+    "featureId": "ART-05",
+    "domain": "资讯",
+    "feature": "发布/下线",
+    "scope": "REWRITE",
+    "implementation": "LOCAL_IMPLEMENTATION_WITH_EVIDENCE",
+    "localTestId": "ART-05-LOCAL",
+    "external": "NONE",
+    "acceptance": "固定的本地场景验收；不证明所有组合、真实平台、Linux、容量或业务签字。",
+    "domainPackage": "article",
+    "stage": "S3",
+    "dependsOnDomains": [
+      "AUTH",
+      "CAT"
+    ],
+    "tables": [
+      "article",
+      "article_version",
+      "article_review",
+      "article_*_rel",
+      "outbox_event"
+    ],
+    "routes": [
+      "POST /api/v1/staff/articles/{id}/publish",
+      "POST /api/v1/staff/articles/{id}/offline"
+    ],
+    "plannedCaseIds": [
+      "ART-05-LOCAL-POS",
+      "ART-05-LOCAL-NEG",
+      "ART-05-LOCAL-CON"
+    ],
+    "executedCaseIds": [
+      "article-offline-body-inaccessible",
+      "article-offline-published",
+      "article-publish-outbox",
+      "article-stale-offline-conflict",
+      "creator-cannot-publish",
+      "publish-approved",
+      "publish-unapproved-state-denied",
+      "revision-publish"
+    ],
+    "evidenceReport": "reports/latest.json",
+    "localVerification": "PASS",
+    "completeFeatureAcceptance": "LOCAL_SCENARIOS_PASSED"
+  },
+  {
+    "featureId": "ART-06",
+    "domain": "资讯",
+    "feature": "公开列表分页",
+    "scope": "REWRITE",
+    "implementation": "LOCAL_IMPLEMENTATION_WITH_EVIDENCE",
+    "localTestId": "ART-06-LOCAL",
+    "external": "NONE",
+    "acceptance": "固定的本地场景验收；不证明所有组合、真实平台、Linux、容量或业务签字。",
+    "domainPackage": "article",
+    "stage": "S3",
+    "dependsOnDomains": [
+      "AUTH",
+      "CAT"
+    ],
+    "tables": [
+      "article",
+      "article_version",
+      "article_review",
+      "article_*_rel",
+      "outbox_event"
+    ],
+    "routes": [
+      "GET /api/v1/articles"
+    ],
+    "plannedCaseIds": [
+      "ART-06-LOCAL-POS",
+      "ART-06-LOCAL-NEG",
+      "ART-06-LOCAL-CON"
+    ],
+    "executedCaseIds": [
+      "draft-not-public"
+    ],
+    "evidenceReport": "reports/latest.json",
+    "localVerification": "PASS",
+    "completeFeatureAcceptance": "LOCAL_SCENARIOS_PASSED"
+  },
+  {
+    "featureId": "ART-07",
+    "domain": "资讯",
+    "feature": "详情与来源",
+    "scope": "REWRITE",
+    "implementation": "LOCAL_IMPLEMENTATION_WITH_EVIDENCE",
+    "localTestId": "ART-07-LOCAL",
+    "external": "NONE",
+    "acceptance": "固定的本地场景验收；不证明所有组合、真实平台、Linux、容量或业务签字。",
+    "domainPackage": "article",
+    "stage": "S3",
+    "dependsOnDomains": [
+      "AUTH",
+      "CAT"
+    ],
+    "tables": [
+      "article",
+      "article_version",
+      "article_review",
+      "article_*_rel",
+      "outbox_event"
+    ],
+    "routes": [
+      "GET /api/v1/articles/{id}"
+    ],
+    "plannedCaseIds": [
+      "ART-07-LOCAL-POS",
+      "ART-07-LOCAL-NEG",
+      "ART-07-LOCAL-CON"
+    ],
+    "executedCaseIds": [
+      "article-offline-body-inaccessible",
+      "draft-not-public",
+      "public-source",
+      "published-html-sanitized"
+    ],
+    "evidenceReport": "reports/latest.json",
+    "localVerification": "PASS",
+    "completeFeatureAcceptance": "LOCAL_SCENARIOS_PASSED"
+  },
+  {
+    "featureId": "ART-08",
+    "domain": "资讯",
+    "feature": "搜索与筛选",
+    "scope": "REWRITE",
+    "implementation": "LOCAL_IMPLEMENTATION_WITH_EVIDENCE",
+    "localTestId": "ART-08-LOCAL",
+    "external": "NONE",
+    "acceptance": "固定的本地场景验收；不证明所有组合、真实平台、Linux、容量或业务签字。",
+    "domainPackage": "article",
+    "stage": "S3",
+    "dependsOnDomains": [
+      "AUTH",
+      "CAT"
+    ],
+    "tables": [
+      "article",
+      "article_version",
+      "article_review",
+      "article_*_rel",
+      "outbox_event"
+    ],
+    "routes": [
+      "GET /api/v1/articles"
+    ],
+    "plannedCaseIds": [
+      "ART-08-LOCAL-POS",
+      "ART-08-LOCAL-NEG",
+      "ART-08-LOCAL-CON"
+    ],
+    "executedCaseIds": [
+      "combined-filter-no-cross-org",
+      "content-search-match",
+      "literal-like-escaping",
+      "search-filter-and-paginate",
+      "search-pages-do-not-repeat",
+      "search-cursor-binds-filter",
+      "search-reject-unknown-type"
+    ],
+    "evidenceReport": "reports/latest.json",
+    "localVerification": "PASS",
+    "completeFeatureAcceptance": "LOCAL_SCENARIOS_PASSED"
+  },
+  {
+    "featureId": "ART-09",
+    "domain": "资讯",
+    "feature": "内容替换追踪",
+    "scope": "REWRITE",
+    "implementation": "LOCAL_IMPLEMENTATION_WITH_EVIDENCE",
+    "localTestId": "ART-09-LOCAL",
+    "external": "NONE",
+    "acceptance": "固定的本地场景验收；不证明所有组合、真实平台、Linux、容量或业务签字。",
+    "domainPackage": "article",
+    "stage": "S3",
+    "dependsOnDomains": [
+      "AUTH",
+      "CAT"
+    ],
+    "tables": [
+      "article",
+      "article_version",
+      "article_review",
+      "article_*_rel",
+      "outbox_event"
+    ],
+    "routes": [
+      "POST /api/v1/staff/articles/{id}/replacements",
+      "POST /api/v1/me/replacement-decisions"
+    ],
+    "plannedCaseIds": [
+      "ART-09-LOCAL-POS",
+      "ART-09-LOCAL-NEG",
+      "ART-09-LOCAL-CON"
+    ],
+    "executedCaseIds": [
+      "content-replacement",
+      "replacement-chain-final-target",
+      "replacement-confirmation-replay",
+      "replacement-cycle-denied",
+      "replacement-explicit-confirmation",
+      "replacement-hidden-original-target",
+      "replacement-hidden-target-redacted",
+      "replacement-history-preserved",
+      "replacement-follow-auto-migrated",
+      "replacement-old-offline",
+      "replacement-original-follow-ended",
+      "replacement-other-customer-denied",
+      "replacement-public-none",
+      "replacement-self-denied",
+      "replacement-stale-confirmation",
+      "replacement-unknown-source-denied",
+      "replacement-withdrawn-body-denied"
+    ],
+    "evidenceReport": "reports/latest.json",
+    "localVerification": "PASS",
+    "completeFeatureAcceptance": "LOCAL_SCENARIOS_PASSED"
+  },
+  {
+    "featureId": "ART-10",
+    "domain": "资讯",
+    "feature": "有效期/过期视图",
+    "scope": "REWRITE",
+    "implementation": "LOCAL_IMPLEMENTATION_WITH_EVIDENCE",
+    "localTestId": "ART-10-LOCAL",
+    "external": "NONE",
+    "acceptance": "固定的本地场景验收；不证明所有组合、真实平台、Linux、容量或业务签字。",
+    "domainPackage": "article",
+    "stage": "S3",
+    "dependsOnDomains": [
+      "AUTH",
+      "CAT"
+    ],
+    "tables": [
+      "article",
+      "article_version",
+      "article_review",
+      "article_*_rel",
+      "outbox_event"
+    ],
+    "routes": [
+      "GET /api/v1/staff/articles",
+      "GET /api/v1/me/articles/archive"
+    ],
+    "plannedCaseIds": [
+      "ART-10-LOCAL-POS",
+      "ART-10-LOCAL-NEG",
+      "ART-10-LOCAL-CON"
+    ],
+    "executedCaseIds": [
+      "expired-archive-view",
+      "expired-not-current-feed"
+    ],
+    "evidenceReport": "reports/latest.json",
+    "localVerification": "PASS",
+    "completeFeatureAcceptance": "LOCAL_SCENARIOS_PASSED"
+  },
+  {
+    "featureId": "SUB-01",
+    "domain": "订阅",
+    "feature": "关键词订阅/取消",
+    "scope": "REWRITE",
+    "implementation": "LOCAL_IMPLEMENTATION_WITH_EVIDENCE",
+    "localTestId": "SUB-01-LOCAL",
+    "external": "NONE",
+    "acceptance": "固定的本地场景验收；不证明所有组合、真实平台、Linux、容量或业务签字。",
+    "domainPackage": "subscription",
+    "stage": "S4",
+    "dependsOnDomains": [
+      "AUTH",
+      "CAT",
+      "ART"
+    ],
+    "tables": [
+      "user_follow",
+      "subscription_box_preference"
+    ],
+    "routes": [
+      "PUT /api/v1/me/follows",
+      "DELETE /api/v1/me/follows/{targetType}/{targetId}"
+    ],
+    "plannedCaseIds": [
+      "SUB-01-LOCAL-POS",
+      "SUB-01-LOCAL-NEG",
+      "SUB-01-LOCAL-CON"
+    ],
+    "executedCaseIds": [
+      "keyword-follow"
+    ],
+    "evidenceReport": "reports/latest.json",
+    "localVerification": "PASS",
+    "completeFeatureAcceptance": "LOCAL_SCENARIOS_PASSED"
+  },
+  {
+    "featureId": "SUB-02",
+    "domain": "订阅",
+    "feature": "内容关注/取消",
+    "scope": "REWRITE",
+    "implementation": "LOCAL_IMPLEMENTATION_WITH_EVIDENCE",
+    "localTestId": "SUB-02-LOCAL",
+    "external": "NONE",
+    "acceptance": "固定的本地场景验收；不证明所有组合、真实平台、Linux、容量或业务签字。",
+    "domainPackage": "subscription",
+    "stage": "S4",
+    "dependsOnDomains": [
+      "AUTH",
+      "CAT",
+      "ART"
+    ],
+    "tables": [
+      "user_follow",
+      "subscription_box_preference"
+    ],
+    "routes": [
+      "PUT /api/v1/me/follows",
+      "DELETE /api/v1/me/follows/{targetType}/{targetId}"
+    ],
+    "plannedCaseIds": [
+      "SUB-02-LOCAL-POS",
+      "SUB-02-LOCAL-NEG",
+      "SUB-02-LOCAL-CON"
+    ],
+    "executedCaseIds": [
+      "article-follow",
+      "replacement-explicit-confirmation",
+      "replacement-follow-auto-migrated",
+      "replacement-original-follow-ended",
+      "replacement-other-customer-denied"
+    ],
+    "evidenceReport": "reports/latest.json",
+    "localVerification": "PASS",
+    "completeFeatureAcceptance": "LOCAL_SCENARIOS_PASSED"
+  },
+  {
+    "featureId": "SUB-03",
+    "domain": "订阅",
+    "feature": "关注列表",
+    "scope": "REWRITE",
+    "implementation": "LOCAL_IMPLEMENTATION_WITH_EVIDENCE",
+    "localTestId": "SUB-03-LOCAL",
+    "external": "NONE",
+    "acceptance": "固定的本地场景验收；不证明所有组合、真实平台、Linux、容量或业务签字。",
+    "domainPackage": "subscription",
+    "stage": "S4",
+    "dependsOnDomains": [
+      "AUTH",
+      "CAT",
+      "ART"
+    ],
+    "tables": [
+      "user_follow",
+      "subscription_box_preference"
+    ],
+    "routes": [
+      "GET /api/v1/me/follows"
+    ],
+    "plannedCaseIds": [
+      "SUB-03-LOCAL-POS",
+      "SUB-03-LOCAL-NEG",
+      "SUB-03-LOCAL-CON"
+    ],
+    "executedCaseIds": [
+      "subscription-boxes",
+      "label-box-unread-exact-membership",
+      "label-read-decrements-box"
+    ],
+    "evidenceReport": "reports/latest.json",
+    "localVerification": "PASS",
+    "completeFeatureAcceptance": "LOCAL_SCENARIOS_PASSED"
+  },
+  {
+    "featureId": "SUB-04",
+    "domain": "订阅",
+    "feature": "订阅聚合盒子",
+    "scope": "REWRITE",
+    "implementation": "LOCAL_IMPLEMENTATION_WITH_EVIDENCE",
+    "localTestId": "SUB-04-LOCAL",
+    "external": "NONE",
+    "acceptance": "固定的本地场景验收；不证明所有组合、真实平台、Linux、容量或业务签字。",
+    "domainPackage": "subscription",
+    "stage": "S4",
+    "dependsOnDomains": [
+      "AUTH",
+      "CAT",
+      "ART"
+    ],
+    "tables": [
+      "user_follow",
+      "subscription_box_preference"
+    ],
+    "routes": [
+      "GET /api/v1/me/subscription-feed"
+    ],
+    "plannedCaseIds": [
+      "SUB-04-LOCAL-POS",
+      "SUB-04-LOCAL-NEG",
+      "SUB-04-LOCAL-CON"
+    ],
+    "executedCaseIds": [
+      "subscription-boxes"
+    ],
+    "evidenceReport": "reports/latest.json",
+    "localVerification": "PASS",
+    "completeFeatureAcceptance": "LOCAL_SCENARIOS_PASSED"
+  },
+  {
+    "featureId": "SUB-05",
+    "domain": "订阅",
+    "feature": "盒子隐藏/取消隐藏",
+    "scope": "REWRITE",
+    "implementation": "LOCAL_IMPLEMENTATION_WITH_EVIDENCE",
+    "localTestId": "SUB-05-LOCAL",
+    "external": "NONE",
+    "acceptance": "固定的本地场景验收；不证明所有组合、真实平台、Linux、容量或业务签字。",
+    "domainPackage": "subscription",
+    "stage": "S4",
+    "dependsOnDomains": [
+      "AUTH",
+      "CAT",
+      "ART"
+    ],
+    "tables": [
+      "user_follow",
+      "subscription_box_preference"
+    ],
+    "routes": [
+      "PUT /api/v1/me/boxes/{id}/visibility"
+    ],
+    "plannedCaseIds": [
+      "SUB-05-LOCAL-POS",
+      "SUB-05-LOCAL-NEG",
+      "SUB-05-LOCAL-CON"
+    ],
+    "executedCaseIds": [
+      "cross-user-box-denied",
+      "hide-keeps-follow"
+    ],
+    "evidenceReport": "reports/latest.json",
+    "localVerification": "PASS",
+    "completeFeatureAcceptance": "LOCAL_SCENARIOS_PASSED"
+  },
+  {
+    "featureId": "SUB-06",
+    "domain": "订阅",
+    "feature": "更新/未读摘要",
+    "scope": "REWRITE",
+    "implementation": "LOCAL_IMPLEMENTATION_WITH_EVIDENCE",
+    "localTestId": "SUB-06-LOCAL",
+    "external": "NONE",
+    "acceptance": "固定的本地场景验收；不证明所有组合、真实平台、Linux、容量或业务签字。",
+    "domainPackage": "subscription",
+    "stage": "S4",
+    "dependsOnDomains": [
+      "AUTH",
+      "CAT",
+      "ART"
+    ],
+    "tables": [
+      "user_follow",
+      "subscription_box_preference"
+    ],
+    "routes": [
+      "GET /api/v1/me/subscription-summary"
+    ],
+    "plannedCaseIds": [
+      "SUB-06-LOCAL-POS",
+      "SUB-06-LOCAL-NEG",
+      "SUB-06-LOCAL-CON"
+    ],
+    "executedCaseIds": [
+      "revision-returns-unread",
+      "subscription-boxes"
+    ],
+    "evidenceReport": "reports/latest.json",
+    "localVerification": "PASS",
+    "completeFeatureAcceptance": "LOCAL_SCENARIOS_PASSED"
+  },
+  {
+    "featureId": "ENG-01",
+    "domain": "互动",
+    "feature": "收藏与取消",
+    "scope": "REWRITE",
+    "implementation": "LOCAL_IMPLEMENTATION_WITH_EVIDENCE",
+    "localTestId": "ENG-01-LOCAL",
+    "external": "NONE",
+    "acceptance": "固定的本地场景验收；不证明所有组合、真实平台、Linux、容量或业务签字。",
+    "domainPackage": "engagement",
+    "stage": "S4",
+    "dependsOnDomains": [
+      "AUTH",
+      "ART"
+    ],
+    "tables": [
+      "user_favorite",
+      "user_read_state",
+      "user_browse_history",
+      "user_report",
+      "feedback"
+    ],
+    "routes": [
+      "PUT /api/v1/me/favorites/{id}",
+      "DELETE /api/v1/me/favorites/{id}"
+    ],
+    "plannedCaseIds": [
+      "ENG-01-LOCAL-POS",
+      "ENG-01-LOCAL-NEG",
+      "ENG-01-LOCAL-CON"
+    ],
+    "executedCaseIds": [
+      "favorite"
+    ],
+    "evidenceReport": "reports/latest.json",
+    "localVerification": "PASS",
+    "completeFeatureAcceptance": "LOCAL_SCENARIOS_PASSED"
+  },
+  {
+    "featureId": "ENG-02",
+    "domain": "互动",
+    "feature": "收藏列表",
+    "scope": "REWRITE",
+    "implementation": "LOCAL_IMPLEMENTATION_WITH_EVIDENCE",
+    "localTestId": "ENG-02-LOCAL",
+    "external": "NONE",
+    "acceptance": "固定的本地场景验收；不证明所有组合、真实平台、Linux、容量或业务签字。",
+    "domainPackage": "engagement",
+    "stage": "S4",
+    "dependsOnDomains": [
+      "AUTH",
+      "ART"
+    ],
+    "tables": [
+      "user_favorite",
+      "user_read_state",
+      "user_browse_history",
+      "user_report",
+      "feedback"
+    ],
+    "routes": [
+      "GET /api/v1/me/favorites"
+    ],
+    "plannedCaseIds": [
+      "ENG-02-LOCAL-POS",
+      "ENG-02-LOCAL-NEG",
+      "ENG-02-LOCAL-CON"
+    ],
+    "executedCaseIds": [
+      "favorite",
+      "favorites-clear"
+    ],
+    "evidenceReport": "reports/latest.json",
+    "localVerification": "PASS",
+    "completeFeatureAcceptance": "LOCAL_SCENARIOS_PASSED"
+  },
+  {
+    "featureId": "ENG-03",
+    "domain": "互动",
+    "feature": "浏览上报/历史/清空",
+    "scope": "REWRITE",
+    "implementation": "LOCAL_IMPLEMENTATION_WITH_EVIDENCE",
+    "localTestId": "ENG-03-LOCAL",
+    "external": "NONE",
+    "acceptance": "固定的本地场景验收；不证明所有组合、真实平台、Linux、容量或业务签字。",
+    "domainPackage": "engagement",
+    "stage": "S4",
+    "dependsOnDomains": [
+      "AUTH",
+      "ART"
+    ],
+    "tables": [
+      "user_favorite",
+      "user_read_state",
+      "user_browse_history",
+      "user_report",
+      "feedback"
+    ],
+    "routes": [
+      "POST /api/v1/me/articles/{id}/browse",
+      "GET /api/v1/me/history",
+      "DELETE /api/v1/me/history"
+    ],
+    "plannedCaseIds": [
+      "ENG-03-LOCAL-POS",
+      "ENG-03-LOCAL-NEG",
+      "ENG-03-LOCAL-CON"
+    ],
+    "executedCaseIds": [
+      "browse",
+      "replacement-history-preserved",
+      "history-individual-delete"
+    ],
+    "evidenceReport": "reports/latest.json",
+    "localVerification": "PASS",
+    "completeFeatureAcceptance": "LOCAL_SCENARIOS_PASSED"
+  },
+  {
+    "featureId": "ENG-04",
+    "domain": "互动",
+    "feature": "明确标记已读",
+    "scope": "REWRITE",
+    "implementation": "LOCAL_IMPLEMENTATION_WITH_EVIDENCE",
+    "localTestId": "ENG-04-LOCAL",
+    "external": "NONE",
+    "acceptance": "固定的本地场景验收；不证明所有组合、真实平台、Linux、容量或业务签字。",
+    "domainPackage": "engagement",
+    "stage": "S4",
+    "dependsOnDomains": [
+      "AUTH",
+      "ART"
+    ],
+    "tables": [
+      "user_favorite",
+      "user_read_state",
+      "user_browse_history",
+      "user_report",
+      "feedback"
+    ],
+    "routes": [
+      "PUT /api/v1/me/articles/{id}/read"
+    ],
+    "plannedCaseIds": [
+      "ENG-04-LOCAL-POS",
+      "ENG-04-LOCAL-NEG",
+      "ENG-04-LOCAL-CON"
+    ],
+    "executedCaseIds": [
+      "read-exact-version",
+      "read-old-version-rejected"
+    ],
+    "evidenceReport": "reports/latest.json",
+    "localVerification": "PASS",
+    "completeFeatureAcceptance": "LOCAL_SCENARIOS_PASSED"
+  },
+  {
+    "featureId": "ENG-05",
+    "domain": "互动",
+    "feature": "分享行为",
+    "scope": "REWRITE",
+    "implementation": "LOCAL_IMPLEMENTATION_WITH_EVIDENCE",
+    "localTestId": "ENG-05-LOCAL",
+    "external": "NONE",
+    "acceptance": "固定的本地场景验收；不证明所有组合、真实平台、Linux、容量或业务签字。",
+    "domainPackage": "engagement",
+    "stage": "S4",
+    "dependsOnDomains": [
+      "AUTH",
+      "ART"
+    ],
+    "tables": [
+      "user_favorite",
+      "user_read_state",
+      "user_browse_history",
+      "user_report",
+      "feedback"
+    ],
+    "routes": [
+      "POST /api/v1/events"
+    ],
+    "plannedCaseIds": [
+      "ENG-05-LOCAL-POS",
+      "ENG-05-LOCAL-NEG",
+      "ENG-05-LOCAL-CON"
+    ],
+    "executedCaseIds": [
+      "behavior-SHARE"
+    ],
+    "evidenceReport": "reports/latest.json",
+    "localVerification": "PASS",
+    "completeFeatureAcceptance": "LOCAL_SCENARIOS_PASSED"
+  },
+  {
+    "featureId": "ENG-06",
+    "domain": "互动",
+    "feature": "举报与处理",
+    "scope": "REWRITE",
+    "implementation": "LOCAL_IMPLEMENTATION_WITH_EVIDENCE",
+    "localTestId": "ENG-06-LOCAL",
+    "external": "NONE",
+    "acceptance": "固定的本地场景验收；不证明所有组合、真实平台、Linux、容量或业务签字。",
+    "domainPackage": "engagement",
+    "stage": "S4",
+    "dependsOnDomains": [
+      "AUTH",
+      "ART"
+    ],
+    "tables": [
+      "user_favorite",
+      "user_read_state",
+      "user_browse_history",
+      "user_report",
+      "feedback"
+    ],
+    "routes": [
+      "POST /api/v1/me/reports",
+      "POST /api/v1/staff/reports/{id}/resolve"
+    ],
+    "plannedCaseIds": [
+      "ENG-06-LOCAL-POS",
+      "ENG-06-LOCAL-NEG",
+      "ENG-06-LOCAL-CON"
+    ],
+    "executedCaseIds": [
+      "report-customer-cannot-handle",
+      "report-handler"
+    ],
+    "evidenceReport": "reports/latest.json",
+    "localVerification": "PASS",
+    "completeFeatureAcceptance": "LOCAL_SCENARIOS_PASSED"
+  },
+  {
+    "featureId": "ENG-07",
+    "domain": "互动",
+    "feature": "平台反馈",
+    "scope": "REWRITE",
+    "implementation": "LOCAL_IMPLEMENTATION_WITH_EVIDENCE",
+    "localTestId": "ENG-07-LOCAL",
+    "external": "NONE",
+    "acceptance": "固定的本地场景验收；不证明所有组合、真实平台、Linux、容量或业务签字。",
+    "domainPackage": "engagement",
+    "stage": "S4",
+    "dependsOnDomains": [
+      "AUTH",
+      "ART"
+    ],
+    "tables": [
+      "user_favorite",
+      "user_read_state",
+      "user_browse_history",
+      "user_report",
+      "feedback"
+    ],
+    "routes": [
+      "POST /api/v1/me/feedback",
+      "GET /api/v1/me/feedback",
+      "POST /api/v1/staff/feedback/{id}/resolve"
+    ],
+    "plannedCaseIds": [
+      "ENG-07-LOCAL-POS",
+      "ENG-07-LOCAL-NEG",
+      "ENG-07-LOCAL-CON"
+    ],
+    "executedCaseIds": [
+      "feedback-handler",
+      "feedback-owned-list"
+    ],
+    "evidenceReport": "reports/latest.json",
+    "localVerification": "PASS",
+    "completeFeatureAcceptance": "LOCAL_SCENARIOS_PASSED"
+  },
+  {
+    "featureId": "NOT-01",
+    "domain": "通知",
+    "feature": "提醒规则CRUD",
+    "scope": "REWRITE",
+    "implementation": "LOCAL_IMPLEMENTATION_WITH_EVIDENCE",
+    "localTestId": "NOT-01-LOCAL",
+    "external": "PLATFORM_PENDING",
+    "acceptance": "固定的本地场景验收；不证明所有组合、真实平台、Linux、容量或业务签字。",
+    "domainPackage": "notification",
+    "stage": "S5",
+    "dependsOnDomains": [
+      "AUTH",
+      "ART",
+      "SUB"
+    ],
+    "tables": [
+      "notification_rule",
+      "notification_delivery",
+      "notification_quota",
+      "notification_quota_ledger",
+      "outbox_event"
+    ],
+    "routes": [
+      "GET /api/v1/me/notifications/rules",
+      "POST /api/v1/me/notifications/rules",
+      "PATCH /api/v1/me/notifications/rules/{id}"
+    ],
+    "plannedCaseIds": [
+      "NOT-01-LOCAL-POS",
+      "NOT-01-LOCAL-NEG",
+      "NOT-01-LOCAL-CON"
+    ],
+    "executedCaseIds": [
+      "rule-cross-user-denied",
+      "rule-edit-other-customer-denied",
+      "rule-invalid-quiet-window-denied",
+      "rule-pause-keeps-settings",
+      "rule-pause-persists-and-is-boolean",
+      "rule-resume-current-version",
+      "rule-stale-edit-denied",
+      "retired-official-channel-rejected"
+    ],
+    "evidenceReport": "reports/latest.json",
+    "localVerification": "PASS",
+    "completeFeatureAcceptance": "LOCAL_SCENARIOS_PASSED_PLATFORM_PENDING"
+  },
+  {
+    "featureId": "NOT-02",
+    "domain": "通知",
+    "feature": "具体时间提醒",
+    "scope": "REWRITE",
+    "implementation": "LOCAL_IMPLEMENTATION_WITH_EVIDENCE",
+    "localTestId": "NOT-02-LOCAL",
+    "external": "PLATFORM_PENDING",
+    "acceptance": "固定的本地场景验收；不证明所有组合、真实平台、Linux、容量或业务签字。",
+    "domainPackage": "notification",
+    "stage": "S5",
+    "dependsOnDomains": [
+      "AUTH",
+      "ART",
+      "SUB"
+    ],
+    "tables": [
+      "notification_rule",
+      "notification_delivery",
+      "notification_quota",
+      "notification_quota_ledger",
+      "outbox_event"
+    ],
+    "routes": [
+      "POST /api/v1/me/notifications/rules",
+      "WORKER due-notifications"
+    ],
+    "plannedCaseIds": [
+      "NOT-02-LOCAL-POS",
+      "NOT-02-LOCAL-NEG",
+      "NOT-02-LOCAL-CON"
+    ],
+    "executedCaseIds": [
+      "time-reminder-dispatch",
+      "time-reminder-only-once"
+    ],
+    "evidenceReport": "reports/latest.json",
+    "localVerification": "PASS",
+    "completeFeatureAcceptance": "LOCAL_SCENARIOS_PASSED_PLATFORM_PENDING"
+  },
+  {
+    "featureId": "NOT-03",
+    "domain": "通知",
+    "feature": "每日摘要",
+    "scope": "REWRITE",
+    "implementation": "LOCAL_IMPLEMENTATION_WITH_EVIDENCE",
+    "localTestId": "NOT-03-LOCAL",
+    "external": "PLATFORM_PENDING",
+    "acceptance": "固定的本地场景验收；不证明所有组合、真实平台、Linux、容量或业务签字。",
+    "domainPackage": "notification",
+    "stage": "S5",
+    "dependsOnDomains": [
+      "AUTH",
+      "ART",
+      "SUB"
+    ],
+    "tables": [
+      "notification_rule",
+      "notification_delivery",
+      "notification_quota",
+      "notification_quota_ledger",
+      "outbox_event"
+    ],
+    "routes": [
+      "WORKER daily-digests"
+    ],
+    "plannedCaseIds": [
+      "NOT-03-LOCAL-POS",
+      "NOT-03-LOCAL-NEG",
+      "NOT-03-LOCAL-CON"
+    ],
+    "executedCaseIds": [
+      "daily-next-run-advanced",
+      "daily-summary-snapshot"
+    ],
+    "evidenceReport": "reports/latest.json",
+    "localVerification": "PASS",
+    "completeFeatureAcceptance": "LOCAL_SCENARIOS_PASSED_PLATFORM_PENDING"
+  },
+  {
+    "featureId": "NOT-04",
+    "domain": "通知",
+    "feature": "即时提醒",
+    "scope": "REWRITE",
+    "implementation": "LOCAL_IMPLEMENTATION_WITH_EVIDENCE",
+    "localTestId": "NOT-04-LOCAL",
+    "external": "PLATFORM_PENDING",
+    "acceptance": "固定的本地场景验收；不证明所有组合、真实平台、Linux、容量或业务签字。",
+    "domainPackage": "notification",
+    "stage": "S5",
+    "dependsOnDomains": [
+      "AUTH",
+      "ART",
+      "SUB"
+    ],
+    "tables": [
+      "notification_rule",
+      "notification_delivery",
+      "notification_quota",
+      "notification_quota_ledger",
+      "outbox_event"
+    ],
+    "routes": [
+      "WORKER article-published-consumer"
+    ],
+    "plannedCaseIds": [
+      "NOT-04-LOCAL-POS",
+      "NOT-04-LOCAL-NEG",
+      "NOT-04-LOCAL-CON"
+    ],
+    "executedCaseIds": [
+      "instant-outbox-dispatch",
+      "notification-sent-local"
+    ],
+    "evidenceReport": "reports/latest.json",
+    "localVerification": "PASS",
+    "completeFeatureAcceptance": "LOCAL_SCENARIOS_PASSED_PLATFORM_PENDING"
+  },
+  {
+    "featureId": "NOT-05",
+    "domain": "通知",
+    "feature": "升降级/取消",
+    "scope": "REWRITE",
+    "implementation": "LOCAL_IMPLEMENTATION_WITH_EVIDENCE",
+    "localTestId": "NOT-05-LOCAL",
+    "external": "PLATFORM_PENDING",
+    "acceptance": "固定的本地场景验收；不证明所有组合、真实平台、Linux、容量或业务签字。",
+    "domainPackage": "notification",
+    "stage": "S5",
+    "dependsOnDomains": [
+      "AUTH",
+      "ART",
+      "SUB"
+    ],
+    "tables": [
+      "notification_rule",
+      "notification_delivery",
+      "notification_quota",
+      "notification_quota_ledger",
+      "outbox_event"
+    ],
+    "routes": [
+      "PATCH /api/v1/me/notifications/rules/{id}",
+      "DELETE /api/v1/me/notifications/rules/{id}"
+    ],
+    "plannedCaseIds": [
+      "NOT-05-LOCAL-POS",
+      "NOT-05-LOCAL-NEG",
+      "NOT-05-LOCAL-CON"
+    ],
+    "executedCaseIds": [
+      "cancel-reminder",
+      "rule-pause-keeps-settings",
+      "rule-resume-current-version"
+    ],
+    "evidenceReport": "reports/latest.json",
+    "localVerification": "PASS",
+    "completeFeatureAcceptance": "LOCAL_SCENARIOS_PASSED_PLATFORM_PENDING"
+  },
+  {
+    "featureId": "NOT-06",
+    "domain": "通知",
+    "feature": "微信订阅消息授权",
+    "scope": "REWRITE",
+    "implementation": "LOCAL_IMPLEMENTATION_WITH_EVIDENCE",
+    "localTestId": "NOT-06-LOCAL",
+    "external": "PLATFORM_PENDING",
+    "acceptance": "固定的本地场景验收；不证明所有组合、真实平台、Linux、容量或业务签字。",
+    "domainPackage": "notification",
+    "stage": "S5",
+    "dependsOnDomains": [
+      "AUTH",
+      "ART",
+      "SUB"
+    ],
+    "tables": [
+      "notification_rule",
+      "notification_delivery",
+      "notification_quota",
+      "notification_quota_ledger",
+      "outbox_event"
+    ],
+    "routes": [
+      "POST /api/v1/me/notifications/authorizations"
+    ],
+    "plannedCaseIds": [
+      "NOT-06-LOCAL-POS",
+      "NOT-06-LOCAL-NEG",
+      "NOT-06-LOCAL-CON"
+    ],
+    "executedCaseIds": [
+      "quota-callback-conflict",
+      "quota-callback-dedup",
+      "quota-cannot-mint-without-secret"
+    ],
+    "evidenceReport": "reports/latest.json",
+    "localVerification": "PASS",
+    "completeFeatureAcceptance": "LOCAL_SCENARIOS_PASSED_PLATFORM_PENDING"
+  },
+  {
+    "featureId": "NOT-07",
+    "domain": "通知",
+    "feature": "公众号状态/绑定",
+    "scope": "REWRITE",
+    "implementation": "LOCAL_IMPLEMENTATION_WITH_EVIDENCE",
+    "localTestId": "NOT-07-LOCAL",
+    "external": "PLATFORM_PENDING",
+    "acceptance": "固定的本地场景验收；不证明所有组合、真实平台、Linux、容量或业务签字。",
+    "domainPackage": "notification",
+    "stage": "S5",
+    "dependsOnDomains": [
+      "AUTH",
+      "ART",
+      "SUB"
+    ],
+    "tables": [
+      "notification_rule",
+      "notification_delivery",
+      "notification_quota",
+      "notification_quota_ledger",
+      "outbox_event"
+    ],
+    "routes": [
+      "GET /api/v1/me/notifications/bindings",
+      "POST /api/v1/notifications/callbacks/official-account"
+    ],
+    "plannedCaseIds": [
+      "NOT-07-LOCAL-POS",
+      "NOT-07-LOCAL-NEG",
+      "NOT-07-LOCAL-CON"
+    ],
+    "executedCaseIds": [
+      "channel-bind-status"
+    ],
+    "evidenceReport": "reports/latest.json",
+    "localVerification": "PASS",
+    "completeFeatureAcceptance": "LOCAL_SCENARIOS_PASSED_PLATFORM_PENDING"
+  },
+  {
+    "featureId": "NOT-08",
+    "domain": "通知",
+    "feature": "企微绑定/回调",
+    "scope": "REWRITE",
+    "implementation": "LOCAL_IMPLEMENTATION_WITH_EVIDENCE",
+    "localTestId": "NOT-08-LOCAL",
+    "external": "PLATFORM_PENDING",
+    "acceptance": "固定的本地场景验收；不证明所有组合、真实平台、Linux、容量或业务签字。",
+    "domainPackage": "notification",
+    "stage": "S5",
+    "dependsOnDomains": [
+      "AUTH",
+      "ART",
+      "SUB"
+    ],
+    "tables": [
+      "notification_rule",
+      "notification_delivery",
+      "notification_quota",
+      "notification_quota_ledger",
+      "outbox_event"
+    ],
+    "routes": [
+      "POST /api/v1/me/notifications/wecom-binding",
+      "POST /api/v1/notifications/callbacks/wecom"
+    ],
+    "plannedCaseIds": [
+      "NOT-08-LOCAL-POS",
+      "NOT-08-LOCAL-NEG",
+      "NOT-08-LOCAL-CON"
+    ],
+    "executedCaseIds": [
+      "channel-bind-status"
+    ],
+    "evidenceReport": "reports/latest.json",
+    "localVerification": "PASS",
+    "completeFeatureAcceptance": "LOCAL_SCENARIOS_PASSED_PLATFORM_PENDING"
+  },
+  {
+    "featureId": "NOT-09",
+    "domain": "通知",
+    "feature": "额度预留结算",
+    "scope": "REWRITE",
+    "implementation": "LOCAL_IMPLEMENTATION_WITH_EVIDENCE",
+    "localTestId": "NOT-09-LOCAL",
+    "external": "PLATFORM_PENDING",
+    "acceptance": "固定的本地场景验收；不证明所有组合、真实平台、Linux、容量或业务签字。",
+    "domainPackage": "notification",
+    "stage": "S5",
+    "dependsOnDomains": [
+      "AUTH",
+      "ART",
+      "SUB"
+    ],
+    "tables": [
+      "notification_rule",
+      "notification_delivery",
+      "notification_quota",
+      "notification_quota_ledger",
+      "outbox_event"
+    ],
+    "routes": [
+      "WORKER reserve-quota",
+      "GET /api/v1/me/notifications/quota"
+    ],
+    "plannedCaseIds": [
+      "NOT-09-LOCAL-POS",
+      "NOT-09-LOCAL-NEG",
+      "NOT-09-LOCAL-CON"
+    ],
+    "executedCaseIds": [
+      "duplicate-worker-no-double-charge",
+      "quota-callback-dedup",
+      "quota-release-consistent",
+      "retry-reserves-only-once",
+      "unknown-invalid-evidence-keeps-reservation"
+    ],
+    "evidenceReport": "reports/latest.json",
+    "localVerification": "PASS",
+    "completeFeatureAcceptance": "LOCAL_SCENARIOS_PASSED_PLATFORM_PENDING"
+  },
+  {
+    "featureId": "NOT-10",
+    "domain": "通知",
+    "feature": "通道失败重试与账本",
+    "scope": "REWRITE",
+    "implementation": "LOCAL_IMPLEMENTATION_WITH_EVIDENCE",
+    "localTestId": "NOT-10-LOCAL",
+    "external": "PLATFORM_PENDING",
+    "acceptance": "固定的本地场景验收；不证明所有组合、真实平台、Linux、容量或业务签字。",
+    "domainPackage": "notification",
+    "stage": "S5",
+    "dependsOnDomains": [
+      "AUTH",
+      "ART",
+      "SUB"
+    ],
+    "tables": [
+      "notification_rule",
+      "notification_delivery",
+      "notification_quota",
+      "notification_quota_ledger",
+      "outbox_event"
+    ],
+    "routes": [
+      "GET /api/v1/me/notifications/deliveries",
+      "WORKER delivery-retry"
+    ],
+    "plannedCaseIds": [
+      "NOT-10-LOCAL-POS",
+      "NOT-10-LOCAL-NEG",
+      "NOT-10-LOCAL-CON"
+    ],
+    "executedCaseIds": [
+      "notification-unknown-freeze",
+      "retry-success",
+      "retryable-not-settled",
+      "unknown-evidence-audit-persisted",
+      "unknown-evidence-reconcile",
+      "unknown-invalid-evidence-keeps-reservation",
+      "unknown-no-automatic-retry",
+      "unknown-reconcile-needs-evidence"
+    ],
+    "evidenceReport": "reports/latest.json",
+    "localVerification": "PASS",
+    "completeFeatureAcceptance": "LOCAL_SCENARIOS_PASSED_PLATFORM_PENDING"
+  },
+  {
+    "featureId": "ACT-01",
+    "domain": "活动",
+    "feature": "活动列表详情",
+    "scope": "REWRITE",
+    "implementation": "LOCAL_IMPLEMENTATION_WITH_EVIDENCE",
+    "localTestId": "ACT-01-LOCAL",
+    "external": "NONE",
+    "acceptance": "固定的本地场景验收；不证明所有组合、真实平台、Linux、容量或业务签字。",
+    "domainPackage": "activity",
+    "stage": "S6",
+    "dependsOnDomains": [
+      "AUTH",
+      "CAT",
+      "ART"
+    ],
+    "tables": [
+      "activity",
+      "activity_form_version",
+      "activity_registration"
+    ],
+    "routes": [
+      "GET /api/v1/activities",
+      "GET /api/v1/activities/{id}"
+    ],
+    "plannedCaseIds": [
+      "ACT-01-LOCAL-POS",
+      "ACT-01-LOCAL-NEG",
+      "ACT-01-LOCAL-CON"
+    ],
+    "executedCaseIds": [
+      "activity-public",
+      "public-domain-boundaries-redact-staff-fields"
+    ],
+    "evidenceReport": "reports/latest.json",
+    "localVerification": "PASS",
+    "completeFeatureAcceptance": "LOCAL_SCENARIOS_PASSED"
+  },
+  {
+    "featureId": "ACT-02",
+    "domain": "活动",
+    "feature": "活动表单与报名",
+    "scope": "REWRITE",
+    "implementation": "LOCAL_IMPLEMENTATION_WITH_EVIDENCE",
+    "localTestId": "ACT-02-LOCAL",
+    "external": "NONE",
+    "acceptance": "固定的本地场景验收；不证明所有组合、真实平台、Linux、容量或业务签字。",
+    "domainPackage": "activity",
+    "stage": "S6",
+    "dependsOnDomains": [
+      "AUTH",
+      "CAT",
+      "ART"
+    ],
+    "tables": [
+      "activity",
+      "activity_form_version",
+      "activity_registration"
+    ],
+    "routes": [
+      "POST /api/v1/activities/{id}/registrations"
+    ],
+    "plannedCaseIds": [
+      "ACT-02-LOCAL-POS",
+      "ACT-02-LOCAL-NEG",
+      "ACT-02-LOCAL-CON"
+    ],
+    "executedCaseIds": [
+      "activity-required-answer",
+      "capacity-parallel-no-oversell"
+    ],
+    "evidenceReport": "reports/latest.json",
+    "localVerification": "PASS",
+    "completeFeatureAcceptance": "LOCAL_SCENARIOS_PASSED"
+  },
+  {
+    "featureId": "ACT-03",
+    "domain": "活动",
+    "feature": "容量/候补",
+    "scope": "REWRITE",
+    "implementation": "LOCAL_IMPLEMENTATION_WITH_EVIDENCE",
+    "localTestId": "ACT-03-LOCAL",
+    "external": "NONE",
+    "acceptance": "固定的本地场景验收；不证明所有组合、真实平台、Linux、容量或业务签字。",
+    "domainPackage": "activity",
+    "stage": "S6",
+    "dependsOnDomains": [
+      "AUTH",
+      "CAT",
+      "ART"
+    ],
+    "tables": [
+      "activity",
+      "activity_form_version",
+      "activity_registration"
+    ],
+    "routes": [
+      "WORKER promote-waitlist",
+      "POST /api/v1/activities/{id}/registrations"
+    ],
+    "plannedCaseIds": [
+      "ACT-03-LOCAL-POS",
+      "ACT-03-LOCAL-NEG",
+      "ACT-03-LOCAL-CON"
+    ],
+    "executedCaseIds": [
+      "capacity-ledger-consistent",
+      "capacity-parallel-no-oversell",
+      "duplicate-registration-no-capacity-loss",
+      "promoted-state"
+    ],
+    "evidenceReport": "reports/latest.json",
+    "localVerification": "PASS",
+    "completeFeatureAcceptance": "LOCAL_SCENARIOS_PASSED"
+  },
+  {
+    "featureId": "ACT-04",
+    "domain": "活动",
+    "feature": "我的报名/取消",
+    "scope": "REWRITE",
+    "implementation": "LOCAL_IMPLEMENTATION_WITH_EVIDENCE",
+    "localTestId": "ACT-04-LOCAL",
+    "external": "NONE",
+    "acceptance": "固定的本地场景验收；不证明所有组合、真实平台、Linux、容量或业务签字。",
+    "domainPackage": "activity",
+    "stage": "S6",
+    "dependsOnDomains": [
+      "AUTH",
+      "CAT",
+      "ART"
+    ],
+    "tables": [
+      "activity",
+      "activity_form_version",
+      "activity_registration"
+    ],
+    "routes": [
+      "GET /api/v1/me/registrations",
+      "DELETE /api/v1/me/registrations/{id}"
+    ],
+    "plannedCaseIds": [
+      "ACT-04-LOCAL-POS",
+      "ACT-04-LOCAL-NEG",
+      "ACT-04-LOCAL-CON"
+    ],
+    "executedCaseIds": [
+      "cancel-promotes-oldest",
+      "promoted-state"
+    ],
+    "evidenceReport": "reports/latest.json",
+    "localVerification": "PASS",
+    "completeFeatureAcceptance": "LOCAL_SCENARIOS_PASSED"
+  },
+  {
+    "featureId": "ACT-05",
+    "domain": "活动",
+    "feature": "后台配置/参与者/导出",
+    "scope": "REWRITE",
+    "implementation": "LOCAL_IMPLEMENTATION_WITH_EVIDENCE",
+    "localTestId": "ACT-05-LOCAL",
+    "external": "NONE",
+    "acceptance": "固定的本地场景验收；不证明所有组合、真实平台、Linux、容量或业务签字。",
+    "domainPackage": "activity",
+    "stage": "S6",
+    "dependsOnDomains": [
+      "AUTH",
+      "CAT",
+      "ART"
+    ],
+    "tables": [
+      "activity",
+      "activity_form_version",
+      "activity_registration"
+    ],
+    "routes": [
+      "POST /api/v1/staff/activities",
+      "GET /api/v1/staff/activities/{id}/registrations",
+      "POST /api/v1/staff/activities/{id}/exports"
+    ],
+    "plannedCaseIds": [
+      "ACT-05-LOCAL-POS",
+      "ACT-05-LOCAL-NEG",
+      "ACT-05-LOCAL-CON"
+    ],
+    "executedCaseIds": [
+      "activity-admin-read",
+      "activity-export-content-and-replay",
+      "export-anonymous-denied",
+      "export-creator-denied",
+      "export-customer-denied"
+    ],
+    "evidenceReport": "reports/latest.json",
+    "localVerification": "PASS",
+    "completeFeatureAcceptance": "LOCAL_SCENARIOS_PASSED"
+  },
+  {
+    "featureId": "REV-01",
+    "domain": "评审",
+    "feature": "项目与要求配置",
+    "scope": "REWRITE",
+    "implementation": "LOCAL_IMPLEMENTATION_WITH_EVIDENCE",
+    "localTestId": "REV-01-LOCAL",
+    "external": "NONE",
+    "acceptance": "固定的本地场景验收；不证明所有组合、真实平台、Linux、容量或业务签字。",
+    "domainPackage": "review",
+    "stage": "S7",
+    "dependsOnDomains": [
+      "AUTH",
+      "CAT",
+      "OPS"
+    ],
+    "tables": [
+      "review_campaign",
+      "review_requirement",
+      "review_application",
+      "review_submission",
+      "review_decision"
+    ],
+    "routes": [
+      "POST /api/v1/staff/reviews/campaigns",
+      "PUT /api/v1/staff/reviews/campaigns/{id}/requirements"
+    ],
+    "plannedCaseIds": [
+      "REV-01-LOCAL-POS",
+      "REV-01-LOCAL-NEG",
+      "REV-01-LOCAL-CON"
+    ],
+    "executedCaseIds": [
+      "public-domain-boundaries-redact-staff-fields",
+      "review-campaign-admin-detail",
+      "review-campaign-rule-order-is-semantic-noop",
+      "review-campaign-rules-frozen-after-application",
+      "review-campaign-update-stale-denied",
+      "review-private-without-token",
+      "review-project-list"
+    ],
+    "evidenceReport": "reports/latest.json",
+    "localVerification": "PASS",
+    "completeFeatureAcceptance": "LOCAL_SCENARIOS_PASSED"
+  },
+  {
+    "featureId": "REV-02",
+    "domain": "评审",
+    "feature": "资格检查",
+    "scope": "REWRITE",
+    "implementation": "LOCAL_IMPLEMENTATION_WITH_EVIDENCE",
+    "localTestId": "REV-02-LOCAL",
+    "external": "NONE",
+    "acceptance": "固定的本地场景验收；不证明所有组合、真实平台、Linux、容量或业务签字。",
+    "domainPackage": "review",
+    "stage": "S7",
+    "dependsOnDomains": [
+      "AUTH",
+      "CAT",
+      "OPS"
+    ],
+    "tables": [
+      "review_campaign",
+      "review_requirement",
+      "review_application",
+      "review_submission",
+      "review_decision"
+    ],
+    "routes": [
+      "GET /api/v1/reviews/campaigns/{id}/eligibility"
+    ],
+    "plannedCaseIds": [
+      "REV-02-LOCAL-POS",
+      "REV-02-LOCAL-NEG",
+      "REV-02-LOCAL-CON"
+    ],
+    "executedCaseIds": [
+      "review-eligibility",
+      "review-eligibility-negative"
+    ],
+    "evidenceReport": "reports/latest.json",
+    "localVerification": "PASS",
+    "completeFeatureAcceptance": "LOCAL_SCENARIOS_PASSED"
+  },
+  {
+    "featureId": "REV-03",
+    "domain": "评审",
+    "feature": "申请草稿",
+    "scope": "REWRITE",
+    "implementation": "LOCAL_IMPLEMENTATION_WITH_EVIDENCE",
+    "localTestId": "REV-03-LOCAL",
+    "external": "NONE",
+    "acceptance": "固定的本地场景验收；不证明所有组合、真实平台、Linux、容量或业务签字。",
+    "domainPackage": "review",
+    "stage": "S7",
+    "dependsOnDomains": [
+      "AUTH",
+      "CAT",
+      "OPS"
+    ],
+    "tables": [
+      "review_campaign",
+      "review_requirement",
+      "review_application",
+      "review_submission",
+      "review_decision"
+    ],
+    "routes": [
+      "POST /api/v1/reviews/campaigns/{id}/applications",
+      "PATCH /api/v1/me/review-applications/{id}"
+    ],
+    "plannedCaseIds": [
+      "REV-03-LOCAL-POS",
+      "REV-03-LOCAL-NEG",
+      "REV-03-LOCAL-CON"
+    ],
+    "executedCaseIds": [
+      "application-cross-user"
+    ],
+    "evidenceReport": "reports/latest.json",
+    "localVerification": "PASS",
+    "completeFeatureAcceptance": "LOCAL_SCENARIOS_PASSED"
+  },
+  {
+    "featureId": "REV-04",
+    "domain": "评审",
+    "feature": "材料上传与版本",
+    "scope": "REWRITE",
+    "implementation": "LOCAL_IMPLEMENTATION_WITH_EVIDENCE",
+    "localTestId": "REV-04-LOCAL",
+    "external": "NONE",
+    "acceptance": "固定的本地场景验收；不证明所有组合、真实平台、Linux、容量或业务签字。",
+    "domainPackage": "review",
+    "stage": "S7",
+    "dependsOnDomains": [
+      "AUTH",
+      "CAT",
+      "OPS"
+    ],
+    "tables": [
+      "review_campaign",
+      "review_requirement",
+      "review_application",
+      "review_submission",
+      "review_decision"
+    ],
+    "routes": [
+      "POST /api/v1/me/review-applications/{id}/materials"
+    ],
+    "plannedCaseIds": [
+      "REV-04-LOCAL-POS",
+      "REV-04-LOCAL-NEG",
+      "REV-04-LOCAL-CON"
+    ],
+    "executedCaseIds": [
+      "private-file-cross-user",
+      "review-campaign-rule-order-is-semantic-noop",
+      "review-campaign-rules-frozen-after-application",
+      "submitted-material-frozen"
+    ],
+    "evidenceReport": "reports/latest.json",
+    "localVerification": "PASS",
+    "completeFeatureAcceptance": "LOCAL_SCENARIOS_PASSED"
+  },
+  {
+    "featureId": "REV-05",
+    "domain": "评审",
+    "feature": "提交/补正/撤回",
+    "scope": "REWRITE",
+    "implementation": "LOCAL_IMPLEMENTATION_WITH_EVIDENCE",
+    "localTestId": "REV-05-LOCAL",
+    "external": "NONE",
+    "acceptance": "固定的本地场景验收；不证明所有组合、真实平台、Linux、容量或业务签字。",
+    "domainPackage": "review",
+    "stage": "S7",
+    "dependsOnDomains": [
+      "AUTH",
+      "CAT",
+      "OPS"
+    ],
+    "tables": [
+      "review_campaign",
+      "review_requirement",
+      "review_application",
+      "review_submission",
+      "review_decision"
+    ],
+    "routes": [
+      "POST /api/v1/me/review-applications/{id}/submit",
+      "POST /api/v1/me/review-applications/{id}/withdraw"
+    ],
+    "plannedCaseIds": [
+      "REV-05-LOCAL-POS",
+      "REV-05-LOCAL-NEG",
+      "REV-05-LOCAL-CON"
+    ],
+    "executedCaseIds": [
+      "review-required-material",
+      "submitted-material-frozen"
+    ],
+    "evidenceReport": "reports/latest.json",
+    "localVerification": "PASS",
+    "completeFeatureAcceptance": "LOCAL_SCENARIOS_PASSED"
+  },
+  {
+    "featureId": "REV-06",
+    "domain": "评审",
+    "feature": "评审决定与私有材料权限",
+    "scope": "REWRITE",
+    "implementation": "LOCAL_IMPLEMENTATION_WITH_EVIDENCE",
+    "localTestId": "REV-06-LOCAL",
+    "external": "NONE",
+    "acceptance": "固定的本地场景验收；不证明所有组合、真实平台、Linux、容量或业务签字。",
+    "domainPackage": "review",
+    "stage": "S7",
+    "dependsOnDomains": [
+      "AUTH",
+      "CAT",
+      "OPS"
+    ],
+    "tables": [
+      "review_campaign",
+      "review_requirement",
+      "review_application",
+      "review_submission",
+      "review_decision"
+    ],
+    "routes": [
+      "POST /api/v1/staff/reviews/applications/{id}/decisions",
+      "POST /api/v1/staff/reviews/materials/{id}/tickets"
+    ],
+    "plannedCaseIds": [
+      "REV-06-LOCAL-POS",
+      "REV-06-LOCAL-NEG",
+      "REV-06-LOCAL-CON"
+    ],
+    "executedCaseIds": [
+      "review-current-decision",
+      "stale-review-version-denied"
+    ],
+    "evidenceReport": "reports/latest.json",
+    "localVerification": "PASS",
+    "completeFeatureAcceptance": "LOCAL_SCENARIOS_PASSED"
+  },
+  {
+    "featureId": "RES-01",
+    "domain": "资料工具",
+    "feature": "资料包/科目浏览",
+    "scope": "REWRITE",
+    "implementation": "LOCAL_IMPLEMENTATION_WITH_EVIDENCE",
+    "localTestId": "RES-01-LOCAL",
+    "external": "NONE",
+    "acceptance": "固定的本地场景验收；不证明所有组合、真实平台、Linux、容量或业务签字。",
+    "domainPackage": "resource",
+    "stage": "S8",
+    "dependsOnDomains": [
+      "AUTH",
+      "CAT",
+      "OPS"
+    ],
+    "tables": [
+      "resource_package",
+      "resource_file",
+      "study_subject",
+      "exam_schedule",
+      "artifact_version",
+      "download_ticket"
+    ],
+    "routes": [
+      "GET /api/v1/resources/packages",
+      "GET /api/v1/resources/subjects"
+    ],
+    "plannedCaseIds": [
+      "RES-01-LOCAL-POS",
+      "RES-01-LOCAL-NEG",
+      "RES-01-LOCAL-CON"
+    ],
+    "executedCaseIds": [
+      "public-domain-boundaries-redact-staff-fields",
+      "resource-published-files",
+      "subject-edit-and-stale-denial"
+    ],
+    "evidenceReport": "reports/latest.json",
+    "localVerification": "PASS",
+    "completeFeatureAcceptance": "LOCAL_SCENARIOS_PASSED"
+  },
+  {
+    "featureId": "RES-02",
+    "domain": "资料工具",
+    "feature": "年级/专业字典",
+    "scope": "REWRITE",
+    "implementation": "LOCAL_IMPLEMENTATION_WITH_EVIDENCE",
+    "localTestId": "RES-02-LOCAL",
+    "external": "NONE",
+    "acceptance": "固定的本地场景验收；不证明所有组合、真实平台、Linux、容量或业务签字。",
+    "domainPackage": "resource",
+    "stage": "S8",
+    "dependsOnDomains": [
+      "AUTH",
+      "CAT",
+      "OPS"
+    ],
+    "tables": [
+      "resource_package",
+      "resource_file",
+      "study_subject",
+      "exam_schedule",
+      "artifact_version",
+      "download_ticket"
+    ],
+    "routes": [
+      "GET /api/v1/catalog/study-dimensions",
+      "PUT /api/v1/staff/catalog/study-dimensions/{id}"
+    ],
+    "plannedCaseIds": [
+      "RES-02-LOCAL-POS",
+      "RES-02-LOCAL-NEG",
+      "RES-02-LOCAL-CON"
+    ],
+    "executedCaseIds": [
+      "dimension-edit",
+      "dimension-hidden-public",
+      "dimension-withdraw",
+      "study-dimension"
+    ],
+    "evidenceReport": "reports/latest.json",
+    "localVerification": "PASS",
+    "completeFeatureAcceptance": "LOCAL_SCENARIOS_PASSED"
+  },
+  {
+    "featureId": "RES-03",
+    "domain": "资料工具",
+    "feature": "考试日程与倒计时",
+    "scope": "REWRITE",
+    "implementation": "LOCAL_IMPLEMENTATION_WITH_EVIDENCE",
+    "localTestId": "RES-03-LOCAL",
+    "external": "NONE",
+    "acceptance": "固定的本地场景验收；不证明所有组合、真实平台、Linux、容量或业务签字。",
+    "domainPackage": "resource",
+    "stage": "S8",
+    "dependsOnDomains": [
+      "AUTH",
+      "CAT",
+      "OPS"
+    ],
+    "tables": [
+      "resource_package",
+      "resource_file",
+      "study_subject",
+      "exam_schedule",
+      "artifact_version",
+      "download_ticket"
+    ],
+    "routes": [
+      "GET /api/v1/resources/exams"
+    ],
+    "plannedCaseIds": [
+      "RES-03-LOCAL-POS",
+      "RES-03-LOCAL-NEG",
+      "RES-03-LOCAL-CON"
+    ],
+    "executedCaseIds": [
+      "exam-edit",
+      "exam-invalid-timezone",
+      "exam-offline-hidden-public",
+      "exam-timezone",
+      "exam-withdraw"
+    ],
+    "evidenceReport": "reports/latest.json",
+    "localVerification": "PASS",
+    "completeFeatureAcceptance": "LOCAL_SCENARIOS_PASSED"
+  },
+  {
+    "featureId": "RES-04",
+    "domain": "资料工具",
+    "feature": "教材资料文件",
+    "scope": "REWRITE",
+    "implementation": "LOCAL_IMPLEMENTATION_WITH_EVIDENCE",
+    "localTestId": "RES-04-LOCAL",
+    "external": "NONE",
+    "acceptance": "固定的本地场景验收；不证明所有组合、真实平台、Linux、容量或业务签字。",
+    "domainPackage": "resource",
+    "stage": "S8",
+    "dependsOnDomains": [
+      "AUTH",
+      "CAT",
+      "OPS"
+    ],
+    "tables": [
+      "resource_package",
+      "resource_file",
+      "study_subject",
+      "exam_schedule",
+      "artifact_version",
+      "download_ticket"
+    ],
+    "routes": [
+      "POST /api/v1/staff/resources/files",
+      "GET /api/v1/resources/packages/{id}/files"
+    ],
+    "plannedCaseIds": [
+      "RES-04-LOCAL-POS",
+      "RES-04-LOCAL-NEG",
+      "RES-04-LOCAL-CON"
+    ],
+    "executedCaseIds": [
+      "package-current-files-only",
+      "package-failed-edit-preserves-current",
+      "package-historical-metadata-retained",
+      "package-invalid-file-atomic-rollback",
+      "package-offline-detail-hidden",
+      "package-stale-edit-denied",
+      "package-withdraw",
+      "resource-published-files"
+    ],
+    "evidenceReport": "reports/latest.json",
+    "localVerification": "PASS",
+    "completeFeatureAcceptance": "LOCAL_SCENARIOS_PASSED"
+  },
+  {
+    "featureId": "RES-05",
+    "domain": "资料工具",
+    "feature": "签名下载与日志",
+    "scope": "REWRITE",
+    "implementation": "LOCAL_IMPLEMENTATION_WITH_EVIDENCE",
+    "localTestId": "RES-05-LOCAL",
+    "external": "NONE",
+    "acceptance": "固定的本地场景验收；不证明所有组合、真实平台、Linux、容量或业务签字。",
+    "domainPackage": "resource",
+    "stage": "S8",
+    "dependsOnDomains": [
+      "AUTH",
+      "CAT",
+      "OPS"
+    ],
+    "tables": [
+      "resource_package",
+      "resource_file",
+      "study_subject",
+      "exam_schedule",
+      "artifact_version",
+      "download_ticket"
+    ],
+    "routes": [
+      "POST /api/v1/downloads/tickets",
+      "GET /api/v1/downloads/{ticketId}"
+    ],
+    "plannedCaseIds": [
+      "RES-05-LOCAL-POS",
+      "RES-05-LOCAL-NEG",
+      "RES-05-LOCAL-CON"
+    ],
+    "executedCaseIds": [
+      "package-current-files-only",
+      "package-offline-file-access-revoked",
+      "package-removed-file-issued-ticket-denied",
+      "package-removed-file-new-ticket-denied",
+      "private-file-cross-user",
+      "private-ticket-download",
+      "resource-policy-download",
+      "ticket-single-use"
+    ],
+    "evidenceReport": "reports/latest.json",
+    "localVerification": "PASS",
+    "completeFeatureAcceptance": "LOCAL_SCENARIOS_PASSED"
+  },
+  {
+    "featureId": "RES-06",
+    "domain": "资料工具",
+    "feature": "插件版本与校验和",
+    "scope": "REWRITE",
+    "implementation": "LOCAL_IMPLEMENTATION_WITH_EVIDENCE",
+    "localTestId": "RES-06-LOCAL",
+    "external": "NONE",
+    "acceptance": "固定的本地场景验收；不证明所有组合、真实平台、Linux、容量或业务签字。",
+    "domainPackage": "resource",
+    "stage": "S8",
+    "dependsOnDomains": [
+      "AUTH",
+      "CAT",
+      "OPS"
+    ],
+    "tables": [
+      "resource_package",
+      "resource_file",
+      "study_subject",
+      "exam_schedule",
+      "artifact_version",
+      "download_ticket"
+    ],
+    "routes": [
+      "GET /api/v1/plugins",
+      "POST /api/v1/staff/plugins/{id}/versions"
+    ],
+    "plannedCaseIds": [
+      "RES-06-LOCAL-POS",
+      "RES-06-LOCAL-NEG",
+      "RES-06-LOCAL-CON"
+    ],
+    "executedCaseIds": [
+      "artifact-duplicate-version",
+      "artifact-frozen-checksum",
+      "artifact-meta-edit",
+      "artifact-offline-hidden",
+      "artifact-withdraw"
+    ],
+    "evidenceReport": "reports/latest.json",
+    "localVerification": "PASS",
+    "completeFeatureAcceptance": "LOCAL_SCENARIOS_PASSED"
+  },
+  {
+    "featureId": "RES-07",
+    "domain": "资料工具",
+    "feature": "下载教程/攻略",
+    "scope": "REWRITE",
+    "implementation": "LOCAL_IMPLEMENTATION_WITH_EVIDENCE",
+    "localTestId": "RES-07-LOCAL",
+    "external": "NONE",
+    "acceptance": "固定的本地场景验收；不证明所有组合、真实平台、Linux、容量或业务签字。",
+    "domainPackage": "resource",
+    "stage": "S8",
+    "dependsOnDomains": [
+      "AUTH",
+      "CAT",
+      "OPS"
+    ],
+    "tables": [
+      "resource_package",
+      "resource_file",
+      "study_subject",
+      "exam_schedule",
+      "artifact_version",
+      "download_ticket"
+    ],
+    "routes": [
+      "GET /api/v1/plugins/{id}/guide",
+      "GET /api/v1/resources/guides"
+    ],
+    "plannedCaseIds": [
+      "RES-07-LOCAL-POS",
+      "RES-07-LOCAL-NEG",
+      "RES-07-LOCAL-CON"
+    ],
+    "executedCaseIds": [
+      "guide-uses-article-model"
+    ],
+    "evidenceReport": "reports/latest.json",
+    "localVerification": "PASS",
+    "completeFeatureAcceptance": "LOCAL_SCENARIOS_PASSED"
+  },
+  {
+    "featureId": "OPS-01",
+    "domain": "运营",
+    "feature": "Banner",
+    "scope": "REWRITE",
+    "implementation": "LOCAL_IMPLEMENTATION_WITH_EVIDENCE",
+    "localTestId": "OPS-01-LOCAL",
+    "external": "NONE",
+    "acceptance": "固定的本地场景验收；不证明所有组合、真实平台、Linux、容量或业务签字。",
+    "domainPackage": "operation",
+    "stage": "S4/S8",
+    "dependsOnDomains": [
+      "AUTH",
+      "ART"
+    ],
+    "tables": [
+      "banner",
+      "home_recommendation",
+      "content_page",
+      "file_object",
+      "audit_event"
+    ],
+    "routes": [
+      "GET /api/v1/home/banners",
+      "POST /api/v1/staff/operations/banners"
+    ],
+    "plannedCaseIds": [
+      "OPS-01-LOCAL-POS",
+      "OPS-01-LOCAL-NEG",
+      "OPS-01-LOCAL-CON"
+    ],
+    "executedCaseIds": [
+      "home-banner",
+      "home-visible-projections"
+    ],
+    "evidenceReport": "reports/latest.json",
+    "localVerification": "PASS",
+    "completeFeatureAcceptance": "LOCAL_SCENARIOS_PASSED"
+  },
+  {
+    "featureId": "OPS-02",
+    "domain": "运营",
+    "feature": "首页推荐位",
+    "scope": "REWRITE",
+    "implementation": "LOCAL_IMPLEMENTATION_WITH_EVIDENCE",
+    "localTestId": "OPS-02-LOCAL",
+    "external": "NONE",
+    "acceptance": "固定的本地场景验收；不证明所有组合、真实平台、Linux、容量或业务签字。",
+    "domainPackage": "operation",
+    "stage": "S4/S8",
+    "dependsOnDomains": [
+      "AUTH",
+      "ART"
+    ],
+    "tables": [
+      "banner",
+      "home_recommendation",
+      "content_page",
+      "file_object",
+      "audit_event"
+    ],
+    "routes": [
+      "GET /api/v1/home/recommendations",
+      "POST /api/v1/staff/operations/recommendations"
+    ],
+    "plannedCaseIds": [
+      "OPS-02-LOCAL-POS",
+      "OPS-02-LOCAL-NEG",
+      "OPS-02-LOCAL-CON"
+    ],
+    "executedCaseIds": [
+      "home-recommendation",
+      "home-visible-projections"
+    ],
+    "evidenceReport": "reports/latest.json",
+    "localVerification": "PASS",
+    "completeFeatureAcceptance": "LOCAL_SCENARIOS_PASSED"
+  },
+  {
+    "featureId": "OPS-03",
+    "domain": "运营",
+    "feature": "静态协议与关于我们",
+    "scope": "REWRITE",
+    "implementation": "LOCAL_IMPLEMENTATION_WITH_EVIDENCE",
+    "localTestId": "OPS-03-LOCAL",
+    "external": "NONE",
+    "acceptance": "固定的本地场景验收；不证明所有组合、真实平台、Linux、容量或业务签字。",
+    "domainPackage": "operation",
+    "stage": "S4/S8",
+    "dependsOnDomains": [
+      "AUTH",
+      "ART"
+    ],
+    "tables": [
+      "banner",
+      "home_recommendation",
+      "content_page",
+      "file_object",
+      "audit_event"
+    ],
+    "routes": [
+      "GET /api/v1/pages/{key}",
+      "POST /api/v1/staff/operations/pages/{key}/versions"
+    ],
+    "plannedCaseIds": [
+      "OPS-03-LOCAL-POS",
+      "OPS-03-LOCAL-NEG",
+      "OPS-03-LOCAL-CON"
+    ],
+    "executedCaseIds": [
+      "consent-version",
+      "consented-body-immutable"
+    ],
+    "evidenceReport": "reports/latest.json",
+    "localVerification": "PASS",
+    "completeFeatureAcceptance": "LOCAL_SCENARIOS_PASSED"
+  },
+  {
+    "featureId": "OPS-04",
+    "domain": "运营",
+    "feature": "活动栏目配置",
+    "scope": "REWRITE",
+    "implementation": "LOCAL_IMPLEMENTATION_WITH_EVIDENCE",
+    "localTestId": "OPS-04-LOCAL",
+    "external": "NONE",
+    "acceptance": "固定的本地场景验收；不证明所有组合、真实平台、Linux、容量或业务签字。",
+    "domainPackage": "operation",
+    "stage": "S4/S8",
+    "dependsOnDomains": [
+      "AUTH",
+      "ART"
+    ],
+    "tables": [
+      "banner",
+      "home_recommendation",
+      "content_page",
+      "file_object",
+      "audit_event"
+    ],
+    "routes": [
+      "GET /api/v1/activities/columns",
+      "POST /api/v1/staff/operations/activity-columns"
+    ],
+    "plannedCaseIds": [
+      "OPS-04-LOCAL-POS",
+      "OPS-04-LOCAL-NEG",
+      "OPS-04-LOCAL-CON"
+    ],
+    "executedCaseIds": [
+      "activity-column"
+    ],
+    "evidenceReport": "reports/latest.json",
+    "localVerification": "PASS",
+    "completeFeatureAcceptance": "LOCAL_SCENARIOS_PASSED"
+  },
+  {
+    "featureId": "OPS-05",
+    "domain": "运营",
+    "feature": "上传/附件治理",
+    "scope": "REWRITE",
+    "implementation": "LOCAL_IMPLEMENTATION_WITH_EVIDENCE",
+    "localTestId": "OPS-05-LOCAL",
+    "external": "NONE",
+    "acceptance": "固定的本地场景验收；不证明所有组合、真实平台、Linux、容量或业务签字。",
+    "domainPackage": "operation",
+    "stage": "S4/S8",
+    "dependsOnDomains": [
+      "AUTH",
+      "ART"
+    ],
+    "tables": [
+      "banner",
+      "home_recommendation",
+      "content_page",
+      "file_object",
+      "audit_event"
+    ],
+    "routes": [
+      "POST /api/v1/files/uploads",
+      "POST /api/v1/files/{id}/tickets",
+      "WORKER cleanup-unreferenced-files"
+    ],
+    "plannedCaseIds": [
+      "OPS-05-LOCAL-POS",
+      "OPS-05-LOCAL-NEG",
+      "OPS-05-LOCAL-CON"
+    ],
+    "executedCaseIds": [
+      "file-cleanup-already-missing-reconciles",
+      "file-cleanup-audit-persists",
+      "file-cleanup-dry-run",
+      "file-cleanup-invalid-object-key-rejected",
+      "file-cleanup-io-failure-keeps-deleted",
+      "file-cleanup-io-failure-retained",
+      "file-cleanup-outside-file-preserved",
+      "file-cleanup-parallel-no-double-delete",
+      "file-cleanup-physical-delete",
+      "file-cleanup-repeat-safe",
+      "file-cleanup-retention-window",
+      "file-cleanup-retries-after-storage-repair",
+      "file-cleanup-staff-permission",
+      "file-magic-reject",
+      "referenced-file-delete-denied"
+    ],
+    "evidenceReport": "reports/latest.json",
+    "localVerification": "PASS",
+    "completeFeatureAcceptance": "LOCAL_SCENARIOS_PASSED"
+  },
+  {
+    "featureId": "OPS-06",
+    "domain": "运营",
+    "feature": "关键词黑名单",
+    "scope": "REWRITE",
+    "implementation": "LOCAL_IMPLEMENTATION_WITH_EVIDENCE",
+    "localTestId": "OPS-06-LOCAL",
+    "external": "NONE",
+    "acceptance": "固定的本地场景验收；不证明所有组合、真实平台、Linux、容量或业务签字。",
+    "domainPackage": "operation",
+    "stage": "S4/S8",
+    "dependsOnDomains": [
+      "AUTH",
+      "ART"
+    ],
+    "tables": [
+      "banner",
+      "home_recommendation",
+      "content_page",
+      "file_object",
+      "audit_event"
+    ],
+    "routes": [
+      "PUT /api/v1/staff/catalog/keyword-blocklist/{id}"
+    ],
+    "plannedCaseIds": [
+      "OPS-06-LOCAL-POS",
+      "OPS-06-LOCAL-NEG",
+      "OPS-06-LOCAL-CON"
+    ],
+    "executedCaseIds": [
+      "blacklist-hides-keyword",
+      "blacklist-rejects-recreate"
+    ],
+    "evidenceReport": "reports/latest.json",
+    "localVerification": "PASS",
+    "completeFeatureAcceptance": "LOCAL_SCENARIOS_PASSED"
+  },
+  {
+    "featureId": "ANA-01",
+    "domain": "分析",
+    "feature": "可见曝光/冷却",
+    "scope": "REWRITE",
+    "implementation": "LOCAL_IMPLEMENTATION_WITH_EVIDENCE",
+    "localTestId": "ANA-01-LOCAL",
+    "external": "NONE",
+    "acceptance": "固定的本地场景验收；不证明所有组合、真实平台、Linux、容量或业务签字。",
+    "domainPackage": "analytics",
+    "stage": "S9",
+    "dependsOnDomains": [
+      "AUTH",
+      "ART",
+      "ENG",
+      "RES"
+    ],
+    "tables": [
+      "behavior_event",
+      "user_exposure",
+      "exposure_receipt",
+      "analytics_daily"
+    ],
+    "routes": [
+      "POST /api/v1/events/exposures"
+    ],
+    "plannedCaseIds": [
+      "ANA-01-LOCAL-POS",
+      "ANA-01-LOCAL-NEG",
+      "ANA-01-LOCAL-CON"
+    ],
+    "executedCaseIds": [
+      "exposure-does-not-mark-read",
+      "exposure-event",
+      "exposure-event-dedup"
+    ],
+    "evidenceReport": "reports/latest.json",
+    "localVerification": "PASS",
+    "completeFeatureAcceptance": "LOCAL_SCENARIOS_PASSED"
+  },
+  {
+    "featureId": "ANA-02",
+    "domain": "分析",
+    "feature": "页面浏览/停留",
+    "scope": "REWRITE",
+    "implementation": "LOCAL_IMPLEMENTATION_WITH_EVIDENCE",
+    "localTestId": "ANA-02-LOCAL",
+    "external": "NONE",
+    "acceptance": "固定的本地场景验收；不证明所有组合、真实平台、Linux、容量或业务签字。",
+    "domainPackage": "analytics",
+    "stage": "S9",
+    "dependsOnDomains": [
+      "AUTH",
+      "ART",
+      "ENG",
+      "RES"
+    ],
+    "tables": [
+      "behavior_event",
+      "user_exposure",
+      "exposure_receipt",
+      "analytics_daily"
+    ],
+    "routes": [
+      "POST /api/v1/events"
+    ],
+    "plannedCaseIds": [
+      "ANA-02-LOCAL-POS",
+      "ANA-02-LOCAL-NEG",
+      "ANA-02-LOCAL-CON"
+    ],
+    "executedCaseIds": [
+      "behavior-BANNER_CLICK",
+      "behavior-DOWNLOAD_INTENT",
+      "behavior-FILTER",
+      "behavior-PAGE_STAY",
+      "behavior-PAGE_VIEW",
+      "behavior-SEARCH_CLICK",
+      "stay-invalid-duration-denied",
+      "stay-unpublished-target-denied"
+    ],
+    "evidenceReport": "reports/latest.json",
+    "localVerification": "PASS",
+    "completeFeatureAcceptance": "LOCAL_SCENARIOS_PASSED"
+  },
+  {
+    "featureId": "ANA-03",
+    "domain": "分析",
+    "feature": "搜索点击/筛选/Banner事件",
+    "scope": "REWRITE",
+    "implementation": "LOCAL_IMPLEMENTATION_WITH_EVIDENCE",
+    "localTestId": "ANA-03-LOCAL",
+    "external": "NONE",
+    "acceptance": "固定的本地场景验收；不证明所有组合、真实平台、Linux、容量或业务签字。",
+    "domainPackage": "analytics",
+    "stage": "S9",
+    "dependsOnDomains": [
+      "AUTH",
+      "ART",
+      "ENG",
+      "RES"
+    ],
+    "tables": [
+      "behavior_event",
+      "user_exposure",
+      "exposure_receipt",
+      "analytics_daily"
+    ],
+    "routes": [
+      "POST /api/v1/events"
+    ],
+    "plannedCaseIds": [
+      "ANA-03-LOCAL-POS",
+      "ANA-03-LOCAL-NEG",
+      "ANA-03-LOCAL-CON"
+    ],
+    "executedCaseIds": [
+      "behavior-BANNER_CLICK",
+      "behavior-DOWNLOAD_INTENT",
+      "behavior-FILTER",
+      "behavior-PAGE_STAY",
+      "behavior-PAGE_VIEW",
+      "behavior-SEARCH_CLICK"
+    ],
+    "evidenceReport": "reports/latest.json",
+    "localVerification": "PASS",
+    "completeFeatureAcceptance": "LOCAL_SCENARIOS_PASSED"
+  },
+  {
+    "featureId": "ANA-04",
+    "domain": "分析",
+    "feature": "下载事件",
+    "scope": "REWRITE",
+    "implementation": "LOCAL_IMPLEMENTATION_WITH_EVIDENCE",
+    "localTestId": "ANA-04-LOCAL",
+    "external": "NONE",
+    "acceptance": "固定的本地场景验收；不证明所有组合、真实平台、Linux、容量或业务签字。",
+    "domainPackage": "analytics",
+    "stage": "S9",
+    "dependsOnDomains": [
+      "AUTH",
+      "ART",
+      "ENG",
+      "RES"
+    ],
+    "tables": [
+      "behavior_event",
+      "user_exposure",
+      "exposure_receipt",
+      "analytics_daily"
+    ],
+    "routes": [
+      "WORKER download-events"
+    ],
+    "plannedCaseIds": [
+      "ANA-04-LOCAL-POS",
+      "ANA-04-LOCAL-NEG",
+      "ANA-04-LOCAL-CON"
+    ],
+    "executedCaseIds": [
+      "download-is-not-client-proof"
+    ],
+    "evidenceReport": "reports/latest.json",
+    "localVerification": "PASS",
+    "completeFeatureAcceptance": "LOCAL_SCENARIOS_PASSED"
+  },
+  {
+    "featureId": "ANA-05",
+    "domain": "分析",
+    "feature": "内容效果与日报",
+    "scope": "REWRITE",
+    "implementation": "LOCAL_IMPLEMENTATION_WITH_EVIDENCE",
+    "localTestId": "ANA-05-LOCAL",
+    "external": "NONE",
+    "acceptance": "固定的本地场景验收；不证明所有组合、真实平台、Linux、容量或业务签字。",
+    "domainPackage": "analytics",
+    "stage": "S9",
+    "dependsOnDomains": [
+      "AUTH",
+      "ART",
+      "ENG",
+      "RES"
+    ],
+    "tables": [
+      "behavior_event",
+      "user_exposure",
+      "exposure_receipt",
+      "analytics_daily"
+    ],
+    "routes": [
+      "GET /api/v1/staff/analytics/articles",
+      "GET /api/v1/staff/analytics/daily"
+    ],
+    "plannedCaseIds": [
+      "ANA-05-LOCAL-POS",
+      "ANA-05-LOCAL-NEG",
+      "ANA-05-LOCAL-CON"
+    ],
+    "executedCaseIds": [
+      "analytics-no-double-count",
+      "analytics-rebuild-idempotent"
+    ],
+    "evidenceReport": "reports/latest.json",
+    "localVerification": "PASS",
+    "completeFeatureAcceptance": "LOCAL_SCENARIOS_PASSED"
+  },
+  {
+    "featureId": "ANA-06",
+    "domain": "分析",
+    "feature": "用户去标识化统计",
+    "scope": "REWRITE",
+    "implementation": "LOCAL_IMPLEMENTATION_WITH_EVIDENCE",
+    "localTestId": "ANA-06-LOCAL",
+    "external": "NONE",
+    "acceptance": "固定的本地场景验收；不证明所有组合、真实平台、Linux、容量或业务签字。",
+    "domainPackage": "analytics",
+    "stage": "S9",
+    "dependsOnDomains": [
+      "AUTH",
+      "ART",
+      "ENG",
+      "RES"
+    ],
+    "tables": [
+      "behavior_event",
+      "user_exposure",
+      "exposure_receipt",
+      "analytics_daily"
+    ],
+    "routes": [
+      "GET /api/v1/staff/analytics/users"
+    ],
+    "plannedCaseIds": [
+      "ANA-06-LOCAL-POS",
+      "ANA-06-LOCAL-NEG",
+      "ANA-06-LOCAL-CON"
+    ],
+    "executedCaseIds": [
+      "analytics-no-identity-data",
+      "analytics-users-aggregate-only",
+      "analytics-users-grant-denied"
+    ],
+    "evidenceReport": "reports/latest.json",
+    "localVerification": "PASS",
+    "completeFeatureAcceptance": "LOCAL_SCENARIOS_PASSED"
+  },
+  {
+    "featureId": "ADM-01",
+    "domain": "后台",
+    "feature": "运营角色权限",
+    "scope": "REWRITE",
+    "implementation": "LOCAL_IMPLEMENTATION_WITH_EVIDENCE",
+    "localTestId": "ADM-01-LOCAL",
+    "external": "NONE",
+    "acceptance": "固定的本地场景验收；不证明所有组合、真实平台、Linux、容量或业务签字。",
+    "domainPackage": "administration",
+    "stage": "S0/S1/S10",
+    "dependsOnDomains": [],
+    "tables": [
+      "sys_user",
+      "sys_role",
+      "sys_dept",
+      "sys_menu",
+      "audit_event"
+    ],
+    "routes": [
+      "GET /system/role/list",
+      "POST /system/role",
+      "POST /system/role/authUser"
+    ],
+    "plannedCaseIds": [
+      "ADM-01-LOCAL-POS",
+      "ADM-01-LOCAL-NEG",
+      "ADM-01-LOCAL-CON"
+    ],
+    "executedCaseIds": [
+      "existing-session-grant-revoked",
+      "reviewer-password-login",
+      "scope-management-admin-only",
+      "staff-cannot-use-customer-token",
+      "customers-reject-customer-token"
+    ],
+    "evidenceReport": "reports/latest.json",
+    "localVerification": "PASS",
+    "completeFeatureAcceptance": "LOCAL_SCENARIOS_PASSED"
+  },
+  {
+    "featureId": "ADM-02",
+    "domain": "后台",
+    "feature": "创作者角色与数据范围",
+    "scope": "REWRITE",
+    "implementation": "LOCAL_IMPLEMENTATION_WITH_EVIDENCE",
+    "localTestId": "ADM-02-LOCAL",
+    "external": "NONE",
+    "acceptance": "固定的本地场景验收；不证明所有组合、真实平台、Linux、容量或业务签字。",
+    "domainPackage": "administration",
+    "stage": "S0/S1/S10",
+    "dependsOnDomains": [],
+    "tables": [
+      "sys_user",
+      "sys_role",
+      "sys_dept",
+      "sys_menu",
+      "audit_event"
+    ],
+    "routes": [
+      "GET /api/v1/staff/articles",
+      "POST /api/v1/staff/articles"
+    ],
+    "plannedCaseIds": [
+      "ADM-02-LOCAL-POS",
+      "ADM-02-LOCAL-NEG",
+      "ADM-02-LOCAL-CON"
+    ],
+    "executedCaseIds": [
+      "creator-cannot-manage-catalog",
+      "creator-cannot-publish",
+      "creator-cannot-read-admin-article",
+      "creator-password-login",
+      "existing-session-grant-revoked",
+      "file-cleanup-staff-permission",
+      "resource-management-requires-role"
+    ],
+    "evidenceReport": "reports/latest.json",
+    "localVerification": "PASS",
+    "completeFeatureAcceptance": "LOCAL_SCENARIOS_PASSED"
+  },
+  {
+    "featureId": "ADM-03",
+    "domain": "后台",
+    "feature": "部门/菜单/用户框架能力",
+    "scope": "REWRITE",
+    "implementation": "LOCAL_IMPLEMENTATION_WITH_EVIDENCE",
+    "localTestId": "ADM-03-LOCAL",
+    "external": "NONE",
+    "acceptance": "固定的本地场景验收；不证明所有组合、真实平台、Linux、容量或业务签字。",
+    "domainPackage": "administration",
+    "stage": "S0/S1/S10",
+    "dependsOnDomains": [],
+    "tables": [
+      "sys_user",
+      "sys_role",
+      "sys_dept",
+      "sys_menu",
+      "audit_event"
+    ],
+    "routes": [
+      "GET /system/user/list",
+      "GET /system/dept/list",
+      "GET /system/menu/list"
+    ],
+    "plannedCaseIds": [
+      "ADM-03-LOCAL-POS",
+      "ADM-03-LOCAL-NEG",
+      "ADM-03-LOCAL-CON"
+    ],
+    "executedCaseIds": [
+      "framework-clientid-mismatch",
+      "framework-dept-list",
+      "framework-menu-list",
+      "framework-user-list"
+    ],
+    "evidenceReport": "reports/latest.json",
+    "localVerification": "PASS",
+    "completeFeatureAcceptance": "LOCAL_SCENARIOS_PASSED"
+  },
+  {
+    "featureId": "ADM-04",
+    "domain": "后台",
+    "feature": "审计/导出",
+    "scope": "REWRITE",
+    "implementation": "LOCAL_IMPLEMENTATION_WITH_EVIDENCE",
+    "localTestId": "ADM-04-LOCAL",
+    "external": "NONE",
+    "acceptance": "固定的本地场景验收；不证明所有组合、真实平台、Linux、容量或业务签字。",
+    "domainPackage": "administration",
+    "stage": "S0/S1/S10",
+    "dependsOnDomains": [],
+    "tables": [
+      "sys_user",
+      "sys_role",
+      "sys_dept",
+      "sys_menu",
+      "audit_event"
+    ],
+    "routes": [
+      "GET /api/v1/staff/audit-events",
+      "POST /api/v1/staff/exports"
+    ],
+    "plannedCaseIds": [
+      "ADM-04-LOCAL-POS",
+      "ADM-04-LOCAL-NEG",
+      "ADM-04-LOCAL-CON"
+    ],
+    "executedCaseIds": [
+      "activity-export-content-and-replay",
+      "audit-readable",
+      "customer-auth-durable-audit",
+      "export-anonymous-denied",
+      "export-creator-denied",
+      "export-customer-denied",
+      "export-dataset-allowlist",
+      "export-durable-audit",
+      "file-cleanup-audit-persists",
+      "no-password-or-token-in-request-logs",
+      "rejected-write-durable-audit",
+      "resource-audit-recorded",
+      "subject-edit-and-stale-denial",
+      "success-write-durable-audit",
+      "unknown-evidence-audit-persisted"
+    ],
+    "evidenceReport": "reports/latest.json",
+    "localVerification": "PASS",
+    "completeFeatureAcceptance": "LOCAL_SCENARIOS_PASSED"
+  },
+  {
+    "featureId": "ADM-05",
+    "domain": "后台",
+    "feature": "备份恢复/部署",
+    "scope": "REWRITE",
+    "implementation": "LOCAL_IMPLEMENTATION_WITH_EVIDENCE",
+    "localTestId": "ADM-05-LOCAL",
+    "external": "NONE",
+    "acceptance": "固定的本地场景验收；不证明所有组合、真实平台、Linux、容量或业务签字。",
+    "domainPackage": "administration",
+    "stage": "S0/S1/S10",
+    "dependsOnDomains": [],
+    "tables": [
+      "sys_user",
+      "sys_role",
+      "sys_dept",
+      "sys_menu",
+      "audit_event"
+    ],
+    "routes": [
+      "SCRIPT backup-restore-drill",
+      "SCRIPT rollback-drill"
+    ],
+    "plannedCaseIds": [
+      "ADM-05-LOCAL-POS",
+      "ADM-05-LOCAL-NEG",
+      "ADM-05-LOCAL-CON"
+    ],
+    "executedCaseIds": [
+      "backup-restores-all-tables-and-files",
+      "migrations-rerun"
+    ],
+    "evidenceReport": "reports/latest.json",
+    "localVerification": "PASS",
+    "completeFeatureAcceptance": "LOCAL_SCENARIOS_PASSED"
+  },
+  {
+    "featureId": "ADM-06",
+    "domain": "后台",
+    "feature": "独立本地验收报告",
+    "scope": "REWRITE",
+    "implementation": "REPORTING_IMPLEMENTED",
+    "localTestId": "ADM-06-LOCAL",
+    "external": "NONE",
+    "acceptance": "固定的本地场景验收；不证明所有组合、真实平台、Linux、容量或业务签字。",
+    "domainPackage": "administration",
+    "stage": "S0/S1/S10",
+    "dependsOnDomains": [],
+    "tables": [
+      "sys_user",
+      "sys_role",
+      "sys_dept",
+      "sys_menu",
+      "audit_event"
+    ],
+    "routes": [
+      "SCRIPT local_acceptance",
+      "SCRIPT gate_report"
+    ],
+    "plannedCaseIds": [
+      "ADM-06-LOCAL-POS",
+      "ADM-06-LOCAL-NEG",
+      "ADM-06-LOCAL-CON"
+    ],
+    "executedCaseIds": [],
+    "evidenceReport": "reports/release-gate.json",
+    "localVerification": "REPORT_GENERATED",
+    "completeFeatureAcceptance": "LOCAL_SCENARIOS_PASSED"
+  }
+]

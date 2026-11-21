@@ -1,0 +1,68 @@
+{
+  "scope": "MP_COMPILED_ARTIFACT_AND_ISOLATED_LIFECYCLE",
+  "cases": [
+    {
+      "id": "mp-native-observer-without-proxy-enumeration",
+      "status": "PASS"
+    },
+    {
+      "id": "mp-exposure-requires-real-scroll",
+      "status": "PASS"
+    },
+    {
+      "id": "mp-exposure-requires-continuous-visibility",
+      "status": "PASS"
+    },
+    {
+      "id": "mp-exposure-deduplicated-per-list",
+      "status": "PASS"
+    },
+    {
+      "id": "mp-hidden-page-cancels-pending-exposure",
+      "status": "PASS"
+    },
+    {
+      "id": "mp-late-observer-callback-ignored-after-reentry",
+      "status": "PASS"
+    },
+    {
+      "id": "mp-reset-allows-new-list-and-cancels-timers",
+      "status": "PASS"
+    },
+    {
+      "id": "mp-missing-native-scope-is-safe",
+      "status": "PASS"
+    },
+    {
+      "id": "mp-controls-have-literal-colors-and-borders",
+      "status": "PASS"
+    },
+    {
+      "id": "mp-compiled-pages-contain-action-controls",
+      "status": "PASS"
+    },
+    {
+      "id": "mp-bundle-uses-native-page-observer",
+      "status": "PASS"
+    }
+  ],
+  "passed": 11,
+  "failed": 0,
+  "limits": [
+    "No WeChat runtime, developer tools, phone, or real account was used."
+  ],
+  "generatedAt": "2026-10-28T08:05:02.631246+00:00",
+  "sourceFingerprints": {
+    "backend": "174f59b4b9062c50536d196875be93e9583bf9d9ec0346575cb33762a7fa02ce",
+    "admin": "25e29947476c60b361d2b900fe64da7821a296654874b7349c0dcb03b340de1e",
+    "client": "08c1a2d19adb9c20055863b8ab6717c8b3ad30b80046e669a1250cb560c9d268"
+  },
+  "sourceUnchanged": true,
+  "artifactFingerprints": {
+    "backend": "d01aa4a65990abc95970f72fb94ec6cfc60eec8b5329640d9561203071b3edda",
+    "admin": "6301fb7b67e750acc19c9c2f38ca6af7435b9aa5dcd0519d4d20cc7bade8d0e2",
+    "client-h5": "5531923987c17f3ade7a17f3930a59e4002d7a93e68c83edb09ee6746afc7ec7",
+    "client-mp-weixin": "d7e2eb146edead59c919f7fd8218e312f61094b04f24f37e5b0816cce23f4d17"
+  },
+  "testSourceSha256": "8689c843d5d9f4c3af27f1c381a119c6fc8c895fda478872791a6b600662d925"
+}

@@ -1,0 +1,49 @@
+{
+  "scope": "LOCAL_WORKBENCH_DEMO",
+  "startedAt": "2026-10-28T08:01:44.829479+00:00",
+  "sourceFingerprints": {
+    "backend": "174f59b4b9062c50536d196875be93e9583bf9d9ec0346575cb33762a7fa02ce",
+    "admin": "25e29947476c60b361d2b900fe64da7821a296654874b7349c0dcb03b340de1e",
+    "client": "08c1a2d19adb9c20055863b8ab6717c8b3ad30b80046e669a1250cb560c9d268"
+  },
+  "testSourceSha256": "8689c843d5d9f4c3af27f1c381a119c6fc8c895fda478872791a6b600662d925",
+  "cases": [
+    {
+      "id": "demo-six-articles-three-types",
+      "status": "PASS"
+    },
+    {
+      "id": "demo-article-detail-exposes-board-label-keyword",
+      "status": "PASS"
+    },
+    {
+      "id": "demo-three-visible-topic-banners",
+      "status": "PASS"
+    },
+    {
+      "id": "demo-topics-contain-visible-articles",
+      "status": "PASS"
+    },
+    {
+      "id": "demo-repeat-does-not-duplicate",
+      "status": "PASS"
+    },
+    {
+      "id": "demo-no-fabricated-notification-send",
+      "status": "PASS"
+    },
+    {
+      "id": "demo-images-served-without-external-network",
+      "status": "PASS"
+    },
+    {
+      "id": "demo-default-home-carousel-and-detail-browser",
+      "status": "PASS"
+    }
+  ],
+  "completedAt": "2026-10-28T08:02:29.528435+00:00",
+  "sourceUnchanged": true,
+  "logDirectory": "D:\\yunjiwxCongxie\\yunji-platform\\.runtime\\run-9b72d75969",
+  "passed": 8,
+  "failed": 0
+}

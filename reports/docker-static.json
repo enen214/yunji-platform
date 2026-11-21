@@ -1,0 +1,35 @@
+{
+  "generatedAt": "2026-10-22T14:15:48.725495+00:00",
+  "scope": "STATIC_ONLY_NO_DOCKER_ENGINE",
+  "deploySha256": "958a9a59ce0bf4df65ed9e74798789957d7a66b7ee0643b7a685630a6ff3e577",
+  "cases": [
+    {
+      "id": "compose-amd64",
+      "status": "PASS"
+    },
+    {
+      "id": "api-no-host-port",
+      "status": "PASS"
+    },
+    {
+      "id": "api-private-persistent-files",
+      "status": "PASS"
+    },
+    {
+      "id": "web-loopback-port",
+      "status": "PASS"
+    },
+    {
+      "id": "dockerfiles-resolve",
+      "status": "PASS"
+    },
+    {
+      "id": "actual-artifacts-present",
+      "status": "PASS"
+    }
+  ],
+  "dockerImageBuilt": false,
+  "linuxRuntimeVerified": false,
+  "passed": 6,
+  "failed": 0
+}

@@ -1,0 +1,75 @@
+name: Build and dependency evidence
+on:
+  push:
+    branches: [main, 'feature/**', 'fix/**', 'release/**']
+  pull_request:
+    branches: [main]
+permissions:
+  contents: read
+concurrency:
+  group: verify-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  verify:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - uses: actions/setup-java@cf277c60eb25467037889841efdb72551f06f6c3
+        with:
+          distribution: temurin
+          java-version: '21'
+          cache: maven
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: |
+            apps/admin/package-lock.json
+            apps/client/package-lock.json
+      - name: Locked frontend dependencies
+        run: |
+          npm ci --prefix apps/admin
+          npm ci --prefix apps/client
+      - name: Backend verification
+        working-directory: backend
+        run: mvn -B -pl agri-admin -am clean verify
+      - name: Frontend verification
+        run: |
+          npm run typecheck --prefix apps/admin
+          npm run build --prefix apps/admin -- --base=/admin/
+          npm run typecheck --prefix apps/client
+          npm run build:h5 --prefix apps/client
+          npm run build:mp-weixin --prefix apps/client
+      - name: Mini-program artifact and lifecycle regression
+        run: python3 scripts/client_compat_acceptance.py
+      - name: Check generated contract models
+        run: |
+          python3 scripts/generate_view_models.py
+          git diff --exit-code -- backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/shared/contract/Views.java apps/admin/src/types/models.ts apps/client/src/types/models.ts
+      - name: Actual deployment SBOM and online dependency scan
+        run: |
+          python3 scripts/sbom_inventory.py
+          python3 scripts/security_inventory.py
+      - name: Enforce dependency release gate
+        run: |
+          python3 - <<'PY'
+          import json
+          report=json.load(open('reports/security.json'))
+          assert report['scanComplete'], 'Security scan incomplete'
+          assert report['releaseSecurityEligible'], 'Unresolved dependency release blockers; see uploaded evidence'
+          PY
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: build-and-security-evidence
+          retention-days: 14
+          path: |
+            reports/client-compat.json
+            reports/security.json
+            reports/npm-*-audit.json
+            reports/sbom/
+            backend/agri-modules/yunji-content/target/surefire-reports/
+          if-no-files-found: warn

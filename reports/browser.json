@@ -1,0 +1,33 @@
+{
+  "scope": "LOCAL_BROWSER_CORE_FLOW",
+  "startedAt": "2026-10-22T14:13:27.766Z",
+  "cases": [
+    {
+      "id": "admin-password-login-ui",
+      "status": "PASS"
+    },
+    {
+      "id": "article-create-ui",
+      "status": "PASS"
+    },
+    {
+      "id": "article-review-publish-ui",
+      "status": "PASS"
+    },
+    {
+      "id": "customer-list-ui",
+      "status": "PASS"
+    },
+    {
+      "id": "customer-detail-ui",
+      "status": "PASS"
+    },
+    {
+      "id": "no-browser-runtime-error",
+      "status": "PASS"
+    }
+  ],
+  "errors": [],
+  "passed": 6,
+  "failed": 0
+}

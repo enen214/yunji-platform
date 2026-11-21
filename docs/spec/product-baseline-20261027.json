@@ -1,0 +1,5142 @@
+{
+  "baseline": "2026-10-27",
+  "status": "reviewable_candidate",
+  "branch": "feature/product-baseline-rebuild-20261027",
+  "sources": [
+    {
+      "file": "云迹设计规格-完整版.md",
+      "sha256": "9808059ffa4b9ae295f4bf5aca3d89217a158b662b79a0efe67b09ecb0db15f6"
+    },
+    {
+      "file": "云迹批量导入-程序设计(1).md",
+      "sha256": "f8b23f3be6f2105a75d167620900ddc0b4f042066e44fcd6995e0de99a63f18a"
+    }
+  ],
+  "ruleCount": 234,
+  "stageCounts": {
+    "本期": 210,
+    "后续": 14,
+    "已定": 3,
+    "待验": 3,
+    "待议": 1,
+    "待依赖": 3
+  },
+  "missingReferencedIds": [
+    "1-19",
+    "1-20",
+    "1-21",
+    "1-22"
+  ],
+  "decisions": "docs/decisions/产品基线工程决策-20261027.md",
+  "rules": [
+    {
+      "id": "0-01",
+      "rule": "底部**四个 Tab**：主页 / 信息盒子 / 板块 / 我的",
+      "origin": "共定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 461,
+      "milestone": "M2",
+      "status": "implementation_present_unverified",
+      "implementation": [
+        "apps/client/src/pages.json",
+        "apps/client/src/pages/index/index.vue",
+        "apps/client/src/pages/subscriptions/index.vue",
+        "apps/client/src/pages/search/index.vue"
+      ],
+      "evidence": [],
+      "verificationLimit": "实现入口已登记；未用关联模块通过推断本条全部行为已验。需按本条具体规则专项验收。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "0-02",
+      "rule": "顶部**搜索入口** → 点进独立搜索页（搜索不占 Tab）",
+      "origin": "共定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 462,
+      "milestone": "M2",
+      "status": "implementation_present_unverified",
+      "implementation": [
+        "apps/client/src/pages.json",
+        "apps/client/src/pages/index/index.vue",
+        "apps/client/src/pages/subscriptions/index.vue",
+        "apps/client/src/pages/search/index.vue"
+      ],
+      "evidence": [],
+      "verificationLimit": "实现入口已登记；未用关联模块通过推断本条全部行为已验。需按本条具体规则专项验收。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "0-03",
+      "rule": "**通知条**：「您的关注更新了 X 条 · 今日新推送 X 条」，点击进信息盒子",
+      "origin": "共定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 463,
+      "milestone": "M2",
+      "status": "verified_local_scenarios",
+      "implementation": [
+        "apps/client/src/pages.json",
+        "apps/client/src/pages/index/index.vue",
+        "apps/client/src/pages/subscriptions/index.vue",
+        "apps/client/src/pages/search/index.vue"
+      ],
+      "evidence": [
+        {
+          "report": "reports/product-baseline-acceptance.json",
+          "caseId": "discovery-summary-label-count",
+          "observedStatus": "PASS"
+        },
+        {
+          "report": "reports/browser-product-baseline.json",
+          "caseId": "baseline-home-hot-two-column-live-summary",
+          "observedStatus": "PASS"
+        }
+      ],
+      "verificationLimit": "仅所列固定本地场景通过，不代表本条所有组合、真机或生产完成。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "0-04",
+      "rule": "**活动轮播 banner**",
+      "origin": "共定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 464,
+      "milestone": "M2",
+      "status": "implementation_present_unverified",
+      "implementation": [
+        "apps/client/src/pages.json",
+        "apps/client/src/pages/index/index.vue",
+        "apps/client/src/pages/subscriptions/index.vue",
+        "apps/client/src/pages/search/index.vue"
+      ],
+      "evidence": [],
+      "verificationLimit": "实现入口已登记；未用关联模块通过推断本条全部行为已验。需按本条具体规则专项验收。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "0-05",
+      "rule": "**推荐资讯区**（重点推荐 / 为你推荐）",
+      "origin": "共定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 465,
+      "milestone": "M2",
+      "status": "implementation_present_unverified",
+      "implementation": [
+        "apps/client/src/pages.json",
+        "apps/client/src/pages/index/index.vue",
+        "apps/client/src/pages/subscriptions/index.vue",
+        "apps/client/src/pages/search/index.vue"
+      ],
+      "evidence": [],
+      "verificationLimit": "实现入口已登记；未用关联模块通过推断本条全部行为已验。需按本条具体规则专项验收。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "0-06",
+      "rule": "信息流：**双列瀑布流**，按热点门槛 + 排序规则",
+      "origin": "共定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 466,
+      "milestone": "M2",
+      "status": "verified_local_scenarios",
+      "implementation": [
+        "apps/client/src/pages.json",
+        "apps/client/src/pages/index/index.vue",
+        "apps/client/src/pages/subscriptions/index.vue",
+        "apps/client/src/pages/search/index.vue"
+      ],
+      "evidence": [
+        {
+          "report": "reports/browser-product-baseline.json",
+          "caseId": "baseline-home-hot-two-column-live-summary",
+          "observedStatus": "PASS"
+        }
+      ],
+      "verificationLimit": "仅所列固定本地场景通过，不代表本条所有组合、真机或生产完成。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "0-07",
+      "rule": "**板块列表**：宫格，含图标 / 名称 / 简介 / 信息条数",
+      "origin": "共定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 467,
+      "milestone": "M2",
+      "status": "implementation_present_unverified",
+      "implementation": [
+        "apps/client/src/pages.json",
+        "apps/client/src/pages/index/index.vue",
+        "apps/client/src/pages/subscriptions/index.vue",
+        "apps/client/src/pages/search/index.vue"
+      ],
+      "evidence": [],
+      "verificationLimit": "实现入口已登记；未用关联模块通过推断本条全部行为已验。需按本条具体规则专项验收。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "0-08",
+      "rule": "**板块详情**：该板块下信息列表（热点门槛）",
+      "origin": "共定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 468,
+      "milestone": "M2",
+      "status": "implementation_present_unverified",
+      "implementation": [
+        "apps/client/src/pages.json",
+        "apps/client/src/pages/index/index.vue",
+        "apps/client/src/pages/subscriptions/index.vue",
+        "apps/client/src/pages/search/index.vue"
+      ],
+      "evidence": [],
+      "verificationLimit": "实现入口已登记；未用关联模块通过推断本条全部行为已验。需按本条具体规则专项验收。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "0-09",
+      "rule": "**标签详情**页",
+      "origin": "共定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 469,
+      "milestone": "M2",
+      "status": "implementation_present_unverified",
+      "implementation": [
+        "apps/client/src/pages.json",
+        "apps/client/src/pages/index/index.vue",
+        "apps/client/src/pages/subscriptions/index.vue",
+        "apps/client/src/pages/search/index.vue"
+      ],
+      "evidence": [],
+      "verificationLimit": "实现入口已登记；未用关联模块通过推断本条全部行为已验。需按本条具体规则专项验收。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "0-10",
+      "rule": "**关键词列表**页",
+      "origin": "共定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 470,
+      "milestone": "M2",
+      "status": "implementation_present_unverified",
+      "implementation": [
+        "apps/client/src/pages.json",
+        "apps/client/src/pages/index/index.vue",
+        "apps/client/src/pages/subscriptions/index.vue",
+        "apps/client/src/pages/search/index.vue"
+      ],
+      "evidence": [],
+      "verificationLimit": "实现入口已登记；未用关联模块通过推断本条全部行为已验。需按本条具体规则专项验收。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "0-11",
+      "rule": "盒子顶部入口：**管理关注 / 选择推送标签 / 关键词搜索**",
+      "origin": "共定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 471,
+      "milestone": "M2",
+      "status": "implementation_present_unverified",
+      "implementation": [
+        "apps/client/src/pages.json",
+        "apps/client/src/pages/index/index.vue",
+        "apps/client/src/pages/subscriptions/index.vue",
+        "apps/client/src/pages/search/index.vue"
+      ],
+      "evidence": [],
+      "verificationLimit": "实现入口已登记；未用关联模块通过推断本条全部行为已验。需按本条具体规则专项验收。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "0-12",
+      "rule": "盒子条目支持**左右滑标记已读**",
+      "origin": "共定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 472,
+      "milestone": "M2",
+      "status": "implementation_present_unverified",
+      "implementation": [
+        "apps/client/src/pages.json",
+        "apps/client/src/pages/index/index.vue",
+        "apps/client/src/pages/subscriptions/index.vue",
+        "apps/client/src/pages/search/index.vue"
+      ],
+      "evidence": [],
+      "verificationLimit": "实现入口已登记；未用关联模块通过推断本条全部行为已验。需按本条具体规则专项验收。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "0-13",
+      "rule": "搜索筛选含**「信息类型」维度**（普通信息 / 通知 / 攻略 / 全部）",
+      "origin": "共定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 473,
+      "milestone": "M2",
+      "status": "verified_local_scenarios",
+      "implementation": [
+        "apps/client/src/pages.json",
+        "apps/client/src/pages/index/index.vue",
+        "apps/client/src/pages/subscriptions/index.vue",
+        "apps/client/src/pages/search/index.vue"
+      ],
+      "evidence": [
+        {
+          "report": "reports/browser-product-baseline.json",
+          "caseId": "baseline-filter-groups-by-board",
+          "observedStatus": "PASS"
+        }
+      ],
+      "verificationLimit": "仅所列固定本地场景通过，不代表本条所有组合、真机或生产完成。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "1-01",
+      "rule": "不做单条信息版本化",
+      "origin": "你定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 479,
+      "milestone": "M1",
+      "status": "verified_local_scenarios",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/article/application/ArticleCommands.java",
+        "apps/admin/src/views/Articles.vue",
+        "apps/admin/src/views/ReplacementCandidates.vue"
+      ],
+      "evidence": [
+        {
+          "report": "reports/product-baseline-acceptance.json",
+          "caseId": "edit-does-not-append-business-version",
+          "observedStatus": "PASS"
+        }
+      ],
+      "verificationLimit": "仅所列固定本地场景通过，不代表本条所有组合、真机或生产完成。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "1-02",
+      "rule": "录入不设审核关卡，保存即可发布",
+      "origin": "你定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 480,
+      "milestone": "M1",
+      "status": "verified_local_scenarios",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/article/application/ArticleCommands.java",
+        "apps/admin/src/views/Articles.vue",
+        "apps/admin/src/views/ReplacementCandidates.vue"
+      ],
+      "evidence": [
+        {
+          "report": "reports/product-baseline-acceptance.json",
+          "caseId": "save-publishes-immediately",
+          "observedStatus": "PASS"
+        },
+        {
+          "report": "reports/browser-product-baseline.json",
+          "caseId": "baseline-admin-create-saves-and-publishes",
+          "observedStatus": "PASS"
+        }
+      ],
+      "verificationLimit": "仅所列固定本地场景通过，不代表本条所有组合、真机或生产完成。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "1-03",
+      "rule": "审核与版本能力登记为后续（回退/删除/下线按需再加）",
+      "origin": "你定",
+      "stage": "后续",
+      "source": "云迹设计规格-完整版.md",
+      "line": 481,
+      "milestone": "M1",
+      "status": "deferred",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/article/application/ArticleCommands.java",
+        "apps/admin/src/views/Articles.vue",
+        "apps/admin/src/views/ReplacementCandidates.vue"
+      ],
+      "evidence": [],
+      "verificationLimit": "按输入原阶段登记后续，不计本期完成；当前兼容结构不表示已实现。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "1-04",
+      "rule": "信息上传后内容不变；错别字直接改，不惊动用户",
+      "origin": "你定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 482,
+      "milestone": "M1",
+      "status": "verified_local_scenarios",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/article/application/ArticleCommands.java",
+        "apps/admin/src/views/Articles.vue",
+        "apps/admin/src/views/ReplacementCandidates.vue"
+      ],
+      "evidence": [
+        {
+          "report": "reports/product-baseline-acceptance.json",
+          "caseId": "edit-stable-content-id",
+          "observedStatus": "PASS"
+        },
+        {
+          "report": "reports/product-baseline-acceptance.json",
+          "caseId": "edit-does-not-republish",
+          "observedStatus": "PASS"
+        },
+        {
+          "report": "reports/product-baseline-acceptance.json",
+          "caseId": "edit-does-not-reset-read",
+          "observedStatus": "PASS"
+        }
+      ],
+      "verificationLimit": "仅所列固定本地场景通过，不代表本条所有组合、真机或生产完成。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "1-05",
+      "rule": "重大更新 = 新录入一条信息，不改旧信息",
+      "origin": "你定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 483,
+      "milestone": "M1",
+      "status": "implementation_present_unverified",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/article/application/ArticleCommands.java",
+        "apps/admin/src/views/Articles.vue",
+        "apps/admin/src/views/ReplacementCandidates.vue"
+      ],
+      "evidence": [],
+      "verificationLimit": "实现入口已登记；未用关联模块通过推断本条全部行为已验。需按本条具体规则专项验收。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "1-06",
+      "rule": "**更替触发条件：板块 + 标签 + 关键词三组全一致**",
+      "origin": "你定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 484,
+      "milestone": "M1",
+      "status": "verified_local_scenarios",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/article/application/ArticleCommands.java",
+        "apps/admin/src/views/Articles.vue",
+        "apps/admin/src/views/ReplacementCandidates.vue"
+      ],
+      "evidence": [
+        {
+          "report": "reports/product-baseline-acceptance.json",
+          "caseId": "exact-taxonomy-candidate",
+          "observedStatus": "PASS"
+        }
+      ],
+      "verificationLimit": "仅所列固定本地场景通过，不代表本条所有组合、真机或生产完成。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "1-07",
+      "rule": "命中后进入**判断列表**，管理端确认 / 忽略",
+      "origin": "你定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 485,
+      "milestone": "M1",
+      "status": "implementation_present_unverified",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/article/application/ArticleCommands.java",
+        "apps/admin/src/views/Articles.vue",
+        "apps/admin/src/views/ReplacementCandidates.vue"
+      ],
+      "evidence": [],
+      "verificationLimit": "实现入口已登记；未用关联模块通过推断本条全部行为已验。需按本条具体规则专项验收。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "1-08",
+      "rule": "确认更替后，旧信息**结束生命周期（半隐藏）**，不是下线",
+      "origin": "你定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 486,
+      "milestone": "M1",
+      "status": "verified_local_scenarios",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/article/application/ArticleCommands.java",
+        "apps/admin/src/views/Articles.vue",
+        "apps/admin/src/views/ReplacementCandidates.vue"
+      ],
+      "evidence": [
+        {
+          "report": "reports/product-baseline-acceptance.json",
+          "caseId": "replaced-old-still-readable",
+          "observedStatus": "PASS"
+        }
+      ],
+      "verificationLimit": "仅所列固定本地场景通过，不代表本条所有组合、真机或生产完成。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "1-09",
+      "rule": "被更替信息打「**被更替**」标记",
+      "origin": "你定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 487,
+      "milestone": "M1",
+      "status": "implementation_present_unverified",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/article/application/ArticleCommands.java",
+        "apps/admin/src/views/Articles.vue",
+        "apps/admin/src/views/ReplacementCandidates.vue"
+      ],
+      "evidence": [],
+      "verificationLimit": "实现入口已登记；未用关联模块通过推断本条全部行为已验。需按本条具体规则专项验收。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "1-10",
+      "rule": "记录旧信息**被哪条新信息**更替（指向关系）",
+      "origin": "你定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 488,
+      "milestone": "M1",
+      "status": "implementation_present_unverified",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/article/application/ArticleCommands.java",
+        "apps/admin/src/views/Articles.vue",
+        "apps/admin/src/views/ReplacementCandidates.vue"
+      ],
+      "evidence": [],
+      "verificationLimit": "实现入口已登记；未用关联模块通过推断本条全部行为已验。需按本条具体规则专项验收。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "1-11",
+      "rule": "被更替信息详情页加跳转新信息的入口",
+      "origin": "你定",
+      "stage": "后续",
+      "source": "云迹设计规格-完整版.md",
+      "line": 489,
+      "milestone": "M1",
+      "status": "deferred",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/article/application/ArticleCommands.java",
+        "apps/admin/src/views/Articles.vue",
+        "apps/admin/src/views/ReplacementCandidates.vue"
+      ],
+      "evidence": [],
+      "verificationLimit": "按输入原阶段登记后续，不计本期完成；当前兼容结构不表示已实现。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "1-12",
+      "rule": "更替确认后**迁移用户关注**（指向新信息，继承盒子偏好）",
+      "origin": "你定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 490,
+      "milestone": "M1",
+      "status": "verified_local_scenarios",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/article/application/ArticleCommands.java",
+        "apps/admin/src/views/Articles.vue",
+        "apps/admin/src/views/ReplacementCandidates.vue"
+      ],
+      "evidence": [
+        {
+          "report": "reports/product-baseline-acceptance.json",
+          "caseId": "replacement-migrates-follow",
+          "observedStatus": "PASS"
+        }
+      ],
+      "verificationLimit": "仅所列固定本地场景通过，不代表本条所有组合、真机或生产完成。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "1-13",
+      "rule": "更替确认后**迁移强提醒**",
+      "origin": "你定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 491,
+      "milestone": "M1",
+      "status": "implementation_present_unverified",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/article/application/ArticleCommands.java",
+        "apps/admin/src/views/Articles.vue",
+        "apps/admin/src/views/ReplacementCandidates.vue"
+      ],
+      "evidence": [],
+      "verificationLimit": "实现入口已登记；未用关联模块通过推断本条全部行为已验。需按本条具体规则专项验收。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "1-14",
+      "rule": "链式更替（A→B→C）用户最终**跟到链尾**",
+      "origin": "你定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 492,
+      "milestone": "M1",
+      "status": "verified_local_scenarios",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/article/application/ArticleCommands.java",
+        "apps/admin/src/views/Articles.vue",
+        "apps/admin/src/views/ReplacementCandidates.vue"
+      ],
+      "evidence": [
+        {
+          "report": "reports/product-baseline-acceptance.json",
+          "caseId": "replacement-chain-follows-final-target",
+          "observedStatus": "PASS"
+        },
+        {
+          "report": "reports/product-baseline-acceptance.json",
+          "caseId": "replacement-chain-resolves-to-final-target",
+          "observedStatus": "PASS"
+        },
+        {
+          "report": "reports/product-baseline-acceptance.json",
+          "caseId": "replacement-cycle-rejected",
+          "observedStatus": "PASS"
+        }
+      ],
+      "verificationLimit": "仅所列固定本地场景通过，不代表本条所有组合、真机或生产完成。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "1-15",
+      "rule": "忽略更替 = 新信息作为独立信息存在，两篇互不影响",
+      "origin": "你定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 493,
+      "milestone": "M1",
+      "status": "implementation_present_unverified",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/article/application/ArticleCommands.java",
+        "apps/admin/src/views/Articles.vue",
+        "apps/admin/src/views/ReplacementCandidates.vue"
+      ],
+      "evidence": [],
+      "verificationLimit": "实现入口已登记；未用关联模块通过推断本条全部行为已验。需按本条具体规则专项验收。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "1-16",
+      "rule": "生命周期三态：结束（半隐藏）/ 下线（完全隐藏）/ 删除（不存在）",
+      "origin": "你定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 494,
+      "milestone": "M1",
+      "status": "implementation_present_unverified",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/article/application/ArticleCommands.java",
+        "apps/admin/src/views/Articles.vue",
+        "apps/admin/src/views/ReplacementCandidates.vue"
+      ],
+      "evidence": [],
+      "verificationLimit": "实现入口已登记；未用关联模块通过推断本条全部行为已验。需按本条具体规则专项验收。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "1-17",
+      "rule": "生命周期结束的信息**详情仍可打开**；搜索可勾选历史",
+      "origin": "你定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 495,
+      "milestone": "M1",
+      "status": "verified_local_scenarios",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/article/application/ArticleCommands.java",
+        "apps/admin/src/views/Articles.vue",
+        "apps/admin/src/views/ReplacementCandidates.vue"
+      ],
+      "evidence": [
+        {
+          "report": "reports/product-baseline-acceptance.json",
+          "caseId": "ended-readable",
+          "observedStatus": "PASS"
+        },
+        {
+          "report": "reports/product-baseline-acceptance.json",
+          "caseId": "offline-not-readable",
+          "observedStatus": "PASS"
+        }
+      ],
+      "verificationLimit": "仅所列固定本地场景通过，不代表本条所有组合、真机或生产完成。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "1-18",
+      "rule": "**更替必须让用户感知**——这是信息体系的重要机制，不能静默替换",
+      "origin": "你定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 496,
+      "milestone": "M1",
+      "status": "verified_local_scenarios",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/article/application/ArticleCommands.java",
+        "apps/admin/src/views/Articles.vue",
+        "apps/admin/src/views/ReplacementCandidates.vue"
+      ],
+      "evidence": [
+        {
+          "report": "reports/product-baseline-acceptance.json",
+          "caseId": "replacement-highest-box",
+          "observedStatus": "PASS"
+        }
+      ],
+      "verificationLimit": "仅所列固定本地场景通过，不代表本条所有组合、真机或生产完成。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "2-01",
+      "rule": "一条信息必须且只能属于**一个**板块",
+      "origin": "你定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 536,
+      "milestone": "M1",
+      "status": "verified_local_scenarios",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/catalog/application/CatalogCommands.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/article/application/ArticleCommands.java",
+        "apps/admin/src/views/CatalogTree.vue",
+        "apps/admin/src/workspaces.ts"
+      ],
+      "evidence": [
+        {
+          "report": "reports/product-baseline-acceptance.json",
+          "caseId": "create-reject-categoryIds",
+          "observedStatus": "PASS"
+        }
+      ],
+      "verificationLimit": "仅所列固定本地场景通过，不代表本条所有组合、真机或生产完成。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "2-02",
+      "rule": "标签必须属于该板块；信息**至少挂 1 个**该板块下的标签（必填），可多个",
+      "origin": "你定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 537,
+      "milestone": "M1",
+      "status": "verified_local_scenarios",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/catalog/application/CatalogCommands.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/article/application/ArticleCommands.java",
+        "apps/admin/src/views/CatalogTree.vue",
+        "apps/admin/src/workspaces.ts"
+      ],
+      "evidence": [
+        {
+          "report": "reports/product-baseline-acceptance.json",
+          "caseId": "create-reject-labelIds",
+          "observedStatus": "PASS"
+        }
+      ],
+      "verificationLimit": "仅所列固定本地场景通过，不代表本条所有组合、真机或生产完成。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "2-03",
+      "rule": "板块**不分级**，但预留层级扩展（结构留父级字段，界面不做）",
+      "origin": "你定",
+      "stage": "后续",
+      "source": "云迹设计规格-完整版.md",
+      "line": 538,
+      "milestone": "M1",
+      "status": "deferred",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/catalog/application/CatalogCommands.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/article/application/ArticleCommands.java",
+        "apps/admin/src/views/CatalogTree.vue",
+        "apps/admin/src/workspaces.ts"
+      ],
+      "evidence": [],
+      "verificationLimit": "按输入原阶段登记后续，不计本期完成；当前兼容结构不表示已实现。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "2-04",
+      "rule": "板块与标签是**预设字典**，不频繁变动",
+      "origin": "你定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 539,
+      "milestone": "M1",
+      "status": "implementation_present_unverified",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/catalog/application/CatalogCommands.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/article/application/ArticleCommands.java",
+        "apps/admin/src/views/CatalogTree.vue",
+        "apps/admin/src/workspaces.ts"
+      ],
+      "evidence": [],
+      "verificationLimit": "实现入口已登记；未用关联模块通过推断本条全部行为已验。需按本条具体规则专项验收。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "2-05",
+      "rule": "关键词**词条全局唯一**，同名同义视为一个词（搜索/筛选/关注都按词条走）",
+      "origin": "你定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 540,
+      "milestone": "M1",
+      "status": "partial",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/catalog/application/CatalogCommands.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/article/application/ArticleCommands.java",
+        "apps/admin/src/views/CatalogTree.vue",
+        "apps/admin/src/workspaces.ts"
+      ],
+      "evidence": [
+        {
+          "report": "reports/product-baseline-acceptance.json",
+          "caseId": "concurrent-keyword-normalization-single-identity",
+          "observedStatus": "PASS"
+        },
+        {
+          "report": "reports/product-baseline-acceptance.json",
+          "caseId": "keyword-alias-reuses-canonical-identity",
+          "observedStatus": "PASS"
+        }
+      ],
+      "verificationLimit": "只对人工维护的别名及规范化词建立同一词条，不提供自动语义同义判定。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "2-06",
+      "rule": "一个关键词可挂在**多个板块/标签**下（只是归类关系，不产生第二个词）",
+      "origin": "你定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 541,
+      "milestone": "M1",
+      "status": "implementation_present_unverified",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/catalog/application/CatalogCommands.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/article/application/ArticleCommands.java",
+        "apps/admin/src/views/CatalogTree.vue",
+        "apps/admin/src/workspaces.ts"
+      ],
+      "evidence": [],
+      "verificationLimit": "实现入口已登记；未用关联模块通过推断本条全部行为已验。需按本条具体规则专项验收。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "2-07",
+      "rule": "一条信息**至少挂 1 个**关键词（必填），可挂多个",
+      "origin": "你定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 542,
+      "milestone": "M1",
+      "status": "verified_local_scenarios",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/catalog/application/CatalogCommands.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/article/application/ArticleCommands.java",
+        "apps/admin/src/views/CatalogTree.vue",
+        "apps/admin/src/workspaces.ts"
+      ],
+      "evidence": [
+        {
+          "report": "reports/product-baseline-acceptance.json",
+          "caseId": "create-reject-keywordNames",
+          "observedStatus": "PASS"
+        }
+      ],
+      "verificationLimit": "仅所列固定本地场景通过，不代表本条所有组合、真机或生产完成。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "2-08",
+      "rule": "录入时**直接敲新词**，自动建词条并挂到当前板块的标签下；同名词**复用不新建**",
+      "origin": "你定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 543,
+      "milestone": "M1",
+      "status": "verified_local_scenarios",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/catalog/application/CatalogCommands.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/article/application/ArticleCommands.java",
+        "apps/admin/src/views/CatalogTree.vue",
+        "apps/admin/src/workspaces.ts"
+      ],
+      "evidence": [
+        {
+          "report": "reports/product-baseline-acceptance.json",
+          "caseId": "concurrent-keyword-normalization-single-identity",
+          "observedStatus": "PASS"
+        },
+        {
+          "report": "reports/product-baseline-acceptance.json",
+          "caseId": "manual-create-respects-keyword-blacklist",
+          "observedStatus": "PASS"
+        }
+      ],
+      "verificationLimit": "仅所列固定本地场景通过，不代表本条所有组合、真机或生产完成。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "2-09",
+      "rule": "学校/学院维度**本版不做**，登记后续（属用户信息维度，非内容归属）",
+      "origin": "你定",
+      "stage": "后续",
+      "source": "云迹设计规格-完整版.md",
+      "line": 544,
+      "milestone": "M1",
+      "status": "deferred",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/catalog/application/CatalogCommands.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/article/application/ArticleCommands.java",
+        "apps/admin/src/views/CatalogTree.vue",
+        "apps/admin/src/workspaces.ts"
+      ],
+      "evidence": [],
+      "verificationLimit": "按输入原阶段登记后续，不计本期完成；当前兼容结构不表示已实现。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "2-10",
+      "rule": "管理端提供**三个独立维护界面**（板块/标签/关键词），**同时提供树视图**",
+      "origin": "你定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 545,
+      "milestone": "M1",
+      "status": "implementation_present_unverified",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/catalog/application/CatalogCommands.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/article/application/ArticleCommands.java",
+        "apps/admin/src/views/CatalogTree.vue",
+        "apps/admin/src/workspaces.ts"
+      ],
+      "evidence": [],
+      "verificationLimit": "实现入口已登记；未用关联模块通过推断本条全部行为已验。需按本条具体规则专项验收。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "3-01",
+      "rule": "三级信息定义：一级=原文（折叠）、二级=正文、三级=列表一句话",
+      "origin": "你定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 555,
+      "milestone": "M2",
+      "status": "verified_local_scenarios",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/discovery/domain/FeedRanking.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/discovery/domain/FeedSql.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/article/infrastructure/JdbcArticleRepository.java",
+        "apps/client/src/features/telemetry.ts",
+        "apps/client/src/pages/article/index.vue",
+        "apps/admin/src/views/ContentTypes.vue"
+      ],
+      "evidence": [
+        {
+          "report": "reports/product-baseline-acceptance.json",
+          "caseId": "detail-taxonomy-complete",
+          "observedStatus": "PASS"
+        },
+        {
+          "report": "reports/product-baseline-acceptance.json",
+          "caseId": "body-sanitized",
+          "observedStatus": "PASS"
+        }
+      ],
+      "verificationLimit": "仅所列固定本地场景通过，不代表本条所有组合、真机或生产完成。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "3-02",
+      "rule": "分级必填：普通信息一二三全必填；通知二级必填、一级选填、三级选填；攻略无一二、三级选填",
+      "origin": "你定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 556,
+      "milestone": "M2",
+      "status": "verified_local_scenarios",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/discovery/domain/FeedRanking.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/discovery/domain/FeedSql.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/article/infrastructure/JdbcArticleRepository.java",
+        "apps/client/src/features/telemetry.ts",
+        "apps/client/src/pages/article/index.vue",
+        "apps/admin/src/views/ContentTypes.vue"
+      ],
+      "evidence": [
+        {
+          "report": "reports/product-baseline-acceptance.json",
+          "caseId": "create-reject-summary",
+          "observedStatus": "PASS"
+        },
+        {
+          "report": "reports/product-baseline-acceptance.json",
+          "caseId": "create-reject-originalText",
+          "observedStatus": "PASS"
+        },
+        {
+          "report": "reports/product-baseline-acceptance.json",
+          "caseId": "create-reject-richText",
+          "observedStatus": "PASS"
+        },
+        {
+          "report": "reports/product-baseline-acceptance.json",
+          "caseId": "guide-image-only",
+          "observedStatus": "PASS"
+        },
+        {
+          "report": "reports/product-baseline-acceptance.json",
+          "caseId": "notice-requires-dates",
+          "observedStatus": "PASS"
+        }
+      ],
+      "verificationLimit": "仅所列固定本地场景通过，不代表本条所有组合、真机或生产完成。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "3-03",
+      "rule": "内容类型**不写死**，做成可配置字典（每类配必填字段集 + 渲染方式）",
+      "origin": "你定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 557,
+      "milestone": "M2",
+      "status": "implementation_present_unverified",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/discovery/domain/FeedRanking.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/discovery/domain/FeedSql.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/article/infrastructure/JdbcArticleRepository.java",
+        "apps/client/src/features/telemetry.ts",
+        "apps/client/src/pages/article/index.vue",
+        "apps/admin/src/views/ContentTypes.vue"
+      ],
+      "evidence": [],
+      "verificationLimit": "实现入口已登记；未用关联模块通过推断本条全部行为已验。需按本条具体规则专项验收。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "3-04",
+      "rule": "攻略当前为长图，后续转其他形式",
+      "origin": "你定",
+      "stage": "后续",
+      "source": "云迹设计规格-完整版.md",
+      "line": 558,
+      "milestone": "M2",
+      "status": "deferred",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/discovery/domain/FeedRanking.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/discovery/domain/FeedSql.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/article/infrastructure/JdbcArticleRepository.java",
+        "apps/client/src/features/telemetry.ts",
+        "apps/client/src/pages/article/index.vue",
+        "apps/admin/src/views/ContentTypes.vue"
+      ],
+      "evidence": [],
+      "verificationLimit": "按输入原阶段登记后续，不计本期完成；当前兼容结构不表示已实现。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "3-26",
+      "rule": "各类「可选项」的完整清单与展现规则，后续单独设计；当前原则：**选填项不填，C 端不显示**",
+      "origin": "你定",
+      "stage": "后续",
+      "source": "云迹设计规格-完整版.md",
+      "line": 559,
+      "milestone": "M2",
+      "status": "deferred",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/discovery/domain/FeedRanking.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/discovery/domain/FeedSql.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/article/infrastructure/JdbcArticleRepository.java",
+        "apps/client/src/features/telemetry.ts",
+        "apps/client/src/pages/article/index.vue",
+        "apps/admin/src/views/ContentTypes.vue"
+      ],
+      "evidence": [],
+      "verificationLimit": "按输入原阶段登记后续，不计本期完成；当前兼容结构不表示已实现。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "3-27",
+      "rule": "**时限类型必须保留**（定时/短期/长期/紧急），是时效分与生命周期判断的依据",
+      "origin": "你定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 560,
+      "milestone": "M2",
+      "status": "implementation_present_unverified",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/discovery/domain/FeedRanking.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/discovery/domain/FeedSql.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/article/infrastructure/JdbcArticleRepository.java",
+        "apps/client/src/features/telemetry.ts",
+        "apps/client/src/pages/article/index.vue",
+        "apps/admin/src/views/ContentTypes.vue"
+      ],
+      "evidence": [],
+      "verificationLimit": "实现入口已登记；未用关联模块通过推断本条全部行为已验。需按本条具体规则专项验收。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "3-05",
+      "rule": "排序用**乘法**：最终分 = 基础分 × 用户系数",
+      "origin": "我拟",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 566,
+      "milestone": "M2",
+      "status": "partial",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/discovery/domain/FeedRanking.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/discovery/domain/FeedSql.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/article/infrastructure/JdbcArticleRepository.java",
+        "apps/client/src/features/telemetry.ts",
+        "apps/client/src/pages/article/index.vue",
+        "apps/admin/src/views/ContentTypes.vue"
+      ],
+      "evidence": [],
+      "verificationLimit": "Java评分单元测试与SQL实现已分开实现；数据库特殊优先级已测，尚无普通分数全组合等价验证。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "3-06",
+      "rule": "基础分 = 10×重要度(1~5) + 5×热点剩余天数 + 时效分(0~50)",
+      "origin": "我拟",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 567,
+      "milestone": "M2",
+      "status": "partial",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/discovery/domain/FeedRanking.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/discovery/domain/FeedSql.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/article/infrastructure/JdbcArticleRepository.java",
+        "apps/client/src/features/telemetry.ts",
+        "apps/client/src/pages/article/index.vue",
+        "apps/admin/src/views/ContentTypes.vue"
+      ],
+      "evidence": [],
+      "verificationLimit": "时效分按PB-07半衰设计，数值边界需与接收团队确认；不等同原文未给出的完整算法。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "3-07",
+      "rule": "用户系数 = 关注系数(1.5/2.0) × 曝光系数（随累计次数递减，9 次归零）",
+      "origin": "共定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 568,
+      "milestone": "M2",
+      "status": "partial",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/discovery/domain/FeedRanking.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/discovery/domain/FeedSql.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/article/infrastructure/JdbcArticleRepository.java",
+        "apps/client/src/features/telemetry.ts",
+        "apps/client/src/pages/article/index.vue",
+        "apps/admin/src/views/ContentTypes.vue"
+      ],
+      "evidence": [],
+      "verificationLimit": "关注0/1/多命中取1/1.5/2；曝光递减表固定；尚需普通分全组合等价验证。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "3-10",
+      "rule": "**置顶豁免已读与曝光**，除非管理端取消",
+      "origin": "你定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 569,
+      "milestone": "M2",
+      "status": "verified_local_scenarios",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/discovery/domain/FeedRanking.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/discovery/domain/FeedSql.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/article/infrastructure/JdbcArticleRepository.java",
+        "apps/client/src/features/telemetry.ts",
+        "apps/client/src/pages/article/index.vue",
+        "apps/admin/src/views/ContentTypes.vue"
+      ],
+      "evidence": [
+        {
+          "report": "reports/product-baseline-acceptance.json",
+          "caseId": "pinned-exempts-explicit-read",
+          "observedStatus": "PASS"
+        }
+      ],
+      "verificationLimit": "仅所列固定本地场景通过，不代表本条所有组合、真机或生产完成。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "3-11",
+      "rule": "**紧急优先级高于置顶**，所有列表排最前",
+      "origin": "你定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 570,
+      "milestone": "M2",
+      "status": "verified_local_scenarios",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/discovery/domain/FeedRanking.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/discovery/domain/FeedSql.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/article/infrastructure/JdbcArticleRepository.java",
+        "apps/client/src/features/telemetry.ts",
+        "apps/client/src/pages/article/index.vue",
+        "apps/admin/src/views/ContentTypes.vue"
+      ],
+      "evidence": [
+        {
+          "report": "reports/product-baseline-acceptance.json",
+          "caseId": "ranking-emergency-before-pin-before-normal",
+          "observedStatus": "PASS"
+        }
+      ],
+      "verificationLimit": "仅所列固定本地场景通过，不代表本条所有组合、真机或生产完成。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "3-12",
+      "rule": "热点=热点权重，**默认 0**，不填=没有热点属性；录入填\"持续天数\"，存截止日，读时算剩余",
+      "origin": "你定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 576,
+      "milestone": "M2",
+      "status": "verified_local_scenarios",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/discovery/domain/FeedRanking.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/discovery/domain/FeedSql.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/article/infrastructure/JdbcArticleRepository.java",
+        "apps/client/src/features/telemetry.ts",
+        "apps/client/src/pages/article/index.vue",
+        "apps/admin/src/views/ContentTypes.vue"
+      ],
+      "evidence": [
+        {
+          "report": "reports/product-baseline-acceptance.json",
+          "caseId": "zero-hot-excluded",
+          "observedStatus": "PASS"
+        },
+        {
+          "report": "reports/product-baseline-acceptance.json",
+          "caseId": "hot-feed-includes-new",
+          "observedStatus": "PASS"
+        }
+      ],
+      "verificationLimit": "仅所列固定本地场景通过，不代表本条所有组合、真机或生产完成。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "3-13",
+      "rule": "只有热点剩余 > 0 才进**首页列表**与**板块详情列表**",
+      "origin": "你定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 577,
+      "milestone": "M2",
+      "status": "verified_local_scenarios",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/discovery/domain/FeedRanking.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/discovery/domain/FeedSql.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/article/infrastructure/JdbcArticleRepository.java",
+        "apps/client/src/features/telemetry.ts",
+        "apps/client/src/pages/article/index.vue",
+        "apps/admin/src/views/ContentTypes.vue"
+      ],
+      "evidence": [
+        {
+          "report": "reports/product-baseline-acceptance.json",
+          "caseId": "zero-hot-excluded",
+          "observedStatus": "PASS"
+        },
+        {
+          "report": "reports/product-baseline-acceptance.json",
+          "caseId": "zero-hot-searchable",
+          "observedStatus": "PASS"
+        }
+      ],
+      "verificationLimit": "仅所列固定本地场景通过，不代表本条所有组合、真机或生产完成。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "3-24",
+      "rule": "**必须有热点属性才能出现在首页列表**；无热点的一律不进",
+      "origin": "你定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 578,
+      "milestone": "M2",
+      "status": "verified_local_scenarios",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/discovery/domain/FeedRanking.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/discovery/domain/FeedSql.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/article/infrastructure/JdbcArticleRepository.java",
+        "apps/client/src/features/telemetry.ts",
+        "apps/client/src/pages/article/index.vue",
+        "apps/admin/src/views/ContentTypes.vue"
+      ],
+      "evidence": [
+        {
+          "report": "reports/product-baseline-acceptance.json",
+          "caseId": "zero-hot-excluded",
+          "observedStatus": "PASS"
+        }
+      ],
+      "verificationLimit": "仅所列固定本地场景通过，不代表本条所有组合、真机或生产完成。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "3-28",
+      "rule": "**必须有热点属性才能出现在板块详情列表**（整张列表，不只是推荐位）",
+      "origin": "你定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 579,
+      "milestone": "M2",
+      "status": "implementation_present_unverified",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/discovery/domain/FeedRanking.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/discovery/domain/FeedSql.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/article/infrastructure/JdbcArticleRepository.java",
+        "apps/client/src/features/telemetry.ts",
+        "apps/client/src/pages/article/index.vue",
+        "apps/admin/src/views/ContentTypes.vue"
+      ],
+      "evidence": [],
+      "verificationLimit": "实现入口已登记；未用关联模块通过推断本条全部行为已验。需按本条具体规则专项验收。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "3-25",
+      "rule": "热点到期必须**清理减负**（归档 + 索引按\"热点截止时间 + 未结束\"）",
+      "origin": "你定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 580,
+      "milestone": "M2",
+      "status": "verified_local_scenarios",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/discovery/domain/FeedRanking.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/discovery/domain/FeedSql.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/article/infrastructure/JdbcArticleRepository.java",
+        "apps/client/src/features/telemetry.ts",
+        "apps/client/src/pages/article/index.vue",
+        "apps/admin/src/views/ContentTypes.vue"
+      ],
+      "evidence": [
+        {
+          "report": "reports/product-baseline-acceptance.json",
+          "caseId": "hot-soft-archive-bounded-execution",
+          "observedStatus": "PASS"
+        },
+        {
+          "report": "reports/product-baseline-acceptance.json",
+          "caseId": "hot-archive-preserves-detail",
+          "observedStatus": "PASS"
+        },
+        {
+          "report": "reports/product-baseline-acceptance.json",
+          "caseId": "hot-archive-repeat-idempotent",
+          "observedStatus": "PASS"
+        }
+      ],
+      "verificationLimit": "仅所列固定本地场景通过，不代表本条所有组合、真机或生产完成。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "3-33",
+      "rule": "管理端可**强加**信息到首页最上方，无视所有权重；仅在可见范围内因已读掉下",
+      "origin": "你定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 581,
+      "milestone": "M2",
+      "status": "partial",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/discovery/domain/FeedRanking.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/discovery/domain/FeedSql.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/article/infrastructure/JdbcArticleRepository.java",
+        "apps/client/src/features/telemetry.ts",
+        "apps/client/src/pages/article/index.vue",
+        "apps/admin/src/views/ContentTypes.vue"
+      ],
+      "evidence": [],
+      "verificationLimit": "PB-09强加仍受热点门槛约束；原文“无视所有权重”不能绕生命周期与安全准入。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "3-34",
+      "rule": "强加用**一张表**管理，可增删，**不设数量上限**",
+      "origin": "你定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 582,
+      "milestone": "M2",
+      "status": "implementation_present_unverified",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/discovery/domain/FeedRanking.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/discovery/domain/FeedSql.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/article/infrastructure/JdbcArticleRepository.java",
+        "apps/client/src/features/telemetry.ts",
+        "apps/client/src/pages/article/index.vue",
+        "apps/admin/src/views/ContentTypes.vue"
+      ],
+      "evidence": [],
+      "verificationLimit": "实现入口已登记；未用关联模块通过推断本条全部行为已验。需按本条具体规则专项验收。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "3-39",
+      "rule": "强加的信息**不带任何标记**（无角标）",
+      "origin": "你定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 583,
+      "milestone": "M2",
+      "status": "implementation_present_unverified",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/discovery/domain/FeedRanking.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/discovery/domain/FeedSql.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/article/infrastructure/JdbcArticleRepository.java",
+        "apps/client/src/features/telemetry.ts",
+        "apps/client/src/pages/article/index.vue",
+        "apps/admin/src/views/ContentTypes.vue"
+      ],
+      "evidence": [],
+      "verificationLimit": "实现入口已登记；未用关联模块通过推断本条全部行为已验。需按本条具体规则专项验收。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "3-40",
+      "rule": "强加的到生命周期结束**自然掉下来**，不豁免生命周期",
+      "origin": "你定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 584,
+      "milestone": "M2",
+      "status": "implementation_present_unverified",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/discovery/domain/FeedRanking.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/discovery/domain/FeedSql.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/article/infrastructure/JdbcArticleRepository.java",
+        "apps/client/src/features/telemetry.ts",
+        "apps/client/src/pages/article/index.vue",
+        "apps/admin/src/views/ContentTypes.vue"
+      ],
+      "evidence": [],
+      "verificationLimit": "实现入口已登记；未用关联模块通过推断本条全部行为已验。需按本条具体规则专项验收。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "3-08",
+      "rule": "已读 = 永久归零，首页与盒子都不出现。两种途径：点开详情 / 累计曝光满 9 次未点开",
+      "origin": "共定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 590,
+      "milestone": "M2",
+      "status": "verified_local_scenarios",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/discovery/domain/FeedRanking.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/discovery/domain/FeedSql.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/article/infrastructure/JdbcArticleRepository.java",
+        "apps/client/src/features/telemetry.ts",
+        "apps/client/src/pages/article/index.vue",
+        "apps/admin/src/views/ContentTypes.vue"
+      ],
+      "evidence": [
+        {
+          "report": "reports/product-baseline-acceptance.json",
+          "caseId": "lifetime-nine-implicit-read",
+          "observedStatus": "PASS"
+        },
+        {
+          "report": "reports/product-baseline-acceptance.json",
+          "caseId": "detail-view-explicit-read",
+          "observedStatus": "PASS"
+        }
+      ],
+      "verificationLimit": "仅所列固定本地场景通过，不代表本条所有组合、真机或生产完成。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "3-09",
+      "rule": "**曝光次数累计、永不清零**；另设「当日曝光次数」每天归零，只用于当天降权",
+      "origin": "你定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 591,
+      "milestone": "M2",
+      "status": "verified_local_scenarios",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/discovery/domain/FeedRanking.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/discovery/domain/FeedSql.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/article/infrastructure/JdbcArticleRepository.java",
+        "apps/client/src/features/telemetry.ts",
+        "apps/client/src/pages/article/index.vue",
+        "apps/admin/src/views/ContentTypes.vue"
+      ],
+      "evidence": [
+        {
+          "report": "reports/product-baseline-acceptance.json",
+          "caseId": "day-reset-feed-reenters",
+          "observedStatus": "PASS"
+        }
+      ],
+      "verificationLimit": "仅所列固定本地场景通过，不代表本条所有组合、真机或生产完成。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "3-35",
+      "rule": "曝光 = **被看见但没点击**；点进详情算点击、不再算曝光",
+      "origin": "你定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 592,
+      "milestone": "M2",
+      "status": "implementation_present_unverified",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/discovery/domain/FeedRanking.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/discovery/domain/FeedSql.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/article/infrastructure/JdbcArticleRepository.java",
+        "apps/client/src/features/telemetry.ts",
+        "apps/client/src/pages/article/index.vue",
+        "apps/admin/src/views/ContentTypes.vue"
+      ],
+      "evidence": [],
+      "verificationLimit": "实现入口已登记；未用关联模块通过推断本条全部行为已验。需按本条具体规则专项验收。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "3-36",
+      "rule": "曝光须**滚进可视区**才算；未滚动/屏幕外/仅渲染不算",
+      "origin": "你定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 593,
+      "milestone": "M2",
+      "status": "implementation_present_unverified",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/discovery/domain/FeedRanking.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/discovery/domain/FeedSql.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/article/infrastructure/JdbcArticleRepository.java",
+        "apps/client/src/features/telemetry.ts",
+        "apps/client/src/pages/article/index.vue",
+        "apps/admin/src/views/ContentTypes.vue"
+      ],
+      "evidence": [],
+      "verificationLimit": "实现入口已登记；未用关联模块通过推断本条全部行为已验。需按本条具体规则专项验收。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "3-37",
+      "rule": "曝光去重：同一用户 × 同一信息，**30 秒内只计 1 次**",
+      "origin": "你定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 594,
+      "milestone": "M2",
+      "status": "verified_local_scenarios",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/discovery/domain/FeedRanking.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/discovery/domain/FeedSql.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/article/infrastructure/JdbcArticleRepository.java",
+        "apps/client/src/features/telemetry.ts",
+        "apps/client/src/pages/article/index.vue",
+        "apps/admin/src/views/ContentTypes.vue"
+      ],
+      "evidence": [
+        {
+          "report": "reports/product-baseline-acceptance.json",
+          "caseId": "server-exposure-30s-dedup",
+          "observedStatus": "PASS"
+        }
+      ],
+      "verificationLimit": "仅所列固定本地场景通过，不代表本条所有组合、真机或生产完成。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "3-38",
+      "rule": "当日曝光满 3 次 → **当天不再出现，次日恢复**；累计值不受影响",
+      "origin": "共定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 595,
+      "milestone": "M2",
+      "status": "verified_local_scenarios",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/discovery/domain/FeedRanking.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/discovery/domain/FeedSql.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/article/infrastructure/JdbcArticleRepository.java",
+        "apps/client/src/features/telemetry.ts",
+        "apps/client/src/pages/article/index.vue",
+        "apps/admin/src/views/ContentTypes.vue"
+      ],
+      "evidence": [
+        {
+          "report": "reports/product-baseline-acceptance.json",
+          "caseId": "daily-three-cools-feed",
+          "observedStatus": "PASS"
+        },
+        {
+          "report": "reports/product-baseline-acceptance.json",
+          "caseId": "day-reset-feed-reenters",
+          "observedStatus": "PASS"
+        }
+      ],
+      "verificationLimit": "仅所列固定本地场景通过，不代表本条所有组合、真机或生产完成。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "3-14",
+      "rule": "**待生效信息要进列表**，标「未开始」，按生效时间临近排序",
+      "origin": "你定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 601,
+      "milestone": "M2",
+      "status": "implementation_present_unverified",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/discovery/domain/FeedRanking.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/discovery/domain/FeedSql.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/article/infrastructure/JdbcArticleRepository.java",
+        "apps/client/src/features/telemetry.ts",
+        "apps/client/src/pages/article/index.vue",
+        "apps/admin/src/views/ContentTypes.vue"
+      ],
+      "evidence": [],
+      "verificationLimit": "实现入口已登记；未用关联模块通过推断本条全部行为已验。需按本条具体规则专项验收。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "3-29",
+      "rule": "**半隐藏适用于所有自然结束**的信息，不只被更替的",
+      "origin": "你定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 602,
+      "milestone": "M2",
+      "status": "verified_local_scenarios",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/discovery/domain/FeedRanking.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/discovery/domain/FeedSql.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/article/infrastructure/JdbcArticleRepository.java",
+        "apps/client/src/features/telemetry.ts",
+        "apps/client/src/pages/article/index.vue",
+        "apps/admin/src/views/ContentTypes.vue"
+      ],
+      "evidence": [
+        {
+          "report": "reports/product-baseline-acceptance.json",
+          "caseId": "ended-readable",
+          "observedStatus": "PASS"
+        }
+      ],
+      "verificationLimit": "仅所列固定本地场景通过，不代表本条所有组合、真机或生产完成。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "3-31",
+      "rule": "生命周期结束**只影响列表显示，不影响打开**；详情永久可开，不设期限",
+      "origin": "你定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 603,
+      "milestone": "M2",
+      "status": "verified_local_scenarios",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/discovery/domain/FeedRanking.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/discovery/domain/FeedSql.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/article/infrastructure/JdbcArticleRepository.java",
+        "apps/client/src/features/telemetry.ts",
+        "apps/client/src/pages/article/index.vue",
+        "apps/admin/src/views/ContentTypes.vue"
+      ],
+      "evidence": [
+        {
+          "report": "reports/product-baseline-acceptance.json",
+          "caseId": "ended-readable",
+          "observedStatus": "PASS"
+        }
+      ],
+      "verificationLimit": "仅所列固定本地场景通过，不代表本条所有组合、真机或生产完成。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "3-32",
+      "rule": "**删除「可见范围（公开/非公开）」维度**；可见性只由「已发布+生命周期+未删」决定",
+      "origin": "你定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 604,
+      "milestone": "M2",
+      "status": "implementation_present_unverified",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/discovery/domain/FeedRanking.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/discovery/domain/FeedSql.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/article/infrastructure/JdbcArticleRepository.java",
+        "apps/client/src/features/telemetry.ts",
+        "apps/client/src/pages/article/index.vue",
+        "apps/admin/src/views/ContentTypes.vue"
+      ],
+      "evidence": [],
+      "verificationLimit": "实现入口已登记；未用关联模块通过推断本条全部行为已验。需按本条具体规则专项验收。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "3-15",
+      "rule": "推送设置只保留**推 / 不推**，默认推",
+      "origin": "你定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 610,
+      "milestone": "M2",
+      "status": "implementation_present_unverified",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/discovery/domain/FeedRanking.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/discovery/domain/FeedSql.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/article/infrastructure/JdbcArticleRepository.java",
+        "apps/client/src/features/telemetry.ts",
+        "apps/client/src/pages/article/index.vue",
+        "apps/admin/src/views/ContentTypes.vue"
+      ],
+      "evidence": [],
+      "verificationLimit": "实现入口已登记；未用关联模块通过推断本条全部行为已验。需按本条具体规则专项验收。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "3-16",
+      "rule": "取消「推送对象（所有人/仅关注者）」",
+      "origin": "你定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 611,
+      "milestone": "M2",
+      "status": "implementation_present_unverified",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/discovery/domain/FeedRanking.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/discovery/domain/FeedSql.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/article/infrastructure/JdbcArticleRepository.java",
+        "apps/client/src/features/telemetry.ts",
+        "apps/client/src/pages/article/index.vue",
+        "apps/admin/src/views/ContentTypes.vue"
+      ],
+      "evidence": [],
+      "verificationLimit": "实现入口已登记；未用关联模块通过推断本条全部行为已验。需按本条具体规则专项验收。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "3-17",
+      "rule": "取消模板 ID（类型改字典）",
+      "origin": "我拟",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 612,
+      "milestone": "M2",
+      "status": "implementation_present_unverified",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/discovery/domain/FeedRanking.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/discovery/domain/FeedSql.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/article/infrastructure/JdbcArticleRepository.java",
+        "apps/client/src/features/telemetry.ts",
+        "apps/client/src/pages/article/index.vue",
+        "apps/admin/src/views/ContentTypes.vue"
+      ],
+      "evidence": [],
+      "verificationLimit": "实现入口已登记；未用关联模块通过推断本条全部行为已验。需按本条具体规则专项验收。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "3-18",
+      "rule": "取消版本变更说明（不做版本）",
+      "origin": "我拟",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 613,
+      "milestone": "M2",
+      "status": "implementation_present_unverified",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/discovery/domain/FeedRanking.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/discovery/domain/FeedSql.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/article/infrastructure/JdbcArticleRepository.java",
+        "apps/client/src/features/telemetry.ts",
+        "apps/client/src/pages/article/index.vue",
+        "apps/admin/src/views/ContentTypes.vue"
+      ],
+      "evidence": [],
+      "verificationLimit": "实现入口已登记；未用关联模块通过推断本条全部行为已验。需按本条具体规则专项验收。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "3-19",
+      "rule": "取消评价与评价来源（C 端从未展示）",
+      "origin": "你定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 614,
+      "milestone": "M2",
+      "status": "implementation_present_unverified",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/discovery/domain/FeedRanking.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/discovery/domain/FeedSql.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/article/infrastructure/JdbcArticleRepository.java",
+        "apps/client/src/features/telemetry.ts",
+        "apps/client/src/pages/article/index.vue",
+        "apps/admin/src/views/ContentTypes.vue"
+      ],
+      "evidence": [],
+      "verificationLimit": "实现入口已登记；未用关联模块通过推断本条全部行为已验。需按本条具体规则专项验收。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "3-30",
+      "rule": "**推送设置决定这条信息是否进入关注者盒子**，默认推",
+      "origin": "我拟",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 615,
+      "milestone": "M2",
+      "status": "implementation_present_unverified",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/discovery/domain/FeedRanking.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/discovery/domain/FeedSql.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/article/infrastructure/JdbcArticleRepository.java",
+        "apps/client/src/features/telemetry.ts",
+        "apps/client/src/pages/article/index.vue",
+        "apps/admin/src/views/ContentTypes.vue"
+      ],
+      "evidence": [],
+      "verificationLimit": "实现入口已登记；未用关联模块通过推断本条全部行为已验。需按本条具体规则专项验收。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "3-20",
+      "rule": "**点击数在 C 端显示**；同一用户同一信息，间隔 30 秒内不重复计数",
+      "origin": "我拟",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 621,
+      "milestone": "M2",
+      "status": "verified_local_scenarios",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/discovery/domain/FeedRanking.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/discovery/domain/FeedSql.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/article/infrastructure/JdbcArticleRepository.java",
+        "apps/client/src/features/telemetry.ts",
+        "apps/client/src/pages/article/index.vue",
+        "apps/admin/src/views/ContentTypes.vue"
+      ],
+      "evidence": [
+        {
+          "report": "reports/product-baseline-acceptance.json",
+          "caseId": "click-30s-dedup",
+          "observedStatus": "PASS"
+        }
+      ],
+      "verificationLimit": "仅所列固定本地场景通过，不代表本条所有组合、真机或生产完成。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "3-21",
+      "rule": "浏览人数/收藏数/分享数/推送数/曝光数/举报数在**管理端**展示；曝光数按累计口径",
+      "origin": "你定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 622,
+      "milestone": "M2",
+      "status": "partial",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/discovery/domain/FeedRanking.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/discovery/domain/FeedSql.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/article/infrastructure/JdbcArticleRepository.java",
+        "apps/client/src/features/telemetry.ts",
+        "apps/client/src/pages/article/index.vue",
+        "apps/admin/src/views/ContentTypes.vue"
+      ],
+      "evidence": [],
+      "verificationLimit": "后台有点击/人数/收藏/分享/曝光/举报；推送数需先确定盒子实时计算与外部任务口径，不把二者混同。C端仅显示浏览。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "3-22",
+      "rule": "分享数采用「**发起分享次数**」",
+      "origin": "你定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 623,
+      "milestone": "M2",
+      "status": "implementation_present_unverified",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/discovery/domain/FeedRanking.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/discovery/domain/FeedSql.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/article/infrastructure/JdbcArticleRepository.java",
+        "apps/client/src/features/telemetry.ts",
+        "apps/client/src/pages/article/index.vue",
+        "apps/admin/src/views/ContentTypes.vue"
+      ],
+      "evidence": [],
+      "verificationLimit": "实现入口已登记；未用关联模块通过推断本条全部行为已验。需按本条具体规则专项验收。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "3-23",
+      "rule": "其他统计项补充 —— 已由 T-2 覆盖",
+      "origin": "你定",
+      "stage": "已定",
+      "source": "云迹设计规格-完整版.md",
+      "line": 624,
+      "milestone": "M2",
+      "status": "decision_recorded",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/discovery/domain/FeedRanking.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/discovery/domain/FeedSql.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/article/infrastructure/JdbcArticleRepository.java",
+        "apps/client/src/features/telemetry.ts",
+        "apps/client/src/pages/article/index.vue",
+        "apps/admin/src/views/ContentTypes.vue"
+      ],
+      "evidence": [],
+      "verificationLimit": "合并到T1/T2或不恢复指标的决定；不是独立新增功能通过证据。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "4-01",
+      "rule": "板块筛选支持**多选**（多选天然包含单选）",
+      "origin": "你定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 630,
+      "milestone": "M2",
+      "status": "implementation_present_unverified",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/article/infrastructure/JdbcArticleRepository.java",
+        "apps/client/src/pages/search/index.vue",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/catalog/application/DiscoveryService.java"
+      ],
+      "evidence": [],
+      "verificationLimit": "实现入口已登记；未用关联模块通过推断本条全部行为已验。需按本条具体规则专项验收。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "4-02",
+      "rule": "「包含过期信息」开关保留在筛选面板",
+      "origin": "你定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 631,
+      "milestone": "M2",
+      "status": "implementation_present_unverified",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/article/infrastructure/JdbcArticleRepository.java",
+        "apps/client/src/pages/search/index.vue",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/catalog/application/DiscoveryService.java"
+      ],
+      "evidence": [],
+      "verificationLimit": "实现入口已登记；未用关联模块通过推断本条全部行为已验。需按本条具体规则专项验收。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "4-03",
+      "rule": "搜索匹配范围（标题/二级/三级/关键词命中哪些）转**搜索专项**，本期不碰",
+      "origin": "你定",
+      "stage": "后续",
+      "source": "云迹设计规格-完整版.md",
+      "line": 632,
+      "milestone": "M2",
+      "status": "deferred",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/article/infrastructure/JdbcArticleRepository.java",
+        "apps/client/src/pages/search/index.vue",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/catalog/application/DiscoveryService.java"
+      ],
+      "evidence": [],
+      "verificationLimit": "按输入原阶段登记后续，不计本期完成；当前兼容结构不表示已实现。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "4-04",
+      "rule": "分页采用**快照分页**",
+      "origin": "你定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 633,
+      "milestone": "M2",
+      "status": "verified_local_scenarios",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/article/infrastructure/JdbcArticleRepository.java",
+        "apps/client/src/pages/search/index.vue",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/catalog/application/DiscoveryService.java"
+      ],
+      "evidence": [
+        {
+          "report": "reports/product-baseline-acceptance.json",
+          "caseId": "search-snapshot-stable-paging-revokes-hidden",
+          "observedStatus": "PASS"
+        },
+        {
+          "report": "reports/product-baseline-acceptance.json",
+          "caseId": "snapshot-query-tampering-rejected",
+          "observedStatus": "PASS"
+        },
+        {
+          "report": "reports/product-baseline-acceptance.json",
+          "caseId": "snapshot-user-binding-enforced",
+          "observedStatus": "PASS"
+        }
+      ],
+      "verificationLimit": "仅所列固定本地场景通过，不代表本条所有组合、真机或生产完成。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "4-05",
+      "rule": "快照在停留搜索页期间**绝不刷新**，也不做任何\"内容已更新\"提示",
+      "origin": "你定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 634,
+      "milestone": "M2",
+      "status": "partial",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/article/infrastructure/JdbcArticleRepository.java",
+        "apps/client/src/pages/search/index.vue",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/catalog/application/DiscoveryService.java"
+      ],
+      "evidence": [],
+      "verificationLimit": "会话排序冻结，但服务端快照有有效期和数量上限，过期明确409；不承诺停留无限期永不作废。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "4-06",
+      "rule": "离开搜索页即作废；再次进入按负载决定：轻则每次重建，重则 5 分钟节流",
+      "origin": "你定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 635,
+      "milestone": "M2",
+      "status": "partial",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/article/infrastructure/JdbcArticleRepository.java",
+        "apps/client/src/pages/search/index.vue",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/catalog/application/DiscoveryService.java"
+      ],
+      "evidence": [],
+      "verificationLimit": "重新进入页面会创建新查询；服务器存在有界快照缓存；重负载阈值尚未实测。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "4-07",
+      "rule": "快照重建**阈值**待实测（规则已定，只差数值）",
+      "origin": "我拟",
+      "stage": "待验",
+      "source": "云迹设计规格-完整版.md",
+      "line": 636,
+      "milestone": "M2",
+      "status": "external_validation_pending",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/article/infrastructure/JdbcArticleRepository.java",
+        "apps/client/src/pages/search/index.vue",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/catalog/application/DiscoveryService.java"
+      ],
+      "evidence": [],
+      "verificationLimit": "需要目标数据规模与并发负载，尚未测定重建阈值。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "4-08",
+      "rule": "热搜与搜索历史 —— 已由 T-1 覆盖",
+      "origin": "你定",
+      "stage": "已定",
+      "source": "云迹设计规格-完整版.md",
+      "line": 637,
+      "milestone": "M2",
+      "status": "decision_recorded",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/article/infrastructure/JdbcArticleRepository.java",
+        "apps/client/src/pages/search/index.vue",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/catalog/application/DiscoveryService.java"
+      ],
+      "evidence": [],
+      "verificationLimit": "合并到T1/T2或不恢复指标的决定；不是独立新增功能通过证据。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "4-09",
+      "rule": "搜索热词候选池 = **热度最高的 20 个**，按热度轮换展示",
+      "origin": "你定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 638,
+      "milestone": "M2",
+      "status": "implementation_present_unverified",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/article/infrastructure/JdbcArticleRepository.java",
+        "apps/client/src/pages/search/index.vue",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/catalog/application/DiscoveryService.java"
+      ],
+      "evidence": [],
+      "verificationLimit": "实现入口已登记；未用关联模块通过推断本条全部行为已验。需按本条具体规则专项验收。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "4-10",
+      "rule": "搜索热度按**滑动窗口**计：一次搜索贡献一个热度值，**只维持一周**，过期自动退出",
+      "origin": "你定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 639,
+      "milestone": "M2",
+      "status": "implementation_present_unverified",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/article/infrastructure/JdbcArticleRepository.java",
+        "apps/client/src/pages/search/index.vue",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/catalog/application/DiscoveryService.java"
+      ],
+      "evidence": [],
+      "verificationLimit": "实现入口已登记；未用关联模块通过推断本条全部行为已验。需按本条具体规则专项验收。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "4-11",
+      "rule": "点击热词 → **直接执行搜索**（进结果页）",
+      "origin": "你定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 640,
+      "milestone": "M2",
+      "status": "implementation_present_unverified",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/article/infrastructure/JdbcArticleRepository.java",
+        "apps/client/src/pages/search/index.vue",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/catalog/application/DiscoveryService.java"
+      ],
+      "evidence": [],
+      "verificationLimit": "实现入口已登记；未用关联模块通过推断本条全部行为已验。需按本条具体规则专项验收。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "4-12",
+      "rule": "点击输入框 → 正常输入，**不预填任何热词**",
+      "origin": "你定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 641,
+      "milestone": "M2",
+      "status": "implementation_present_unverified",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/article/infrastructure/JdbcArticleRepository.java",
+        "apps/client/src/pages/search/index.vue",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/catalog/application/DiscoveryService.java"
+      ],
+      "evidence": [],
+      "verificationLimit": "实现入口已登记；未用关联模块通过推断本条全部行为已验。需按本条具体规则专项验收。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "4-13",
+      "rule": "搜索无结果提示属锦上添花，方向「换个词试试」/「已记录，我们会尽快填补」",
+      "origin": "你定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 642,
+      "milestone": "M2",
+      "status": "implementation_present_unverified",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/article/infrastructure/JdbcArticleRepository.java",
+        "apps/client/src/pages/search/index.vue",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/catalog/application/DiscoveryService.java"
+      ],
+      "evidence": [],
+      "verificationLimit": "实现入口已登记；未用关联模块通过推断本条全部行为已验。需按本条具体规则专项验收。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "4-14",
+      "rule": "**筛选面板里标签必须按所属板块分组**，选几个板块出几组，不混排",
+      "origin": "你定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 643,
+      "milestone": "M2",
+      "status": "verified_local_scenarios",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/article/infrastructure/JdbcArticleRepository.java",
+        "apps/client/src/pages/search/index.vue",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/catalog/application/DiscoveryService.java"
+      ],
+      "evidence": [
+        {
+          "report": "reports/browser-product-baseline.json",
+          "caseId": "baseline-filter-groups-by-board",
+          "observedStatus": "PASS"
+        }
+      ],
+      "verificationLimit": "仅所列固定本地场景通过，不代表本条所有组合、真机或生产完成。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "5-01",
+      "rule": "关注对象只有三类：**信息、关键词、标签**；**没有板块关注**",
+      "origin": "你定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 663,
+      "milestone": "M3",
+      "status": "implementation_present_unverified",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/subscription/application/SubscriptionService.java",
+        "apps/client/src/pages/follows/index.vue",
+        "apps/client/src/pages/article/index.vue"
+      ],
+      "evidence": [],
+      "verificationLimit": "实现入口已登记；未用关联模块通过推断本条全部行为已验。需按本条具体规则专项验收。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "5-02",
+      "rule": "标签关注在 C 端呈现为「**推送勾选**」，不叫\"关注标签\"",
+      "origin": "你定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 664,
+      "milestone": "M3",
+      "status": "implementation_present_unverified",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/subscription/application/SubscriptionService.java",
+        "apps/client/src/pages/follows/index.vue",
+        "apps/client/src/pages/article/index.vue"
+      ],
+      "evidence": [],
+      "verificationLimit": "实现入口已登记；未用关联模块通过推断本条全部行为已验。需按本条具体规则专项验收。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "5-03",
+      "rule": "术语统一为「**关注信息**」，不用\"资讯关注\"",
+      "origin": "你定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 665,
+      "milestone": "M3",
+      "status": "implementation_present_unverified",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/subscription/application/SubscriptionService.java",
+        "apps/client/src/pages/follows/index.vue",
+        "apps/client/src/pages/article/index.vue"
+      ],
+      "evidence": [],
+      "verificationLimit": "实现入口已登记；未用关联模块通过推断本条全部行为已验。需按本条具体规则专项验收。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "5-04",
+      "rule": "详情页设置提醒 → **自动关注该信息**（单向）",
+      "origin": "你定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 666,
+      "milestone": "M3",
+      "status": "implementation_present_unverified",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/subscription/application/SubscriptionService.java",
+        "apps/client/src/pages/follows/index.vue",
+        "apps/client/src/pages/article/index.vue"
+      ],
+      "evidence": [],
+      "verificationLimit": "实现入口已登记；未用关联模块通过推断本条全部行为已验。需按本条具体规则专项验收。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "5-05",
+      "rule": "关注信息**不会**自动设置提醒",
+      "origin": "你定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 667,
+      "milestone": "M3",
+      "status": "verified_local_scenarios",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/subscription/application/SubscriptionService.java",
+        "apps/client/src/pages/follows/index.vue",
+        "apps/client/src/pages/article/index.vue"
+      ],
+      "evidence": [
+        {
+          "report": "reports/product-baseline-acceptance.json",
+          "caseId": "follow-no-auto-reminder",
+          "observedStatus": "PASS"
+        }
+      ],
+      "verificationLimit": "仅所列固定本地场景通过，不代表本条所有组合、真机或生产完成。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "5-06",
+      "rule": "停掉提醒设置**不影响关注**关系",
+      "origin": "你定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 668,
+      "milestone": "M3",
+      "status": "implementation_present_unverified",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/subscription/application/SubscriptionService.java",
+        "apps/client/src/pages/follows/index.vue",
+        "apps/client/src/pages/article/index.vue"
+      ],
+      "evidence": [],
+      "verificationLimit": "实现入口已登记；未用关联模块通过推断本条全部行为已验。需按本条具体规则专项验收。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "5-07",
+      "rule": "取消关注时**弹确认**，由用户选择是否一并停提醒",
+      "origin": "你定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 669,
+      "milestone": "M3",
+      "status": "verified_local_scenarios",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/subscription/application/SubscriptionService.java",
+        "apps/client/src/pages/follows/index.vue",
+        "apps/client/src/pages/article/index.vue"
+      ],
+      "evidence": [
+        {
+          "report": "reports/product-baseline-acceptance.json",
+          "caseId": "unfollow-can-keep-reminder",
+          "observedStatus": "PASS"
+        },
+        {
+          "report": "reports/product-baseline-acceptance.json",
+          "caseId": "unfollow-can-pause-reminder",
+          "observedStatus": "PASS"
+        },
+        {
+          "report": "reports/product-baseline-acceptance.json",
+          "caseId": "undo-restores-follow-and-reminder",
+          "observedStatus": "PASS"
+        }
+      ],
+      "verificationLimit": "仅所列固定本地场景通过，不代表本条所有组合、真机或生产完成。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "5-08",
+      "rule": "关注管理页按 **板块 → 标签 → 对象** 三级折叠（板块仅分组维度）",
+      "origin": "你定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 670,
+      "milestone": "M3",
+      "status": "implementation_present_unverified",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/subscription/application/SubscriptionService.java",
+        "apps/client/src/pages/follows/index.vue",
+        "apps/client/src/pages/article/index.vue"
+      ],
+      "evidence": [],
+      "verificationLimit": "实现入口已登记；未用关联模块通过推断本条全部行为已验。需按本条具体规则专项验收。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "6-01",
+      "rule": "盒子定义：用户关注的内容一旦有新信息录入，就推送到他的盒子里",
+      "origin": "你定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 694,
+      "milestone": "M3",
+      "status": "implementation_present_unverified",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/subscription/application/SubscriptionService.java",
+        "apps/client/src/pages/subscriptions/index.vue",
+        "apps/client/src/features/followCancellation.ts"
+      ],
+      "evidence": [],
+      "verificationLimit": "实现入口已登记；未用关联模块通过推断本条全部行为已验。需按本条具体规则专项验收。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "6-02",
+      "rule": "**推送信息** = 关注标签下新录入的信息",
+      "origin": "你定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 695,
+      "milestone": "M3",
+      "status": "implementation_present_unverified",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/subscription/application/SubscriptionService.java",
+        "apps/client/src/pages/subscriptions/index.vue",
+        "apps/client/src/features/followCancellation.ts"
+      ],
+      "evidence": [],
+      "verificationLimit": "实现入口已登记；未用关联模块通过推断本条全部行为已验。需按本条具体规则专项验收。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "6-03",
+      "rule": "**关注更新** = 命中关注关键词的新信息（或关注的信息本身有更新）",
+      "origin": "你定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 696,
+      "milestone": "M3",
+      "status": "implementation_present_unverified",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/subscription/application/SubscriptionService.java",
+        "apps/client/src/pages/subscriptions/index.vue",
+        "apps/client/src/features/followCancellation.ts"
+      ],
+      "evidence": [],
+      "verificationLimit": "实现入口已登记；未用关联模块通过推断本条全部行为已验。需按本条具体规则专项验收。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "6-04",
+      "rule": "**关注信息更替** = 被更替的旧信息是用户关注的，新信息进此栏",
+      "origin": "你定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 697,
+      "milestone": "M3",
+      "status": "implementation_present_unverified",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/subscription/application/SubscriptionService.java",
+        "apps/client/src/pages/subscriptions/index.vue",
+        "apps/client/src/features/followCancellation.ts"
+      ],
+      "evidence": [],
+      "verificationLimit": "实现入口已登记；未用关联模块通过推断本条全部行为已验。需按本条具体规则专项验收。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "6-05",
+      "rule": "三栏优先级：**更替 > 关注更新 > 推送**，同一条信息只出现一次",
+      "origin": "共定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 698,
+      "milestone": "M3",
+      "status": "verified_local_scenarios",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/subscription/application/SubscriptionService.java",
+        "apps/client/src/pages/subscriptions/index.vue",
+        "apps/client/src/features/followCancellation.ts"
+      ],
+      "evidence": [
+        {
+          "report": "reports/product-baseline-acceptance.json",
+          "caseId": "replacement-highest-box",
+          "observedStatus": "PASS"
+        }
+      ],
+      "verificationLimit": "仅所列固定本地场景通过，不代表本条所有组合、真机或生产完成。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "6-06",
+      "rule": "已读、已点击、曝光达阈值（累计 9 次）的信息**从盒子移除**，不保留已读条目",
+      "origin": "共定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 699,
+      "milestone": "M3",
+      "status": "verified_local_scenarios",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/subscription/application/SubscriptionService.java",
+        "apps/client/src/pages/subscriptions/index.vue",
+        "apps/client/src/features/followCancellation.ts"
+      ],
+      "evidence": [
+        {
+          "report": "reports/product-baseline-acceptance.json",
+          "caseId": "multi-label-read-removes-all-boxes",
+          "observedStatus": "PASS"
+        }
+      ],
+      "verificationLimit": "仅所列固定本地场景通过，不代表本条所有组合、真机或生产完成。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "6-07",
+      "rule": "**不做隐藏盒子、不做暂停推送**",
+      "origin": "你定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 700,
+      "milestone": "M3",
+      "status": "implementation_present_unverified",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/subscription/application/SubscriptionService.java",
+        "apps/client/src/pages/subscriptions/index.vue",
+        "apps/client/src/features/followCancellation.ts"
+      ],
+      "evidence": [],
+      "verificationLimit": "实现入口已登记；未用关联模块通过推断本条全部行为已验。需按本条具体规则专项验收。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "6-08",
+      "rule": "盒子内容**实时按关注关系计算**，不落独立盒子表",
+      "origin": "你定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 701,
+      "milestone": "M3",
+      "status": "implementation_present_unverified",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/subscription/application/SubscriptionService.java",
+        "apps/client/src/pages/subscriptions/index.vue",
+        "apps/client/src/features/followCancellation.ts"
+      ],
+      "evidence": [],
+      "verificationLimit": "实现入口已登记；未用关联模块通过推断本条全部行为已验。需按本条具体规则专项验收。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "6-09",
+      "rule": "推送标签与关注标签是同一件事，只是呈现为\"推送勾选\"",
+      "origin": "你定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 702,
+      "milestone": "M3",
+      "status": "implementation_present_unverified",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/subscription/application/SubscriptionService.java",
+        "apps/client/src/pages/subscriptions/index.vue",
+        "apps/client/src/features/followCancellation.ts"
+      ],
+      "evidence": [],
+      "verificationLimit": "实现入口已登记；未用关联模块通过推断本条全部行为已验。需按本条具体规则专项验收。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "6-10",
+      "rule": "后续新增「**关联信息**」机制，补全不该更替但强相关的场景",
+      "origin": "你定",
+      "stage": "后续",
+      "source": "云迹设计规格-完整版.md",
+      "line": 703,
+      "milestone": "M3",
+      "status": "deferred",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/subscription/application/SubscriptionService.java",
+        "apps/client/src/pages/subscriptions/index.vue",
+        "apps/client/src/features/followCancellation.ts"
+      ],
+      "evidence": [],
+      "verificationLimit": "按输入原阶段登记后续，不计本期完成；当前兼容结构不表示已实现。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "6-11",
+      "rule": "盒子 = **三栏 + 栏内小盒子**：推送信息按标签分、关注更新按关键词分",
+      "origin": "你定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 704,
+      "milestone": "M3",
+      "status": "implementation_present_unverified",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/subscription/application/SubscriptionService.java",
+        "apps/client/src/pages/subscriptions/index.vue",
+        "apps/client/src/features/followCancellation.ts"
+      ],
+      "evidence": [],
+      "verificationLimit": "实现入口已登记；未用关联模块通过推断本条全部行为已验。需按本条具体规则专项验收。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "6-12",
+      "rule": "**折叠的是栏内的小盒子，不是三栏本身**：小盒子默认收起、只露 2 条，点击展开",
+      "origin": "你定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 705,
+      "milestone": "M3",
+      "status": "implementation_present_unverified",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/subscription/application/SubscriptionService.java",
+        "apps/client/src/pages/subscriptions/index.vue",
+        "apps/client/src/features/followCancellation.ts"
+      ],
+      "evidence": [],
+      "verificationLimit": "实现入口已登记；未用关联模块通过推断本条全部行为已验。需按本条具体规则专项验收。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "6-13",
+      "rule": "标签盒子：**默认不采用小盒子（平铺）**，用户可随时切换",
+      "origin": "你定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 706,
+      "milestone": "M3",
+      "status": "implementation_present_unverified",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/subscription/application/SubscriptionService.java",
+        "apps/client/src/pages/subscriptions/index.vue",
+        "apps/client/src/features/followCancellation.ts"
+      ],
+      "evidence": [],
+      "verificationLimit": "实现入口已登记；未用关联模块通过推断本条全部行为已验。需按本条具体规则专项验收。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "6-14",
+      "rule": "关键词盒子：小盒子是**用户可选的展示模式**（同一套开关，默认平铺）",
+      "origin": "你定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 707,
+      "milestone": "M3",
+      "status": "implementation_present_unverified",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/subscription/application/SubscriptionService.java",
+        "apps/client/src/pages/subscriptions/index.vue",
+        "apps/client/src/features/followCancellation.ts"
+      ],
+      "evidence": [],
+      "verificationLimit": "实现入口已登记；未用关联模块通过推断本条全部行为已验。需按本条具体规则专项验收。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "6-15",
+      "rule": "关注信息更替栏**不涉及小盒子**",
+      "origin": "我拟",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 708,
+      "milestone": "M3",
+      "status": "implementation_present_unverified",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/subscription/application/SubscriptionService.java",
+        "apps/client/src/pages/subscriptions/index.vue",
+        "apps/client/src/features/followCancellation.ts"
+      ],
+      "evidence": [],
+      "verificationLimit": "实现入口已登记；未用关联模块通过推断本条全部行为已验。需按本条具体规则专项验收。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "6-16",
+      "rule": "管理关注页：页内可撤销，离开后按服务端状态渲染",
+      "origin": "你定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 709,
+      "milestone": "M3",
+      "status": "verified_local_scenarios",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/subscription/application/SubscriptionService.java",
+        "apps/client/src/pages/subscriptions/index.vue",
+        "apps/client/src/features/followCancellation.ts"
+      ],
+      "evidence": [
+        {
+          "report": "reports/browser-product-baseline.json",
+          "caseId": "baseline-follow-undo-retains-page-row",
+          "observedStatus": "PASS"
+        },
+        {
+          "report": "reports/product-baseline-acceptance.json",
+          "caseId": "undo-stale-follow-rollback",
+          "observedStatus": "PASS"
+        },
+        {
+          "report": "reports/product-baseline-acceptance.json",
+          "caseId": "undo-owner-only",
+          "observedStatus": "PASS"
+        }
+      ],
+      "verificationLimit": "仅所列固定本地场景通过，不代表本条所有组合、真机或生产完成。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "6-17",
+      "rule": "三栏优先级去重仍需保留",
+      "origin": "你定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 710,
+      "milestone": "M3",
+      "status": "implementation_present_unverified",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/subscription/application/SubscriptionService.java",
+        "apps/client/src/pages/subscriptions/index.vue",
+        "apps/client/src/features/followCancellation.ts"
+      ],
+      "evidence": [],
+      "verificationLimit": "实现入口已登记；未用关联模块通过推断本条全部行为已验。需按本条具体规则专项验收。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "6-18",
+      "rule": "「多标签命中则每个小盒子都显示 + 共用曝光」已定，但**需实际交互验证**",
+      "origin": "你定",
+      "stage": "待验",
+      "source": "云迹设计规格-完整版.md",
+      "line": 711,
+      "milestone": "M3",
+      "status": "partial",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/subscription/application/SubscriptionService.java",
+        "apps/client/src/pages/subscriptions/index.vue",
+        "apps/client/src/features/followCancellation.ts"
+      ],
+      "evidence": [],
+      "verificationLimit": "API验证多标签共享读/曝光；H5不同小盒子可见区域、展开、滑动组合尚未专项全验。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "6-19",
+      "rule": "小盒子点展开 → **原位展开**，把下方盒子往下挤（不跳页、不弹层）",
+      "origin": "你定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 712,
+      "milestone": "M3",
+      "status": "implementation_present_unverified",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/subscription/application/SubscriptionService.java",
+        "apps/client/src/pages/subscriptions/index.vue",
+        "apps/client/src/features/followCancellation.ts"
+      ],
+      "evidence": [],
+      "verificationLimit": "实现入口已登记；未用关联模块通过推断本条全部行为已验。需按本条具体规则专项验收。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "7-01",
+      "rule": "主页三栏：**更替强提醒 / 关键词强提醒 / 及时提醒**",
+      "origin": "你定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 740,
+      "milestone": "M3",
+      "status": "verified_local_scenarios",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/notification/application/ReminderBatchService.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/notification/application/ReminderWorker.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/notification/application/ReminderMonitor.java",
+        "apps/admin/src/views/DeliveryCenter.vue",
+        "apps/client/src/pages/notifications/index.vue"
+      ],
+      "evidence": [
+        {
+          "report": "reports/browser-product-baseline.json",
+          "caseId": "baseline-reminders-no-delivery-ledger",
+          "observedStatus": "PASS"
+        }
+      ],
+      "verificationLimit": "仅所列固定本地场景通过，不代表本条所有组合、真机或生产完成。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "7-02",
+      "rule": "更替强提醒 = 关注的信息被更替时的日常提醒",
+      "origin": "你定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 741,
+      "milestone": "M3",
+      "status": "implementation_present_unverified",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/notification/application/ReminderBatchService.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/notification/application/ReminderWorker.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/notification/application/ReminderMonitor.java",
+        "apps/admin/src/views/DeliveryCenter.vue",
+        "apps/client/src/pages/notifications/index.vue"
+      ],
+      "evidence": [],
+      "verificationLimit": "实现入口已登记；未用关联模块通过推断本条全部行为已验。需按本条具体规则专项验收。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "7-03",
+      "rule": "关键词强提醒 = **用户在某条关键词上单独开启了强提醒**，该词有新信息时提醒（不是\"关注就自动有\"）",
+      "origin": "你定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 742,
+      "milestone": "M3",
+      "status": "implementation_present_unverified",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/notification/application/ReminderBatchService.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/notification/application/ReminderWorker.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/notification/application/ReminderMonitor.java",
+        "apps/admin/src/views/DeliveryCenter.vue",
+        "apps/client/src/pages/notifications/index.vue"
+      ],
+      "evidence": [],
+      "verificationLimit": "实现入口已登记；未用关联模块通过推断本条全部行为已验。需按本条具体规则专项验收。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "7-04",
+      "rule": "及时提醒**不分来源**，凡设为\"及时\"的都归此栏",
+      "origin": "你定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 743,
+      "milestone": "M3",
+      "status": "implementation_present_unverified",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/notification/application/ReminderBatchService.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/notification/application/ReminderWorker.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/notification/application/ReminderMonitor.java",
+        "apps/admin/src/views/DeliveryCenter.vue",
+        "apps/client/src/pages/notifications/index.vue"
+      ],
+      "evidence": [],
+      "verificationLimit": "实现入口已登记；未用关联模块通过推断本条全部行为已验。需按本条具体规则专项验收。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "7-11",
+      "rule": "更替与关键词**分栏展示**（旧版混在一起，要拆开）",
+      "origin": "你定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 744,
+      "milestone": "M3",
+      "status": "verified_local_scenarios",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/notification/application/ReminderBatchService.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/notification/application/ReminderWorker.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/notification/application/ReminderMonitor.java",
+        "apps/admin/src/views/DeliveryCenter.vue",
+        "apps/client/src/pages/notifications/index.vue"
+      ],
+      "evidence": [
+        {
+          "report": "reports/browser-product-baseline.json",
+          "caseId": "baseline-reminders-no-delivery-ledger",
+          "observedStatus": "PASS"
+        }
+      ],
+      "verificationLimit": "仅所列固定本地场景通过，不代表本条所有组合、真机或生产完成。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "7-05",
+      "rule": "日常提醒走**企业微信**，三个时间点用户选一个",
+      "origin": "你定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 750,
+      "milestone": "M3",
+      "status": "partial",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/notification/application/ReminderBatchService.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/notification/application/ReminderWorker.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/notification/application/ReminderMonitor.java",
+        "apps/admin/src/views/DeliveryCenter.vue",
+        "apps/client/src/pages/notifications/index.vue"
+      ],
+      "evidence": [],
+      "verificationLimit": "三个时段与用户设置本地已实现，真实企微绑定与发送器仍未接线。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "7-06",
+      "rule": "后端到点按所有用户的选择汇总，**调企微接口建发送任务，人工在企微点发送**",
+      "origin": "你定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 751,
+      "milestone": "M3",
+      "status": "partial",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/notification/application/ReminderBatchService.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/notification/application/ReminderWorker.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/notification/application/ReminderMonitor.java",
+        "apps/admin/src/views/DeliveryCenter.vue",
+        "apps/client/src/pages/notifications/index.vue"
+      ],
+      "evidence": [],
+      "verificationLimit": "本地状态机可规划和模拟建任务；ReminderWorker生产模式不调用真实企微，不是只缺密钥。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "7-07",
+      "rule": "及时提醒走**小程序一次性订阅消息**，设置时授权",
+      "origin": "你定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 752,
+      "milestone": "M3",
+      "status": "partial",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/notification/application/ReminderBatchService.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/notification/application/ReminderWorker.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/notification/application/ReminderMonitor.java",
+        "apps/admin/src/views/DeliveryCenter.vue",
+        "apps/client/src/pages/notifications/index.vue"
+      ],
+      "evidence": [],
+      "verificationLimit": "保留微信登录和原生授权入口，实际一次性授权至新提醒发送器全链路尚未接线。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "7-08",
+      "rule": "**没有\"额度\"概念**；未授权成功则设置及时提醒**失败**",
+      "origin": "你定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 753,
+      "milestone": "M3",
+      "status": "partial",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/notification/application/ReminderBatchService.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/notification/application/ReminderWorker.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/notification/application/ReminderMonitor.java",
+        "apps/admin/src/views/DeliveryCenter.vue",
+        "apps/client/src/pages/notifications/index.vue"
+      ],
+      "evidence": [],
+      "verificationLimit": "前端不展示额度，服务端仍用一次性授权凭据守恒；真实平台拒绝/过期需实测。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "7-09",
+      "rule": "触发语义：**有新信息录入就提醒**，不要求内容被修订",
+      "origin": "你定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 754,
+      "milestone": "M3",
+      "status": "implementation_present_unverified",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/notification/application/ReminderBatchService.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/notification/application/ReminderWorker.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/notification/application/ReminderMonitor.java",
+        "apps/admin/src/views/DeliveryCenter.vue",
+        "apps/client/src/pages/notifications/index.vue"
+      ],
+      "evidence": [],
+      "verificationLimit": "实现入口已登记；未用关联模块通过推断本条全部行为已验。需按本条具体规则专项验收。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "7-10",
+      "rule": "未添加企微好友时，日常提醒不可用并给出引导",
+      "origin": "共定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 755,
+      "milestone": "M3",
+      "status": "verified_local_scenarios",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/notification/application/ReminderBatchService.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/notification/application/ReminderWorker.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/notification/application/ReminderMonitor.java",
+        "apps/admin/src/views/DeliveryCenter.vue",
+        "apps/client/src/pages/notifications/index.vue"
+      ],
+      "evidence": [
+        {
+          "report": "reports/product-baseline-acceptance.json",
+          "caseId": "daily-reminder-needs-binding",
+          "observedStatus": "PASS"
+        }
+      ],
+      "verificationLimit": "仅所列固定本地场景通过，不代表本条所有组合、真机或生产完成。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "7-12",
+      "rule": "小程序端**不展示任何投递信息**（成功/失败/记录/消失原因一律不显示）",
+      "origin": "你定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 770,
+      "milestone": "M3",
+      "status": "verified_local_scenarios",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/notification/application/ReminderBatchService.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/notification/application/ReminderWorker.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/notification/application/ReminderMonitor.java",
+        "apps/admin/src/views/DeliveryCenter.vue",
+        "apps/client/src/pages/notifications/index.vue"
+      ],
+      "evidence": [
+        {
+          "report": "reports/browser-product-baseline.json",
+          "caseId": "baseline-reminders-no-delivery-ledger",
+          "observedStatus": "PASS"
+        }
+      ],
+      "verificationLimit": "仅所列固定本地场景通过，不代表本条所有组合、真机或生产完成。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "7-13",
+      "rule": "投递失败属**项目责任**，后台处理，不告知用户",
+      "origin": "你定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 771,
+      "milestone": "M3",
+      "status": "partial",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/notification/application/ReminderBatchService.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/notification/application/ReminderWorker.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/notification/application/ReminderMonitor.java",
+        "apps/admin/src/views/DeliveryCenter.vue",
+        "apps/client/src/pages/notifications/index.vue"
+      ],
+      "evidence": [],
+      "verificationLimit": "后台能检测与核实失败，真实平台查询、消息补偿和外部告警尚未接线。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "7-14",
+      "rule": "管理端保留旧版五维：总览 / 趋势 / 送达率 / 来源分布 / 失败原因 Top",
+      "origin": "你定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 772,
+      "milestone": "M3",
+      "status": "partial",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/notification/application/ReminderBatchService.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/notification/application/ReminderWorker.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/notification/application/ReminderMonitor.java",
+        "apps/admin/src/views/DeliveryCenter.vue",
+        "apps/client/src/pages/notifications/index.vue"
+      ],
+      "evidence": [],
+      "verificationLimit": "统计接口/页面保留状态/趋势/来源/失败等，真实送达率须平台结果证据，当前仅合成语义。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "7-15",
+      "rule": "管理端另加「**任务创建数**」",
+      "origin": "你定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 773,
+      "milestone": "M3",
+      "status": "verified_local_scenarios",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/notification/application/ReminderBatchService.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/notification/application/ReminderWorker.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/notification/application/ReminderMonitor.java",
+        "apps/admin/src/views/DeliveryCenter.vue",
+        "apps/client/src/pages/notifications/index.vue"
+      ],
+      "evidence": [
+        {
+          "report": "reports/product-baseline-acceptance.json",
+          "caseId": "reminder-statistics-source-trend-contract",
+          "observedStatus": "PASS"
+        }
+      ],
+      "verificationLimit": "仅所列固定本地场景通过，不代表本条所有组合、真机或生产完成。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "7-16",
+      "rule": "人工确认只统计「**是否确认**」（布尔）；企微侧支持**一键全部发送**",
+      "origin": "你定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 774,
+      "milestone": "M3",
+      "status": "partial",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/notification/application/ReminderBatchService.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/notification/application/ReminderWorker.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/notification/application/ReminderMonitor.java",
+        "apps/admin/src/views/DeliveryCenter.vue",
+        "apps/client/src/pages/notifications/index.vue"
+      ],
+      "evidence": [],
+      "verificationLimit": "后台人工确认可审计；企微一键全部发送属于平台能力，尚未真实账号验收。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "7-17",
+      "rule": "**未确认任务绝不允许滞留，发生即事故**；需监控+告警+兜底（具体方案待设计）",
+      "origin": "你定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 775,
+      "milestone": "M3",
+      "status": "partial",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/notification/application/ReminderBatchService.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/notification/application/ReminderWorker.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/notification/application/ReminderMonitor.java",
+        "apps/admin/src/views/DeliveryCenter.vue",
+        "apps/client/src/pages/notifications/index.vue"
+      ],
+      "evidence": [],
+      "verificationLimit": "有health接口、UNKNOWN/FAILED即时事故、在途15分钟阈值和节流日志；无外部告警通道与值守兜底实证。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "7-18",
+      "rule": "建任务**提前 5 分钟**（08:00 的批次 07:55 建，到点一键发送）",
+      "origin": "你定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 776,
+      "milestone": "M3",
+      "status": "partial",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/notification/application/ReminderBatchService.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/notification/application/ReminderWorker.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/notification/application/ReminderMonitor.java",
+        "apps/admin/src/views/DeliveryCenter.vue",
+        "apps/client/src/pages/notifications/index.vue"
+      ],
+      "evidence": [],
+      "verificationLimit": "本地规划提前五分钟；真实平台创建任务与延迟SLA未验证。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "7-19",
+      "rule": "发送前敏感词过滤 —— **不做**（业务不涉及）",
+      "origin": "你定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 782,
+      "milestone": "M3",
+      "status": "implementation_present_unverified",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/notification/application/ReminderBatchService.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/notification/application/ReminderWorker.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/notification/application/ReminderMonitor.java",
+        "apps/admin/src/views/DeliveryCenter.vue",
+        "apps/client/src/pages/notifications/index.vue"
+      ],
+      "evidence": [],
+      "verificationLimit": "实现入口已登记；未用关联模块通过推断本条全部行为已验。需按本条具体规则专项验收。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "7-20",
+      "rule": "**已读即取消待推送**：用户在盒子或详情读过某条内容，对应待提醒条目自动取消",
+      "origin": "你定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 783,
+      "milestone": "M3",
+      "status": "verified_local_scenarios",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/notification/application/ReminderBatchService.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/notification/application/ReminderWorker.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/notification/application/ReminderMonitor.java",
+        "apps/admin/src/views/DeliveryCenter.vue",
+        "apps/client/src/pages/notifications/index.vue"
+      ],
+      "evidence": [
+        {
+          "report": "reports/product-baseline-acceptance.json",
+          "caseId": "read-cancels-pending-reminder",
+          "observedStatus": "PASS"
+        },
+        {
+          "report": "reports/product-baseline-acceptance.json",
+          "caseId": "implicit-read-cancels-already-batched-unsent",
+          "observedStatus": "PASS"
+        }
+      ],
+      "verificationLimit": "仅所列固定本地场景通过，不代表本条所有组合、真机或生产完成。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "8-01",
+      "rule": "**本次：一个活动 = 前端新建一个页面**，内容由前端设计实现",
+      "origin": "你定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 814,
+      "milestone": "M5",
+      "status": "partial",
+      "implementation": [
+        "apps/client/src/pages/activity/index.vue",
+        "apps/client/src/pages/activity-column/index.vue",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/activity/application/ActivityService.java"
+      ],
+      "evidence": [],
+      "verificationLimit": "当前只有通用活动和专题承载页面；尚无每个实际活动独立设计页面。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "8-02",
+      "rule": "**本次：页面里调用功能**（报名、下载等），功能不占 C 端独立入口",
+      "origin": "你定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 815,
+      "milestone": "M5",
+      "status": "implementation_present_unverified",
+      "implementation": [
+        "apps/client/src/pages/activity/index.vue",
+        "apps/client/src/pages/activity-column/index.vue",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/activity/application/ActivityService.java"
+      ],
+      "evidence": [],
+      "verificationLimit": "实现入口已登记；未用关联模块通过推断本条全部行为已验。需按本条具体规则专项验收。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "8-03",
+      "rule": "每个活动页面都要**单独设计**，不是纯靠后端配置就能出页面",
+      "origin": "你定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 816,
+      "milestone": "M5",
+      "status": "partial",
+      "implementation": [
+        "apps/client/src/pages/activity/index.vue",
+        "apps/client/src/pages/activity-column/index.vue",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/activity/application/ActivityService.java"
+      ],
+      "evidence": [],
+      "verificationLimit": "独立页面模式已给扩展教程，实际活动素材、页面设计与实现尚缺。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "8-04",
+      "rule": "报名是**功能**，不是独立页面；不得作为 C 端独立入口",
+      "origin": "你定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 817,
+      "milestone": "M5",
+      "status": "implementation_present_unverified",
+      "implementation": [
+        "apps/client/src/pages/activity/index.vue",
+        "apps/client/src/pages/activity-column/index.vue",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/activity/application/ActivityService.java"
+      ],
+      "evidence": [],
+      "verificationLimit": "实现入口已登记；未用关联模块通过推断本条全部行为已验。需按本条具体规则专项验收。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "8-05",
+      "rule": "下载是**功能**（复习资料下载、插件下载都属于\"活动 + 下载\"）",
+      "origin": "你定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 818,
+      "milestone": "M5",
+      "status": "implementation_present_unverified",
+      "implementation": [
+        "apps/client/src/pages/activity/index.vue",
+        "apps/client/src/pages/activity-column/index.vue",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/activity/application/ActivityService.java"
+      ],
+      "evidence": [],
+      "verificationLimit": "实现入口已登记；未用关联模块通过推断本条全部行为已验。需按本条具体规则专项验收。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "8-06",
+      "rule": "活动攻略**不保留**（视同没有）",
+      "origin": "你定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 819,
+      "milestone": "M5",
+      "status": "implementation_present_unverified",
+      "implementation": [
+        "apps/client/src/pages/activity/index.vue",
+        "apps/client/src/pages/activity-column/index.vue",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/activity/application/ActivityService.java"
+      ],
+      "evidence": [],
+      "verificationLimit": "实现入口已登记；未用关联模块通过推断本条全部行为已验。需按本条具体规则专项验收。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "8-07",
+      "rule": "**后续方向**：活动页面配置化——不动前端就能出新页面（怎么实现待研究）",
+      "origin": "你定",
+      "stage": "后续",
+      "source": "云迹设计规格-完整版.md",
+      "line": 820,
+      "milestone": "M5",
+      "status": "deferred",
+      "implementation": [
+        "apps/client/src/pages/activity/index.vue",
+        "apps/client/src/pages/activity-column/index.vue",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/activity/application/ActivityService.java"
+      ],
+      "evidence": [],
+      "verificationLimit": "按输入原阶段登记后续，不计本期完成；当前兼容结构不表示已实现。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "8-08",
+      "rule": "功能插件的清单与扩展机制（功能会持续增加）",
+      "origin": "你定",
+      "stage": "后续",
+      "source": "云迹设计规格-完整版.md",
+      "line": 821,
+      "milestone": "M5",
+      "status": "deferred",
+      "implementation": [
+        "apps/client/src/pages/activity/index.vue",
+        "apps/client/src/pages/activity-column/index.vue",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/activity/application/ActivityService.java"
+      ],
+      "evidence": [],
+      "verificationLimit": "按输入原阶段登记后续，不计本期完成；当前兼容结构不表示已实现。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "8-09",
+      "rule": "活动子系统与主体程序隔离（\"子服务\"设想）",
+      "origin": "你定",
+      "stage": "后续",
+      "source": "云迹设计规格-完整版.md",
+      "line": 822,
+      "milestone": "M5",
+      "status": "deferred",
+      "implementation": [
+        "apps/client/src/pages/activity/index.vue",
+        "apps/client/src/pages/activity-column/index.vue",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/activity/application/ActivityService.java"
+      ],
+      "evidence": [],
+      "verificationLimit": "按输入原阶段登记后续，不计本期完成；当前兼容结构不表示已实现。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "9-01",
+      "rule": "下载是**功能**：小程序端由活动页面调用，**管理端有独立文件管理页**",
+      "origin": "你定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 838,
+      "milestone": "M5",
+      "status": "implementation_present_unverified",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/resource/application/GlobalFileLibrary.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/resource/application/CloudFiles.java",
+        "apps/client/src/components/ActivityDownloads.vue",
+        "apps/admin/src/views/FileLibrary.vue",
+        "apps/client/src/pages.json"
+      ],
+      "evidence": [],
+      "verificationLimit": "实现入口已登记；未用关联模块通过推断本条全部行为已验。需按本条具体规则专项验收。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "9-02",
+      "rule": "活动页面只需调两样：**下载功能 + 可下载列表**",
+      "origin": "你定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 839,
+      "milestone": "M5",
+      "status": "implementation_present_unverified",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/resource/application/GlobalFileLibrary.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/resource/application/CloudFiles.java",
+        "apps/client/src/components/ActivityDownloads.vue",
+        "apps/admin/src/views/FileLibrary.vue",
+        "apps/client/src/pages.json"
+      ],
+      "evidence": [],
+      "verificationLimit": "实现入口已登记；未用关联模块通过推断本条全部行为已验。需按本条具体规则专项验收。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "9-03",
+      "rule": "一个活动有多个下载，**在活动页面设计里排清楚**，不归下载功能管",
+      "origin": "你定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 840,
+      "milestone": "M5",
+      "status": "implementation_present_unverified",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/resource/application/GlobalFileLibrary.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/resource/application/CloudFiles.java",
+        "apps/client/src/components/ActivityDownloads.vue",
+        "apps/admin/src/views/FileLibrary.vue",
+        "apps/client/src/pages.json"
+      ],
+      "evidence": [],
+      "verificationLimit": "实现入口已登记；未用关联模块通过推断本条全部行为已验。需按本条具体规则专项验收。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "9-04",
+      "rule": "下载功能提供**当前版本与历史版本两种能力**，用不用由活动页面决定",
+      "origin": "你定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 841,
+      "milestone": "M5",
+      "status": "verified_local_scenarios",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/resource/application/GlobalFileLibrary.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/resource/application/CloudFiles.java",
+        "apps/client/src/components/ActivityDownloads.vue",
+        "apps/admin/src/views/FileLibrary.vue",
+        "apps/client/src/pages.json"
+      ],
+      "evidence": [
+        {
+          "report": "reports/product-baseline-acceptance.json",
+          "caseId": "global-file-history-retained",
+          "observedStatus": "PASS"
+        }
+      ],
+      "verificationLimit": "仅所列固定本地场景通过，不代表本条所有组合、真机或生产完成。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "9-05",
+      "rule": "下载次数要统计，且 **C 端要显示**",
+      "origin": "你定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 842,
+      "milestone": "M5",
+      "status": "verified_local_scenarios",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/resource/application/GlobalFileLibrary.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/resource/application/CloudFiles.java",
+        "apps/client/src/components/ActivityDownloads.vue",
+        "apps/admin/src/views/FileLibrary.vue",
+        "apps/client/src/pages.json"
+      ],
+      "evidence": [
+        {
+          "report": "reports/browser-product-baseline.json",
+          "caseId": "baseline-activity-file-download-client-confirmed",
+          "observedStatus": "PASS"
+        }
+      ],
+      "verificationLimit": "仅所列固定本地场景通过，不代表本条所有组合、真机或生产完成。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "9-06",
+      "rule": "**存储走微信云存储**（旧版方式），不做自有存储+票据",
+      "origin": "你定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 843,
+      "milestone": "M5",
+      "status": "partial",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/resource/application/GlobalFileLibrary.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/resource/application/CloudFiles.java",
+        "apps/client/src/components/ActivityDownloads.vue",
+        "apps/admin/src/views/FileLibrary.vue",
+        "apps/client/src/pages.json"
+      ],
+      "evidence": [],
+      "verificationLimit": "云适配器已有协议实现，但上传仍先落本地副本并保留统计凭证，未达到纯云无自有存储要求。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "9-07",
+      "rule": "**考试日程功能删掉**，以后要再做也是重新设计",
+      "origin": "你定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 844,
+      "milestone": "M5",
+      "status": "verified_local_scenarios",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/resource/application/GlobalFileLibrary.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/resource/application/CloudFiles.java",
+        "apps/client/src/components/ActivityDownloads.vue",
+        "apps/admin/src/views/FileLibrary.vue",
+        "apps/client/src/pages.json"
+      ],
+      "evidence": [
+        {
+          "report": "reports/product-baseline-acceptance.json",
+          "caseId": "retired-route-exams",
+          "observedStatus": "PASS"
+        }
+      ],
+      "verificationLimit": "仅所列固定本地场景通过，不代表本条所有组合、真机或生产完成。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "9-08",
+      "rule": "**C 端「学习资料与工具」聚合页删掉**",
+      "origin": "你定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 845,
+      "milestone": "M5",
+      "status": "verified_local_scenarios",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/resource/application/GlobalFileLibrary.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/resource/application/CloudFiles.java",
+        "apps/client/src/components/ActivityDownloads.vue",
+        "apps/admin/src/views/FileLibrary.vue",
+        "apps/client/src/pages.json"
+      ],
+      "evidence": [
+        {
+          "report": "reports/product-baseline-acceptance.json",
+          "caseId": "retired-route-packages",
+          "observedStatus": "PASS"
+        },
+        {
+          "report": "reports/product-baseline-acceptance.json",
+          "caseId": "retired-route-artifacts",
+          "observedStatus": "PASS"
+        }
+      ],
+      "verificationLimit": "仅所列固定本地场景通过，不代表本条所有组合、真机或生产完成。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "9-09",
+      "rule": "资料包 / 插件**不设独立模型**，将来只是\"某个活动页面 + 下载功能\"",
+      "origin": "你定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 846,
+      "milestone": "M5",
+      "status": "implementation_present_unverified",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/resource/application/GlobalFileLibrary.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/resource/application/CloudFiles.java",
+        "apps/client/src/components/ActivityDownloads.vue",
+        "apps/admin/src/views/FileLibrary.vue",
+        "apps/client/src/pages.json"
+      ],
+      "evidence": [],
+      "verificationLimit": "实现入口已登记；未用关联模块通过推断本条全部行为已验。需按本条具体规则专项验收。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "9-10",
+      "rule": "可下载列表的**筛选**做法待议，之后慢慢研究",
+      "origin": "你定",
+      "stage": "待议",
+      "source": "云迹设计规格-完整版.md",
+      "line": 847,
+      "milestone": "M5",
+      "status": "decision_pending",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/resource/application/GlobalFileLibrary.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/resource/application/CloudFiles.java",
+        "apps/client/src/components/ActivityDownloads.vue",
+        "apps/admin/src/views/FileLibrary.vue",
+        "apps/client/src/pages.json"
+      ],
+      "evidence": [],
+      "verificationLimit": "筛选行为待议；已有可下载列表不构成本项产品决策。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "9-11",
+      "rule": "**下载必须登录**（未登录不给 fileID、不计次数）",
+      "origin": "你定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 848,
+      "milestone": "M5",
+      "status": "verified_local_scenarios",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/resource/application/GlobalFileLibrary.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/resource/application/CloudFiles.java",
+        "apps/client/src/components/ActivityDownloads.vue",
+        "apps/admin/src/views/FileLibrary.vue",
+        "apps/client/src/pages.json"
+      ],
+      "evidence": [
+        {
+          "report": "reports/product-baseline-acceptance.json",
+          "caseId": "anonymous-download-denied",
+          "observedStatus": "PASS"
+        },
+        {
+          "report": "reports/product-baseline-acceptance.json",
+          "caseId": "global-file-public-no-storage-id",
+          "observedStatus": "PASS"
+        }
+      ],
+      "verificationLimit": "仅所列固定本地场景通过，不代表本条所有组合、真机或生产完成。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "9-12",
+      "rule": "下载记录**按「活动 + 文件」分别记**；去重 = 用户+文件+活动+天",
+      "origin": "你定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 849,
+      "milestone": "M5",
+      "status": "verified_local_scenarios",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/resource/application/GlobalFileLibrary.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/resource/application/CloudFiles.java",
+        "apps/client/src/components/ActivityDownloads.vue",
+        "apps/admin/src/views/FileLibrary.vue",
+        "apps/client/src/pages.json"
+      ],
+      "evidence": [
+        {
+          "report": "reports/product-baseline-acceptance.json",
+          "caseId": "activity-file-day-download-dedup",
+          "observedStatus": "PASS"
+        },
+        {
+          "report": "reports/product-baseline-acceptance.json",
+          "caseId": "server-read-alone-not-download-complete",
+          "observedStatus": "PASS"
+        }
+      ],
+      "verificationLimit": "仅所列固定本地场景通过，不代表本条所有组合、真机或生产完成。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "9-13",
+      "rule": "采用**云存储**方案",
+      "origin": "你定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 850,
+      "milestone": "M5",
+      "status": "partial",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/resource/application/GlobalFileLibrary.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/resource/application/CloudFiles.java",
+        "apps/client/src/components/ActivityDownloads.vue",
+        "apps/admin/src/views/FileLibrary.vue",
+        "apps/client/src/pages.json"
+      ],
+      "evidence": [],
+      "verificationLimit": "生产禁止本地模拟回退；真实微信云上传/下载、失败补偿未实测。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "9-14",
+      "rule": "**采用方案 B**：后端签发临时链接，**fileID 不下发前端**；前端用 `wx.downloadFile({url})`；后端记录每次签发",
+      "origin": "你定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 851,
+      "milestone": "M5",
+      "status": "partial",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/resource/application/GlobalFileLibrary.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/resource/application/CloudFiles.java",
+        "apps/client/src/components/ActivityDownloads.vue",
+        "apps/admin/src/views/FileLibrary.vue",
+        "apps/client/src/pages.json"
+      ],
+      "evidence": [],
+      "verificationLimit": "适配器签临时链接并隐藏fileID；真实云域名白名单、小程序下载和一致性尚未验证。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "9-15",
+      "rule": "管理端必须有独立**文件管理页**：上传/编辑名称说明/启停/删除/看下载次数",
+      "origin": "你定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 852,
+      "milestone": "M5",
+      "status": "verified_local_scenarios",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/resource/application/GlobalFileLibrary.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/resource/application/CloudFiles.java",
+        "apps/client/src/components/ActivityDownloads.vue",
+        "apps/admin/src/views/FileLibrary.vue",
+        "apps/client/src/pages.json"
+      ],
+      "evidence": [
+        {
+          "report": "reports/browser-product-baseline.json",
+          "caseId": "baseline-admin-global-file-upload-ui",
+          "observedStatus": "PASS"
+        },
+        {
+          "report": "reports/product-baseline-acceptance.json",
+          "caseId": "referenced-file-cannot-delete",
+          "observedStatus": "PASS"
+        },
+        {
+          "report": "reports/product-baseline-acceptance.json",
+          "caseId": "disabled-file-download-denied",
+          "observedStatus": "PASS"
+        }
+      ],
+      "verificationLimit": "仅所列固定本地场景通过，不代表本条所有组合、真机或生产完成。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "9-16",
+      "rule": "**文件库是全局的**（不按活动分组）：传一次，多个活动引用",
+      "origin": "你定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 853,
+      "milestone": "M5",
+      "status": "implementation_present_unverified",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/resource/application/GlobalFileLibrary.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/resource/application/CloudFiles.java",
+        "apps/client/src/components/ActivityDownloads.vue",
+        "apps/admin/src/views/FileLibrary.vue",
+        "apps/client/src/pages.json"
+      ],
+      "evidence": [],
+      "verificationLimit": "实现入口已登记；未用关联模块通过推断本条全部行为已验。需按本条具体规则专项验收。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "9-17",
+      "rule": "活动通过**活动配置**引用文件",
+      "origin": "你定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 854,
+      "milestone": "M5",
+      "status": "implementation_present_unverified",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/resource/application/GlobalFileLibrary.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/resource/application/CloudFiles.java",
+        "apps/client/src/components/ActivityDownloads.vue",
+        "apps/admin/src/views/FileLibrary.vue",
+        "apps/client/src/pages.json"
+      ],
+      "evidence": [],
+      "verificationLimit": "实现入口已登记；未用关联模块通过推断本条全部行为已验。需按本条具体规则专项验收。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "10-01",
+      "rule": "申报评审是**功能**，不是独立业务；**小程序端无独立页面，管理端必须有管理页面**",
+      "origin": "你定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 894,
+      "milestone": "M5",
+      "status": "implementation_present_unverified",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/review/application/ReviewService.java",
+        "apps/admin/src/views/ReviewQueueView.vue",
+        "apps/admin/src/workspaces.ts",
+        "apps/client/src/pages.json"
+      ],
+      "evidence": [],
+      "verificationLimit": "实现入口已登记；未用关联模块通过推断本条全部行为已验。需按本条具体规则专项验收。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "10-02",
+      "rule": "后端功能**保留并做完整**，小程序端当前**不接入**（等有活动页面后再嵌）",
+      "origin": "你定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 895,
+      "milestone": "M5",
+      "status": "implementation_present_unverified",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/review/application/ReviewService.java",
+        "apps/admin/src/views/ReviewQueueView.vue",
+        "apps/admin/src/workspaces.ts",
+        "apps/client/src/pages.json"
+      ],
+      "evidence": [],
+      "verificationLimit": "实现入口已登记；未用关联模块通过推断本条全部行为已验。需按本条具体规则专项验收。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "10-03",
+      "rule": "功能按\"砖\"提供：**配置 + 收材料 + 给结论**三块能力，页面要哪块调哪块",
+      "origin": "我拟",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 896,
+      "milestone": "M5",
+      "status": "implementation_present_unverified",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/review/application/ReviewService.java",
+        "apps/admin/src/views/ReviewQueueView.vue",
+        "apps/admin/src/workspaces.ts",
+        "apps/client/src/pages.json"
+      ],
+      "evidence": [],
+      "verificationLimit": "实现入口已登记；未用关联模块通过推断本条全部行为已验。需按本条具体规则专项验收。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "10-04",
+      "rule": "六条关键规则（见下）",
+      "origin": "我拟",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 897,
+      "milestone": "M5",
+      "status": "verified_local_scenarios",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/review/application/ReviewService.java",
+        "apps/admin/src/views/ReviewQueueView.vue",
+        "apps/admin/src/workspaces.ts",
+        "apps/client/src/pages.json"
+      ],
+      "evidence": [
+        {
+          "report": "reports/product-baseline-acceptance.json",
+          "caseId": "review-missing-required-material",
+          "observedStatus": "PASS"
+        },
+        {
+          "report": "reports/product-baseline-acceptance.json",
+          "caseId": "review-submitted-material-frozen",
+          "observedStatus": "PASS"
+        },
+        {
+          "report": "reports/product-baseline-acceptance.json",
+          "caseId": "review-stale-submission-rejected",
+          "observedStatus": "PASS"
+        },
+        {
+          "report": "reports/product-baseline-acceptance.json",
+          "caseId": "review-owner-isolation",
+          "observedStatus": "PASS"
+        },
+        {
+          "report": "reports/product-baseline-acceptance.json",
+          "caseId": "review-correction-history-retained",
+          "observedStatus": "PASS"
+        }
+      ],
+      "verificationLimit": "仅所列固定本地场景通过，不代表本条所有组合、真机或生产完成。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "10-05",
+      "rule": "删掉 `reviewer_scope`（组织维度不做），所有管理员可评",
+      "origin": "我拟",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 898,
+      "milestone": "M5",
+      "status": "partial",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/review/application/ReviewService.java",
+        "apps/admin/src/views/ReviewQueueView.vue",
+        "apps/admin/src/workspaces.ts",
+        "apps/client/src/pages.json"
+      ],
+      "evidence": [],
+      "verificationLimit": "所有有效STAFF可评，已不使用组织scope拦截；历史reviewer_scope表/类型保留，未物理删除。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "10-06",
+      "rule": "资格条件保留结构但**本期不启用**",
+      "origin": "我拟",
+      "stage": "后续",
+      "source": "云迹设计规格-完整版.md",
+      "line": 899,
+      "milestone": "M5",
+      "status": "deferred",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/review/application/ReviewService.java",
+        "apps/admin/src/views/ReviewQueueView.vue",
+        "apps/admin/src/workspaces.ts",
+        "apps/client/src/pages.json"
+      ],
+      "evidence": [],
+      "verificationLimit": "按输入原阶段登记后续，不计本期完成；当前兼容结构不表示已实现。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "10-07",
+      "rule": "结论档位：**通过 / 驳回 / 要求补正**",
+      "origin": "我拟",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 900,
+      "milestone": "M5",
+      "status": "verified_local_scenarios",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/review/application/ReviewService.java",
+        "apps/admin/src/views/ReviewQueueView.vue",
+        "apps/admin/src/workspaces.ts",
+        "apps/client/src/pages.json"
+      ],
+      "evidence": [
+        {
+          "report": "reports/product-baseline-acceptance.json",
+          "caseId": "review-correction-history-retained",
+          "observedStatus": "PASS"
+        }
+      ],
+      "verificationLimit": "仅所列固定本地场景通过，不代表本条所有组合、真机或生产完成。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "10-08",
+      "rule": "**删掉小程序端独立评审页**；**管理端评审项目管理页 + 申请审核页必须保留**",
+      "origin": "你定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 901,
+      "milestone": "M5",
+      "status": "implementation_present_unverified",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/review/application/ReviewService.java",
+        "apps/admin/src/views/ReviewQueueView.vue",
+        "apps/admin/src/workspaces.ts",
+        "apps/client/src/pages.json"
+      ],
+      "evidence": [],
+      "verificationLimit": "实现入口已登记；未用关联模块通过推断本条全部行为已验。需按本条具体规则专项验收。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "10-09",
+      "rule": "这个功能等**实测后再改**",
+      "origin": "你定",
+      "stage": "待验",
+      "source": "云迹设计规格-完整版.md",
+      "line": 902,
+      "milestone": "M5",
+      "status": "partial",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/review/application/ReviewService.java",
+        "apps/admin/src/views/ReviewQueueView.vue",
+        "apps/admin/src/workspaces.ts",
+        "apps/client/src/pages.json"
+      ],
+      "evidence": [],
+      "verificationLimit": "后端并发/补正/材料隔离有本地用例，真实申报材料与接收团队实测仍待完成。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "10-10",
+      "rule": "管理端评审页要能：建/改项目、配材料清单、看申请列表、看每份材料、给结论",
+      "origin": "你定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 903,
+      "milestone": "M5",
+      "status": "implementation_present_unverified",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/review/application/ReviewService.java",
+        "apps/admin/src/views/ReviewQueueView.vue",
+        "apps/admin/src/workspaces.ts",
+        "apps/client/src/pages.json"
+      ],
+      "evidence": [],
+      "verificationLimit": "实现入口已登记；未用关联模块通过推断本条全部行为已验。需按本条具体规则专项验收。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "10-11",
+      "rule": "**评审项目是全局的**（一个全局列表），活动按需引用",
+      "origin": "你定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 904,
+      "milestone": "M5",
+      "status": "verified_local_scenarios",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/review/application/ReviewService.java",
+        "apps/admin/src/views/ReviewQueueView.vue",
+        "apps/admin/src/workspaces.ts",
+        "apps/client/src/pages.json"
+      ],
+      "evidence": [
+        {
+          "report": "reports/product-baseline-acceptance.json",
+          "caseId": "review-global-activity-reference",
+          "observedStatus": "PASS"
+        }
+      ],
+      "verificationLimit": "仅所列固定本地场景通过，不代表本条所有组合、真机或生产完成。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "10-12",
+      "rule": "活动通过**活动配置**引用评审项目",
+      "origin": "你定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 905,
+      "milestone": "M5",
+      "status": "verified_local_scenarios",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/review/application/ReviewService.java",
+        "apps/admin/src/views/ReviewQueueView.vue",
+        "apps/admin/src/workspaces.ts",
+        "apps/client/src/pages.json"
+      ],
+      "evidence": [
+        {
+          "report": "reports/product-baseline-acceptance.json",
+          "caseId": "review-global-activity-reference",
+          "observedStatus": "PASS"
+        }
+      ],
+      "verificationLimit": "仅所列固定本地场景通过，不代表本条所有组合、真机或生产完成。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "11-01",
+      "rule": "登录用**微信手机号一键登录**（`wx.login` + `getPhoneNumber`）",
+      "origin": "你定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 948,
+      "milestone": "M5",
+      "status": "partial",
+      "implementation": [
+        "apps/client/src/pages/me/index.vue",
+        "apps/client/src/pages/profile/index.vue",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/identity/api/IdentityController.java"
+      ],
+      "evidence": [],
+      "verificationLimit": "保留另一会话微信手机号登录并跑隔离回归；本轮不把隔离桩测试当真机授权实测。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "11-02",
+      "rule": "**不做**协议同意记录，**也不做**协议版本记录",
+      "origin": "你定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 949,
+      "milestone": "M5",
+      "status": "partial",
+      "implementation": [
+        "apps/client/src/pages/me/index.vue",
+        "apps/client/src/pages/profile/index.vue",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/identity/api/IdentityController.java"
+      ],
+      "evidence": [],
+      "verificationLimit": "用户同意记录写接口已退役；协议正文仍有历史版本表，用于历史内容，未彻底删除版本结构。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "11-03",
+      "rule": "个人资料：**昵称 + 头像 + 手机号**",
+      "origin": "你定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 950,
+      "milestone": "M5",
+      "status": "partial",
+      "implementation": [
+        "apps/client/src/pages/me/index.vue",
+        "apps/client/src/pages/profile/index.vue",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/identity/api/IdentityController.java"
+      ],
+      "evidence": [],
+      "verificationLimit": "昵称/手机号和头像字段读取展示存在；头像选择上传与更新尚未实现。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "11-04",
+      "rule": "收藏只有**信息收藏**；活动收藏可同页但**必须分开呈现**（本质不同）",
+      "origin": "你定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 951,
+      "milestone": "M5",
+      "status": "implementation_present_unverified",
+      "implementation": [
+        "apps/client/src/pages/me/index.vue",
+        "apps/client/src/pages/profile/index.vue",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/identity/api/IdentityController.java"
+      ],
+      "evidence": [],
+      "verificationLimit": "实现入口已登记；未用关联模块通过推断本条全部行为已验。需按本条具体规则专项验收。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "11-05",
+      "rule": "保留**反馈**入口",
+      "origin": "你定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 952,
+      "milestone": "M5",
+      "status": "implementation_present_unverified",
+      "implementation": [
+        "apps/client/src/pages/me/index.vue",
+        "apps/client/src/pages/profile/index.vue",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/identity/api/IdentityController.java"
+      ],
+      "evidence": [],
+      "verificationLimit": "实现入口已登记；未用关联模块通过推断本条全部行为已验。需按本条具体规则专项验收。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "11-06",
+      "rule": "保留**浏览历史**入口，可清空",
+      "origin": "你定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 953,
+      "milestone": "M5",
+      "status": "implementation_present_unverified",
+      "implementation": [
+        "apps/client/src/pages/me/index.vue",
+        "apps/client/src/pages/profile/index.vue",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/identity/api/IdentityController.java"
+      ],
+      "evidence": [],
+      "verificationLimit": "实现入口已登记；未用关联模块通过推断本条全部行为已验。需按本条具体规则专项验收。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "11-07",
+      "rule": "**不做**通知历史",
+      "origin": "你定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 954,
+      "milestone": "M5",
+      "status": "implementation_present_unverified",
+      "implementation": [
+        "apps/client/src/pages/me/index.vue",
+        "apps/client/src/pages/profile/index.vue",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/identity/api/IdentityController.java"
+      ],
+      "evidence": [],
+      "verificationLimit": "实现入口已登记；未用关联模块通过推断本条全部行为已验。需按本条具体规则专项验收。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "11-08",
+      "rule": "**不做**发现摘要",
+      "origin": "你定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 955,
+      "milestone": "M5",
+      "status": "partial",
+      "implementation": [
+        "apps/client/src/pages/me/index.vue",
+        "apps/client/src/pages/profile/index.vue",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/identity/api/IdentityController.java"
+      ],
+      "evidence": [],
+      "verificationLimit": "C端无独立发现摘要入口；首页通知条复用discovery-summary接口，未物理删除该API。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "11-09",
+      "rule": "**不做**注销账号",
+      "origin": "你定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 956,
+      "milestone": "M5",
+      "status": "verified_local_scenarios",
+      "implementation": [
+        "apps/client/src/pages/me/index.vue",
+        "apps/client/src/pages/profile/index.vue",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/identity/api/IdentityController.java"
+      ],
+      "evidence": [
+        {
+          "report": "reports/product-baseline-acceptance.json",
+          "caseId": "retired-account-close-route",
+          "observedStatus": "PASS"
+        }
+      ],
+      "verificationLimit": "仅所列固定本地场景通过，不代表本条所有组合、真机或生产完成。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "11-10",
+      "rule": "「我的」页面结构（见下）",
+      "origin": "你定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 957,
+      "milestone": "M5",
+      "status": "implementation_present_unverified",
+      "implementation": [
+        "apps/client/src/pages/me/index.vue",
+        "apps/client/src/pages/profile/index.vue",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/identity/api/IdentityController.java"
+      ],
+      "evidence": [],
+      "verificationLimit": "实现入口已登记；未用关联模块通过推断本条全部行为已验。需按本条具体规则专项验收。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "11-11",
+      "rule": "**不要「联系我们」**：它只是复制联系方式到剪贴板，不是客服；两版都没有客服",
+      "origin": "你定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 958,
+      "milestone": "M5",
+      "status": "implementation_present_unverified",
+      "implementation": [
+        "apps/client/src/pages/me/index.vue",
+        "apps/client/src/pages/profile/index.vue",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/identity/api/IdentityController.java"
+      ],
+      "evidence": [],
+      "verificationLimit": "实现入口已登记；未用关联模块通过推断本条全部行为已验。需按本条具体规则专项验收。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "11-12",
+      "rule": "未登录态：顶部卡片默认头像 + \"点击登录\"；需登录的入口点击先跳登录",
+      "origin": "我拟",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 959,
+      "milestone": "M5",
+      "status": "verified_local_scenarios",
+      "implementation": [
+        "apps/client/src/pages/me/index.vue",
+        "apps/client/src/pages/profile/index.vue",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/identity/api/IdentityController.java"
+      ],
+      "evidence": [
+        {
+          "report": "reports/browser-product-baseline.json",
+          "caseId": "baseline-login-dismiss-and-replay",
+          "observedStatus": "PASS"
+        }
+      ],
+      "verificationLimit": "仅所列固定本地场景通过，不代表本条所有组合、真机或生产完成。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "12-01",
+      "rule": "**本期只有一个角色**：管理员。所有管理员权限完全相同",
+      "origin": "你定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 990,
+      "milestone": "M5",
+      "status": "verified_local_scenarios",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/identity/application/Actors.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/identity/application/AdminBoundary.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/identity/api/AdminNavigationController.java",
+        "apps/admin/src/main.ts",
+        "database/migrations/V24__product_baseline.sql"
+      ],
+      "evidence": [
+        {
+          "report": "reports/product-baseline-acceptance.json",
+          "caseId": "new-single-role-login",
+          "observedStatus": "PASS"
+        },
+        {
+          "report": "reports/product-baseline-acceptance.json",
+          "caseId": "new-operator-business-access",
+          "observedStatus": "PASS"
+        }
+      ],
+      "verificationLimit": "仅所列固定本地场景通过，不代表本条所有组合、真机或生产完成。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "12-02",
+      "rule": "**不做**角色管理界面、菜单勾选配置、按钮级权限、数据范围",
+      "origin": "你定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 991,
+      "milestone": "M5",
+      "status": "implementation_present_unverified",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/identity/application/Actors.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/identity/application/AdminBoundary.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/identity/api/AdminNavigationController.java",
+        "apps/admin/src/main.ts",
+        "database/migrations/V24__product_baseline.sql"
+      ],
+      "evidence": [],
+      "verificationLimit": "实现入口已登记；未用关联模块通过推断本条全部行为已验。需按本条具体规则专项验收。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "12-03",
+      "rule": "后端统一校验：所有 `/api/v1/admin/**` 要求 STAFF 身份，非员工/未登录 403；客户身份 403",
+      "origin": "我拟",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 992,
+      "milestone": "M5",
+      "status": "partial",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/identity/application/Actors.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/identity/application/AdminBoundary.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/identity/api/AdminNavigationController.java",
+        "apps/admin/src/main.ts",
+        "database/migrations/V24__product_baseline.sql"
+      ],
+      "evidence": [],
+      "verificationLimit": "访问边界已拒绝未登录/客户；当前返回401而非原文全部403，保留框架认证语义差异。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "12-04",
+      "rule": "**菜单存数据库**，由后端按角色下发（不是前端写死）",
+      "origin": "我拟",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 993,
+      "milestone": "M5",
+      "status": "verified_local_scenarios",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/identity/application/Actors.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/identity/application/AdminBoundary.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/identity/api/AdminNavigationController.java",
+        "apps/admin/src/main.ts",
+        "database/migrations/V24__product_baseline.sql"
+      ],
+      "evidence": [
+        {
+          "report": "reports/product-baseline-acceptance.json",
+          "caseId": "six-db-navigation-groups",
+          "observedStatus": "PASS"
+        },
+        {
+          "report": "reports/browser-product-baseline.json",
+          "caseId": "baseline-admin-real-login-single-role-menu",
+          "observedStatus": "PASS"
+        }
+      ],
+      "verificationLimit": "仅所列固定本地场景通过，不代表本条所有组合、真机或生产完成。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "12-05",
+      "rule": "为将来加角色留三个口子：①用户保留角色字段 ②菜单在库 ③后端校验留检查点",
+      "origin": "我拟",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 994,
+      "milestone": "M5",
+      "status": "implementation_present_unverified",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/identity/application/Actors.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/identity/application/AdminBoundary.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/identity/api/AdminNavigationController.java",
+        "apps/admin/src/main.ts",
+        "database/migrations/V24__product_baseline.sql"
+      ],
+      "evidence": [],
+      "verificationLimit": "实现入口已登记；未用关联模块通过推断本条全部行为已验。需按本条具体规则专项验收。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "12-06",
+      "rule": "操作审计：记录\"谁、何时、对什么、做了什么\"，**只记增删改、不记查询**",
+      "origin": "我拟",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 995,
+      "milestone": "M5",
+      "status": "implementation_present_unverified",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/identity/application/Actors.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/identity/application/AdminBoundary.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/identity/api/AdminNavigationController.java",
+        "apps/admin/src/main.ts",
+        "database/migrations/V24__product_baseline.sql"
+      ],
+      "evidence": [],
+      "verificationLimit": "实现入口已登记；未用关联模块通过推断本条全部行为已验。需按本条具体规则专项验收。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "12-07",
+      "rule": "将来若加角色，权限粒度做到**菜单级**即可，不做按钮级",
+      "origin": "我拟",
+      "stage": "后续",
+      "source": "云迹设计规格-完整版.md",
+      "line": 996,
+      "milestone": "M5",
+      "status": "deferred",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/identity/application/Actors.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/identity/application/AdminBoundary.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/identity/api/AdminNavigationController.java",
+        "apps/admin/src/main.ts",
+        "database/migrations/V24__product_baseline.sql"
+      ],
+      "evidence": [],
+      "verificationLimit": "按输入原阶段登记后续，不计本期完成；当前兼容结构不表示已实现。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "12-08",
+      "rule": "管理端菜单骨架六组：内容 / 活动与功能 / 提醒与推送 / 用户与互动 / 数据 / 系统",
+      "origin": "我拟",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 997,
+      "milestone": "M5",
+      "status": "implementation_present_unverified",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/identity/application/Actors.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/identity/application/AdminBoundary.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/identity/api/AdminNavigationController.java",
+        "apps/admin/src/main.ts",
+        "database/migrations/V24__product_baseline.sql"
+      ],
+      "evidence": [],
+      "verificationLimit": "实现入口已登记；未用关联模块通过推断本条全部行为已验。需按本条具体规则专项验收。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "13-01",
+      "rule": "**不做数据迁移**，旧库旧数据整体作废",
+      "origin": "你定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 1022,
+      "milestone": "M6",
+      "status": "implementation_present_unverified",
+      "implementation": [
+        "scripts/database_ops.py",
+        "scripts/install_snapshot.py",
+        "database/install/manifest.json",
+        "database/migrations/V24__product_baseline.sql"
+      ],
+      "evidence": [],
+      "verificationLimit": "实现入口已登记；未用关联模块通过推断本条全部行为已验。需按本条具体规则专项验收。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "13-02",
+      "rule": "表结构按需求**重新设计**，不继承旧版也不继承新版",
+      "origin": "你定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 1023,
+      "milestone": "M6",
+      "status": "partial",
+      "implementation": [
+        "scripts/database_ops.py",
+        "scripts/install_snapshot.py",
+        "database/install/manifest.json",
+        "database/migrations/V24__product_baseline.sql"
+      ],
+      "evidence": [],
+      "verificationLimit": "业务按需求重制，但保留授权框架和新工程历史FK/迁移表；不是整库彻底重建新表。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "13-03",
+      "rule": "迁移脚本版本化 + 校验和",
+      "origin": "我拟",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 1024,
+      "milestone": "M6",
+      "status": "implementation_present_unverified",
+      "implementation": [
+        "scripts/database_ops.py",
+        "scripts/install_snapshot.py",
+        "database/install/manifest.json",
+        "database/migrations/V24__product_baseline.sql"
+      ],
+      "evidence": [],
+      "verificationLimit": "实现入口已登记；未用关联模块通过推断本条全部行为已验。需按本条具体规则专项验收。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "13-04",
+      "rule": "初始数据只有：管理员账号、完整菜单、基础字典（**无演示数据**）",
+      "origin": "我拟",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 1025,
+      "milestone": "M6",
+      "status": "implementation_present_unverified",
+      "implementation": [
+        "scripts/database_ops.py",
+        "scripts/install_snapshot.py",
+        "database/install/manifest.json",
+        "database/migrations/V24__product_baseline.sql"
+      ],
+      "evidence": [],
+      "verificationLimit": "实现入口已登记；未用关联模块通过推断本条全部行为已验。需按本条具体规则专项验收。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "13-05",
+      "rule": "升级前备份 + 每日自动备份",
+      "origin": "我拟",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 1026,
+      "milestone": "M6",
+      "status": "partial",
+      "implementation": [
+        "scripts/database_ops.py",
+        "scripts/install_snapshot.py",
+        "database/install/manifest.json",
+        "database/migrations/V24__product_baseline.sql"
+      ],
+      "evidence": [],
+      "verificationLimit": "升级前停写备份和新库恢复已演练；每日自动任务尚未在目标环境配置。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "T1-1",
+      "rule": "**两种热度都要**：搜索框轮播热词（搜索热度）+ 搜索历史下方推荐信息（信息热度）",
+      "origin": "你定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 1051,
+      "milestone": "M2",
+      "status": "implementation_present_unverified",
+      "implementation": [
+        "apps/client/src/pages/search/index.vue",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/catalog/application/DiscoveryService.java"
+      ],
+      "evidence": [],
+      "verificationLimit": "实现入口已登记；未用关联模块通过推断本条全部行为已验。需按本条具体规则专项验收。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "T1-2",
+      "rule": "热搜就两块：**搜索词 + 信息**；信息以**只有标题的列表**呈现，不带标签/摘要/封面",
+      "origin": "你定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 1052,
+      "milestone": "M2",
+      "status": "implementation_present_unverified",
+      "implementation": [
+        "apps/client/src/pages/search/index.vue",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/catalog/application/DiscoveryService.java"
+      ],
+      "evidence": [],
+      "verificationLimit": "实现入口已登记；未用关联模块通过推断本条全部行为已验。需按本条具体规则专项验收。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "T1-3",
+      "rule": "热词候选池 = **热度最高的 20 个**，从池中轮换展示",
+      "origin": "你定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 1053,
+      "milestone": "M2",
+      "status": "implementation_present_unverified",
+      "implementation": [
+        "apps/client/src/pages/search/index.vue",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/catalog/application/DiscoveryService.java"
+      ],
+      "evidence": [],
+      "verificationLimit": "实现入口已登记；未用关联模块通过推断本条全部行为已验。需按本条具体规则专项验收。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "T1-3b",
+      "rule": "热搜推荐信息显示 **5~10 条**",
+      "origin": "你定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 1054,
+      "milestone": "M2",
+      "status": "implementation_present_unverified",
+      "implementation": [
+        "apps/client/src/pages/search/index.vue",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/catalog/application/DiscoveryService.java"
+      ],
+      "evidence": [],
+      "verificationLimit": "实现入口已登记；未用关联模块通过推断本条全部行为已验。需按本条具体规则专项验收。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "T1-4",
+      "rule": "搜索历史保留 **20 条**",
+      "origin": "你定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 1055,
+      "milestone": "M2",
+      "status": "implementation_present_unverified",
+      "implementation": [
+        "apps/client/src/pages/search/index.vue",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/catalog/application/DiscoveryService.java"
+      ],
+      "evidence": [],
+      "verificationLimit": "实现入口已登记；未用关联模块通过推断本条全部行为已验。需按本条具体规则专项验收。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "T1-5",
+      "rule": "搜索历史支持**单条删除 + 一键清空**",
+      "origin": "你定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 1056,
+      "milestone": "M2",
+      "status": "verified_local_scenarios",
+      "implementation": [
+        "apps/client/src/pages/search/index.vue",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/catalog/application/DiscoveryService.java"
+      ],
+      "evidence": [
+        {
+          "report": "reports/product-baseline-acceptance.json",
+          "caseId": "single-search-history-delete",
+          "observedStatus": "PASS"
+        },
+        {
+          "report": "reports/browser-product-baseline.json",
+          "caseId": "baseline-search-delete-single-history",
+          "observedStatus": "PASS"
+        }
+      ],
+      "verificationLimit": "仅所列固定本地场景通过，不代表本条所有组合、真机或生产完成。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "T1-6",
+      "rule": "用**一张日志表 + 展示时 GROUP BY 聚合**（不采用纯去重表，保留\"搜了无结果\"的分析能力）",
+      "origin": "我拟",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 1057,
+      "milestone": "M2",
+      "status": "implementation_present_unverified",
+      "implementation": [
+        "apps/client/src/pages/search/index.vue",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/catalog/application/DiscoveryService.java"
+      ],
+      "evidence": [],
+      "verificationLimit": "实现入口已登记；未用关联模块通过推断本条全部行为已验。需按本条具体规则专项验收。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "T1-7",
+      "rule": "**信息热度取近期**，不是全时段累计；窗口 7 天（与搜索热度一致）",
+      "origin": "共定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 1058,
+      "milestone": "M2",
+      "status": "implementation_present_unverified",
+      "implementation": [
+        "apps/client/src/pages/search/index.vue",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/catalog/application/DiscoveryService.java"
+      ],
+      "evidence": [],
+      "verificationLimit": "实现入口已登记；未用关联模块通过推断本条全部行为已验。需按本条具体规则专项验收。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "T1-8",
+      "rule": "热搜推荐是**排行榜性质，不排除已读**（与首页/盒子的个性化排除不同）",
+      "origin": "你定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 1059,
+      "milestone": "M2",
+      "status": "implementation_present_unverified",
+      "implementation": [
+        "apps/client/src/pages/search/index.vue",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/catalog/application/DiscoveryService.java"
+      ],
+      "evidence": [],
+      "verificationLimit": "实现入口已登记；未用关联模块通过推断本条全部行为已验。需按本条具体规则专项验收。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "T2-1",
+      "rule": "**更替统计**：发生次数、涉及用户数、链式占比",
+      "origin": "你定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 1090,
+      "milestone": "M5",
+      "status": "implementation_present_unverified",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/analytics/api/ProductAnalyticsController.java",
+        "apps/admin/src/views/Customers.vue",
+        "apps/admin/src/components/ProductMetrics.vue"
+      ],
+      "evidence": [],
+      "verificationLimit": "实现入口已登记；未用关联模块通过推断本条全部行为已验。需按本条具体规则专项验收。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "T2-2",
+      "rule": "**活动报名统计**：报名数/名额/满员率/候补数/取消数",
+      "origin": "你定",
+      "stage": "待依赖",
+      "source": "云迹设计规格-完整版.md",
+      "line": 1091,
+      "milestone": "M5",
+      "status": "verified_local_scenarios",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/analytics/api/ProductAnalyticsController.java",
+        "apps/admin/src/views/Customers.vue",
+        "apps/admin/src/components/ProductMetrics.vue"
+      ],
+      "evidence": [
+        {
+          "report": "reports/product-baseline-acceptance.json",
+          "caseId": "analytics-review-and-registration-source-counts",
+          "observedStatus": "PASS"
+        }
+      ],
+      "verificationLimit": "仅所列固定本地场景通过，不代表本条所有组合、真机或生产完成。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "T2-3",
+      "rule": "**下载统计**：每文件下载次数、去重人数、按活动聚合",
+      "origin": "你定",
+      "stage": "待依赖",
+      "source": "云迹设计规格-完整版.md",
+      "line": 1092,
+      "milestone": "M5",
+      "status": "implementation_present_unverified",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/analytics/api/ProductAnalyticsController.java",
+        "apps/admin/src/views/Customers.vue",
+        "apps/admin/src/components/ProductMetrics.vue"
+      ],
+      "evidence": [
+        {
+          "report": "reports/product-baseline-acceptance.json",
+          "caseId": "activity-file-day-download-dedup",
+          "observedStatus": "PASS"
+        }
+      ],
+      "verificationLimit": "实现入口已登记；未用关联模块通过推断本条全部行为已验。需按本条具体规则专项验收。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "T2-4",
+      "rule": "**申报评审统计**：申报/通过/驳回/补正数、通过率",
+      "origin": "你定",
+      "stage": "待依赖",
+      "source": "云迹设计规格-完整版.md",
+      "line": 1093,
+      "milestone": "M5",
+      "status": "verified_local_scenarios",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/analytics/api/ProductAnalyticsController.java",
+        "apps/admin/src/views/Customers.vue",
+        "apps/admin/src/components/ProductMetrics.vue"
+      ],
+      "evidence": [
+        {
+          "report": "reports/product-baseline-acceptance.json",
+          "caseId": "analytics-review-and-registration-source-counts",
+          "observedStatus": "PASS"
+        }
+      ],
+      "verificationLimit": "仅所列固定本地场景通过，不代表本条所有组合、真机或生产完成。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "T2-5",
+      "rule": "**曝光→点击转化率**：不新增指标、不新增埋点，展示时相除",
+      "origin": "你定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 1094,
+      "milestone": "M5",
+      "status": "implementation_present_unverified",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/analytics/api/ProductAnalyticsController.java",
+        "apps/admin/src/views/Customers.vue",
+        "apps/admin/src/components/ProductMetrics.vue"
+      ],
+      "evidence": [],
+      "verificationLimit": "实现入口已登记；未用关联模块通过推断本条全部行为已验。需按本条具体规则专项验收。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "T2-6",
+      "rule": "**搜索缺口**：统计用户搜了**没有结果**的词",
+      "origin": "你定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 1095,
+      "milestone": "M5",
+      "status": "implementation_present_unverified",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/analytics/api/ProductAnalyticsController.java",
+        "apps/admin/src/views/Customers.vue",
+        "apps/admin/src/components/ProductMetrics.vue"
+      ],
+      "evidence": [],
+      "verificationLimit": "实现入口已登记；未用关联模块通过推断本条全部行为已验。需按本条具体规则专项验收。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "T2-7",
+      "rule": "**DAU / MAU**：只做「近 30 天每日活跃人数」一条折线，不做留存漏斗",
+      "origin": "你定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 1096,
+      "milestone": "M5",
+      "status": "verified_local_scenarios",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/analytics/api/ProductAnalyticsController.java",
+        "apps/admin/src/views/Customers.vue",
+        "apps/admin/src/components/ProductMetrics.vue"
+      ],
+      "evidence": [
+        {
+          "report": "reports/product-baseline-acceptance.json",
+          "caseId": "product-statistics-query",
+          "observedStatus": "PASS"
+        }
+      ],
+      "verificationLimit": "仅所列固定本地场景通过，不代表本条所有组合、真机或生产完成。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "T2-8",
+      "rule": "**不恢复**：公众号粉丝统计、停留时长、搜索点击率",
+      "origin": "我拟",
+      "stage": "已定",
+      "source": "云迹设计规格-完整版.md",
+      "line": 1097,
+      "milestone": "M5",
+      "status": "decision_recorded",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/analytics/api/ProductAnalyticsController.java",
+        "apps/admin/src/views/Customers.vue",
+        "apps/admin/src/components/ProductMetrics.vue"
+      ],
+      "evidence": [],
+      "verificationLimit": "合并到T1/T2或不恢复指标的决定；不是独立新增功能通过证据。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "T2-9",
+      "rule": "**单用户粘性**：最近活跃时间 / 近 30 天活跃天数 / 平均使用间隔，并按频率分层",
+      "origin": "你定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 1098,
+      "milestone": "M5",
+      "status": "implementation_present_unverified",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/analytics/api/ProductAnalyticsController.java",
+        "apps/admin/src/views/Customers.vue",
+        "apps/admin/src/components/ProductMetrics.vue"
+      ],
+      "evidence": [],
+      "verificationLimit": "实现入口已登记；未用关联模块通过推断本条全部行为已验。需按本条具体规则专项验收。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "T2-10",
+      "rule": "**单用户频率明细可查**：用户列表显三列 + 点进详情看逐日活跃与行为时间轴",
+      "origin": "你定",
+      "stage": "本期",
+      "source": "云迹设计规格-完整版.md",
+      "line": 1099,
+      "milestone": "M5",
+      "status": "implementation_present_unverified",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/analytics/api/ProductAnalyticsController.java",
+        "apps/admin/src/views/Customers.vue",
+        "apps/admin/src/components/ProductMetrics.vue"
+      ],
+      "evidence": [],
+      "verificationLimit": "实现入口已登记；未用关联模块通过推断本条全部行为已验。需按本条具体规则专项验收。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "1-23",
+      "rule": "导入提供**两个入口**：上传 `.json` 文件 / 粘贴 JSON 文本；两者走同一套处理逻辑",
+      "origin": "我拟",
+      "stage": "本期",
+      "source": "云迹批量导入-程序设计(1).md",
+      "line": 387,
+      "milestone": "M4",
+      "status": "verified_local_scenarios",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/article/application/ArticleImportService.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/article/api/ArticleImportController.java",
+        "apps/admin/src/views/Articles.vue",
+        "docs/批量导入格式与恢复指南-20261027.md"
+      ],
+      "evidence": [
+        {
+          "report": "reports/product-baseline-acceptance.json",
+          "caseId": "import-json-file-entry",
+          "observedStatus": "PASS"
+        },
+        {
+          "report": "reports/browser-product-baseline.json",
+          "caseId": "baseline-admin-import-text-partial-receipt",
+          "observedStatus": "PASS"
+        }
+      ],
+      "verificationLimit": "仅所列固定本地场景通过，不代表本条所有组合、真机或生产完成。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "1-24",
+      "rule": "回执结构：`total` / `successCount` / `failCount` / `failList{index,title,reason}` / `duplicatedKeywords`；失败明细**必须带条序号**",
+      "origin": "我拟",
+      "stage": "本期",
+      "source": "云迹批量导入-程序设计(1).md",
+      "line": 388,
+      "milestone": "M4",
+      "status": "verified_local_scenarios",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/article/application/ArticleImportService.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/article/api/ArticleImportController.java",
+        "apps/admin/src/views/Articles.vue",
+        "docs/批量导入格式与恢复指南-20261027.md"
+      ],
+      "evidence": [
+        {
+          "report": "reports/product-baseline-acceptance.json",
+          "caseId": "import-independent-row-transaction",
+          "observedStatus": "PASS"
+        },
+        {
+          "report": "reports/product-baseline-acceptance.json",
+          "caseId": "import-reused-keywords-receipt",
+          "observedStatus": "PASS"
+        }
+      ],
+      "verificationLimit": "仅所列固定本地场景通过，不代表本条所有组合、真机或生产完成。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "1-25",
+      "rule": "导入**必须复用**手工录入的同一套校验、生命周期计算、关键词建词、更替触发、权重计算，只额外做「JSON 解析 + 字段映射」",
+      "origin": "我拟",
+      "stage": "本期",
+      "source": "云迹批量导入-程序设计(1).md",
+      "line": 389,
+      "milestone": "M4",
+      "status": "verified_local_scenarios",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/article/application/ArticleImportService.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/article/api/ArticleImportController.java",
+        "apps/admin/src/views/Articles.vue",
+        "docs/批量导入格式与恢复指南-20261027.md"
+      ],
+      "evidence": [
+        {
+          "report": "reports/product-baseline-acceptance.json",
+          "caseId": "failed-row-keyword-rollback",
+          "observedStatus": "PASS"
+        }
+      ],
+      "verificationLimit": "仅所列固定本地场景通过，不代表本条所有组合、真机或生产完成。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "1-26",
+      "rule": "批量导入的**更替检测**：整批入库后统一触发一次；**本批内部互不比对**，只与本批之前已存在的信息比对",
+      "origin": "我拟",
+      "stage": "本期",
+      "source": "云迹批量导入-程序设计(1).md",
+      "line": 390,
+      "milestone": "M4",
+      "status": "verified_local_scenarios",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/article/application/ArticleImportService.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/article/api/ArticleImportController.java",
+        "apps/admin/src/views/Articles.vue",
+        "docs/批量导入格式与恢复指南-20261027.md"
+      ],
+      "evidence": [
+        {
+          "report": "reports/product-baseline-acceptance.json",
+          "caseId": "import-no-internal-candidates",
+          "observedStatus": "PASS"
+        }
+      ],
+      "verificationLimit": "仅所列固定本地场景通过，不代表本条所有组合、真机或生产完成。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "1-27",
+      "rule": "引用解析：板块、标签按名称匹配且必须已存在（找不到即该条失败）；关键词按规范化名匹配词库，**找不到自动新建**并挂到该信息所有标签下",
+      "origin": "我拟",
+      "stage": "本期",
+      "source": "云迹批量导入-程序设计(1).md",
+      "line": 391,
+      "milestone": "M4",
+      "status": "verified_local_scenarios",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/article/application/ArticleImportService.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/article/api/ArticleImportController.java",
+        "apps/admin/src/views/Articles.vue",
+        "docs/批量导入格式与恢复指南-20261027.md"
+      ],
+      "evidence": [
+        {
+          "report": "reports/product-baseline-acceptance.json",
+          "caseId": "failed-row-keyword-rollback",
+          "observedStatus": "PASS"
+        },
+        {
+          "report": "reports/product-baseline-acceptance.json",
+          "caseId": "import-reused-keywords-receipt",
+          "observedStatus": "PASS"
+        }
+      ],
+      "verificationLimit": "仅所列固定本地场景通过，不代表本条所有组合、真机或生产完成。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "1-28",
+      "rule": "导入即发布：不产生草稿、不走审核；导入的信息与手工录入的信息在系统里**没有任何区别**",
+      "origin": "我拟",
+      "stage": "本期",
+      "source": "云迹批量导入-程序设计(1).md",
+      "line": 392,
+      "milestone": "M4",
+      "status": "verified_local_scenarios",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/article/application/ArticleImportService.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/article/api/ArticleImportController.java",
+        "apps/admin/src/views/Articles.vue",
+        "docs/批量导入格式与恢复指南-20261027.md"
+      ],
+      "evidence": [
+        {
+          "report": "reports/product-baseline-acceptance.json",
+          "caseId": "import-independent-row-transaction",
+          "observedStatus": "PASS"
+        }
+      ],
+      "verificationLimit": "仅所列固定本地场景通过，不代表本条所有组合、真机或生产完成。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "1-29",
+      "rule": "限制：单次 **500 条** / 文件 **5MB** / 超时 **60 秒**；超限**拒绝整批**，不做部分导入",
+      "origin": "我拟",
+      "stage": "本期",
+      "source": "云迹批量导入-程序设计(1).md",
+      "line": 393,
+      "milestone": "M4",
+      "status": "partial",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/article/application/ArticleImportService.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/article/api/ArticleImportController.java",
+        "apps/admin/src/views/Articles.vue",
+        "docs/批量导入格式与恢复指南-20261027.md"
+      ],
+      "evidence": [],
+      "verificationLimit": "500条/5MiB预检拒绝整批；60秒是行事务执行预算，可返回PARTIAL续做，不整体回滚已成功行。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "1-30",
+      "rule": "管理端提供**格式示例文件下载**；结果页失败明细可复制；「再导一次」为清空重来",
+      "origin": "我拟",
+      "stage": "本期",
+      "source": "云迹批量导入-程序设计(1).md",
+      "line": 394,
+      "milestone": "M4",
+      "status": "implementation_present_unverified",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/article/application/ArticleImportService.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/article/api/ArticleImportController.java",
+        "apps/admin/src/views/Articles.vue",
+        "docs/批量导入格式与恢复指南-20261027.md"
+      ],
+      "evidence": [],
+      "verificationLimit": "实现入口已登记；未用关联模块通过推断本条全部行为已验。需按本条具体规则专项验收。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "1-31",
+      "rule": "不做：Excel/CSV 导入、导入前预览、增量更新/按标题覆盖、幂等去重、导入为草稿、大批量异步任务",
+      "origin": "我拟",
+      "stage": "本期",
+      "source": "云迹批量导入-程序设计(1).md",
+      "line": 395,
+      "milestone": "M4",
+      "status": "partial",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/article/application/ArticleImportService.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/article/api/ArticleImportController.java",
+        "apps/admin/src/views/Articles.vue",
+        "docs/批量导入格式与恢复指南-20261027.md"
+      ],
+      "evidence": [],
+      "verificationLimit": "没有标题去重或覆盖；为断网恢复保留请求幂等，此处工程可靠性与原文“不做幂等去重”明确区分。",
+      "reviewedAt": "2026-10-27"
+    },
+    {
+      "id": "1-32",
+      "rule": "可选的结构化字段（解读、适合人群、时长、难度、步骤、注意事项、联系方式、相关资讯）**暂不进 JSON**，等 3-26 设计完再补",
+      "origin": "我拟",
+      "stage": "后续",
+      "source": "云迹批量导入-程序设计(1).md",
+      "line": 396,
+      "milestone": "M4",
+      "status": "deferred",
+      "implementation": [
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/article/application/ArticleImportService.java",
+        "backend/agri-modules/yunji-content/src/main/java/com/sunshine/yunji/content/article/api/ArticleImportController.java",
+        "apps/admin/src/views/Articles.vue",
+        "docs/批量导入格式与恢复指南-20261027.md"
+      ],
+      "evidence": [],
+      "verificationLimit": "按输入原阶段登记后续，不计本期完成；当前兼容结构不表示已实现。",
+      "reviewedAt": "2026-10-27"
+    }
+  ],
+  "statusCounts": {
+    "implementation_present_unverified": 112,
+    "verified_local_scenarios": 69,
+    "deferred": 14,
+    "partial": 34,
+    "decision_recorded": 3,
+    "external_validation_pending": 1,
+    "decision_pending": 1
+  },
+  "allRequirementsComplete": false
+}

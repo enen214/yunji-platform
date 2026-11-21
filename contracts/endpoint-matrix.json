@@ -1,0 +1,2752 @@
+{
+  "generatedAt": "2026-10-28T08:00:56.035064+00:00",
+  "source": "RUNNING_NEW_APPLICATION",
+  "paths": 288,
+  "operations": [
+    {
+      "method": "GET",
+      "path": "/",
+      "operationId": "index",
+      "boundary": "FRAMEWORK",
+      "tags": [
+        "首页"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/local/login-codes",
+      "operationId": "code",
+      "boundary": "LOCAL_SECRET_OR_LOCAL_SINGLE_USE_CODE",
+      "tags": []
+    },
+    {
+      "method": "POST",
+      "path": "/api/local/notifications/authorization",
+      "operationId": "authorize_1",
+      "boundary": "LOCAL_SECRET_OR_LOCAL_SINGLE_USE_CODE",
+      "tags": []
+    },
+    {
+      "method": "POST",
+      "path": "/api/local/reminders/authorization",
+      "operationId": "authorize",
+      "boundary": "LOCAL_SECRET_OR_LOCAL_SINGLE_USE_CODE",
+      "tags": []
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/activities",
+      "operationId": "list_26",
+      "boundary": "PUBLIC",
+      "tags": []
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/activities/{id}",
+      "operationId": "detail_6",
+      "boundary": "PUBLIC",
+      "tags": []
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/activities/{id}/downloads",
+      "operationId": "available",
+      "boundary": "PUBLIC",
+      "tags": []
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/activities/{id}/downloads/{file}",
+      "operationId": "download",
+      "boundary": "PUBLIC",
+      "tags": []
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/activities/{id}/downloads/{file}/versions",
+      "operationId": "versions",
+      "boundary": "PUBLIC",
+      "tags": []
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/access/users",
+      "operationId": "list_25",
+      "boundary": "STAFF_AND_SERVICE_PERMISSION",
+      "tags": []
+    },
+    {
+      "method": "PUT",
+      "path": "/api/v1/admin/access/users/{id}/scope",
+      "operationId": "scope",
+      "boundary": "STAFF_AND_SERVICE_PERMISSION",
+      "tags": []
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/accounts",
+      "operationId": "list_4",
+      "boundary": "STAFF_AND_SERVICE_PERMISSION",
+      "tags": [
+        "One operational role. Foundation roles are not granted by this API."
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/admin/accounts",
+      "operationId": "create_8",
+      "boundary": "STAFF_AND_SERVICE_PERMISSION",
+      "tags": [
+        "One operational role. Foundation roles are not granted by this API."
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "/api/v1/admin/accounts/{id}",
+      "operationId": "update",
+      "boundary": "STAFF_AND_SERVICE_PERMISSION",
+      "tags": [
+        "One operational role. Foundation roles are not granted by this API."
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/activities",
+      "operationId": "adminList_1",
+      "boundary": "STAFF_AND_SERVICE_PERMISSION",
+      "tags": []
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/admin/activities",
+      "operationId": "create_7",
+      "boundary": "STAFF_AND_SERVICE_PERMISSION",
+      "tags": []
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/activities/{id}",
+      "operationId": "adminDetail",
+      "boundary": "STAFF_AND_SERVICE_PERMISSION",
+      "tags": []
+    },
+    {
+      "method": "PUT",
+      "path": "/api/v1/admin/activities/{id}",
+      "operationId": "edit_21",
+      "boundary": "STAFF_AND_SERVICE_PERMISSION",
+      "tags": []
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/activities/{id}/functions",
+      "operationId": "refs",
+      "boundary": "STAFF_AND_SERVICE_PERMISSION",
+      "tags": []
+    },
+    {
+      "method": "PUT",
+      "path": "/api/v1/admin/activities/{id}/functions",
+      "operationId": "refs_1",
+      "boundary": "STAFF_AND_SERVICE_PERMISSION",
+      "tags": []
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/analytics",
+      "operationId": "overview",
+      "boundary": "STAFF_AND_SERVICE_PERMISSION",
+      "tags": []
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/admin/analytics/aggregate",
+      "operationId": "aggregate",
+      "boundary": "STAFF_AND_SERVICE_PERMISSION",
+      "tags": []
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/analytics/customer-frequency",
+      "operationId": "users_1",
+      "boundary": "STAFF_AND_SERVICE_PERMISSION",
+      "tags": [
+        "Business-day queries over source events, not fabricated aggregates."
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/analytics/customer-frequency/{id}",
+      "operationId": "timeline",
+      "boundary": "STAFF_AND_SERVICE_PERMISSION",
+      "tags": [
+        "Business-day queries over source events, not fabricated aggregates."
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/analytics/product",
+      "operationId": "dashboard",
+      "boundary": "STAFF_AND_SERVICE_PERMISSION",
+      "tags": [
+        "Business-day queries over source events, not fabricated aggregates."
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/analytics/product-metrics",
+      "operationId": "metrics",
+      "boundary": "STAFF_AND_SERVICE_PERMISSION",
+      "tags": [
+        "Business-day queries over source events, not fabricated aggregates."
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/analytics/users",
+      "operationId": "users",
+      "boundary": "STAFF_AND_SERVICE_PERMISSION",
+      "tags": []
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/articles",
+      "operationId": "list_3",
+      "boundary": "STAFF_AND_SERVICE_PERMISSION",
+      "tags": []
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/admin/articles",
+      "operationId": "create_6",
+      "boundary": "STAFF_AND_SERVICE_PERMISSION",
+      "tags": []
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/admin/articles/archive-hot",
+      "operationId": "archive",
+      "boundary": "STAFF_AND_SERVICE_PERMISSION",
+      "tags": []
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/admin/articles/import",
+      "operationId": "file",
+      "boundary": "STAFF_AND_SERVICE_PERMISSION",
+      "tags": []
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/articles/import-batches/{id}",
+      "operationId": "status_1",
+      "boundary": "STAFF_AND_SERVICE_PERMISSION",
+      "tags": []
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/admin/articles/import-text",
+      "operationId": "text",
+      "boundary": "STAFF_AND_SERVICE_PERMISSION",
+      "tags": []
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/articles/page",
+      "operationId": "page_2",
+      "boundary": "STAFF_AND_SERVICE_PERMISSION",
+      "tags": []
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/articles/replacement-candidates",
+      "operationId": "candidates",
+      "boundary": "STAFF_AND_SERVICE_PERMISSION",
+      "tags": []
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/admin/articles/replacement-candidates/{id}/ignore",
+      "operationId": "ignore",
+      "boundary": "STAFF_AND_SERVICE_PERMISSION",
+      "tags": []
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/articles/{id}",
+      "operationId": "detail_3",
+      "boundary": "STAFF_AND_SERVICE_PERMISSION",
+      "tags": []
+    },
+    {
+      "method": "PUT",
+      "path": "/api/v1/admin/articles/{id}",
+      "operationId": "edit_20",
+      "boundary": "STAFF_AND_SERVICE_PERMISSION",
+      "tags": []
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/admin/articles/{id}/replacement",
+      "operationId": "replace",
+      "boundary": "STAFF_AND_SERVICE_PERMISSION",
+      "tags": []
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/admin/articles/{id}/state",
+      "operationId": "state",
+      "boundary": "STAFF_AND_SERVICE_PERMISSION",
+      "tags": []
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/audit",
+      "operationId": "audit",
+      "boundary": "STAFF_AND_SERVICE_PERMISSION",
+      "tags": []
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/admin/catalog/blacklist",
+      "operationId": "blacklist",
+      "boundary": "STAFF_AND_SERVICE_PERMISSION",
+      "tags": []
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/catalog/curation",
+      "operationId": "tree",
+      "boundary": "STAFF_AND_SERVICE_PERMISSION",
+      "tags": [
+        "Explicit editorial associations; the legacy article-derived discovery endpoint is unchanged."
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/admin/catalog/keywords/{id}/aliases",
+      "operationId": "alias",
+      "boundary": "STAFF_AND_SERVICE_PERMISSION",
+      "tags": []
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/catalog/labels",
+      "operationId": "admin_1",
+      "boundary": "STAFF_AND_SERVICE_PERMISSION",
+      "tags": []
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/admin/catalog/labels",
+      "operationId": "create_5",
+      "boundary": "STAFF_AND_SERVICE_PERMISSION",
+      "tags": []
+    },
+    {
+      "method": "PUT",
+      "path": "/api/v1/admin/catalog/labels/{id}",
+      "operationId": "edit_19",
+      "boundary": "STAFF_AND_SERVICE_PERMISSION",
+      "tags": []
+    },
+    {
+      "method": "PUT",
+      "path": "/api/v1/admin/catalog/labels/{id}/keywords",
+      "operationId": "save_1",
+      "boundary": "STAFF_AND_SERVICE_PERMISSION",
+      "tags": [
+        "Explicit editorial associations; the legacy article-derived discovery endpoint is unchanged."
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/catalog/{kind}",
+      "operationId": "list_2",
+      "boundary": "STAFF_AND_SERVICE_PERMISSION",
+      "tags": []
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/admin/catalog/{kind}",
+      "operationId": "create_4",
+      "boundary": "STAFF_AND_SERVICE_PERMISSION",
+      "tags": []
+    },
+    {
+      "method": "PUT",
+      "path": "/api/v1/admin/catalog/{kind}/{id}",
+      "operationId": "edit_18",
+      "boundary": "STAFF_AND_SERVICE_PERMISSION",
+      "tags": []
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/v1/admin/catalog/{kind}/{id}",
+      "operationId": "delete_3",
+      "boundary": "STAFF_AND_SERVICE_PERMISSION",
+      "tags": []
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/content-types",
+      "operationId": "admin_2",
+      "boundary": "STAFF_AND_SERVICE_PERMISSION",
+      "tags": []
+    },
+    {
+      "method": "PUT",
+      "path": "/api/v1/admin/content-types/{code}",
+      "operationId": "save",
+      "boundary": "STAFF_AND_SERVICE_PERMISSION",
+      "tags": []
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/customers",
+      "operationId": "customers",
+      "boundary": "STAFF_AND_SERVICE_PERMISSION",
+      "tags": []
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/admin/exports",
+      "operationId": "export_11",
+      "boundary": "STAFF_AND_SERVICE_PERMISSION",
+      "tags": []
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/file-library",
+      "operationId": "list_1",
+      "boundary": "STAFF_AND_SERVICE_PERMISSION",
+      "tags": []
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/admin/file-library",
+      "operationId": "upload_2",
+      "boundary": "STAFF_AND_SERVICE_PERMISSION",
+      "tags": []
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/file-library/{id}",
+      "operationId": "detail_2",
+      "boundary": "STAFF_AND_SERVICE_PERMISSION",
+      "tags": []
+    },
+    {
+      "method": "PUT",
+      "path": "/api/v1/admin/file-library/{id}",
+      "operationId": "edit_17",
+      "boundary": "STAFF_AND_SERVICE_PERMISSION",
+      "tags": []
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/v1/admin/file-library/{id}",
+      "operationId": "delete_2",
+      "boundary": "STAFF_AND_SERVICE_PERMISSION",
+      "tags": []
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/admin/file-library/{id}/versions",
+      "operationId": "version",
+      "boundary": "STAFF_AND_SERVICE_PERMISSION",
+      "tags": []
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/files",
+      "operationId": "list",
+      "boundary": "STAFF_AND_SERVICE_PERMISSION",
+      "tags": []
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/admin/files",
+      "operationId": "adminUpload",
+      "boundary": "STAFF_AND_SERVICE_PERMISSION",
+      "tags": []
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/admin/files/cleanup",
+      "operationId": "cleanup",
+      "boundary": "STAFF_AND_SERVICE_PERMISSION",
+      "tags": []
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/v1/admin/files/{id}",
+      "operationId": "delete_4",
+      "boundary": "STAFF_AND_SERVICE_PERMISSION",
+      "tags": []
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/admin/files/{id}/tickets",
+      "operationId": "adminTicket",
+      "boundary": "STAFF_AND_SERVICE_PERMISSION",
+      "tags": []
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/moderation/{kind}",
+      "operationId": "moderation",
+      "boundary": "STAFF_AND_SERVICE_PERMISSION",
+      "tags": []
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/admin/moderation/{kind}/{id}",
+      "operationId": "handle",
+      "boundary": "STAFF_AND_SERVICE_PERMISSION",
+      "tags": []
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/navigation",
+      "operationId": "navigation",
+      "boundary": "STAFF_AND_SERVICE_PERMISSION",
+      "tags": []
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/notifications/ledger",
+      "operationId": "ledger",
+      "boundary": "STAFF_AND_SERVICE_PERMISSION",
+      "tags": []
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/notifications/rules",
+      "operationId": "adminRules_1",
+      "boundary": "STAFF_AND_SERVICE_PERMISSION",
+      "tags": []
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/admin/notifications/tick",
+      "operationId": "tick_1",
+      "boundary": "STAFF_AND_SERVICE_PERMISSION",
+      "tags": []
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/admin/notifications/{id}/reconcile",
+      "operationId": "reconcile_1",
+      "boundary": "STAFF_AND_SERVICE_PERMISSION",
+      "tags": []
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/admin/operation/activity-columns",
+      "operationId": "column",
+      "boundary": "STAFF_AND_SERVICE_PERMISSION",
+      "tags": []
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/operation/banners",
+      "operationId": "banners",
+      "boundary": "STAFF_AND_SERVICE_PERMISSION",
+      "tags": []
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/admin/operation/banners",
+      "operationId": "banner",
+      "boundary": "STAFF_AND_SERVICE_PERMISSION",
+      "tags": []
+    },
+    {
+      "method": "PUT",
+      "path": "/api/v1/admin/operation/banners/{id}",
+      "operationId": "edit_16",
+      "boundary": "STAFF_AND_SERVICE_PERMISSION",
+      "tags": []
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/v1/admin/operation/banners/{id}",
+      "operationId": "delete_1",
+      "boundary": "STAFF_AND_SERVICE_PERMISSION",
+      "tags": []
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/operation/pages",
+      "operationId": "pages",
+      "boundary": "STAFF_AND_SERVICE_PERMISSION",
+      "tags": []
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/admin/operation/pages",
+      "operationId": "publish",
+      "boundary": "STAFF_AND_SERVICE_PERMISSION",
+      "tags": []
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/operation/recommendations",
+      "operationId": "recs",
+      "boundary": "STAFF_AND_SERVICE_PERMISSION",
+      "tags": []
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/admin/operation/recommendations",
+      "operationId": "rec",
+      "boundary": "STAFF_AND_SERVICE_PERMISSION",
+      "tags": []
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/v1/admin/operation/recommendations/{id}",
+      "operationId": "deleteRec",
+      "boundary": "STAFF_AND_SERVICE_PERMISSION",
+      "tags": []
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/operation/topics",
+      "operationId": "admin",
+      "boundary": "STAFF_AND_SERVICE_PERMISSION",
+      "tags": []
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/admin/operation/topics",
+      "operationId": "create_3",
+      "boundary": "STAFF_AND_SERVICE_PERMISSION",
+      "tags": []
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/operation/topics/{id}",
+      "operationId": "detail_1",
+      "boundary": "STAFF_AND_SERVICE_PERMISSION",
+      "tags": []
+    },
+    {
+      "method": "PUT",
+      "path": "/api/v1/admin/operation/topics/{id}",
+      "operationId": "edit_15",
+      "boundary": "STAFF_AND_SERVICE_PERMISSION",
+      "tags": []
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/v1/admin/operation/topics/{id}",
+      "operationId": "delete",
+      "boundary": "STAFF_AND_SERVICE_PERMISSION",
+      "tags": []
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/reminders/batches",
+      "operationId": "adminBatches",
+      "boundary": "STAFF_AND_SERVICE_PERMISSION",
+      "tags": []
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/admin/reminders/batches/{id}/reconcile",
+      "operationId": "reconcile",
+      "boundary": "STAFF_AND_SERVICE_PERMISSION",
+      "tags": []
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/admin/reminders/batches/{id}/retry",
+      "operationId": "retry",
+      "boundary": "STAFF_AND_SERVICE_PERMISSION",
+      "tags": []
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/reminders/health",
+      "operationId": "health",
+      "boundary": "STAFF_AND_SERVICE_PERMISSION",
+      "tags": []
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/reminders/rules",
+      "operationId": "adminRules",
+      "boundary": "STAFF_AND_SERVICE_PERMISSION",
+      "tags": []
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/admin/reminders/rules/{id}/pause",
+      "operationId": "pause",
+      "boundary": "STAFF_AND_SERVICE_PERMISSION",
+      "tags": []
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/reminders/settings",
+      "operationId": "control",
+      "boundary": "STAFF_AND_SERVICE_PERMISSION",
+      "tags": []
+    },
+    {
+      "method": "PUT",
+      "path": "/api/v1/admin/reminders/settings",
+      "operationId": "configure",
+      "boundary": "STAFF_AND_SERVICE_PERMISSION",
+      "tags": []
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/reminders/statistics",
+      "operationId": "statistics",
+      "boundary": "STAFF_AND_SERVICE_PERMISSION",
+      "tags": []
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/admin/reminders/tick",
+      "operationId": "tick",
+      "boundary": "STAFF_AND_SERVICE_PERMISSION",
+      "tags": []
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/review-applications",
+      "operationId": "queue",
+      "boundary": "STAFF_AND_SERVICE_PERMISSION",
+      "tags": []
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/review-applications/{id}",
+      "operationId": "staffDetail",
+      "boundary": "STAFF_AND_SERVICE_PERMISSION",
+      "tags": []
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/admin/review-applications/{id}/decisions",
+      "operationId": "decide",
+      "boundary": "STAFF_AND_SERVICE_PERMISSION",
+      "tags": []
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/review-campaigns",
+      "operationId": "adminList",
+      "boundary": "STAFF_AND_SERVICE_PERMISSION",
+      "tags": []
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/admin/review-campaigns",
+      "operationId": "create_2",
+      "boundary": "STAFF_AND_SERVICE_PERMISSION",
+      "tags": []
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/review-campaigns/{id}",
+      "operationId": "adminCampaign",
+      "boundary": "STAFF_AND_SERVICE_PERMISSION",
+      "tags": []
+    },
+    {
+      "method": "PUT",
+      "path": "/api/v1/admin/review-campaigns/{id}",
+      "operationId": "editCampaign",
+      "boundary": "STAFF_AND_SERVICE_PERMISSION",
+      "tags": []
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/session",
+      "operationId": "staff",
+      "boundary": "STAFF_AND_SERVICE_PERMISSION",
+      "tags": []
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/articles",
+      "operationId": "page_1",
+      "boundary": "PUBLIC",
+      "tags": []
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/articles/archive",
+      "operationId": "archive_1",
+      "boundary": "PUBLIC",
+      "tags": []
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/articles/search",
+      "operationId": "search",
+      "boundary": "PUBLIC",
+      "tags": []
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/articles/{id}",
+      "operationId": "detail_5",
+      "boundary": "PUBLIC",
+      "tags": []
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/articles/{id}/replacement",
+      "operationId": "replacement_1",
+      "boundary": "PUBLIC",
+      "tags": []
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/articles/{id}/statistics",
+      "operationId": "counts",
+      "boundary": "PUBLIC",
+      "tags": [
+        "Business-day queries over source events, not fabricated aggregates."
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/auth/customer/local",
+      "operationId": "login_1",
+      "boundary": "LOCAL_SECRET_OR_LOCAL_SINGLE_USE_CODE",
+      "tags": []
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/auth/customer/logout",
+      "operationId": "logout_1",
+      "boundary": "CUSTOMER",
+      "tags": []
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/auth/customer/wechat",
+      "operationId": "wechat",
+      "boundary": "WECHAT_CODE_OR_LOCAL_SYNTHETIC_COMPATIBILITY",
+      "tags": []
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/auth/customer/wechat/native",
+      "operationId": "nativeWechat",
+      "boundary": "REAL_WECHAT_CODE_AND_OPTIONAL_PHONE_AUTHORIZATION",
+      "tags": []
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/catalog/boards",
+      "operationId": "boards",
+      "boundary": "PUBLIC",
+      "tags": []
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/catalog/categories",
+      "operationId": "categories",
+      "boundary": "PUBLIC",
+      "tags": []
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/catalog/keywords",
+      "operationId": "keywords_2",
+      "boundary": "PUBLIC",
+      "tags": []
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/catalog/labels",
+      "operationId": "list_24",
+      "boundary": "PUBLIC",
+      "tags": []
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/catalog/labels/{id}/curated-keywords",
+      "operationId": "publicKeywords",
+      "boundary": "PUBLIC",
+      "tags": [
+        "Explicit editorial associations; the legacy article-derived discovery endpoint is unchanged."
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/catalog/labels/{id}/keywords",
+      "operationId": "keywords_1",
+      "boundary": "PUBLIC",
+      "tags": []
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/catalog/organizations",
+      "operationId": "organizations",
+      "boundary": "PUBLIC",
+      "tags": []
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/content-types",
+      "operationId": "types",
+      "boundary": "PUBLIC",
+      "tags": []
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/files/download/{token}",
+      "operationId": "download_2",
+      "boundary": "PRINCIPAL_BOUND_SINGLE_USE_TICKET",
+      "tags": []
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/home",
+      "operationId": "home",
+      "boundary": "PUBLIC",
+      "tags": []
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/me/activities/{id}/registration",
+      "operationId": "register_1",
+      "boundary": "CUSTOMER",
+      "tags": []
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/v1/me/activities/{id}/registration",
+      "operationId": "cancel_1",
+      "boundary": "CUSTOMER",
+      "tags": []
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/me/activity-favorites",
+      "operationId": "favorites_1",
+      "boundary": "CUSTOMER",
+      "tags": []
+    },
+    {
+      "method": "PUT",
+      "path": "/api/v1/me/activity-favorites/{id}",
+      "operationId": "favorite_1",
+      "boundary": "CUSTOMER",
+      "tags": []
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/me/discovery-summary",
+      "operationId": "summary",
+      "boundary": "CUSTOMER",
+      "tags": []
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/me/events",
+      "operationId": "event",
+      "boundary": "CUSTOMER",
+      "tags": []
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/me/favorites",
+      "operationId": "favorites",
+      "boundary": "CUSTOMER",
+      "tags": []
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/v1/me/favorites",
+      "operationId": "clearFavorites",
+      "boundary": "CUSTOMER",
+      "tags": []
+    },
+    {
+      "method": "PUT",
+      "path": "/api/v1/me/favorites/{id}",
+      "operationId": "favorite",
+      "boundary": "CUSTOMER",
+      "tags": []
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/me/feedback",
+      "operationId": "feedback",
+      "boundary": "CUSTOMER",
+      "tags": []
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/me/feedback",
+      "operationId": "feedback_1",
+      "boundary": "CUSTOMER",
+      "tags": []
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/me/files",
+      "operationId": "upload_1",
+      "boundary": "CUSTOMER",
+      "tags": []
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/me/files/{id}/tickets",
+      "operationId": "ticket",
+      "boundary": "CUSTOMER",
+      "tags": []
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/me/follows",
+      "operationId": "list_23",
+      "boundary": "CUSTOMER",
+      "tags": []
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/me/follows/articles/{id}/replacement",
+      "operationId": "replacement",
+      "boundary": "CUSTOMER",
+      "tags": []
+    },
+    {
+      "method": "PUT",
+      "path": "/api/v1/me/follows/labels",
+      "operationId": "labels",
+      "boundary": "CUSTOMER",
+      "tags": []
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/me/follows/undo",
+      "operationId": "undo",
+      "boundary": "CUSTOMER",
+      "tags": []
+    },
+    {
+      "method": "PUT",
+      "path": "/api/v1/me/follows/{type}/{id}",
+      "operationId": "follow",
+      "boundary": "CUSTOMER",
+      "tags": []
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/me/history",
+      "operationId": "history_1",
+      "boundary": "CUSTOMER",
+      "tags": []
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/v1/me/history",
+      "operationId": "clear_1",
+      "boundary": "CUSTOMER",
+      "tags": []
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/me/history/{id}",
+      "operationId": "browse",
+      "boundary": "CUSTOMER",
+      "tags": []
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/v1/me/history/{id}",
+      "operationId": "remove",
+      "boundary": "CUSTOMER",
+      "tags": []
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/me/library-downloads/complete",
+      "operationId": "complete",
+      "boundary": "CUSTOMER",
+      "tags": []
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/me/notifications/deliveries",
+      "operationId": "deliveries",
+      "boundary": "CUSTOMER",
+      "tags": []
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/me/notifications/rules",
+      "operationId": "rules_1",
+      "boundary": "CUSTOMER",
+      "tags": []
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/me/notifications/rules",
+      "operationId": "create_1",
+      "boundary": "CUSTOMER",
+      "tags": []
+    },
+    {
+      "method": "PUT",
+      "path": "/api/v1/me/notifications/rules/{id}",
+      "operationId": "edit_14",
+      "boundary": "CUSTOMER",
+      "tags": []
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/v1/me/notifications/rules/{id}",
+      "operationId": "cancel",
+      "boundary": "CUSTOMER",
+      "tags": []
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/me/notifications/status",
+      "operationId": "status",
+      "boundary": "CUSTOMER",
+      "tags": []
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/me/profile",
+      "operationId": "profile_1",
+      "boundary": "CUSTOMER",
+      "tags": []
+    },
+    {
+      "method": "PUT",
+      "path": "/api/v1/me/profile",
+      "operationId": "profile_2",
+      "boundary": "CUSTOMER",
+      "tags": []
+    },
+    {
+      "method": "PUT",
+      "path": "/api/v1/me/read/{id}",
+      "operationId": "read",
+      "boundary": "CUSTOMER",
+      "tags": []
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/me/registrations",
+      "operationId": "mine_1",
+      "boundary": "CUSTOMER",
+      "tags": []
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/me/reminders/batches",
+      "operationId": "batches",
+      "boundary": "CUSTOMER",
+      "tags": []
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/me/reminders/changes",
+      "operationId": "changes",
+      "boundary": "CUSTOMER",
+      "tags": []
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/v1/me/reminders/changes/{id}",
+      "operationId": "dismiss",
+      "boundary": "CUSTOMER",
+      "tags": []
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/me/reminders/daily",
+      "operationId": "daily",
+      "boundary": "CUSTOMER",
+      "tags": []
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/me/reminders/keywords",
+      "operationId": "keywords",
+      "boundary": "CUSTOMER",
+      "tags": []
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/me/reminders/rules",
+      "operationId": "rules",
+      "boundary": "CUSTOMER",
+      "tags": []
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/me/reminders/rules",
+      "operationId": "create",
+      "boundary": "CUSTOMER",
+      "tags": []
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/me/reminders/rules/{id}",
+      "operationId": "detail",
+      "boundary": "CUSTOMER",
+      "tags": []
+    },
+    {
+      "method": "PUT",
+      "path": "/api/v1/me/reminders/rules/{id}",
+      "operationId": "edit_13",
+      "boundary": "CUSTOMER",
+      "tags": []
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/me/reminders/settings",
+      "operationId": "settings",
+      "boundary": "CUSTOMER",
+      "tags": []
+    },
+    {
+      "method": "PUT",
+      "path": "/api/v1/me/reminders/settings",
+      "operationId": "preference",
+      "boundary": "CUSTOMER",
+      "tags": []
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/me/reports/{id}",
+      "operationId": "report",
+      "boundary": "CUSTOMER",
+      "tags": []
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/me/review-applications",
+      "operationId": "mine",
+      "boundary": "CUSTOMER",
+      "tags": []
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/me/review-applications/{id}",
+      "operationId": "detail_4",
+      "boundary": "CUSTOMER",
+      "tags": []
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/me/review-applications/{id}/actions",
+      "operationId": "action",
+      "boundary": "CUSTOMER",
+      "tags": []
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/me/review-campaigns/{id}/draft",
+      "operationId": "draft",
+      "boundary": "CUSTOMER",
+      "tags": []
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/me/review-campaigns/{id}/eligibility",
+      "operationId": "eligibility",
+      "boundary": "CUSTOMER",
+      "tags": []
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/me/search-history",
+      "operationId": "history",
+      "boundary": "CUSTOMER",
+      "tags": []
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/me/search-history",
+      "operationId": "remember",
+      "boundary": "CUSTOMER",
+      "tags": []
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/v1/me/search-history",
+      "operationId": "clear",
+      "boundary": "CUSTOMER",
+      "tags": []
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/v1/me/search-history/item",
+      "operationId": "remove_18",
+      "boundary": "CUSTOMER",
+      "tags": []
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/me/subscription-boxes",
+      "operationId": "boxes",
+      "boundary": "CUSTOMER",
+      "tags": []
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/pages/{key}",
+      "operationId": "page",
+      "boundary": "PUBLIC",
+      "tags": []
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/review-campaigns",
+      "operationId": "campaigns",
+      "boundary": "PUBLIC",
+      "tags": []
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/review-campaigns/{id}",
+      "operationId": "campaign",
+      "boundary": "PUBLIC",
+      "tags": []
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/search/hot",
+      "operationId": "hot",
+      "boundary": "PUBLIC",
+      "tags": []
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/search/popular",
+      "operationId": "popular",
+      "boundary": "PUBLIC",
+      "tags": []
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/topics",
+      "operationId": "topics",
+      "boundary": "PUBLIC",
+      "tags": []
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/topics/{id}",
+      "operationId": "topic",
+      "boundary": "PUBLIC",
+      "tags": []
+    },
+    {
+      "method": "GET",
+      "path": "/auth/binding/{source}",
+      "operationId": "authBinding",
+      "boundary": "FRAMEWORK",
+      "tags": [
+        "认证"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/auth/code",
+      "operationId": "getCode",
+      "boundary": "FRAMEWORK",
+      "tags": [
+        "验证码操作处理"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/auth/login",
+      "operationId": "login",
+      "boundary": "FRAMEWORK",
+      "tags": [
+        "认证"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/auth/logout",
+      "operationId": "logout",
+      "boundary": "FRAMEWORK",
+      "tags": [
+        "认证"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/auth/register",
+      "operationId": "register",
+      "boundary": "FRAMEWORK",
+      "tags": [
+        "认证"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/auth/social/callback",
+      "operationId": "socialCallback",
+      "boundary": "FRAMEWORK",
+      "tags": [
+        "认证"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/auth/tenant/list",
+      "operationId": "tenantList",
+      "boundary": "FRAMEWORK",
+      "tags": [
+        "认证"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/auth/unlock/{socialId}",
+      "operationId": "unlockSocial",
+      "boundary": "FRAMEWORK",
+      "tags": [
+        "认证"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/monitor/cache",
+      "operationId": "getInfo_16",
+      "boundary": "FRAMEWORK",
+      "tags": [
+        "缓存监控"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/monitor/logininfor/clean",
+      "operationId": "clean_1",
+      "boundary": "FRAMEWORK",
+      "tags": [
+        "系统访问记录"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/monitor/logininfor/export",
+      "operationId": "export_10",
+      "boundary": "FRAMEWORK",
+      "tags": [
+        "系统访问记录"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/monitor/logininfor/list",
+      "operationId": "list_22",
+      "boundary": "FRAMEWORK",
+      "tags": [
+        "系统访问记录"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/monitor/logininfor/unlock/{userName}",
+      "operationId": "unlock",
+      "boundary": "FRAMEWORK",
+      "tags": [
+        "系统访问记录"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/monitor/logininfor/{infoIds}",
+      "operationId": "remove_17",
+      "boundary": "FRAMEWORK",
+      "tags": [
+        "系统访问记录"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/monitor/online",
+      "operationId": "getInfo_15",
+      "boundary": "FRAMEWORK",
+      "tags": [
+        "在线用户监控"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/monitor/online/list",
+      "operationId": "list_21",
+      "boundary": "FRAMEWORK",
+      "tags": [
+        "在线用户监控"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/monitor/online/myself/{tokenId}",
+      "operationId": "remove_16",
+      "boundary": "FRAMEWORK",
+      "tags": [
+        "在线用户监控"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/monitor/online/{tokenId}",
+      "operationId": "forceLogout",
+      "boundary": "FRAMEWORK",
+      "tags": [
+        "在线用户监控"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/monitor/operlog/clean",
+      "operationId": "clean",
+      "boundary": "FRAMEWORK",
+      "tags": [
+        "操作日志记录"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/monitor/operlog/export",
+      "operationId": "export_9",
+      "boundary": "FRAMEWORK",
+      "tags": [
+        "操作日志记录"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/monitor/operlog/list",
+      "operationId": "list_20",
+      "boundary": "FRAMEWORK",
+      "tags": [
+        "操作日志记录"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/monitor/operlog/{operIds}",
+      "operationId": "remove_15",
+      "boundary": "FRAMEWORK",
+      "tags": [
+        "操作日志记录"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/resource/email/code",
+      "operationId": "emailCode",
+      "boundary": "FRAMEWORK",
+      "tags": [
+        "验证码操作处理"
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "/resource/oss/config",
+      "operationId": "edit_12",
+      "boundary": "FRAMEWORK",
+      "tags": [
+        "对象存储配置"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/resource/oss/config",
+      "operationId": "add_12",
+      "boundary": "FRAMEWORK",
+      "tags": [
+        "对象存储配置"
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "/resource/oss/config/changeStatus",
+      "operationId": "changeStatus_5",
+      "boundary": "FRAMEWORK",
+      "tags": [
+        "对象存储配置"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/resource/oss/config/list",
+      "operationId": "list_19",
+      "boundary": "FRAMEWORK",
+      "tags": [
+        "对象存储配置"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/resource/oss/config/{ossConfigIds}",
+      "operationId": "remove_14",
+      "boundary": "FRAMEWORK",
+      "tags": [
+        "对象存储配置"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/resource/oss/config/{ossConfigId}",
+      "operationId": "getInfo_14",
+      "boundary": "FRAMEWORK",
+      "tags": [
+        "对象存储配置"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/resource/oss/download/{ossId}",
+      "operationId": "download_1",
+      "boundary": "FRAMEWORK",
+      "tags": [
+        "文件上传 控制层"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/resource/oss/list",
+      "operationId": "list_18",
+      "boundary": "FRAMEWORK",
+      "tags": [
+        "文件上传 控制层"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/resource/oss/listByIds/{ossIds}",
+      "operationId": "listByIds",
+      "boundary": "FRAMEWORK",
+      "tags": [
+        "文件上传 控制层"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/resource/oss/upload",
+      "operationId": "upload",
+      "boundary": "FRAMEWORK",
+      "tags": [
+        "文件上传 控制层"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/resource/oss/{ossIds}",
+      "operationId": "remove_13",
+      "boundary": "FRAMEWORK",
+      "tags": [
+        "文件上传 控制层"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/resource/sms/code",
+      "operationId": "smsCode",
+      "boundary": "FRAMEWORK",
+      "tags": [
+        "验证码操作处理"
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "/system/client",
+      "operationId": "edit_11",
+      "boundary": "FRAMEWORK",
+      "tags": [
+        "客户端管理"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/system/client",
+      "operationId": "add_11",
+      "boundary": "FRAMEWORK",
+      "tags": [
+        "客户端管理"
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "/system/client/changeStatus",
+      "operationId": "changeStatus_4",
+      "boundary": "FRAMEWORK",
+      "tags": [
+        "客户端管理"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/system/client/export",
+      "operationId": "export_8",
+      "boundary": "FRAMEWORK",
+      "tags": [
+        "客户端管理"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/system/client/list",
+      "operationId": "list_17",
+      "boundary": "FRAMEWORK",
+      "tags": [
+        "客户端管理"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/system/client/{ids}",
+      "operationId": "remove_12",
+      "boundary": "FRAMEWORK",
+      "tags": [
+        "客户端管理"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/system/client/{id}",
+      "operationId": "getInfo_13",
+      "boundary": "FRAMEWORK",
+      "tags": [
+        "客户端管理"
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "/system/config",
+      "operationId": "edit_10",
+      "boundary": "FRAMEWORK",
+      "tags": [
+        "参数配置 信息操作处理"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/system/config",
+      "operationId": "add_10",
+      "boundary": "FRAMEWORK",
+      "tags": [
+        "参数配置 信息操作处理"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/system/config/configKey/{configKey}",
+      "operationId": "getConfigKey",
+      "boundary": "FRAMEWORK",
+      "tags": [
+        "参数配置 信息操作处理"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/system/config/export",
+      "operationId": "export_7",
+      "boundary": "FRAMEWORK",
+      "tags": [
+        "参数配置 信息操作处理"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/system/config/list",
+      "operationId": "list_16",
+      "boundary": "FRAMEWORK",
+      "tags": [
+        "参数配置 信息操作处理"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/system/config/refreshCache",
+      "operationId": "refreshCache_1",
+      "boundary": "FRAMEWORK",
+      "tags": [
+        "参数配置 信息操作处理"
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "/system/config/updateByKey",
+      "operationId": "updateByKey",
+      "boundary": "FRAMEWORK",
+      "tags": [
+        "参数配置 信息操作处理"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/system/config/{configIds}",
+      "operationId": "remove_11",
+      "boundary": "FRAMEWORK",
+      "tags": [
+        "参数配置 信息操作处理"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/system/config/{configId}",
+      "operationId": "getInfo_12",
+      "boundary": "FRAMEWORK",
+      "tags": [
+        "参数配置 信息操作处理"
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "/system/dept",
+      "operationId": "edit_9",
+      "boundary": "FRAMEWORK",
+      "tags": [
+        "部门信息"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/system/dept",
+      "operationId": "add_9",
+      "boundary": "FRAMEWORK",
+      "tags": [
+        "部门信息"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/system/dept/list",
+      "operationId": "list_15",
+      "boundary": "FRAMEWORK",
+      "tags": [
+        "部门信息"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/system/dept/list/exclude/{deptId}",
+      "operationId": "excludeChild",
+      "boundary": "FRAMEWORK",
+      "tags": [
+        "部门信息"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/system/dept/optionselect",
+      "operationId": "optionselect_4",
+      "boundary": "FRAMEWORK",
+      "tags": [
+        "部门信息"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/system/dept/{deptId}",
+      "operationId": "getInfo_11",
+      "boundary": "FRAMEWORK",
+      "tags": [
+        "部门信息"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/system/dept/{deptId}",
+      "operationId": "remove_2",
+      "boundary": "FRAMEWORK",
+      "tags": [
+        "部门信息"
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "/system/dict/data",
+      "operationId": "edit_8",
+      "boundary": "FRAMEWORK",
+      "tags": [
+        "数据字典信息"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/system/dict/data",
+      "operationId": "add_8",
+      "boundary": "FRAMEWORK",
+      "tags": [
+        "数据字典信息"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/system/dict/data/export",
+      "operationId": "export_6",
+      "boundary": "FRAMEWORK",
+      "tags": [
+        "数据字典信息"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/system/dict/data/list",
+      "operationId": "list_14",
+      "boundary": "FRAMEWORK",
+      "tags": [
+        "数据字典信息"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/system/dict/data/type/{dictType}",
+      "operationId": "dictType",
+      "boundary": "FRAMEWORK",
+      "tags": [
+        "数据字典信息"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/system/dict/data/{dictCodes}",
+      "operationId": "remove_10",
+      "boundary": "FRAMEWORK",
+      "tags": [
+        "数据字典信息"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/system/dict/data/{dictCode}",
+      "operationId": "getInfo_10",
+      "boundary": "FRAMEWORK",
+      "tags": [
+        "数据字典信息"
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "/system/dict/type",
+      "operationId": "edit_7",
+      "boundary": "FRAMEWORK",
+      "tags": [
+        "数据字典信息"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/system/dict/type",
+      "operationId": "add_7",
+      "boundary": "FRAMEWORK",
+      "tags": [
+        "数据字典信息"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/system/dict/type/export",
+      "operationId": "export_5",
+      "boundary": "FRAMEWORK",
+      "tags": [
+        "数据字典信息"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/system/dict/type/list",
+      "operationId": "list_13",
+      "boundary": "FRAMEWORK",
+      "tags": [
+        "数据字典信息"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/system/dict/type/optionselect",
+      "operationId": "optionselect_3",
+      "boundary": "FRAMEWORK",
+      "tags": [
+        "数据字典信息"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/system/dict/type/refreshCache",
+      "operationId": "refreshCache",
+      "boundary": "FRAMEWORK",
+      "tags": [
+        "数据字典信息"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/system/dict/type/{dictIds}",
+      "operationId": "remove_9",
+      "boundary": "FRAMEWORK",
+      "tags": [
+        "数据字典信息"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/system/dict/type/{dictId}",
+      "operationId": "getInfo_9",
+      "boundary": "FRAMEWORK",
+      "tags": [
+        "数据字典信息"
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "/system/menu",
+      "operationId": "edit_6",
+      "boundary": "FRAMEWORK",
+      "tags": [
+        "菜单信息"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/system/menu",
+      "operationId": "add_6",
+      "boundary": "FRAMEWORK",
+      "tags": [
+        "菜单信息"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/system/menu/getRouters",
+      "operationId": "getRouters",
+      "boundary": "FRAMEWORK",
+      "tags": [
+        "菜单信息"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/system/menu/list",
+      "operationId": "list_12",
+      "boundary": "FRAMEWORK",
+      "tags": [
+        "菜单信息"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/system/menu/roleMenuTreeselect/{roleId}",
+      "operationId": "roleMenuTreeselect",
+      "boundary": "FRAMEWORK",
+      "tags": [
+        "菜单信息"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/system/menu/tenantPackageMenuTreeselect/{packageId}",
+      "operationId": "tenantPackageMenuTreeselect",
+      "boundary": "FRAMEWORK",
+      "tags": [
+        "菜单信息"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/system/menu/treeselect",
+      "operationId": "treeselect",
+      "boundary": "FRAMEWORK",
+      "tags": [
+        "菜单信息"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/system/menu/{menuId}",
+      "operationId": "getInfo_8",
+      "boundary": "FRAMEWORK",
+      "tags": [
+        "菜单信息"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/system/menu/{menuId}",
+      "operationId": "remove_1",
+      "boundary": "FRAMEWORK",
+      "tags": [
+        "菜单信息"
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "/system/notice",
+      "operationId": "edit_5",
+      "boundary": "FRAMEWORK",
+      "tags": [
+        "公告 信息操作处理"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/system/notice",
+      "operationId": "add_5",
+      "boundary": "FRAMEWORK",
+      "tags": [
+        "公告 信息操作处理"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/system/notice/list",
+      "operationId": "list_11",
+      "boundary": "FRAMEWORK",
+      "tags": [
+        "公告 信息操作处理"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/system/notice/{noticeIds}",
+      "operationId": "remove_8",
+      "boundary": "FRAMEWORK",
+      "tags": [
+        "公告 信息操作处理"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/system/notice/{noticeId}",
+      "operationId": "getInfo_7",
+      "boundary": "FRAMEWORK",
+      "tags": [
+        "公告 信息操作处理"
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "/system/post",
+      "operationId": "edit_4",
+      "boundary": "FRAMEWORK",
+      "tags": [
+        "岗位信息操作处理"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/system/post",
+      "operationId": "add_4",
+      "boundary": "FRAMEWORK",
+      "tags": [
+        "岗位信息操作处理"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/system/post/export",
+      "operationId": "export_4",
+      "boundary": "FRAMEWORK",
+      "tags": [
+        "岗位信息操作处理"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/system/post/list",
+      "operationId": "list_10",
+      "boundary": "FRAMEWORK",
+      "tags": [
+        "岗位信息操作处理"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/system/post/optionselect",
+      "operationId": "optionselect_2",
+      "boundary": "FRAMEWORK",
+      "tags": [
+        "岗位信息操作处理"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/system/post/{postIds}",
+      "operationId": "remove_7",
+      "boundary": "FRAMEWORK",
+      "tags": [
+        "岗位信息操作处理"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/system/post/{postId}",
+      "operationId": "getInfo_6",
+      "boundary": "FRAMEWORK",
+      "tags": [
+        "岗位信息操作处理"
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "/system/role",
+      "operationId": "edit_3",
+      "boundary": "FRAMEWORK",
+      "tags": [
+        "角色信息"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/system/role",
+      "operationId": "add_3",
+      "boundary": "FRAMEWORK",
+      "tags": [
+        "角色信息"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/system/role/authUser/allocatedList",
+      "operationId": "allocatedList",
+      "boundary": "FRAMEWORK",
+      "tags": [
+        "角色信息"
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "/system/role/authUser/cancel",
+      "operationId": "cancelAuthUser",
+      "boundary": "FRAMEWORK",
+      "tags": [
+        "角色信息"
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "/system/role/authUser/cancelAll",
+      "operationId": "cancelAuthUserAll",
+      "boundary": "FRAMEWORK",
+      "tags": [
+        "角色信息"
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "/system/role/authUser/selectAll",
+      "operationId": "selectAuthUserAll",
+      "boundary": "FRAMEWORK",
+      "tags": [
+        "角色信息"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/system/role/authUser/unallocatedList",
+      "operationId": "unallocatedList",
+      "boundary": "FRAMEWORK",
+      "tags": [
+        "角色信息"
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "/system/role/changeStatus",
+      "operationId": "changeStatus_3",
+      "boundary": "FRAMEWORK",
+      "tags": [
+        "角色信息"
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "/system/role/dataScope",
+      "operationId": "dataScope",
+      "boundary": "FRAMEWORK",
+      "tags": [
+        "角色信息"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/system/role/deptTree/{roleId}",
+      "operationId": "roleDeptTreeselect",
+      "boundary": "FRAMEWORK",
+      "tags": [
+        "角色信息"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/system/role/export",
+      "operationId": "export_3",
+      "boundary": "FRAMEWORK",
+      "tags": [
+        "角色信息"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/system/role/list",
+      "operationId": "list_9",
+      "boundary": "FRAMEWORK",
+      "tags": [
+        "角色信息"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/system/role/optionselect",
+      "operationId": "optionselect_1",
+      "boundary": "FRAMEWORK",
+      "tags": [
+        "角色信息"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/system/role/{roleIds}",
+      "operationId": "remove_6",
+      "boundary": "FRAMEWORK",
+      "tags": [
+        "角色信息"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/system/role/{roleId}",
+      "operationId": "getInfo_5",
+      "boundary": "FRAMEWORK",
+      "tags": [
+        "角色信息"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/system/social/list",
+      "operationId": "list_8",
+      "boundary": "FRAMEWORK",
+      "tags": [
+        "社会化关系"
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "/system/tenant",
+      "operationId": "edit_1",
+      "boundary": "FRAMEWORK",
+      "tags": [
+        "租户管理"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/system/tenant",
+      "operationId": "add_1",
+      "boundary": "FRAMEWORK",
+      "tags": [
+        "租户管理"
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "/system/tenant/changeStatus",
+      "operationId": "changeStatus_2",
+      "boundary": "FRAMEWORK",
+      "tags": [
+        "租户管理"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/system/tenant/dynamic/clear",
+      "operationId": "dynamicClear",
+      "boundary": "FRAMEWORK",
+      "tags": [
+        "租户管理"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/system/tenant/dynamic/{tenantId}",
+      "operationId": "dynamicTenant",
+      "boundary": "FRAMEWORK",
+      "tags": [
+        "租户管理"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/system/tenant/export",
+      "operationId": "export_2",
+      "boundary": "FRAMEWORK",
+      "tags": [
+        "租户管理"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/system/tenant/list",
+      "operationId": "list_7",
+      "boundary": "FRAMEWORK",
+      "tags": [
+        "租户管理"
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "/system/tenant/package",
+      "operationId": "edit_2",
+      "boundary": "FRAMEWORK",
+      "tags": [
+        "租户套餐管理"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/system/tenant/package",
+      "operationId": "add_2",
+      "boundary": "FRAMEWORK",
+      "tags": [
+        "租户套餐管理"
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "/system/tenant/package/changeStatus",
+      "operationId": "changeStatus_1",
+      "boundary": "FRAMEWORK",
+      "tags": [
+        "租户套餐管理"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/system/tenant/package/export",
+      "operationId": "export_1",
+      "boundary": "FRAMEWORK",
+      "tags": [
+        "租户套餐管理"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/system/tenant/package/list",
+      "operationId": "list_6",
+      "boundary": "FRAMEWORK",
+      "tags": [
+        "租户套餐管理"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/system/tenant/package/selectList",
+      "operationId": "selectList",
+      "boundary": "FRAMEWORK",
+      "tags": [
+        "租户套餐管理"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/system/tenant/package/{packageIds}",
+      "operationId": "remove_5",
+      "boundary": "FRAMEWORK",
+      "tags": [
+        "租户套餐管理"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/system/tenant/package/{packageId}",
+      "operationId": "getInfo_4",
+      "boundary": "FRAMEWORK",
+      "tags": [
+        "租户套餐管理"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/system/tenant/syncTenantDict",
+      "operationId": "syncTenantDict",
+      "boundary": "FRAMEWORK",
+      "tags": [
+        "租户管理"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/system/tenant/syncTenantPackage",
+      "operationId": "syncTenantPackage",
+      "boundary": "FRAMEWORK",
+      "tags": [
+        "租户管理"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/system/tenant/{ids}",
+      "operationId": "remove_4",
+      "boundary": "FRAMEWORK",
+      "tags": [
+        "租户管理"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/system/tenant/{id}",
+      "operationId": "getInfo_3",
+      "boundary": "FRAMEWORK",
+      "tags": [
+        "租户管理"
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "/system/user",
+      "operationId": "edit",
+      "boundary": "FRAMEWORK",
+      "tags": [
+        "用户信息"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/system/user",
+      "operationId": "add",
+      "boundary": "FRAMEWORK",
+      "tags": [
+        "用户信息"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/system/user/",
+      "operationId": "getInfo_2",
+      "boundary": "FRAMEWORK",
+      "tags": [
+        "用户信息"
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "/system/user/authRole",
+      "operationId": "insertAuthRole",
+      "boundary": "FRAMEWORK",
+      "tags": [
+        "用户信息"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/system/user/authRole/{userId}",
+      "operationId": "authRole",
+      "boundary": "FRAMEWORK",
+      "tags": [
+        "用户信息"
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "/system/user/changeStatus",
+      "operationId": "changeStatus",
+      "boundary": "FRAMEWORK",
+      "tags": [
+        "用户信息"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/system/user/deptTree",
+      "operationId": "deptTree",
+      "boundary": "FRAMEWORK",
+      "tags": [
+        "用户信息"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/system/user/export",
+      "operationId": "export",
+      "boundary": "FRAMEWORK",
+      "tags": [
+        "用户信息"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/system/user/getInfo",
+      "operationId": "getInfo",
+      "boundary": "FRAMEWORK",
+      "tags": [
+        "用户信息"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/system/user/importData",
+      "operationId": "importData",
+      "boundary": "FRAMEWORK",
+      "tags": [
+        "用户信息"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/system/user/importTemplate",
+      "operationId": "importTemplate",
+      "boundary": "FRAMEWORK",
+      "tags": [
+        "用户信息"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/system/user/list",
+      "operationId": "list_5",
+      "boundary": "FRAMEWORK",
+      "tags": [
+        "用户信息"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/system/user/list/dept/{deptId}",
+      "operationId": "listByDept",
+      "boundary": "FRAMEWORK",
+      "tags": [
+        "用户信息"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/system/user/optionselect",
+      "operationId": "optionselect",
+      "boundary": "FRAMEWORK",
+      "tags": [
+        "用户信息"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/system/user/profile",
+      "operationId": "profile",
+      "boundary": "FRAMEWORK",
+      "tags": [
+        "个人信息 业务处理"
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "/system/user/profile",
+      "operationId": "updateProfile",
+      "boundary": "FRAMEWORK",
+      "tags": [
+        "个人信息 业务处理"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/system/user/profile/avatar",
+      "operationId": "avatar",
+      "boundary": "FRAMEWORK",
+      "tags": [
+        "个人信息 业务处理"
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "/system/user/profile/updatePwd",
+      "operationId": "updatePwd",
+      "boundary": "FRAMEWORK",
+      "tags": [
+        "个人信息 业务处理"
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "/system/user/resetPwd",
+      "operationId": "resetPwd",
+      "boundary": "FRAMEWORK",
+      "tags": [
+        "用户信息"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/system/user/{userIds}",
+      "operationId": "remove_3",
+      "boundary": "FRAMEWORK",
+      "tags": [
+        "用户信息"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/system/user/{userId}",
+      "operationId": "getInfo_1",
+      "boundary": "FRAMEWORK",
+      "tags": [
+        "用户信息"
+      ]
+    }
+  ],
+  "servicePermissionCandidates": {
+    "ActivityService": [
+      "yunji:activity:manage"
+    ],
+    "AnalyticsService": [
+      "yunji:analytics:read"
+    ],
+    "LabelService": [
+      "yunji:catalog:manage"
+    ],
+    "EngagementService": [
+      "yunji:engagement:manage"
+    ],
+    "NotificationService": [
+      "yunji:notification:manage"
+    ],
+    "ReminderBatchService": [
+      "yunji:notification:manage"
+    ],
+    "ReminderTrackingService": [
+      "yunji:notification:manage"
+    ],
+    "ExportService": [
+      "yunji:activity:manage",
+      "yunji:analytics:read",
+      "yunji:audit:read",
+      "yunji:export"
+    ],
+    "OperationService": [
+      "yunji:audit:read",
+      "yunji:operation:manage"
+    ],
+    "TopicService": [
+      "yunji:operation:manage"
+    ],
+    "FileService": [
+      "yunji:file:manage",
+      "yunji:review:decide"
+    ],
+    "ResourceService": [
+      "yunji:resource:manage"
+    ],
+    "ReviewService": [
+      "yunji:review:decide",
+      "yunji:review:manage"
+    ]
+  },
+  "permissionNote": "Realm classifications from route contract; exact permissions must be checked in Actors/service methods and negative API tests. Service candidates are not route-level certified grants."
+}

@@ -1,0 +1,114 @@
+{
+  "scope": "CLIENT_PROTOTYPE_REAL_UI_LOCAL",
+  "startedAt": "2026-10-22T14:14:37.460Z",
+  "cases": [
+    {
+      "id": "prototype-login-sheet-cancel-preserves-page",
+      "status": "PASS"
+    },
+    {
+      "id": "prototype-login-consent-and-intent-replay",
+      "status": "PASS"
+    },
+    {
+      "id": "prototype-home-two-columns-and-filter-cancel",
+      "status": "PASS"
+    },
+    {
+      "id": "prototype-home-type-filter-sends-real-or-query",
+      "status": "PASS"
+    },
+    {
+      "id": "prototype-operator-recommendation-deduplicated",
+      "status": "PASS"
+    },
+    {
+      "id": "prototype-operator-activity-column-reachable",
+      "status": "PASS"
+    },
+    {
+      "id": "prototype-search-filter-cancel-does-not-apply",
+      "status": "PASS"
+    },
+    {
+      "id": "prototype-catalog-root-lifecycle-and-keyword-filter",
+      "status": "PASS"
+    },
+    {
+      "id": "prototype-follows-collapsed-four-and-full-search",
+      "status": "PASS"
+    },
+    {
+      "id": "prototype-box-summary-failure-retry-and-no-read-write",
+      "status": "PASS"
+    },
+    {
+      "id": "prototype-swipe-only-reveals-explicit-read",
+      "status": "PASS"
+    },
+    {
+      "id": "prototype-article-source-not-body-and-rail-cancel",
+      "status": "PASS"
+    },
+    {
+      "id": "prototype-article-real-favorite-confirm",
+      "status": "PASS"
+    },
+    {
+      "id": "prototype-article-share-link-contains-route",
+      "status": "PASS"
+    },
+    {
+      "id": "prototype-article-keywords-from-real-relations",
+      "status": "PASS"
+    },
+    {
+      "id": "prototype-reminder-add-keyword-real-rule",
+      "status": "PASS"
+    },
+    {
+      "id": "prototype-reminder-three-views-have-real-counts",
+      "status": "PASS"
+    },
+    {
+      "id": "prototype-my-menu-and-service-reachability",
+      "status": "PASS"
+    },
+    {
+      "id": "feedback-ui-admin-guide-structured-editor",
+      "status": "PASS"
+    },
+    {
+      "id": "feedback-ui-three-detail-templates",
+      "status": "PASS"
+    },
+    {
+      "id": "feedback-ui-follow-toggle-and-quick-reminder-atomic",
+      "status": "PASS"
+    },
+    {
+      "id": "feedback-ui-search-multiboard-linked-labels",
+      "status": "PASS"
+    },
+    {
+      "id": "feedback-ui-admin-topic-order-banner-client-loop",
+      "status": "PASS"
+    },
+    {
+      "id": "feedback-ui-profile-and-follows-clean-entries",
+      "status": "PASS"
+    },
+    {
+      "id": "prototype-responsive-all-new-pages",
+      "status": "PASS"
+    },
+    {
+      "id": "prototype-screenshots-and-no-runtime-errors",
+      "status": "PASS"
+    }
+  ],
+  "errors": [],
+  "passed": 26,
+  "failed": 0,
+  "completedAt": "2026-10-22T14:15:43.596Z"
+}
