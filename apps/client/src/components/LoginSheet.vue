@@ -33,6 +33,11 @@ function toggleAgree(){agreed.value=!agreed.value}
 function legal(key:string){cancelLogin();navigate('page','?key='+key)}
 // A route change must never leave a detached mask intercepting the next page.
 onUnmounted(dismissOwned)
+// #ifndef MP-WEIXIN
+function syncSheetFlag(open:boolean){if(typeof document!=='undefined')document.body.classList[open?'add':'remove']('yj-sheet-open')}
+watch(()=>loginState.visible,visible=>syncSheetFlag(!!visible),{immediate:true})
+onUnmounted(()=>syncSheetFlag(false))
+// #endif
 </script>
 <template>
 <view v-if="loginState.visible && owner===loginState.owner" class="sheet-mask login-mask" @click="cancelLogin">
@@ -64,7 +69,7 @@ onUnmounted(dismissOwned)
 </template>
 <style lang="scss" scoped>
 .sheet-mask {
-  position: fixed; inset: 0; z-index: 999;
+  position: fixed; inset: 0; z-index: 1200;
   background: rgba(0,0,0,.45);
   display: flex; align-items: flex-end;
 }

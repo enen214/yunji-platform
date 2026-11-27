@@ -63,9 +63,13 @@ public class ReminderTrackingService {
         // One-time subscription consent is a yes/no fact, never a quota balance.
         var permissions=new ArrayList<Map<String,Object>>();
         var perms=db.rows("SELECT wecom_bound,available FROM reminder_permission WHERE user_id=?",user);
-        if(!perms.isEmpty()){var row=perms.get(0);
-            permissions.add(Map.of("wecomBound",Db.number(row.get("wecomBound"))==1,"instantAuthorized",Db.number(row.get("available"))==1,"available",Db.number(row.get("available")),"reserved",0,"consumed",0));}
-        result.put("wecomState",perms.isEmpty()?"NONE":(Db.number(perms.get(0).get("wecomBound"))==1?"BOUND":"NONE"));
+        // 无授权记录的新用户也要给出确定的布尔值，前端据此弹「先绑定企微」，而不是停留在 UNKNOWN。
+        // wecomState 与 permissions[0].wecomBound 必须同源推导，否则新用户会同时拿到「permissions 非空」和「wecomState=NONE」。
+        boolean wecomBound=!perms.isEmpty()&&Db.number(perms.get(0).get("wecomBound"))==1;
+        if(perms.isEmpty())permissions.add(Map.of("wecomBound",wecomBound,"instantAuthorized",false,"available",0,"reserved",0,"consumed",0));
+        else {var row=perms.get(0);
+            permissions.add(Map.of("wecomBound",wecomBound,"instantAuthorized",Db.number(row.get("available"))==1,"available",Db.number(row.get("available")),"reserved",0,"consumed",0));}
+        result.put("wecomState",wecomBound?"BOUND":"NONE");
         result.put("permissions",permissions);return result;
     }
     @Transactional public Map<String,Object> preference(long user,Preference b) {
@@ -232,7 +236,8 @@ public class ReminderTrackingService {
     @Transactional public Map<String,Object> instantConsent(long user,String templateId,String result) {
         lock();active(user);
         String template=Objects.toString(db.one("SELECT instant_template FROM reminder_control WHERE id=1").get("instantTemplate"),"");
-        BusinessException.require(!template.isBlank()&&template.equals(templateId),422,"订阅消息模板与当前配置不一致");
+        BusinessException.require(!template.isBlank(),422,"订阅消息模板尚未配置，暂不能授权及时提醒");
+        BusinessException.require(template.equals(templateId),422,"订阅消息模板与当前配置不一致");
         boolean accepted="accept".equals(result);
         db.update("INSERT INTO reminder_permission(user_id,available) VALUES(?,?) ON DUPLICATE KEY UPDATE available=VALUES(available)",user,accepted?1:0);
         db.audit(user,"CUSTOMER","REMINDER_INSTANT_CONSENT","USER",user,Map.of("templateId",templateId,"accepted",accepted));

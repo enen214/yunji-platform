@@ -60,7 +60,7 @@ function legal(key:string){navigate('page','?key='+key)}
       </button>
     </template>
     <text v-else class="muted">请使用微信小程序登录。</text>
-    <view class="ls-agree" @click="toggleAgree">
+    <view class="ls-agree" hover-class="yj-hover" @click="toggleAgree">
       <view class="ls-check" :class="{checked: agreed}">
         <view v-if="agreed" class="ls-check-dot"></view>
       </view>

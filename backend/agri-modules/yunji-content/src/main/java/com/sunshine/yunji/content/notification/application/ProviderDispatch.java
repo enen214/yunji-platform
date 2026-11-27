@@ -172,15 +172,18 @@ public class ProviderDispatch {
         values.put("summary", clip(Objects.toString(first.get("summary"), ""), 20));
         values.put("count", Integer.toString(items.size()));
         values.put("now", MINUTE.format(Instant.now()));
+        // thing 类字段微信不接受空值（会返回 47003），给一句恒定文案兜底
+        values.put("tip", "点击查看详情");
         String mapping = fieldMap.isBlank()
-            ? "{\"thing1\":\"title\",\"thing2\":\"summary\",\"time3\":\"now\",\"thing4\":\"count\"}"
+            // 与小程序「教育资讯更新提醒」模板对齐：thing1 资讯名称 / time2 更新时间 / thing3 温馨提示
+            ? "{\"thing1\":\"title\",\"time2\":\"now\",\"thing3\":\"tip\"}"
             : fieldMap;
         Map<String, String> pairs;
         try {
             @SuppressWarnings("unchecked") Map<String, String> parsed = mapper.readValue(mapping, Map.class);
             pairs = parsed;
         } catch (Exception e) {
-            pairs = Map.of("thing1", "title", "time3", "now");
+            pairs = Map.of("thing1", "title", "time2", "now", "thing3", "tip");
         }
         var data = new LinkedHashMap<String, Object>();
         for (var entry : pairs.entrySet())

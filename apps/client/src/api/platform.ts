@@ -90,8 +90,13 @@ const privatePages=new Set(['profile','favorites','history','registrations','app
 export function navigate(page: string,query='') {
  if(page==='login'){requestLogin();return}
  if(privatePages.has(page)&&!token()){requestLogin(()=>navigate(page,query));return}
- const url='/pages/'+page+'/index'+query
- if(!query&&['index','subscriptions','boards','me'].includes(page))uni.switchTab({url});else uni.navigateTo({url})
+ // tabBar 页面：switchTab 不接受 query，带条件时先暂存，由落地页自己取
+ // 注意：search 不是 tabBar 页（见 pages.json），必须走 navigateTo，否则 switchTab 会报「can not switch to no-tabBar page」
+ const tabPages=['index','subscriptions','boards','me']
+ if(tabPages.includes(page)){
+  if(query)uni.setStorageSync('yj:tab-query:'+page,query)
+  uni.switchTab({url:'/pages/'+page+'/index'})
+ } else uni.navigateTo({url:'/pages/'+page+'/index'+query})
 }
 export async function authenticated(action:()=>void|Promise<void>){if(token())await action();else requestLogin(action)}
 export async function event(type: string,objectId?: string,payload: Row={}) {if(!token())return;try{await request('POST','/api/v1/me/events',{eventId:Date.now().toString(36)+Math.random().toString(36).slice(2),type,objectId,occurredAt:new Date().toISOString(),payload})}catch{}}

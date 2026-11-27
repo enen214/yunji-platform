@@ -1,0 +1,18 @@
+<view class="tb-wrap">
+  <view class="tb">
+    <!-- 选中高亮药丸：自己滑到选中的那一格（Apple Music 的选中项是"底块"不是"变色"） -->
+    <view class="tb-pill" style="width:{{pillW}}px;transform:translateX({{selected * step}}px)"></view>
+    <view
+      wx:for="{{list}}"
+      wx:key="pagePath"
+      class="tb-item"
+      data-index="{{index}}"
+      bindtap="onTap"
+      hover-class="tb-item-hover"
+      hover-stay-time="60"
+    >
+      <image class="tb-icon" src="{{selected === index ? item.active : item.icon}}" mode="aspectFit" />
+      <text class="tb-label {{selected === index ? 'on' : ''}}">{{item.text}}</text>
+    </view>
+  </view>
+</view>

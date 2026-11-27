@@ -4,19 +4,28 @@
       "path": "pages/index/index",
       "style": {
         "navigationBarTitleText": "主页",
-        "navigationStyle": "custom"
+        "navigationStyle": "custom",
+        "backgroundColor": "#F7FBF8"
       }
     },
     {
       "path": "pages/article/index",
       "style": {
-        "navigationBarTitleText": "资讯详情"
+        "navigationBarTitleText": "资讯详情",
+        "navigationBarBackgroundColor": "#F7FBF8",
+        "navigationStyle": "custom",
+        "navigationBarTextStyle": "black",
+        "backgroundColor": "#F7FBF8"
       }
     },
     {
       "path": "pages/subscriptions/index",
       "style": {
-        "navigationBarTitleText": "信息盒子"
+        "navigationBarTitleText": "信息盒子",
+        "navigationBarBackgroundColor": "#F7FBF8",
+        "navigationStyle": "custom",
+        "navigationBarTextStyle": "black",
+        "backgroundColor": "#F7FBF8"
       }
     },
     {
@@ -28,7 +37,11 @@
     {
       "path": "pages/me/index",
       "style": {
-        "navigationBarTitleText": "我的"
+        "navigationBarTitleText": "我的",
+        "navigationBarBackgroundColor": "#F7FBF8",
+        "navigationStyle": "custom",
+        "navigationBarTextStyle": "black",
+        "backgroundColor": "#F7FBF8"
       }
     },
     {
@@ -47,7 +60,8 @@
       "path": "pages/login/index",
       "style": {
         "navigationBarTitleText": "登录",
-        "navigationStyle": "custom"
+        "navigationStyle": "custom",
+        "backgroundColor": "#F7FBF8"
       }
     },
     {
@@ -59,7 +73,11 @@
     {
       "path": "pages/boards/index",
       "style": {
-        "navigationBarTitleText": "板块"
+        "navigationBarTitleText": "板块",
+        "navigationBarBackgroundColor": "#F7FBF8",
+        "navigationStyle": "custom",
+        "navigationBarTextStyle": "black",
+        "backgroundColor": "#F7FBF8"
       }
     },
     {
@@ -83,7 +101,11 @@
     {
       "path": "pages/search/index",
       "style": {
-        "navigationBarTitleText": "搜索资讯"
+        "navigationBarTitleText": "搜索资讯",
+        "navigationBarBackgroundColor": "#F7FBF8",
+        "navigationStyle": "custom",
+        "navigationBarTextStyle": "black",
+        "backgroundColor": "#F7FBF8"
       }
     },
     {
@@ -209,13 +231,14 @@
   ],
   "globalStyle": {
     "navigationBarTextStyle": "black",
-    "navigationBarBackgroundColor": "#f5f7f6",
-    "backgroundColor": "#f5f7f6"
+    "navigationBarBackgroundColor": "#F7FBF8",
+    "backgroundColor": "#F7FBF8"
   },
   "tabBar": {
-    "color": "#71847d",
-    "selectedColor": "#50a770",
-    "backgroundColor": "#ffffff",
+    "custom": true,
+    "color": "#5F7167",
+    "selectedColor": "#2E6B4F",
+    "backgroundColor": "#F7FBF8",
     "borderStyle": "white",
     "list": [
       {

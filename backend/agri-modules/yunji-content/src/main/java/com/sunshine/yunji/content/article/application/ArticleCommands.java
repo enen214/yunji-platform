@@ -115,6 +115,18 @@ public class ArticleCommands {
         var olds=db.rows("SELECT old.id FROM article old JOIN article newer ON newer.id=? AND newer.taxonomy_hash=old.taxonomy_hash WHERE old.id<>newer.id AND old.status='PUBLISHED' AND old.deleted_at IS NULL AND (old.effective_to IS NULL OR old.effective_to>UTC_TIMESTAMP()) "+extra,args.toArray());
         for(var old:olds)db.update("INSERT IGNORE INTO article_replacement_candidate(id,old_article_id,new_article_id) VALUES(?,?,?)",db.id(),old.get("id"),id);
     }
+    /**
+     * 每条信息当前有效的强提醒人数（target_type='ARTICLE' 且 enabled=1）。
+     * 返回 Map<文章ID, 人数>，只用于管理端展示。
+     */
+    public java.util.Map<Long,Long> reminderCounts() {
+        actors.staff();
+        var out = new java.util.LinkedHashMap<Long,Long>();
+        for (var row : db.rows("SELECT rt.target_id,COUNT(*) AS c FROM reminder_tracking rt JOIN app_user u ON u.id=rt.user_id AND u.status='ACTIVE' WHERE rt.target_type='ARTICLE' AND rt.enabled=1 GROUP BY rt.target_id")) {
+            out.put(Long.parseLong(String.valueOf(row.get("targetId"))), ((Number)row.get("c")).longValue());
+        }
+        return out;
+    }
     public List<Map<String,Object>> list(){actors.staff();return db.rows("SELECT * FROM article WHERE tenant_id='000000' AND deleted_at IS NULL ORDER BY updated_at DESC,id DESC LIMIT 200");}
     public Map<String,Object> page(int page,int size,String query){
         actors.staff();String term="%"+query.replace("!","!!").replace("%","!%").replace("_","!_")+"%";

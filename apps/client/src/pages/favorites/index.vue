@@ -31,10 +31,10 @@ onUnload(()=>{localCancelled.value=new Set();localCancelledActivities.value=new 
 </script>
 <template><view class="page"><view class="hero"><text class="title">管理收藏</text><text v-if="signedIn" class="subtitle">信息 {{ visibleItems().length }} 条 · 活动 {{ visibleActivities().length }} 个</text></view><button role="button" v-if="!signedIn" @click="navigate('login')">登录后查看</button><template v-else><PageState :busy="busy" :error="error" @retry="load"/>
 <view class="section-head"><text class="section-title">信息收藏</text><text class="muted">{{ visibleItems().length }} 条</text></view>
-<view v-for="r in visibleItems()" :key="'article-'+r.id" class="card"><view @click="openArticle(r)"><text class="card-title">{{ r.title }}</text><text class="muted">{{ r.summary||r.createdAt }}</text></view><button role="button" class="quiet" :disabled="busy" @click="dropArticle(r)">{{ localCancelled.has(String(r.id))?'收藏':'取消收藏' }}</button></view>
+<view v-for="r in visibleItems()" :key="'article-'+r.id" class="card"><view hover-class="yj-hover" @click="openArticle(r)"><text class="card-title">{{ r.title }}</text><text class="muted">{{ r.summary||r.createdAt }}</text></view><button role="button" class="quiet" :disabled="busy" @click="dropArticle(r)">{{ localCancelled.has(String(r.id))?'收藏':'取消收藏' }}</button></view>
 <text v-if="!visibleItems().length" class="muted">还没有收藏的资讯</text>
 <button role="button" v-if="visibleItems().length" class="danger" :disabled="busy" @click="clearArticles">清空信息收藏</button>
 <view class="section-head"><text class="section-title">活动收藏</text><text class="muted">{{ visibleActivities().length }} 个</text></view>
-<view v-for="r in visibleActivities()" :key="'activity-'+r.id" class="card"><view @click="openActivity(r)"><text class="card-title">{{ r.title }}</text><text class="muted">{{ dateText(r.eventStart) }} — {{ dateText(r.eventEnd) }}</text></view><button role="button" class="quiet" :disabled="busy" @click="dropActivity(r)">{{ localCancelledActivities.has(String(r.id))?'收藏':'取消收藏' }}</button></view>
+<view v-for="r in visibleActivities()" :key="'activity-'+r.id" class="card"><view hover-class="yj-hover" @click="openActivity(r)"><text class="card-title">{{ r.title }}</text><text class="muted">{{ dateText(r.eventStart) }} — {{ dateText(r.eventEnd) }}</text></view><button role="button" class="quiet" :disabled="busy" @click="dropActivity(r)">{{ localCancelledActivities.has(String(r.id))?'收藏':'取消收藏' }}</button></view>
 <text v-if="!visibleActivities().length" class="muted">还没有收藏的活动</text>
 </template><LoginSheet/></view></template>

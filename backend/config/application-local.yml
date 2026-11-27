@@ -32,6 +32,6 @@ warm-flow:
   enabled: false
 yunji:
   wechat:
-    local-simulate: false
+    local-simulate: true
   public-tenant-id: ${YUNJI_PUBLIC_TENANT:000000}
 # 该文件只覆盖环境连接与开关。框架 application.yml 的必需基础属性见配置集成说明。

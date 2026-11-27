@@ -25,5 +25,8 @@ yunji:
     app-id: wxa0842a9b01c0464b
     # secret 走环境变量 YUNJI_WECHAT_SECRET 注入，本仓库中不保存明文。
     # 本地运行时由 IDEA 运行配置（.run/*.run.xml）或 config 目录下的本地覆盖文件注入真实 secret。
-    secret: ${YUNJI_WECHAT_SECRET:7ebc42d369b7c709297eec2f94b347f7}
+    secret: ${YUNJI_WECHAT_SECRET:}
     local-simulate: false
+  reminder:
+    # 教育资讯更新提醒（一次性订阅）：资讯名称/更新时间/温馨提示
+    subscribe-fields: '{"thing1":"title","time2":"now","thing3":"summary"}'
